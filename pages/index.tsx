@@ -1,7 +1,12 @@
+import { Text } from "@chakra-ui/layout";
+import { Box, Flex } from "@chakra-ui/layout";
+
 const IndexPage = () => (
-  <>
-    <h1>Hello Next.js 👋</h1>
-  </>
+  <Box direction="column">
+    <Flex alignItems="center" justifyContent="center" height="100vh">
+      <Text>Hello</Text>
+    </Flex>
+  </Box>
 )
 
 export default IndexPage
