@@ -1,12 +1,15 @@
-import { Text } from "@chakra-ui/layout";
-import { Box, Flex } from "@chakra-ui/layout";
+import { Flex  } from "@chakra-ui/layout";
+import Header from "../components/Header";
 
-const IndexPage = () => (
-  <Box direction="column">
-    <Flex alignItems="center" justifyContent="center" height="100vh">
-      <Text>Hello</Text>
+const IndexPage = () => {
+
+  return (
+    <Flex direction="column" spacing="15" justifyContent={["flex-start", "center"]} alignItems={["flex-start", "center"]} h="100vh" py={6} px={4}>
+      
+      <Header />
+
     </Flex>
-  </Box>
-)
+  )
+}
 
-export default IndexPage
+export default IndexPage;
