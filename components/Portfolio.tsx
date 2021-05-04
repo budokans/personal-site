@@ -1,14 +1,17 @@
 import { SimpleGrid } from "@chakra-ui/layout"
-import { ProjectInterface } from "../interfaces"
-import projectsData from "../projectsData.json"
-import PortfolioItem from "./PortfolioItem"
+// import { ProjectInterface } from "../interfaces"
+// import PortfolioItem from "./PortfolioItem"
 
-const Portfolio = () => {
+const Portfolio = ({data}) => {
+  console.log(data)
+  
   return (
     <SimpleGrid columns={[1, 1, 2]} spacing="40px">
-      {projectsData.map((project: ProjectInterface, idx: number) => {
+      {/* {projectsData.map((project: ProjectInterface, idx: number) => {
         <PortfolioItem project={project} key={idx} />
-      })}
+      })} */}
+      something
+
     </SimpleGrid>
   )
 }
