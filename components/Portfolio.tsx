@@ -1,8 +1,8 @@
 import { SimpleGrid } from "@chakra-ui/layout"
-// import { ProjectInterface } from "../interfaces"
+import { ProjectDataProps } from "../interfaces"
 // import PortfolioItem from "./PortfolioItem"
 
-const Portfolio = ({data}) => {
+const Portfolio = ({data}: ProjectDataProps) => {
   console.log(data)
   
   return (
