@@ -12,13 +12,13 @@ type PortFolioItemProps = {
 const PortfolioItem = ({project, idx}: PortFolioItemProps) => {
   const [isLargerThan768] = useMediaQuery("(min-width: 768px)")
 
-  const afterStyle = isLargerThan768 && idx > 1 ? undefined : { background: "gray.300", position: "absolute", content: `""`, bottom: "-17px", width: "100%", height: "1px", display: "block"};
+  const afterStyle = isLargerThan768 && idx > 1 ? undefined : idx > 2 ? undefined : { background: "gray.300", position: "absolute", content: `""`, bottom: "-17px", width: "100%", height: "1px", display: "block"};
 
   return (
     <Box role="button" position="relative">
       <Flex role="group" direction="row">
 
-        <Image src={project.icon} boxSize={16} objectFit="cover" rounded="xl" alt={`${project.title} icon`} mr={4} />
+        <Image src={project.icon} boxSize={16} objectFit="cover" rounded="xl" alt={`${project.title} icon`} mr={[3, 4]} />
 
         <Flex position="relative" alignItems="center" _after={afterStyle}>
 
