@@ -1,0 +1,43 @@
+[
+  {
+    "title": "Story Typer",
+    "shortBlurb": "Some short description of the project",
+    "icon": "./public/images/story-typer-screenshot.png",
+    "iconFallback": "",
+    "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
+    "featureMedia": ["url", "url2", "url3"],
+    "description": [
+      "<p>First paragraph about the project</p><p>Second paragraph about the project</p>"
+    ]
+  },
+  {
+    "title": "Gretsch Geeks",
+    "shortBlurb": "Some short description of the project",
+    "icon": "./public/images/gretsch-geeks-screenshot-desktop.png",
+    "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
+    "featureMedia": ["url", "url2", "url3"],
+    "description": [
+      "<p>First paragraph about the project</p><p>Second paragraph about the project</p>"
+    ]
+  },
+  {
+    "title": "Netflix Clone",
+    "shortBlurb": "Some short description of the project",
+    "icon": "./public/images/neflix-logo.jfif",
+    "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
+    "featureMedia": ["url", "url2", "url3"],
+    "description": [
+      "<p>First paragraph about the project</p><p>Second paragraph about the project</p>"
+    ]
+  },
+  {
+    "title": "This site",
+    "shortBlurb": "Some short description of the project",
+    "icon": "./public/images/neflix-logo.jfif",
+    "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
+    "featureMedia": ["url", "url2", "url3"],
+    "description": [
+      "<p>First paragraph about the project</p><p>Second paragraph about the project</p>"
+    ]
+  }
+]
