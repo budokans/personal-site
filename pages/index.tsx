@@ -1,31 +1,21 @@
-import {promises as fs } from "fs";
-import path from 'path';
 import { GetStaticProps } from "next";
 import { Flex  } from "@chakra-ui/layout";
 import Header from "../components/Header";
 import Portfolio from "../components/Portfolio";
 import { ProjectDataProps } from "../interfaces";
+import { getData } from "../lib/getData";
 
 export const getStaticProps: GetStaticProps = async () => {
-  const dataDirectory = path.join(process.cwd(), 'data');
-  const filenames = await fs.readdir(dataDirectory);
-
-  const data = filenames.map(async (filename) => {
-    const filePath = path.join(dataDirectory, filename);
-    const fileContents = await fs.readFile(filePath, 'utf8');
-  
-    return JSON.parse(fileContents);
-  })
-
+  const data = await getData();
   return {
     props: {
-      data: await Promise.all(data)
+      data
     }
   }
 }
 
 const IndexPage = ({ data }: ProjectDataProps ) => {
-
+  
   return (
     <Flex direction="column" spacing="15" justifyContent={["flex-start", "center"]} alignItems={["flex-start", "center"]} h="100vh" py={6} px={4}>
 
