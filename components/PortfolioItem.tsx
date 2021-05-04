@@ -24,7 +24,7 @@ const PortfolioItem = ({project, idx}: PortFolioItemProps) => {
 
           <Box mr={4}>
             <Heading as="h3" fontSize="md" fontWeight="normal" lineHeight="tall">{project.title}</Heading>
-            <Text fontSize={["xs", "sm"]} color="#595959">{project.shortBlurb}</Text>
+            <Text fontSize={["xs", "sm"]} color="#595959" noOfLines={2}>{project.shortBlurb}</Text>
           </Box>
 
           <Button rounded="xl" fontSize="sm" w={8} px={3} h={7} minW={16}>View</Button>
