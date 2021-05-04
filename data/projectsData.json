@@ -1,7 +1,7 @@
 [
   {
     "title": "Story Typer",
-    "shortBlurb": "Some short description of the project",
+    "shortBlurb": "Some short description of the project. Some short description of the project",
     "icon": "./images/story-typer-screenshot.png",
     "iconFallback": "",
     "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
@@ -12,7 +12,7 @@
   },
   {
     "title": "Gretsch Geeks",
-    "shortBlurb": "Some short description of the project",
+    "shortBlurb": "Some short description of the project. Some short description of the project",
     "icon": "./images/gretsch-geeks-screenshot-desktop.png",
     "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
     "featureMedia": ["url", "url2", "url3"],
@@ -22,8 +22,8 @@
   },
   {
     "title": "Netflix Clone",
-    "shortBlurb": "Some short description of the project",
-    "icon": "./images/neflix-logo.jfif",
+    "shortBlurb": "Some short description of the project. Some short description of the project",
+    "icon": "./images/netflix-logo.jfif",
     "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
     "featureMedia": ["url", "url2", "url3"],
     "description": [
@@ -32,8 +32,8 @@
   },
   {
     "title": "stevenwebster.co",
-    "shortBlurb": "Some short description of the project",
-    "icon": "./images/neflix-logo.jfif",
+    "shortBlurb": "Some short description of the project. Some short description of the project",
+    "icon": "./images/netflix-logo.jfif",
     "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
     "featureMedia": ["url", "url2", "url3"],
     "description": [
