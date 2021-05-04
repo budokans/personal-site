@@ -31,7 +31,7 @@
     ]
   },
   {
-    "title": "This site",
+    "title": "stevenwebster.co",
     "shortBlurb": "Some short description of the project",
     "icon": "./public/images/neflix-logo.jfif",
     "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
