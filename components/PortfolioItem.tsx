@@ -1,20 +1,26 @@
 import { Button } from "@chakra-ui/button";
 import { Image } from "@chakra-ui/image";
 import { Box, Flex, Heading, Text } from "@chakra-ui/layout";
+import { useMediaQuery } from "@chakra-ui/media-query";
 import { ProjectInterface } from "../interfaces";
 
 type PortFolioItemProps = {
   project: ProjectInterface;
+  idx: number;
 }
 
-const PortfolioItem = ({project}: PortFolioItemProps) => {
+const PortfolioItem = ({project, idx}: PortFolioItemProps) => {
+  const [isLargerThan768] = useMediaQuery("(min-width: 768px)")
+
+  const afterStyle = isLargerThan768 && idx > 1 ? undefined : { background: "gray.300", position: "absolute", content: `""`, bottom: "-17px", width: "100%", height: "1px", display: "block"};
+
   return (
     <Box role="button" position="relative">
       <Flex role="group" direction="row">
 
         <Image src={project.icon} boxSize={16} objectFit="cover" rounded="xl" alt={`${project.title} icon`} mr={4} />
 
-        <Flex position="relative" alignItems="center" _after={{ background: "gray.300", position: "absolute", content: '""', bottom: "-17px", width: "100%", height: "1px", display: "block"}}>
+        <Flex position="relative" alignItems="center" _after={afterStyle}>
 
           <Box mr={4}>
             <Heading as="h3" fontSize="md" fontWeight="normal" lineHeight="tall">{project.title}</Heading>
