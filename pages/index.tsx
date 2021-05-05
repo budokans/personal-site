@@ -17,7 +17,7 @@ export const getStaticProps: GetStaticProps = async () => {
 const IndexPage = ({ data }: ProjectDataProps ) => {
   
   return (
-    <Flex direction="column" justifyContent={["space-between", "center"]} alignItems="center" h={["100%", "100vh"]} py={8} px={4} maxW={["100%", "930px" ]}marginY="0" marginX="auto">
+    <Flex direction="column" justifyContent={["space-between", "center"]} alignItems="center" minHeight="100vh" py={8} px={4} maxW={["100%", "930px" ]} marginY="0" marginX="auto">
 
       <Header />
 
