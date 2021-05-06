@@ -1,10 +1,11 @@
-import { Box } from "@chakra-ui/layout";
+import { Box, Divider } from "@chakra-ui/layout";
 import { MotionBox } from "./MotionBox";
 import SimpleBar from 'simplebar-react';
 import { CloseButton } from "@chakra-ui/close-button";
 import { useFeatureContext } from "../lib/featureContext";
 import { AnimatePresence } from "framer-motion";
 import { ProjectInterface } from "../interfaces";
+import FeatureHeader from "./FeatureHeader";
 
 type FeatureProps = {
   project: ProjectInterface
@@ -49,8 +50,14 @@ const Feature = ({project}: FeatureProps) => {
             <Box height="full" bg="white" borderWidth="1px" borderColor="gray.300" borderStyle="solid" borderRadius="xl">
               
               <SimpleBar style={{ maxHeight: '100%' }}>
-                <CloseButton size="md" fontSize="16px" borderRadius="full" color="gray.900" bg="gray.100" p={0} top="10px" right="10px" onClick={closeFeature}  />
-                Project {project.title}
+                <CloseButton w="28px" h="28px" fontSize="14px" borderRadius="full" color="gray.900" bg="gray.100" p={0} position="absolute" top="10px" right="10px" onClick={closeFeature}  />
+                
+                  <FeatureHeader project={project} />
+
+                  <Box paddingTop={4} paddingBottom={4}>
+                    <Divider orientation="horizontal" />
+                  </Box>
+                  
               </SimpleBar>
             </Box>
           </MotionBox> 
