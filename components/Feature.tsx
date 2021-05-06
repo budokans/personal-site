@@ -8,6 +8,7 @@ import { ProjectInterface } from "../interfaces";
 import FeatureHeader from "./FeatureHeader";
 import FeatureTech from "./FeatureTech";
 import FeatureDescription from "./FeatureDescription";
+import FeatureVisit from "./FeatureVisit";
 
 type FeatureProps = {
   project: ProjectInterface
@@ -63,6 +64,8 @@ const Feature = ({project}: FeatureProps) => {
                   <FeatureTech project={project} />
 
                   <FeatureDescription project={project} />
+                  
+                  <FeatureVisit url={project.url} />
 
                   
               </SimpleBar>

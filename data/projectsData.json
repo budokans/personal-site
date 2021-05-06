@@ -8,7 +8,8 @@
     "featureMedia": ["url", "url2", "url3"],
     "description": [
       "First paragraph about the project. Second paragraph about the project"
-    ]
+    ],
+    "url": "https://storytyper.stevenwebster.co"
   },
   {
     "title": "Gretsch Geeks",
@@ -18,7 +19,8 @@
     "featureMedia": ["url", "url2", "url3"],
     "description": [
       "First paragraph about the project. Second paragraph about the project"
-    ]
+    ],
+    "url": "https://gretsch.stevenwebster.co"
   },
   {
     "title": "Netflix Clone",
@@ -28,7 +30,8 @@
     "featureMedia": ["url", "url2", "url3"],
     "description": [
       "First paragraph about the project. Second paragraph about the project"
-    ]
+    ],
+    "url": "http://netflix.stevenwebster.co"
   },
   {
     "title": "stevenwebster.co",
