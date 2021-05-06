@@ -14,6 +14,18 @@ type FeatureProps = {
   project: ProjectInterface
 }
 
+const overlayVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 0.9,
+  },
+  exit: {
+    opacity: 0,
+  }
+}
+
 const containerVariants = {
   hidden: {
     y: "100vh"
@@ -45,7 +57,7 @@ const Feature = ({project}: FeatureProps) => {
     <AnimatePresence>
       { showFeature && (
         <>
-          <Box position="absolute" top={0} right={0} bottom={0} left={0} bg="gray.100" />
+          <MotionBox position="absolute" top={0} right={0} bottom={0} left={0} bg="gray.100" variants={overlayVariants} initial="hidden" animate="visible" exit="hidden" />
       
           <MotionBox position="fixed" left={0} right={0} bottom={0} maxWidth="930px" marginY="0" marginX="auto" height="100vh"  variants={containerVariants} initial="hidden" animate="visible" exit="exit">
             
