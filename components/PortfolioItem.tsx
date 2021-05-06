@@ -4,6 +4,7 @@ import { Box, Flex, Heading, Text } from "@chakra-ui/layout";
 import { useMediaQuery } from "@chakra-ui/media-query";
 import { useEffect, useState } from "react";
 import { ProjectInterface } from "../interfaces";
+import { useFeatureContext } from "../lib/featureContext";
 
 type PortFolioItemProps = {
   project: ProjectInterface;
@@ -13,6 +14,7 @@ type PortFolioItemProps = {
 const PortfolioItem = ({project, idx}: PortFolioItemProps) => {
   const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
   const [afterStyle, setAfterStyle] = useState({});
+  const { openFeature } = useFeatureContext();
 
   useEffect(() => {
     if (isLargerThan768 && idx > 1) {
@@ -24,8 +26,12 @@ const PortfolioItem = ({project, idx}: PortFolioItemProps) => {
     }
   }, [isLargerThan768])
 
+  function handleClick() {
+    openFeature(idx);
+  }
+
   return (
-    <Box role="button" position="relative">
+    <Box role="button" position="relative" onClick={handleClick}>
       <Flex role="group" direction="row">
 
         <Img src={project.icon} boxSize={16} objectFit="cover" rounded="xl" alt={`${project.title} icon`} mr={[3, 4]} />

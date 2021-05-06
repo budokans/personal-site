@@ -4,9 +4,10 @@ import SimpleBar from 'simplebar-react';
 import { CloseButton } from "@chakra-ui/close-button";
 import { useFeatureContext } from "../lib/featureContext";
 import { AnimatePresence } from "framer-motion";
+import { ProjectInterface } from "../interfaces";
 
 type FeatureProps = {
-  project: number,
+  project: ProjectInterface
 }
 
 const containerVariants = {
@@ -34,8 +35,8 @@ const containerVariants = {
   }
 }
 
-const Feature = () => {
-  const {projectToFeature, showFeature, closeFeature} = useFeatureContext();
+const Feature = ({project}: FeatureProps) => {
+  const {showFeature, closeFeature} = useFeatureContext();
 
   return (
     <AnimatePresence>
@@ -49,6 +50,7 @@ const Feature = () => {
               
               <SimpleBar style={{ maxHeight: '100%' }}>
                 <CloseButton size="md" fontSize="16px" borderRadius="full" color="gray.900" bg="gray.100" p={0} top="10px" right="10px" onClick={closeFeature}  />
+                Project {project.title}
               </SimpleBar>
             </Box>
           </MotionBox> 
