@@ -2,6 +2,7 @@ import { Button } from "@chakra-ui/button";
 import { Image } from "@chakra-ui/image";
 import { Box, Flex, Heading, Text } from "@chakra-ui/layout";
 import { useMediaQuery } from "@chakra-ui/media-query";
+import { useEffect, useState } from "react";
 import { ProjectInterface } from "../interfaces";
 
 type PortFolioItemProps = {
@@ -10,9 +11,18 @@ type PortFolioItemProps = {
 }
 
 const PortfolioItem = ({project, idx}: PortFolioItemProps) => {
-  const [isLargerThan768] = useMediaQuery("(min-width: 768px)")
+  const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
+  const [afterStyle, setAfterStyle] = useState({});
 
-  const afterStyle = isLargerThan768 && idx > 1 ? undefined : idx > 2 ? undefined : { background: "gray.300", position: "absolute", content: `""`, bottom: "-17px", width: "100%", height: "1px", display: "block"};
+  useEffect(() => {
+    if (isLargerThan768 && idx > 1) {
+      setAfterStyle({})
+    } else if (idx > 2) {
+      setAfterStyle({})
+    } else {
+      setAfterStyle({ background: "gray.300", position: "absolute", content: `""`, bottom: "-17px", width: "100%", height: "1px", display: "block"})
+    }
+  }, [isLargerThan768])
 
   return (
     <Box role="button" position="relative">
