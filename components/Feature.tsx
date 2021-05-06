@@ -1,7 +1,11 @@
-const Feature = () => {
+type FeatureProps = {
+  work: number,
+}
+
+const Feature = ({project}: FeatureProps) => {
   return (
     <div>
-      Test
+  
     </div>
   )
 }

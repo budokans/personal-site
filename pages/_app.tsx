@@ -1,11 +1,14 @@
 import { AppProps } from 'next/app'
 import {ChakraProvider} from "@chakra-ui/react";
+import { FeatureContextProvider } from "../lib/featureContext";
 
 const App = ({Component, pageProps}: AppProps): React.ReactNode => {
   return (
-  <ChakraProvider>
-    <Component {...pageProps} />
-  </ChakraProvider>
+    <FeatureContextProvider>
+      <ChakraProvider>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </FeatureContextProvider>
   )
 }
 

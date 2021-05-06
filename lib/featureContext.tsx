@@ -5,7 +5,7 @@ export const FeatureContext = createContext<Partial<ContextProps>>({});
 
 export const FeatureContextProvider: React.FC = ({children}) => {
   const [projectToFeature, setProjectToFeature] = useState(0);
-  const [showFeature, setShowFeature] = useState(false);
+  const [showFeature, setShowFeature] = useState(true);
 
   const openFeature = (id: number) => {
     setProjectToFeature(id);
