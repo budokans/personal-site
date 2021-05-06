@@ -1,5 +1,5 @@
 import { Button } from "@chakra-ui/button";
-import { Image } from "@chakra-ui/image";
+import { Img } from "@chakra-ui/image";
 import { Box, Flex, Heading, Text } from "@chakra-ui/layout";
 import { useMediaQuery } from "@chakra-ui/media-query";
 import { useEffect, useState } from "react";
@@ -28,7 +28,7 @@ const PortfolioItem = ({project, idx}: PortFolioItemProps) => {
     <Box role="button" position="relative">
       <Flex role="group" direction="row">
 
-        <Image src={project.icon} boxSize={16} objectFit="cover" rounded="xl" alt={`${project.title} icon`} mr={[3, 4]} />
+        <Img src={project.icon} boxSize={16} objectFit="cover" rounded="xl" alt={`${project.title} icon`} mr={[3, 4]} />
 
         <Flex position="relative" alignItems="center" _after={afterStyle}>
 
