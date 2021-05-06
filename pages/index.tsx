@@ -3,8 +3,10 @@ import Head from 'next/head';
 import { Flex  } from "@chakra-ui/layout";
 import Header from "../components/Header";
 import Portfolio from "../components/Portfolio";
-import { ProjectDataProps } from "../interfaces";
+import { ProjectDataProps, ProjectInterface } from "../interfaces";
 import { getData } from "../lib/getData";
+import { useFeatureContext } from "../lib/featureContext";
+import Feature from "../components/Feature";
 
 export const getStaticProps: GetStaticProps = async () => {
   const data = await getData();
@@ -16,6 +18,8 @@ export const getStaticProps: GetStaticProps = async () => {
 }
 
 const IndexPage = ({ data }: ProjectDataProps ) => {
+  const { projectToFeature } = useFeatureContext();
+  const project: ProjectInterface = data[projectToFeature];
   
   return (
     <>
@@ -40,6 +44,9 @@ const IndexPage = ({ data }: ProjectDataProps ) => {
         <Portfolio data={data} />
 
       </Flex>
+
+  
+      <Feature project={project} />
     </>
   )
 }
