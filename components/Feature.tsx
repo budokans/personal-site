@@ -6,6 +6,7 @@ import { useFeatureContext } from "../lib/featureContext";
 import { AnimatePresence } from "framer-motion";
 import { ProjectInterface } from "../interfaces";
 import FeatureHeader from "./FeatureHeader";
+import FeatureTech from "./FeatureTech";
 
 type FeatureProps = {
   project: ProjectInterface
@@ -57,6 +58,9 @@ const Feature = ({project}: FeatureProps) => {
                   <Box paddingTop={4} paddingBottom={4}>
                     <Divider orientation="horizontal" />
                   </Box>
+
+                  <FeatureTech project={project} />
+
                   
               </SimpleBar>
             </Box>

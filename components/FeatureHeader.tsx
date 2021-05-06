@@ -1,7 +1,12 @@
 import { Img } from "@chakra-ui/image"
 import { Box, Heading, Stack, Text } from "@chakra-ui/layout"
+import { ProjectInterface } from "../interfaces";
 
-const FeatureHeader: React.FC = ({project}) => {
+type FeatureHeaderProps = {
+  project: ProjectInterface
+}
+
+const FeatureHeader = ({project}: FeatureHeaderProps) => {
   return (
     <Stack display="flex" direction="row" alignItems="center" paddingTop={4} paddingRight={4} paddingLeft={4} spacing={4}>
 
