@@ -5,7 +5,6 @@ import Header from "../components/Header";
 import Portfolio from "../components/Portfolio";
 import { ProjectDataProps } from "../interfaces";
 import { getData } from "../lib/getData";
-import { useFeatureContext } from "../lib/featureContext";
 import Feature from "../components/Feature";
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -18,9 +17,6 @@ export const getStaticProps: GetStaticProps = async () => {
 }
 
 const IndexPage = ({ data }: ProjectDataProps ) => {
-  const {projectToFeature, showFeature} = useFeatureContext();
-  const project: number = data[projectToFeature];
-  
   return (
     <>
       <Head>
@@ -45,9 +41,7 @@ const IndexPage = ({ data }: ProjectDataProps ) => {
 
       </Flex>
 
-      {showFeature && (
-        <Feature project={project} />
-      )}
+      <Feature />
     </>
   )
 }
