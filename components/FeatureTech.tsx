@@ -17,8 +17,8 @@ const hideScrollbar = {
     "background": "scrollbarColor",
     "borderRadius": '24px',
   },
-  "scrollbarWidth": "none",
-  "overflow": "-moz-scrollbars-none",
+  // "scrollbarWidth": "none",
+  // "overflow": "-moz-scrollbars-none",
 }
 
 const FeatureTech = ({project}: FeatureTechProps) => {
