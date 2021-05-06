@@ -7,8 +7,8 @@ type FeatureTechProps = {
 
 const hideScrollbar = {
   '&::-webkit-scrollbar': {
-    width: "0 !important",
-    display: "none", 
+    "width": "0 !important",
+    "display": "none", 
   },
   // '&::-webkit-scrollbar-track': {
   //   width: '6px',
@@ -17,7 +17,7 @@ const hideScrollbar = {
   //   background: scrollbarColor,
   //   borderRadius: '24px',
   // },
-  'scrollbar-width': 'none'
+  'scrollbarWidth': 'none'
 }
 
 const FeatureTech = ({project}: FeatureTechProps) => {
@@ -51,6 +51,7 @@ const FeatureTech = ({project}: FeatureTechProps) => {
               </Box>
             )
           })}
+
         </Stack>
 
       </Box>

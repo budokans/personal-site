@@ -46,7 +46,7 @@ const IndexPage = ({ data }: ProjectDataProps ) => {
       </Flex>
 
   
-        <Feature project={project} />
+      <Feature project={project} />
     </>
   )
 }

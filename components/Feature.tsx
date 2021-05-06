@@ -34,7 +34,6 @@ const containerVariants = {
       type: "spring",
       mass: 0.3,
       damping: 8,
-      duration: 5
     }
   }
 }
@@ -68,8 +67,6 @@ const Feature = ({project}: FeatureProps) => {
                   {project.url && (
                     <FeatureVisit url={project.url} />
                   )}
-                  
-
                   
               </SimpleBar>
             </Box>

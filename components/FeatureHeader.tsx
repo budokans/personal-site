@@ -13,6 +13,7 @@ const FeatureHeader = ({project}: FeatureHeaderProps) => {
       <Img src={project.icon} borderRadius="xl" width={16} height={16} />
 
       <Box>
+        
         <Heading 
           as="h2" 
           fontSize="2xl"
@@ -22,7 +23,6 @@ const FeatureHeader = ({project}: FeatureHeaderProps) => {
         </Heading>
 
         <Text color="gray.500" fontSize="clamp(12px, 10.8px + 0.25vw, 14px)">{project.shortBlurb}</Text>
-
 
       </Box>
 
