@@ -10,14 +10,15 @@ const hideScrollbar = {
     "width": "0 !important",
     "display": "none", 
   },
-  // '&::-webkit-scrollbar-track': {
-  //   width: '6px',
-  // },
-  // '&::-webkit-scrollbar-thumb': {
-  //   background: scrollbarColor,
-  //   borderRadius: '24px',
-  // },
-  'scrollbarWidth': 'none'
+  '&::-webkit-scrollbar-track': {
+    "width": '6px',
+  },
+  '&::-webkit-scrollbar-thumb': {
+    "background": "scrollbarColor",
+    "borderRadius": '24px',
+  },
+  "scrollbarWidth": "none",
+  "overflow": "-moz-scrollbars-none",
 }
 
 const FeatureTech = ({project}: FeatureTechProps) => {
