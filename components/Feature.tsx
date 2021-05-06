@@ -7,6 +7,7 @@ import { AnimatePresence } from "framer-motion";
 import { ProjectInterface } from "../interfaces";
 import FeatureHeader from "./FeatureHeader";
 import FeatureTech from "./FeatureTech";
+import FeatureDescription from "./FeatureDescription";
 
 type FeatureProps = {
   project: ProjectInterface
@@ -60,6 +61,8 @@ const Feature = ({project}: FeatureProps) => {
                   </Box>
 
                   <FeatureTech project={project} />
+
+                  <FeatureDescription project={project} />
 
                   
               </SimpleBar>

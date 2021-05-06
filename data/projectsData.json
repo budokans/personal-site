@@ -7,7 +7,7 @@
     "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
     "featureMedia": ["url", "url2", "url3"],
     "description": [
-      "<p>First paragraph about the project</p><p>Second paragraph about the project</p>"
+      "First paragraph about the project. Second paragraph about the project"
     ]
   },
   {
@@ -17,7 +17,7 @@
     "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
     "featureMedia": ["url", "url2", "url3"],
     "description": [
-      "<p>First paragraph about the project</p><p>Second paragraph about the project</p>"
+      "First paragraph about the project. Second paragraph about the project"
     ]
   },
   {
@@ -27,7 +27,7 @@
     "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
     "featureMedia": ["url", "url2", "url3"],
     "description": [
-      "<p>First paragraph about the project</p><p>Second paragraph about the project</p>"
+      "First paragraph about the project. Second paragraph about the project"
     ]
   },
   {
@@ -37,7 +37,7 @@
     "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
     "featureMedia": ["url", "url2", "url3"],
     "description": [
-      "<p>First paragraph about the project</p><p>Second paragraph about the project</p>"
+      "First paragraph about the project. Second paragraph about the project"
     ]
   }
 ]
