@@ -65,7 +65,10 @@ const Feature = ({project}: FeatureProps) => {
 
                   <FeatureDescription project={project} />
                   
-                  <FeatureVisit url={project.url} />
+                  {project.url && (
+                    <FeatureVisit url={project.url} />
+                  )}
+                  
 
                   
               </SimpleBar>
