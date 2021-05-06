@@ -10,3 +10,10 @@ export interface ProjectInterface {
 export type ProjectDataProps = {
   data: ProjectInterface[];
 }
+
+export type ContextProps = {
+  projectToFeature: number,
+  showFeature: boolean,
+  openFeature(id: number): void,
+  closeFeature(): void,
+}
