@@ -26,8 +26,10 @@ const PortfolioItem = ({project, idx}: PortFolioItemProps) => {
     }
   }, [isLargerThan768])
 
-  function handleClick() {
-    openFeature(idx);
+  const handleClick: React.MouseEventHandler<
+    HTMLButtonElement | HTMLDivElement
+  > = (): void => {
+    openFeature && openFeature(idx);
   }
 
   return (
