@@ -29,7 +29,7 @@ const PortfolioItem = ({project, idx}: PortFolioItemProps) => {
   const handleClick: React.MouseEventHandler<
     HTMLButtonElement | HTMLDivElement
   > = (): void => {
-    openFeature && openFeature(idx);
+    openFeature(idx);
   }
 
   return (

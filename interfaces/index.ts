@@ -12,7 +12,7 @@ export type ProjectDataProps = {
   data: ProjectInterface[]
 }
 
-export type ContextProps = {
+export type ContextType = {
   projectToFeature: number,
   showFeature: boolean,
   openFeature(id: number): void,

@@ -1,7 +1,24 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { ContextProps } from "../interfaces"
 
-export const FeatureContext = createContext<Partial<ContextProps>>({});
+export function createCtx<ContextType>() {
+  const ctx = React.createContext<
+    ContextType | undefined
+  >(undefined);
+  function useCtx() {
+    const c = React.useContext(ctx);
+    if (!c)
+      throw new Error(
+        "useCtx must be inside a Provider with a value"
+      );
+    return c;
+  }
+  return [useCtx, ctx.Provider] as const;
+}
+
+export const [useFeatureContext, CtxProvider] = createCtx<
+  ContextProps
+>();
 
 export const FeatureContextProvider: React.FC = ({children}) => {
   const [projectToFeature, setProjectToFeature] = useState(0);
@@ -17,13 +34,9 @@ export const FeatureContextProvider: React.FC = ({children}) => {
   }
 
   return (
-    <FeatureContext.Provider 
+    <CtxProvider 
       value={{projectToFeature, showFeature, openFeature, closeFeature}}>
         {children}
-    </FeatureContext.Provider>
+    </CtxProvider>
   )
-}
-
-export function useFeatureContext() {
-  return useContext(FeatureContext)
 }
