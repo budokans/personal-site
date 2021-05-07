@@ -19,7 +19,7 @@ const overlayVariants = {
     opacity: 0,
   },
   visible: {
-    opacity: 0.9,
+    opacity: 0.2,
   },
   exit: {
     opacity: 0,
