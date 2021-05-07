@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ContextProps } from "../interfaces"
+import { ContextType } from "../interfaces"
 
 export function createCtx<ContextType>() {
   const ctx = React.createContext<
@@ -17,10 +17,14 @@ export function createCtx<ContextType>() {
 }
 
 export const [useFeatureContext, CtxProvider] = createCtx<
-  ContextProps
+  ContextType
 >();
 
-export const FeatureContextProvider: React.FC = ({children}) => {
+type Props = {
+  children: React.ReactNode;
+};
+
+export const FeatureContextProvider = ({children}: Props) => {
   const [projectToFeature, setProjectToFeature] = useState(0);
   const [showFeature, setShowFeature] = useState(false);
 
