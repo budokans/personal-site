@@ -2,7 +2,7 @@
   {
     "title": "Story Typer",
     "shortBlurb": "Some short description of the project. Some short description of the project",
-    "icon": "./images/story-typer-screenshot.png",
+    "icon": "./images/story-typer-logo.jpg",
     "iconFallback": "",
     "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
     "featureMedia": [
@@ -18,7 +18,7 @@
   {
     "title": "Gretsch Geeks",
     "shortBlurb": "Some short description of the project. Some short description of the project",
-    "icon": "./images/gretsch-geeks-screenshot-desktop.png",
+    "icon": "./images/gretsch-logo.jpg",
     "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
     "featureMedia": [
       "./images/story-typer-screenshot.png",
@@ -54,7 +54,7 @@
   {
     "title": "stevenwebster.co",
     "shortBlurb": "Some short description of the project. Some short description of the project",
-    "icon": "./images/netflix-logo.jfif",
+    "icon": "./images/stevenwebster.co-logo.png",
     "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
     "featureMedia": [
       "./images/story-typer-screenshot.png",
