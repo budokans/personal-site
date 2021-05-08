@@ -18,23 +18,22 @@ const FeatureCarousel = ({media}: FeatureCarouselProps) => {
     <Box overflow="hidden" paddingRight={4} paddingLeft={4}>
       <MotionBox>
 
-        <Stack direction="row" overflowX="scroll" whiteSpace="nowrap" sx={{ ...hideScrollbar, scrollSnapType: "x mandatory" }} spacing={4} alignItems="center" cursor="grab" >
+        <Stack direction="row" height="calc(45vw + 35px)" maxH="490px" overflowX="scroll" whiteSpace="nowrap" sx={{ ...hideScrollbar, scrollSnapType: "x mandatory" }} spacing={4} alignItems="center" cursor="grab" >
 
         { media.map((image, idx) => {
           return (
             <Box 
               key={idx} 
               bg="gray.400" 
-              borderRadius="xl" 
-              minWidth="275px" 
-              h="185px"   
+              borderRadius="xl"
+              height="100%"
+              minWidth="calc(70vw + 35px)"
               sx={{ scrollSnapAlign: "start", scrollPadding: "1.75rem" }} 
-              px={6} 
-              py={6}
+              p="7.5vw"
             >
-               <Container h="100%" w="100%" p={0} >        
-                <Img src={image} objectFit="cover" maxHeight="100%" w="100%" />
-              </Container>
+              <Box h="100%" w="100%" >        
+                <Img src={image} objectFit="cover" h="100%" w="100%" />
+              </Box>
             </Box>
           )
         })}
