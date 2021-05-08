@@ -8,11 +8,18 @@ type FeatureHeaderProps = {
 
 const FeatureHeader = ({project}: FeatureHeaderProps) => {
   return (
-    <Stack display="flex" direction="row" alignItems="center" paddingTop={4} paddingRight={4} paddingLeft={4} spacing={4}>
+    <Stack 
+      display="flex" 
+      direction="row" 
+      alignItems="center" 
+      paddingTop={[4, 9]}
+      px={[4, 9]} 
+      spacing={4}
+    >
 
-      <Img src={project.icon} borderRadius="xl" width={16} height={16} />
+      <Img src={project.icon} borderRadius="xl" width={["65px", "90px"]} height={["65px", "90px"]} />
 
-      <Box>
+      <Box maxW="350px">
         
         <Heading 
           as="h2" 

@@ -36,18 +36,52 @@ const PortfolioItem = ({project, idx}: PortFolioItemProps) => {
     <Box role="button" position="relative" onClick={handleClick}>
       <Flex role="group" direction="row">
 
-        <Img src={project.icon} boxSize={16} objectFit="cover" rounded="xl" alt={`${project.title} icon`} mr={[3, 4]} />
+        <Img 
+          src={project.icon} 
+          boxSize={16} 
+          objectFit="cover"
+          rounded="xl" 
+          alt={`${project.title} icon`} 
+          mr={[3, 4]} 
+        />
 
         <Flex position="relative" alignItems="center" _after={afterStyle}>
 
           <Box mr={4}>
-            <Heading as="h3" fontSize="md" fontWeight="normal" lineHeight="tall">{project.title}</Heading>
-            <Text fontSize={["xs", "sm"]} color="#595959" noOfLines={2}>{project.shortBlurb}</Text>
+
+            <Heading 
+              as="h3" 
+              fontSize="md" 
+              fontWeight="normal" 
+              lineHeight="tall"
+            >
+              {project.title}
+            </Heading>
+
+            <Text 
+              fontSize="clamp(12px, 10.8px + 0.25vw, 14px)" 
+              color="#595959" 
+              noOfLines={2}
+            >
+              {project.shortBlurb}
+            </Text>
           </Box>
 
-          <Button rounded="xl" fontSize="sm" w={8} px={3} h={7} minW={16}>View</Button>
+          <Button 
+            rounded="xl" 
+            fontSize="sm" 
+            w={8} 
+            px={3} 
+            h={7} 
+            minW={16}
+          >
+            View
+          </Button>
+
         </Flex>
+
       </Flex>
+      
     </Box>
   )
 }

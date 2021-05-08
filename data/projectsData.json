@@ -2,10 +2,14 @@
   {
     "title": "Story Typer",
     "shortBlurb": "Some short description of the project. Some short description of the project",
-    "icon": "./images/story-typer-screenshot.png",
+    "icon": "./images/story-typer-logo.jpg",
     "iconFallback": "",
     "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
-    "featureMedia": ["url", "url2", "url3"],
+    "featureMedia": [
+      "./images/story-typer-screenshot.png",
+      "./images/gretsch-geeks-screenshot-desktop.png",
+      "./images/netflix-logo.jfif"
+    ],
     "description": [
       "First paragraph about the project. Second paragraph about the project"
     ],
@@ -14,9 +18,16 @@
   {
     "title": "Gretsch Geeks",
     "shortBlurb": "Some short description of the project. Some short description of the project",
-    "icon": "./images/gretsch-geeks-screenshot-desktop.png",
+    "icon": "./images/gretsch-logo.jpg",
     "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
-    "featureMedia": ["url", "url2", "url3"],
+    "featureMedia": [
+      "./images/story-typer-screenshot.png",
+      "./images/gretsch-geeks-screenshot-desktop.png",
+      "./images/netflix-logo.jfif",
+      "./images/story-typer-screenshot.png",
+      "./images/gretsch-geeks-screenshot-desktop.png",
+      "./images/netflix-logo.jfif"
+    ],
     "description": [
       "First paragraph about the project. Second paragraph about the project"
     ],
@@ -27,7 +38,14 @@
     "shortBlurb": "Some short description of the project. Some short description of the project",
     "icon": "./images/netflix-logo.jfif",
     "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
-    "featureMedia": ["url", "url2", "url3"],
+    "featureMedia": [
+      "./images/story-typer-screenshot.png",
+      "./images/gretsch-geeks-screenshot-desktop.png",
+      "./images/netflix-logo.jfif",
+      "./images/story-typer-screenshot.png",
+      "./images/gretsch-geeks-screenshot-desktop.png",
+      "./images/netflix-logo.jfif"
+    ],
     "description": [
       "First paragraph about the project. Second paragraph about the project"
     ],
@@ -36,9 +54,16 @@
   {
     "title": "stevenwebster.co",
     "shortBlurb": "Some short description of the project. Some short description of the project",
-    "icon": "./images/netflix-logo.jfif",
+    "icon": "./images/stevenwebster.co-logo.png",
     "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
-    "featureMedia": ["url", "url2", "url3"],
+    "featureMedia": [
+      "./images/story-typer-screenshot.png",
+      "./images/gretsch-geeks-screenshot-desktop.png",
+      "./images/netflix-logo.jfif",
+      "./images/story-typer-screenshot.png",
+      "./images/gretsch-geeks-screenshot-desktop.png",
+      "./images/netflix-logo.jfif"
+    ],
     "description": [
       "First paragraph about the project. Second paragraph about the project"
     ]
