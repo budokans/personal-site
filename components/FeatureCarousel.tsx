@@ -13,12 +13,35 @@ const hideScrollbar = {
   },
 }
 
+const containerVariants = {
+  hidden: {
+    x: "100vw",
+  },
+  visible: {
+    x: 0,
+    transition: {
+      type: "spring",
+      damping: 20,
+    }
+  }
+}
+
 const FeatureCarousel = ({media}: FeatureCarouselProps) => {
   return (
     <Box overflow="hidden" px={[4, 9]}>
-      <MotionBox>
+      <MotionBox variants={containerVariants} initial="hidden" animate="visible" >
 
-        <Stack direction="row" height="calc(45vw + 35px)" maxH="490px" overflowX="scroll" whiteSpace="nowrap" sx={{ ...hideScrollbar, scrollSnapType: "x mandatory" }} spacing={4} alignItems="center" cursor="grab" >
+        <Stack 
+          direction="row"
+          alignItems="center"
+          spacing={4} 
+          height="calc(45vw + 35px)" 
+          maxH="490px" 
+          overflowX="scroll" 
+          whiteSpace="nowrap" 
+          sx={{ ...hideScrollbar, scrollSnapType: "x mandatory" }} 
+          cursor="grab"
+        >
 
         { media.map((image, idx) => {
           return (
@@ -31,9 +54,11 @@ const FeatureCarousel = ({media}: FeatureCarouselProps) => {
               sx={{ scrollSnapAlign: "start", scrollPadding: "1.75rem" }} 
               p="7.5vw"
             >
+
               <Box h="100%" w="100%" >        
                 <Img src={image} objectFit="cover" h="100%" w="100%" />
               </Box>
+              
             </Box>
           )
         })}
