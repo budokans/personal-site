@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ContextType } from "../interfaces"
 
 export function createCtx<ContextType>() {
@@ -36,6 +36,10 @@ export const FeatureContextProvider = ({children}: Props) => {
   const closeFeature = () => {
     setShowFeature(false);
   }
+
+  useEffect(() => {
+    document.getElementsByTagName('body')[0].style.overflow = showFeature ? "hidden" : "visible";
+  }, [showFeature])
 
   return (
     <CtxProvider 
