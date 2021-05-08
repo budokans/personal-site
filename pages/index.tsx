@@ -37,7 +37,21 @@ const IndexPage = ({ data }: ProjectDataProps ) => {
         <meta name="theme-color" content="#ffffff" />
       </Head>
 
-      <Flex direction="column" justifyContent={["space-between", "center"]} alignItems="center" minHeight="100vh" py={8} px={4} maxW={["100%", "930px" ]} marginY="0" marginX="auto" sx={showFeature ? { filter: "blur(5px)", transition: "filter 0.5s ease"} : { filter: "blur(0px)", transition: "filter 0.5s ease" } } >
+      <Flex 
+        direction="column" 
+        justifyContent={["space-between", "center"]} 
+        alignItems="center" 
+        minHeight="100vh" 
+        py={8} px={4} 
+        maxW={["100%", "930px" ]} 
+        marginY="0" 
+        marginX="auto" 
+        sx={showFeature ? 
+          { filter: "blur(5px)", transition: "filter 0.5s ease"} 
+          : 
+          { filter: "blur(0px)", transition: "filter 0.5s ease" } 
+        }
+      >
 
         <Header />
 
@@ -45,7 +59,6 @@ const IndexPage = ({ data }: ProjectDataProps ) => {
 
       </Flex>
 
-  
       <Feature project={project} />
     </>
   )
