@@ -1,5 +1,5 @@
 import { Img } from "@chakra-ui/image";
-import { Box, Container, Stack } from "@chakra-ui/layout"
+import { Box, Stack } from "@chakra-ui/layout"
 import { MotionBox } from "./MotionBox";
 
 type FeatureCarouselProps = {
@@ -15,7 +15,7 @@ const hideScrollbar = {
 
 const FeatureCarousel = ({media}: FeatureCarouselProps) => {
   return (
-    <Box overflow="hidden" paddingRight={4} paddingLeft={4}>
+    <Box overflow="hidden" px={[4, 9]}>
       <MotionBox>
 
         <Stack direction="row" height="calc(45vw + 35px)" maxH="490px" overflowX="scroll" whiteSpace="nowrap" sx={{ ...hideScrollbar, scrollSnapType: "x mandatory" }} spacing={4} alignItems="center" cursor="grab" >

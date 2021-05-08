@@ -65,7 +65,7 @@ const Feature = ({project}: FeatureProps) => {
             <Box height="full" bg="white" borderWidth="1px" borderColor="gray.300" borderStyle="solid" borderRadius="xl">
               
               <SimpleBar style={{ maxHeight: '100%' }}>
-                <CloseButton w="28px" h="28px" fontSize="14px" borderRadius="full" color="gray.900" bg="gray.100" p={0} position="absolute" top="10px" right="10px" onClick={closeFeature}  />
+                <CloseButton w={["28px", "34px"]} h={["28px", "34px"]} fontSize="14px" borderRadius="full" color="gray.900" bg="gray.100" p={0} position="absolute" top={["10px", "30px"]} right={["10px", "30px"]} onClick={closeFeature}  />
                 
                   <FeatureHeader project={project} />
 

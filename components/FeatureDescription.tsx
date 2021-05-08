@@ -7,7 +7,7 @@ type FeatureDescriptionProps = {
 
 const FeatureDescription = ({project}: FeatureDescriptionProps) => {
   return (
-    <Box paddingRight={4} paddingLeft={4}>
+    <Box px={[4, 9]} maxW={["100%", "70%"]}>
       <Text fontSize="clamp(14px, 11.6px + 0.5vw, 18px)">
         {project.description}
       </Text>

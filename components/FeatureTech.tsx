@@ -14,7 +14,7 @@ const hideScrollbar = {
 
 const FeatureTech = ({project}: FeatureTechProps) => {
   return (
-    <Box overflow="hidden" paddingRight={4} paddingLeft={4}>
+    <Box overflow="hidden" px={[4, 9]} >
 
       <Heading as="h5" fontSize="clamp(11px, 10.4px + 0.13vw, 12px);" fontWeight="400" opacity="0.75" textTransform="uppercase" mb={3} >Tech</Heading>
 
