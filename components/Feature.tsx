@@ -1,4 +1,4 @@
-import { Box, Divider } from "@chakra-ui/layout";
+import { Box, Divider, Stack } from "@chakra-ui/layout";
 import { MotionBox } from "./MotionBox";
 import SimpleBar from 'simplebar-react';
 import { CloseButton } from "@chakra-ui/close-button";
@@ -9,6 +9,7 @@ import FeatureHeader from "./FeatureHeader";
 import FeatureTech from "./FeatureTech";
 import FeatureDescription from "./FeatureDescription";
 import FeatureVisit from "./FeatureVisit";
+import FeatureCarousel from "./FeatureCarousel";
 
 type FeatureProps = {
   project: ProjectInterface
@@ -35,7 +36,7 @@ const containerVariants = {
     transition: {
       type: "spring",
       mass: 0.3,
-      damping: 8,
+      damping: 10,
       when: "beforeChildren",
       staggerChildren: 0.4,
     },
@@ -72,13 +73,19 @@ const Feature = ({project}: FeatureProps) => {
                     <Divider orientation="horizontal" />
                   </Box>
 
-                  <FeatureTech project={project} />
+                  <Stack spacing={6} mb={12}>
 
-                  <FeatureDescription project={project} />
-                  
-                  {project.url && (
-                    <FeatureVisit url={project.url} />
-                  )}
+                    <FeatureTech project={project} />
+
+                    <FeatureCarousel media={project.featureMedia} />
+
+                    <FeatureDescription project={project} />
+                    
+                    {project.url && (
+                      <FeatureVisit url={project.url} />
+                    )}
+
+                  </Stack>
                   
               </SimpleBar>
             </Box>
