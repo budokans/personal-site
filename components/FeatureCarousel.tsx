@@ -16,9 +16,9 @@ const hideScrollbar = {
 }
 
 const disableUserSelect = {
-  "-webkit-user-select": "none",
-	"-webkit-user-drag": "none",
-	"-webkit-app-region": "noDrag",
+  "WebkitUserSelect": "none",
+	"WebkitUserDrag": "none",
+	"WebkitAppRegion": "noDrag",
 }
 
 const containerVariants = {

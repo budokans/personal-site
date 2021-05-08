@@ -17,4 +17,5 @@ export type ContextType = {
   showFeature: boolean,
   openFeature(id: number): void,
   closeFeature(): void,
+  node: React.RefObject<HTMLDivElement>
 }
