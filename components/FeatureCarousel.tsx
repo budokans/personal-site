@@ -48,7 +48,7 @@ const FeatureCarousel = ({media}: FeatureCarouselProps) => {
   
           <MotionStack
             drag="x"
-            dragConstraints={{left: -3800, right: 0}}
+            dragConstraints={{left: media.length === 5 ? -3020 : 0, right: 0}}
             dragElastic={0.5}
             direction="row"
             alignItems="center"
@@ -104,7 +104,7 @@ const FeatureCarousel = ({media}: FeatureCarouselProps) => {
                 >
 
                   <Box h="100%" w="100%" >        
-                    <Img src={mediaItem.path} objectFit="cover" h="100%" w="100%" />
+                    <Img src={mediaItem.path} objectFit="cover" h="100%" w="100%" sx={disableUserSelect} />
                   </Box>
 
                 </Box>
