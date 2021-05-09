@@ -8,7 +8,7 @@ export default function Header() {
       <Heading 
         fontSize="clamp(24px, calc(14.40px + 2.00vw), 40px)" 
         fontWeight="normal" 
-        lineHeight={[1.3, 1.2]}
+        lineHeight={1.3}
       >
         Steven Webster is a full-stack engineer who cares about elegant, intuitive UIs, SEO and performance. Working remotely from Auckland, New Zealand.
       </Heading>
