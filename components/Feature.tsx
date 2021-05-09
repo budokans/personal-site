@@ -16,18 +16,6 @@ type FeatureProps = {
   project: ProjectInterface
 }
 
-const overlayVariants = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 0.2,
-  },
-  exit: {
-    opacity: 0,
-  }
-}
-
 const containerVariantsLg = {
   hidden: {
     y: "100vh"
@@ -92,11 +80,7 @@ const Feature = ({project}: FeatureProps) => {
               right={0} 
               bottom={0} 
               left={0} 
-              bg="gray.400" 
-              variants={overlayVariants} 
-              initial="hidden" 
-              animate="visible" 
-              exit="hidden"  
+              bg="blackAlpha.50"
             />
 
             {/* Container */}

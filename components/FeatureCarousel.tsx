@@ -37,7 +37,6 @@ const containerVariants = {
 }
 
 const FeatureCarousel = ({media}: FeatureCarouselProps) => {
-  console.log(media)
   const [isLargerThan930] = useMediaQuery("(min-width: 930px)");
   const MotionStack = motion(Stack)
 
