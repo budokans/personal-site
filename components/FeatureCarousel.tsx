@@ -66,7 +66,7 @@ const FeatureCarousel = ({media}: FeatureCarouselProps) => {
                   height="100%"
                   minWidth="763px"
                   sx={{ scrollSnapAlign: "start", scrollPadding: "1.75rem" }} 
-                  p="70px"
+                  p="55px"
                 >
                   <Box h="100%" w="100%" >        
                     <Img src={image} objectFit="cover" h="100%" w="100%" sx={disableUserSelect} />

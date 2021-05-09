@@ -143,7 +143,7 @@ const Feature = ({project}: FeatureProps) => {
                   
                     <FeatureHeader project={project} />
 
-                    <Box paddingTop={4} paddingBottom={4}>
+                    <Box py={4} px={[4, 9]}>
                       <Divider orientation="horizontal" />
                     </Box>
 
