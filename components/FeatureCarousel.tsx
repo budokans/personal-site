@@ -1,4 +1,3 @@
-import { Img } from "@chakra-ui/image";
 import Image from 'next/image'
 import { Box, Stack } from "@chakra-ui/layout"
 import { useMediaQuery } from "@chakra-ui/media-query";
@@ -105,16 +104,16 @@ const FeatureCarousel = ({media}: FeatureCarouselProps) => {
                   borderRadius="xl"
                   height="100%"
                   minWidth="calc(70vw + 35px)"
-                  sx={{ scrollSnapAlign: "start", scrollPadding: "1.75rem" }} 
+                  sx={{ ...disableUserSelect, scrollSnapAlign: "start", scrollPadding: "1.75rem" }} 
                   p="7.5vw"
                 >
 
                   <Box h="100%" w="100%" >        
-                    <Img src={mediaItem.path} 
-                      objectFit="cover"
-                      h="100%" 
-                      w="100%" 
-                      sx={disableUserSelect} 
+                    <Image src={mediaItem.path} 
+                      height="131" 
+                      width="211"
+                      layout="responsive"
+                      className="no-drag"
                     />
                   </Box>
 
