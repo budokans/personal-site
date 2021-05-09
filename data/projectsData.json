@@ -6,9 +6,11 @@
     "iconFallback": "",
     "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
     "featureMedia": [
-      "./images/story-typer-screenshot.png",
-      "./images/gretsch-geeks-screenshot-desktop.png",
-      "./images/netflix-logo.jfif"
+      { "path": "./images/story-typer-screenshot.png", "bg": "#0f0" },
+      { "path": "./images/story-typer-screenshot.png", "bg": "#00db00" },
+      { "path": "./images/story-typer-screenshot.png", "bg": "#ffd700" },
+      { "path": "./images/story-typer-screenshot.png", "bg": "#e9bc90" },
+      { "path": "./images/story-typer-screenshot.png", "bg": "#0000000a" }
     ],
     "description": [
       "First paragraph about the project. Second paragraph about the project"
@@ -21,12 +23,11 @@
     "icon": "./images/gretsch-logo.jpg",
     "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
     "featureMedia": [
-      "./images/story-typer-screenshot.png",
-      "./images/gretsch-geeks-screenshot-desktop.png",
-      "./images/netflix-logo.jfif",
-      "./images/story-typer-screenshot.png",
-      "./images/gretsch-geeks-screenshot-desktop.png",
-      "./images/netflix-logo.jfif"
+      { "path": "./images/story-typer-screenshot.png", "bg": "#ff0000" },
+      { "path": "./images/story-typer-screenshot.png", "bg": "#393939" },
+      { "path": "./images/story-typer-screenshot.png", "bg": "#fff" },
+      { "path": "./images/story-typer-screenshot.png", "bg": "#3b82f6" },
+      { "path": "./images/story-typer-screenshot.png", "bg": "#0000000a" }
     ],
     "description": [
       "First paragraph about the project. Second paragraph about the project"
@@ -39,12 +40,11 @@
     "icon": "./images/netflix-logo.jfif",
     "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
     "featureMedia": [
-      "./images/story-typer-screenshot.png",
-      "./images/gretsch-geeks-screenshot-desktop.png",
-      "./images/netflix-logo.jfif",
-      "./images/story-typer-screenshot.png",
-      "./images/gretsch-geeks-screenshot-desktop.png",
-      "./images/netflix-logo.jfif"
+      { "path": "./images/story-typer-screenshot.png", "bg": "#e50914" },
+      { "path": "./images/story-typer-screenshot.png", "bg": "#222" },
+      { "path": "./images/story-typer-screenshot.png", "bg": "#0000000a" },
+      { "path": "./images/story-typer-screenshot.png", "bg": "black" },
+      { "path": "./images/story-typer-screenshot.png", "bg": "#0000000a" }
     ],
     "description": [
       "First paragraph about the project. Second paragraph about the project"
@@ -57,12 +57,7 @@
     "icon": "./images/stevenwebster.co-logo.png",
     "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
     "featureMedia": [
-      "./images/story-typer-screenshot.png",
-      "./images/gretsch-geeks-screenshot-desktop.png",
-      "./images/netflix-logo.jfif",
-      "./images/story-typer-screenshot.png",
-      "./images/gretsch-geeks-screenshot-desktop.png",
-      "./images/netflix-logo.jfif"
+      { "path": "./images/story-typer-screenshot.png", "bg": "#e2e8f0" }
     ],
     "description": [
       "First paragraph about the project. Second paragraph about the project"

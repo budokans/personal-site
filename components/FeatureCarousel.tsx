@@ -2,10 +2,12 @@ import { Img } from "@chakra-ui/image";
 import { Box, Stack } from "@chakra-ui/layout"
 import { useMediaQuery } from "@chakra-ui/media-query";
 import { motion } from "framer-motion";
+import { FeatureMediaInterfaces } from "../interfaces";
 import { MotionBox } from "./MotionBox";
 
+
 type FeatureCarouselProps = {
-  media: string[]
+  media: FeatureMediaInterfaces
 }
 
 const hideScrollbar = {
@@ -35,6 +37,7 @@ const containerVariants = {
 }
 
 const FeatureCarousel = ({media}: FeatureCarouselProps) => {
+  console.log(media)
   const [isLargerThan930] = useMediaQuery("(min-width: 930px)");
   const MotionStack = motion(Stack)
 
@@ -56,12 +59,12 @@ const FeatureCarousel = ({media}: FeatureCarouselProps) => {
             sx={{ ...hideScrollbar, scrollSnapType: "x mandatory" }} 
             cursor="grab"
           >
-            { media.map((image, idx) => {
+            { media.map((mediaItem, idx) => {
               return (
                 <Box 
                   key={idx} 
                   border="1px solid black"
-                  bg="gray.400" 
+                  bg={mediaItem.bg} 
                   borderRadius="2xl"
                   height="100%"
                   minWidth="763px"
@@ -69,7 +72,7 @@ const FeatureCarousel = ({media}: FeatureCarouselProps) => {
                   p="55px"
                 >
                   <Box h="100%" w="100%" >        
-                    <Img src={image} objectFit="cover" h="100%" w="100%" sx={disableUserSelect} />
+                    <Img src={mediaItem.path} objectFit="cover" h="100%" w="100%" sx={disableUserSelect} />
                   </Box>
                 </Box>
               )
@@ -89,11 +92,11 @@ const FeatureCarousel = ({media}: FeatureCarouselProps) => {
             cursor="grab"
           >
 
-            { media.map((image, idx) => {
+            { media.map((mediaItem, idx) => {
               return (
                 <Box 
                   key={idx} 
-                  bg="gray.400" 
+                  bg={mediaItem.bg}  
                   borderRadius="xl"
                   height="100%"
                   minWidth="calc(70vw + 35px)"
@@ -102,7 +105,7 @@ const FeatureCarousel = ({media}: FeatureCarouselProps) => {
                 >
 
                   <Box h="100%" w="100%" >        
-                    <Img src={image} objectFit="cover" h="100%" w="100%" />
+                    <Img src={mediaItem.path} objectFit="cover" h="100%" w="100%" />
                   </Box>
 
                 </Box>

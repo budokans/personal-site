@@ -1,9 +1,16 @@
+export interface FeatureMediaInterface {
+  path: string;
+  bg: string;
+}
+
+export interface FeatureMediaInterfaces extends Array<FeatureMediaInterface>{}
+
 export interface ProjectInterface {
   title: string;
   shortBlurb: string;
   icon: string;
   tech: string[];
-  featureMedia: string[];
+  featureMedia: FeatureMediaInterfaces;
   description: string[];
   url?: string;
 }
