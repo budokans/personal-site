@@ -1,9 +1,11 @@
 import { Img } from "@chakra-ui/image";
+import Image from 'next/image'
 import { Box, Stack } from "@chakra-ui/layout"
 import { useMediaQuery } from "@chakra-ui/media-query";
 import { motion } from "framer-motion";
 import { FeatureMediaInterfaces } from "../interfaces";
 import { MotionBox } from "./MotionBox";
+
 
 
 type FeatureCarouselProps = {
@@ -70,9 +72,15 @@ const FeatureCarousel = ({media}: FeatureCarouselProps) => {
                   sx={{ scrollSnapAlign: "start", scrollPadding: "1.75rem" }} 
                   p="55px"
                 >
-                  <Box h="100%" w="100%" >        
-                    <Img src={mediaItem.path} objectFit="cover" h="100%" w="100%" sx={disableUserSelect} />
-                  </Box>
+               
+                  <Image 
+                    src={mediaItem.path} 
+                    height={378} 
+                    width={651}
+                    layout="responsive"
+                    // sx={disableUserSelect}
+                  />
+
                 </Box>
               )
             })}
@@ -104,7 +112,12 @@ const FeatureCarousel = ({media}: FeatureCarouselProps) => {
                 >
 
                   <Box h="100%" w="100%" >        
-                    <Img src={mediaItem.path} objectFit="cover" h="100%" w="100%" sx={disableUserSelect} />
+                    <Img src={mediaItem.path} 
+                      objectFit="cover"
+                      h="100%" 
+                      w="100%" 
+                      sx={disableUserSelect} 
+                    />
                   </Box>
 
                 </Box>
