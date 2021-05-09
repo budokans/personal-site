@@ -66,12 +66,12 @@
       { "path": "/images/story-typer-error-screenshot.png", "bg": "#0f0" },
       {
         "path": "/images/story-typer-light-theme-screenshot.png",
-        "bg": "#00db00"
+        "bg": "#e9bc90"
       },
       { "path": "/images/story-typer-win-screenshot.png", "bg": "#ffd700" },
       {
         "path": "/images/story-typer-difficulties-screenshot.png",
-        "bg": "#e9bc90"
+        "bg": "#00db00"
       },
       {
         "path": "/images/story-typer-performance-screenshot.png",

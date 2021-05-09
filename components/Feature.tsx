@@ -10,37 +10,12 @@ import FeatureTech from "./FeatureTech";
 import FeatureDescription from "./FeatureDescription";
 import FeatureVisit from "./FeatureVisit";
 import FeatureCarousel from "./FeatureCarousel";
-import { useMediaQuery } from "@chakra-ui/media-query";
 
 type FeatureProps = {
   project: ProjectInterface
 }
 
-const containerVariantsLg = {
-  hidden: {
-    y: "100vh"
-  },
-  visible: {
-    y: "5vh",
-    transition: {
-      type: "spring",
-      mass: 0.3,
-      damping: 10,
-      when: "beforeChildren",
-      staggerChildren: 0.4,
-    },
-  },
-  exit: {
-    y: "100vh",
-    transition: {
-      type: "spring",
-      mass: 0.3,
-      damping: 8,
-    }
-  }
-}
-
-const containerVariantsSm = {
+const containerVariants = {
   hidden: {
     height: "0%"
   },
@@ -66,7 +41,6 @@ const containerVariantsSm = {
 
 const Feature = ({project}: FeatureProps) => {
   const {showFeature, closeFeature, node} = useFeatureContext();
-  const [isLargerThan930] = useMediaQuery("(min-width: 930px)");
 
   return (
     
@@ -93,7 +67,7 @@ const Feature = ({project}: FeatureProps) => {
               marginY="0" 
               marginX="auto" 
               height="100vh" 
-              variants={isLargerThan930 ? containerVariantsLg : containerVariantsSm} 
+              variants={containerVariants} 
               initial="hidden" 
               animate="visible" 
               exit="exit"
