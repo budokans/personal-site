@@ -6,8 +6,6 @@ import { motion } from "framer-motion";
 import { FeatureMediaInterfaces } from "../interfaces";
 import { MotionBox } from "./MotionBox";
 
-
-
 type FeatureCarouselProps = {
   media: FeatureMediaInterfaces
 }
@@ -72,14 +70,14 @@ const FeatureCarousel = ({media}: FeatureCarouselProps) => {
                   sx={{ scrollSnapAlign: "start", scrollPadding: "1.75rem" }} 
                   p="55px"
                 >
-               
+                <Box sx={disableUserSelect}>
                   <Image 
                     src={mediaItem.path} 
                     height={378} 
                     width={651}
-                    layout="responsive"
-                    // sx={disableUserSelect}
-                  />
+                    className="no-drag"
+                   />
+                </Box>
 
                 </Box>
               )
