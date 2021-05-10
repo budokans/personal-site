@@ -1,10 +1,9 @@
-import { Img } from "@chakra-ui/image";
+import Image from 'next/image'
 import { Box, Stack } from "@chakra-ui/layout"
 import { useMediaQuery } from "@chakra-ui/media-query";
 import { motion } from "framer-motion";
 import { FeatureMediaInterfaces } from "../interfaces";
 import { MotionBox } from "./MotionBox";
-
 
 type FeatureCarouselProps = {
   media: FeatureMediaInterfaces
@@ -37,7 +36,6 @@ const containerVariants = {
 }
 
 const FeatureCarousel = ({media}: FeatureCarouselProps) => {
-  console.log(media)
   const [isLargerThan930] = useMediaQuery("(min-width: 930px)");
   const MotionStack = motion(Stack)
 
@@ -49,7 +47,7 @@ const FeatureCarousel = ({media}: FeatureCarouselProps) => {
   
           <MotionStack
             drag="x"
-            dragConstraints={{left: -3800, right: 0}}
+            dragConstraints={{left: media.length === 5 ? -3020 : 0, right: 0}}
             dragElastic={0.5}
             direction="row"
             alignItems="center"
@@ -71,9 +69,16 @@ const FeatureCarousel = ({media}: FeatureCarouselProps) => {
                   sx={{ scrollSnapAlign: "start", scrollPadding: "1.75rem" }} 
                   p="55px"
                 >
-                  <Box h="100%" w="100%" >        
-                    <Img src={mediaItem.path} objectFit="cover" h="100%" w="100%" sx={disableUserSelect} />
-                  </Box>
+                <Box sx={disableUserSelect}>
+                  <Image 
+                    src={mediaItem.path}
+                    alt={mediaItem.alt}
+                    height={378} 
+                    width={651}
+                    className="no-drag"
+                  />
+                </Box>
+
                 </Box>
               )
             })}
@@ -100,12 +105,19 @@ const FeatureCarousel = ({media}: FeatureCarouselProps) => {
                   borderRadius="xl"
                   height="100%"
                   minWidth="calc(70vw + 35px)"
-                  sx={{ scrollSnapAlign: "start", scrollPadding: "1.75rem" }} 
+                  sx={{ ...disableUserSelect, scrollSnapAlign: "start", scrollPadding: "1.75rem" }} 
                   p="7.5vw"
                 >
 
                   <Box h="100%" w="100%" >        
-                    <Img src={mediaItem.path} objectFit="cover" h="100%" w="100%" />
+                    <Image 
+                      src={mediaItem.path}
+                      alt={mediaItem.alt} 
+                      height="131" 
+                      width="211"
+                      layout="responsive"
+                      className="no-drag"
+                    />
                   </Box>
 
                 </Box>

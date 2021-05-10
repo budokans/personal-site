@@ -1,6 +1,7 @@
 export interface FeatureMediaInterface {
   path: string;
   bg: string;
+  alt: string;
 }
 
 export interface FeatureMediaInterfaces extends Array<FeatureMediaInterface>{}

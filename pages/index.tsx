@@ -29,6 +29,20 @@ const IndexPage = ({ data }: ProjectDataProps ) => {
           name="description"
           content="Portfolio and contact details of full-stack developer, Steven Webster"
         />
+
+        <meta property="og:title" content="Steven Webster"/>
+        <meta property="og:description" content="Steven Webster is a full-stack developer who cares about elegant and intuitive UIs, SEO and performance. Working remotely from Auckland, New Zealand."/>
+        <meta property="og:image" content="https://stevenwebster.co/og.png"/>
+        <meta property="og:locale" content="en_US"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:site_name" content="Steven Webster"/>
+
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:title" content="Steven Webster"/>
+        <meta name="twitter:image:src" content="https://stevenwebster.co/og.png"/>
+        <meta name="twitter:description" content="Steven Webster is a full-stack developer who cares about elegant and intuitive UIs, SEO and performance. Working remotely from Auckland, New Zealand."/>
+        <meta name="twitter:url" content="https://stevenwebster.co"/>
+
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />

@@ -1,66 +1,149 @@
 [
   {
-    "title": "Story Typer",
-    "shortBlurb": "Some short description of the project. Some short description of the project",
-    "icon": "./images/story-typer-logo.jpg",
-    "iconFallback": "",
-    "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
-    "featureMedia": [
-      { "path": "./images/story-typer-screenshot.png", "bg": "#0f0" },
-      { "path": "./images/story-typer-screenshot.png", "bg": "#00db00" },
-      { "path": "./images/story-typer-screenshot.png", "bg": "#ffd700" },
-      { "path": "./images/story-typer-screenshot.png", "bg": "#e9bc90" },
-      { "path": "./images/story-typer-screenshot.png", "bg": "#0000000a" }
-    ],
-    "description": [
-      "First paragraph about the project. Second paragraph about the project"
-    ],
-    "url": "https://storytyper.stevenwebster.co"
-  },
-  {
     "title": "Gretsch Geeks",
-    "shortBlurb": "Some short description of the project. Some short description of the project",
+    "shortBlurb": "An example E-commerce buy-sell platform built with modern React, Apollo 3 and Keystone.js as a headless CMS.",
     "icon": "./images/gretsch-logo.jpg",
-    "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
+    "tech": [
+      "React",
+      "Next.js",
+      "styled-components",
+      "Apollo 3",
+      "Keystone.js",
+      "GraphQL",
+      "postgreSQL"
+    ],
     "featureMedia": [
-      { "path": "./images/story-typer-screenshot.png", "bg": "#ff0000" },
-      { "path": "./images/story-typer-screenshot.png", "bg": "#393939" },
-      { "path": "./images/story-typer-screenshot.png", "bg": "#fff" },
-      { "path": "./images/story-typer-screenshot.png", "bg": "#3b82f6" },
-      { "path": "./images/story-typer-screenshot.png", "bg": "#0000000a" }
+      {
+        "path": "/images/gretsch-geeks-store-screenshot.png",
+        "bg": "#ff0000",
+        "alt": "Gretsch Geeks Store Screenshot"
+      },
+      {
+        "path": "/images/gretsch-geeks-cart-open-screenshot.png",
+        "bg": "#393939",
+        "alt": "Gretsch Geeks with Cart Open Screenshot"
+      },
+      {
+        "path": "/images/gretsch-geeks-order-page-screenshot.png",
+        "bg": "#fff",
+        "alt": "Gretsch Geeks Order Page Screenshot"
+      },
+      {
+        "path": "/images/gretsch-geeks-admin-area-screenshot.png",
+        "bg": "#3b82f6",
+        "alt": "Gretsch Geeks Admin Area Screenshot"
+      },
+      {
+        "path": "/images/gretsch-geeks-performance-screenshot.png",
+        "bg": "white",
+        "alt": "Gretsch Geeks Lighthouse Performance Screenshot"
+      }
     ],
     "description": [
-      "First paragraph about the project. Second paragraph about the project"
+      "The foundations of the project were laid while completing Wes Bos's huge Advanced React with GraphQL course, but the final result was buggy and impossible to deploy in its finished state.",
+      "To fix this, I added much more robust error-handling throughout the application, rebuilt the app with the latest version of Keystone JS, rebuilt the database in postgreSQL as Keystone had now dropped support for Mongoose and moved to Prisma, and successfully deployed to Heroku.",
+      "I also fixed a litany of other bugs, created all mobile styles and made the frontend responsive, all but eliminated FOUC and made the app much more intuitive to use!"
     ],
     "url": "https://gretsch.stevenwebster.co"
   },
   {
     "title": "Netflix Clone",
-    "shortBlurb": "Some short description of the project. Some short description of the project",
+    "shortBlurb": "A clone of the late-2020 Netflix front-end experience, with Firebase for authorization and server.",
     "icon": "./images/netflix-logo.jfif",
-    "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
+    "tech": ["React", "styled-components", "Firebase"],
     "featureMedia": [
-      { "path": "./images/story-typer-screenshot.png", "bg": "#e50914" },
-      { "path": "./images/story-typer-screenshot.png", "bg": "#222" },
-      { "path": "./images/story-typer-screenshot.png", "bg": "#0000000a" },
-      { "path": "./images/story-typer-screenshot.png", "bg": "black" },
-      { "path": "./images/story-typer-screenshot.png", "bg": "#0000000a" }
+      {
+        "path": "/images/netflix-jumbotron-screenshot.png",
+        "bg": "#e50914",
+        "alt": "Netflix Clone Jumbotron Screenshot"
+      },
+      {
+        "path": "/images/netflix-feature-screenshot.png",
+        "bg": "#222",
+        "alt": "Netflix Clone Feature Screenshot"
+      },
+      {
+        "path": "/images/netflix-mobile.png",
+        "bg": "#0000000a",
+        "alt": "Netflix Clone Mobile Screenshot"
+      },
+      {
+        "path": "/images/netflix-browse-screenshot.png",
+        "bg": "black",
+        "alt": "Netflix Clone Browse Screenshot"
+      },
+      {
+        "path": "/images/netflix-home-page-screenshot.png",
+        "bg": "#222",
+        "alt": "Netflix Clone Home Page Screenshot"
+      }
     ],
     "description": [
-      "First paragraph about the project. Second paragraph about the project"
+      "Pretty self-explanatory, really.",
+      "This was my first time using the styled-components - or any CSS-in-JSX styling pattern - and also my first run with compound components.",
+      "While compound components were certainly flexible, it's an awful lot of prop-spreading, making prop type-checking problematic. But it was good to get a feel for the pattern none-the-less.",
+      "Firebase made it super quick to get set up with user auth, and Fuse.js provided a simple and effective search solution that was easy to get working with quickly."
     ],
     "url": "http://netflix.stevenwebster.co"
   },
   {
-    "title": "stevenwebster.co",
-    "shortBlurb": "Some short description of the project. Some short description of the project",
-    "icon": "./images/stevenwebster.co-logo.png",
-    "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
+    "title": "Story Typer",
+    "shortBlurb": "A race-the-clock, retro-themed speed-typing game for desktop browsers with context scraped daily from fiftywordstories.com",
+    "icon": "./images/story-typer-logo.jpg",
+    "iconFallback": "",
+    "tech": ["React", "Next.js", "BEM", "Node.js", "Express", "Cheerio JS"],
     "featureMedia": [
-      { "path": "./images/story-typer-screenshot.png", "bg": "#e2e8f0" }
+      {
+        "path": "/images/story-typer-error-screenshot.png",
+        "bg": "#0f0",
+        "alt": "Story Typer Gameplay Screenshot"
+      },
+      {
+        "path": "/images/story-typer-light-theme-screenshot.png",
+        "bg": "#e9bc90",
+        "alt": "Story Typer Light Theme Screenshot"
+      },
+      {
+        "path": "/images/story-typer-win-screenshot.png",
+        "bg": "#ffd700",
+        "alt": "Story Typer Game Over Screenshot"
+      },
+      {
+        "path": "/images/story-typer-difficulties-screenshot.png",
+        "bg": "#00db00",
+        "alt": "Story Typer Difficulties Screenshot"
+      },
+      {
+        "path": "/images/story-typer-performance-screenshot.png",
+        "bg": "white",
+        "alt": "Story Typer Lighthouse Performance Screenshot"
+      }
     ],
     "description": [
-      "First paragraph about the project. Second paragraph about the project"
+      "Finding myself spending a lot of time on speed-typing apps like TypeRacer, I decided to craft one of my own for my first React project",
+      "Rather than the usual open-ended stopwatch-timed game, I decided to go for a countdown clock to put more pressure on the player. This necessitated texts of roughly equal length - enter 50wordstories.com",
+      "Unhappy with the overhead of manually inputting the stories and other meta information myself, I built an Express server and wrote a scraper with Cheerio JS that pushes all the scraped data to a mongoDB server",
+      "It was also a great Regex workout to get all the formatting done correctly as the stories are scraped!"
+    ],
+    "url": "https://storytyper.stevenwebster.co"
+  },
+  {
+    "title": "stevenwebster.co",
+    "shortBlurb": "You're here right now!",
+    "icon": "./images/stevenwebster.co-logo.png",
+    "tech": ["React", "Next.js", "TypeScript", "Chakra UI", "Framer Motion"],
+    "featureMedia": [
+      {
+        "path": "/images/netflix-browse-screenshot.png",
+        "bg": "#e2e8f0",
+        "alt": "Stevenwebster.co Lighthouse Performance Screenshot"
+      }
+    ],
+    "description": [
+      "My first time using a React UI component library instead of building most components entirely from scratch, and I'm happy with the result!",
+      "I chose new-kid-on-the-block Chakra UI over more established alternatives like Material UI, and Chakra integrates easily with Framer Motion to make draggable components and entrance/exit animations a breeze.",
+      "Completely statically generated with Next.js so it's blazing fast, with images stored locally and optimized on-the-fly with Next's Image component.",
+      "Deployed on Vercel, and crafted using the Develop, Preview, Ship workflow."
     ]
   }
 ]
