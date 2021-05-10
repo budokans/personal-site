@@ -13,22 +13,30 @@
       "postgreSQL"
     ],
     "featureMedia": [
-      { "path": "/images/gretsch-geeks-store-screenshot.png", "bg": "#ff0000" },
+      {
+        "path": "/images/gretsch-geeks-store-screenshot.png",
+        "bg": "#ff0000",
+        "alt": "Gretsch Geeks Store Screenshot"
+      },
       {
         "path": "/images/gretsch-geeks-cart-open-screenshot.png",
-        "bg": "#393939"
+        "bg": "#393939",
+        "alt": "Gretsch Geeks with Cart Open Screenshot"
       },
       {
         "path": "/images/gretsch-geeks-order-page-screenshot.png",
-        "bg": "#fff"
+        "bg": "#fff",
+        "alt": "Gretsch Geeks Order Page Screenshot"
       },
       {
         "path": "/images/gretsch-geeks-admin-area-screenshot.png",
-        "bg": "#3b82f6"
+        "bg": "#3b82f6",
+        "alt": "Gretsch Geeks Admin Area Screenshot"
       },
       {
         "path": "/images/gretsch-geeks-performance-screenshot.png",
-        "bg": "white"
+        "bg": "white",
+        "alt": "Gretsch Geeks Lighthouse Performance Screenshot"
       }
     ],
     "description": [
@@ -42,14 +50,31 @@
     "icon": "./images/netflix-logo.jfif",
     "tech": ["React", "styled-components", "Firebase"],
     "featureMedia": [
-      { "path": "/images/netflix-jumbotron-screenshot.png", "bg": "#e50914" },
-      { "path": "/images/netflix-feature-screenshot.png", "bg": "#222" },
+      {
+        "path": "/images/netflix-jumbotron-screenshot.png",
+        "bg": "#e50914",
+        "alt": "Netflix Clone Jumbotron Screenshot"
+      },
+      {
+        "path": "/images/netflix-feature-screenshot.png",
+        "bg": "#222",
+        "alt": "Netflix Clone Feature Screenshot"
+      },
       {
         "path": "/images/netflix-mobile.png",
-        "bg": "#0000000a"
+        "bg": "#0000000a",
+        "alt": "Netflix Clone Mobile Screenshot"
       },
-      { "path": "/images/netflix-browse-screenshot.png", "bg": "black" },
-      { "path": "/images/netflix-home-page-screenshot.png", "bg": "#222" }
+      {
+        "path": "/images/netflix-browse-screenshot.png",
+        "bg": "black",
+        "alt": "Netflix Clone Browse Screenshot"
+      },
+      {
+        "path": "/images/netflix-home-page-screenshot.png",
+        "bg": "#222",
+        "alt": "Netflix Clone Home Page Screenshot"
+      }
     ],
     "description": [
       "First paragraph about the project. Second paragraph about the project"
@@ -63,19 +88,30 @@
     "iconFallback": "",
     "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
     "featureMedia": [
-      { "path": "/images/story-typer-error-screenshot.png", "bg": "#0f0" },
+      {
+        "path": "/images/story-typer-error-screenshot.png",
+        "bg": "#0f0",
+        "alt": "Story Typer Gameplay Screenshot"
+      },
       {
         "path": "/images/story-typer-light-theme-screenshot.png",
-        "bg": "#e9bc90"
+        "bg": "#e9bc90",
+        "alt": "Story Typer Light Theme Screenshot"
       },
-      { "path": "/images/story-typer-win-screenshot.png", "bg": "#ffd700" },
+      {
+        "path": "/images/story-typer-win-screenshot.png",
+        "bg": "#ffd700",
+        "alt": "Story Typer Game Over Screenshot"
+      },
       {
         "path": "/images/story-typer-difficulties-screenshot.png",
-        "bg": "#00db00"
+        "bg": "#00db00",
+        "alt": "Story Typer Difficulties Screenshot"
       },
       {
         "path": "/images/story-typer-performance-screenshot.png",
-        "bg": "white"
+        "bg": "white",
+        "alt": "Story Typer Lighthouse Performance Screenshot"
       }
     ],
     "description": [
@@ -89,7 +125,11 @@
     "icon": "./images/stevenwebster.co-logo.png",
     "tech": ["React", "Next.js", "TypeScript", "Chakra UI", "Framer Motion"],
     "featureMedia": [
-      { "path": "/images/netflix-browse-screenshot.png", "bg": "#e2e8f0" }
+      {
+        "path": "/images/netflix-browse-screenshot.png",
+        "bg": "#e2e8f0",
+        "alt": "Stevenwebster.co Lighthouse Performance Screenshot"
+      }
     ],
     "description": [
       "First paragraph about the project. Second paragraph about the project"

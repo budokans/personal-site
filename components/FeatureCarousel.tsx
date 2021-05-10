@@ -71,11 +71,12 @@ const FeatureCarousel = ({media}: FeatureCarouselProps) => {
                 >
                 <Box sx={disableUserSelect}>
                   <Image 
-                    src={mediaItem.path} 
+                    src={mediaItem.path}
+                    alt={mediaItem.alt}
                     height={378} 
                     width={651}
                     className="no-drag"
-                   />
+                  />
                 </Box>
 
                 </Box>
@@ -109,7 +110,9 @@ const FeatureCarousel = ({media}: FeatureCarouselProps) => {
                 >
 
                   <Box h="100%" w="100%" >        
-                    <Image src={mediaItem.path} 
+                    <Image 
+                      src={mediaItem.path}
+                      alt={mediaItem.alt} 
                       height="131" 
                       width="211"
                       layout="responsive"

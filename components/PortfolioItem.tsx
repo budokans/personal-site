@@ -37,11 +37,11 @@ const PortfolioItem = ({project, idx}: PortFolioItemProps) => {
       <Flex role="group" direction="row">
 
         <Img 
-          src={project.icon} 
+          src={project.icon}
+          alt={`${project.title} icon`}
           boxSize={16} 
           objectFit="cover"
-          rounded="xl" 
-          alt={`${project.title} icon`} 
+          rounded="xl"
           mr={[3, 4]} 
         />
 

@@ -17,7 +17,13 @@ const FeatureHeader = ({project}: FeatureHeaderProps) => {
       spacing={4}
     >
 
-      <Img src={project.icon} borderRadius="xl" width={["65px", "90px"]} height={["65px", "90px"]} />
+      <Img 
+        src={project.icon} 
+        alt={`${project.title} Icon`} 
+        borderRadius="xl" 
+        width={["65px", "90px"]} 
+        height={["65px", "90px"]} 
+      />
 
       <Box maxW="350px">
         
