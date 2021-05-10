@@ -120,9 +120,9 @@
       }
     ],
     "description": [
-      "Finding myself spending a lot of time on speed-typing apps like TypeRacer, I decided to craft one of my own for my first React project",
-      "Rather than the usual open-ended stopwatch-timed game, I decided to go for a countdown clock to put more pressure on the player. This necessitated texts of roughly equal length - enter 50wordstories.com",
-      "Unhappy with the overhead of manually inputting the stories and other meta information myself, I built an Express server and wrote a scraper with Cheerio JS that pushes all the scraped data to a mongoDB server",
+      "Finding myself spending a lot of time on speed-typing apps like TypeRacer, I decided to craft one of my own for my first React project.",
+      "Rather than the usual open-ended stopwatch-timed game, I decided to go for a countdown clock to put more pressure on the player. This necessitated texts of roughly equal length - enter 50wordstories.com.",
+      "Unhappy with the overhead of manually inputting the stories and other meta information myself, I built an Express server and wrote a scraper with Cheerio JS that pushes all the scraped data to a mongoDB server.",
       "It was also a great Regex workout to get all the formatting done correctly as the stories are scraped!"
     ],
     "url": "https://storytyper.stevenwebster.co"
