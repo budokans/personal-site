@@ -10,7 +10,7 @@ export default function Header() {
         fontWeight="normal" 
         lineHeight={1.3}
       >
-        Steven Webster is a full-stack engineer who cares about elegant, intuitive UIs, SEO and performance. Working remotely from Auckland, New Zealand.
+        Steven Webster is a full-stack developer who cares about elegant and intuitive UIs, SEO and performance. Working remotely from Auckland, New Zealand.
       </Heading>
 
       <Links />
