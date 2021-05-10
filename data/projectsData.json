@@ -86,7 +86,7 @@
     "shortBlurb": "Some short description of the project. Some short description of the project",
     "icon": "./images/story-typer-logo.jpg",
     "iconFallback": "",
-    "tech": ["React", "Next.js", "Node.js", "Express", "Cheerio JS"],
+    "tech": ["React", "Next.js", "BEM", "Node.js", "Express", "Cheerio JS"],
     "featureMedia": [
       {
         "path": "/images/story-typer-error-screenshot.png",
