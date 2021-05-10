@@ -7,14 +7,15 @@ type FeatureDescriptionProps = {
 
 const FeatureDescription = ({project}: FeatureDescriptionProps) => {
   return (
-    <Box px={[4, 9]} maxW={["100%", "70%"]}>
+    <Box px={[4, 9]} maxW={["100%", "100%", "70%"]}>
 
       {project.description.map((paragraph, idx) => {
         return (
         <Text 
           fontSize="clamp(14px, 11.6px + 0.5vw, 18px)"
           key={idx}
-          my={[2, 5]}
+          my={[3, 5]}
+          lineHeight={1.7}
         >
           {paragraph}
         </Text>
