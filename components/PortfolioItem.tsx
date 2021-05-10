@@ -39,7 +39,8 @@ const PortfolioItem = ({project, idx}: PortFolioItemProps) => {
         <Img 
           src={project.icon}
           alt={`${project.title} icon`}
-          boxSize={16} 
+          w="64px"
+          h="64px"
           objectFit="cover"
           rounded="xl"
           mr={[3, 4]} 
