@@ -31,6 +31,7 @@ const FeatureHeader = ({project}: FeatureHeaderProps) => {
           as="h2" 
           fontSize="2xl"
           fontWeight={600}
+          mb={[0, 0, 1]}
         >
           {project.title}
         </Heading>
