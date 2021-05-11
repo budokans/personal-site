@@ -105,7 +105,7 @@ const Feature = ({project}: FeatureProps) => {
                       <Divider orientation="horizontal" />
                     </Box>
 
-                    <Stack spacing={6} mb={12}>
+                    <Stack spacing={6} mb={20}>
 
                       <FeatureTech project={project} />
 
