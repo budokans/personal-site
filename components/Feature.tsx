@@ -1,10 +1,10 @@
 import { Box, Divider, Stack } from "@chakra-ui/layout";
-import { MotionBox } from "./MotionBox";
 import SimpleBar from 'simplebar-react';
 import { CloseButton } from "@chakra-ui/close-button";
-import { useFeatureContext } from "../lib/featureContext";
 import { AnimatePresence } from "framer-motion";
+import { useFeatureContext } from "../lib/featureContext";
 import { ProjectInterface } from "../interfaces";
+import { MotionBox } from "./MotionBox";
 import FeatureHeader from "./FeatureHeader";
 import FeatureTech from "./FeatureTech";
 import FeatureDescription from "./FeatureDescription";
@@ -113,6 +113,7 @@ const Feature = ({project}: FeatureProps) => {
 
                       <FeatureDescription description={project.description} />
                       
+                      {/* Don't display FeatureVisit for stevenwebster.co */}
                       {project.url && (
                         <FeatureVisit url={project.url} />
                       )}
@@ -125,7 +126,6 @@ const Feature = ({project}: FeatureProps) => {
           </>
         )}
       </AnimatePresence>
-
   )
 }
 
