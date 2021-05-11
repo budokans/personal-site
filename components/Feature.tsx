@@ -107,7 +107,7 @@ const Feature = ({project}: FeatureProps) => {
 
                     <Stack spacing={6} mb={20}>
 
-                      <FeatureTech project={project} />
+                      <FeatureTech tech={project.tech} />
 
                       <FeatureCarousel media={project.featureMedia} />
 
