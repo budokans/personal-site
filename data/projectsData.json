@@ -10,7 +10,8 @@
       "Apollo 3",
       "Keystone.js",
       "GraphQL",
-      "postgreSQL"
+      "postgreSQL",
+      "Stripe"
     ],
     "featureMedia": [
       {
@@ -81,7 +82,7 @@
     "description": [
       "Pretty self-explanatory, really.",
       "This was my first time using the styled-components - or any CSS-in-JSX styling pattern - and also my first run with compound components.",
-      "While compound components were certainly flexible, it's an awful lot of prop-spreading, making prop type-checking problematic. But it was good to get a feel for the pattern none-the-less.",
+      "While compound components were certainly flexible, it's an awful lot of prop-spreading and it becomes problematic if you want robust prop type-checking.. But it was good to get a feel for the pattern none-the-less.",
       "Firebase made it super quick to get set up with user auth, and Fuse.js provided a simple and effective search solution that was easy to get working with quickly."
     ],
     "url": "http://netflix.stevenwebster.co"
@@ -140,8 +141,8 @@
       }
     ],
     "description": [
-      "My first time using a React UI component library instead of building most components entirely from scratch, and I'm happy with the result, scoring 100/100 in Performance, Accessibility, Best Practices and SEO with Google Lighthouse!",
-      "I chose new-kid-on-the-block Chakra UI over more established alternatives like Material UI, and Chakra integrates easily with Framer Motion to make draggable components and entrance/exit animations a breeze.",
+      "My first time using a React UI component library instead of building most components entirely from scratch, and I'm happy with the result, scoring 100/100 in Performance, Accessibility, Best Practices and SEO with Google Lighthouse.",
+      "I chose new-kid-on-the-block Chakra UI over more established alternatives like Material UI, and Chakra integrates easily with Framer Motion to make draggable components and animations a breeze.",
       "Completely statically generated with Next.js so it's blazing fast, with images stored locally and optimized on-the-fly with Next's Image component.",
       "Deployed on Vercel, and crafted using the Develop, Preview, Ship workflow."
     ]
