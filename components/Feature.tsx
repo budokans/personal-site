@@ -111,7 +111,7 @@ const Feature = ({project}: FeatureProps) => {
 
                       <FeatureCarousel media={project.featureMedia} />
 
-                      <FeatureDescription project={project} />
+                      <FeatureDescription description={project.description} />
                       
                       {project.url && (
                         <FeatureVisit url={project.url} />

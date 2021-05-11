@@ -1,15 +1,14 @@
-import { Box, Text } from "@chakra-ui/layout"
-import { ProjectInterface } from "../interfaces";
+import { Box, Text } from "@chakra-ui/layout";
 
 type FeatureDescriptionProps = {
-  project: ProjectInterface
+  description: string[]
 }
 
-const FeatureDescription = ({project}: FeatureDescriptionProps) => {
+const FeatureDescription = ({description}: FeatureDescriptionProps) => {
   return (
     <Box px={[4, 9]} maxW={["100%", "100%", "70%"]}>
 
-      {project.description.map((paragraph, idx) => {
+      {description.map((paragraph, idx) => {
         return (
         <Text 
           fontSize="clamp(14px, 11.6px + 0.5vw, 18px)"
