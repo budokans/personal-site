@@ -17,13 +17,17 @@ const disableUserSelect = {
   "WebkitUserSelect": "none",
 	"WebkitUserDrag": "none",
 	"WebkitAppRegion": "no-drag",
+  "userSelect": "none",
+  "MozUserSelect": "none",
+	"KhtmlUserSelect": "none",
+	"OUserSelect": "none",
 }
 
 type CarouselContainerProps = {
   media: FeatureMediaInterfaces
 }
 
-interface HideScrollBarInterface {
+interface DisableUserSelectInterface {
   "WebkitUserSelect": string,
 	"WebkitUserDrag": string,
 	"WebkitAppRegion": string,
@@ -32,7 +36,7 @@ interface HideScrollBarInterface {
 export type FeatureCarouselProps = {
   media: FeatureMediaInterfaces,
   hideScrollbar: CSSObject,
-  disableUserSelect: HideScrollBarInterface,
+  disableUserSelect: DisableUserSelectInterface,
 }
 
 const containerVariants = {
