@@ -69,15 +69,16 @@ const FeatureCarousel = ({media}: FeatureCarouselProps) => {
                   sx={{ scrollSnapAlign: "start", scrollPadding: "1.75rem" }} 
                   p="55px"
                 >
-                <Box sx={disableUserSelect}>
-                  <Image 
-                    src={mediaItem.path}
-                    alt={mediaItem.alt}
-                    height={378} 
-                    width={651}
-                    className="no-drag"
-                  />
-                </Box>
+
+                  <Box sx={disableUserSelect}>
+                    <Image 
+                      src={mediaItem.path}
+                      alt={mediaItem.alt}
+                      height={378} 
+                      width={651}
+                      className="no-drag"
+                    />
+                  </Box>
 
                 </Box>
               )
@@ -85,6 +86,7 @@ const FeatureCarousel = ({media}: FeatureCarouselProps) => {
           </MotionStack>
       
         ) : ( 
+
           <Stack 
             direction="row"
             alignItems="center"
@@ -109,22 +111,22 @@ const FeatureCarousel = ({media}: FeatureCarouselProps) => {
                   p="7.5vw"
                 >
 
-                  <Box h="100%" w="100%" >        
-                    <Image 
-                      src={mediaItem.path}
-                      alt={mediaItem.alt} 
-                      height="131" 
-                      width="211"
-                      layout="responsive"
-                      className="no-drag"
-                    />
-                  </Box>
+                  <Image 
+                    src={mediaItem.path}
+                    alt={mediaItem.alt} 
+                    height={131} 
+                    width={211}
+                    layout="responsive"
+                    className="no-drag"
+                  />
 
                 </Box>
               )
             })}
           </Stack>
+          
         )}
+
       </MotionBox>
     </Box>
   )
