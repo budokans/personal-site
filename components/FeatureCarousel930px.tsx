@@ -1,9 +1,15 @@
 import { Box, Stack } from "@chakra-ui/layout";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FeatureCarouselProps } from "./FeatureCarousel"
+import { FeatureCarouselProps } from "./FeatureCarouselContainer"
 
-const FeatureCarousel930px = ({media, hideScrollbar, disableUserSelect}: FeatureCarouselProps ) => {
+const FeatureCarousel930px = (
+  {
+    media, 
+    hideScrollbar, 
+    disableUserSelect
+  }: FeatureCarouselProps) => {
+
   const MotionStack = motion(Stack);
 
   return (

@@ -9,7 +9,7 @@ import FeatureHeader from "./FeatureHeader";
 import FeatureTech from "./FeatureTech";
 import FeatureDescription from "./FeatureDescription";
 import FeatureVisit from "./FeatureVisit";
-import FeatureCarousel from "./FeatureCarousel";
+import FeatureCarouselContainer from "./FeatureCarouselContainer";
 
 type FeatureProps = {
   project: ProjectInterface
@@ -109,7 +109,7 @@ const Feature = ({project}: FeatureProps) => {
 
                       <FeatureTech tech={project.tech} />
 
-                      <FeatureCarousel media={project.featureMedia} />
+                      <FeatureCarouselContainer media={project.featureMedia} />
 
                       <FeatureDescription description={project.description} />
                       
