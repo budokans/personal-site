@@ -1,8 +1,8 @@
+import { useEffect, useState } from "react";
 import { Button } from "@chakra-ui/button";
 import { Img } from "@chakra-ui/image";
 import { Box, Flex, Heading, Text } from "@chakra-ui/layout";
 import { useMediaQuery } from "@chakra-ui/media-query";
-import { useEffect, useState } from "react";
 import { ProjectInterface } from "../interfaces";
 import { useFeatureContext } from "../lib/featureContext";
 
@@ -22,7 +22,15 @@ const PortfolioItem = ({project, idx}: PortFolioItemProps) => {
     } else if (idx > 2) {
       setAfterStyle({})
     } else {
-      setAfterStyle({ background: "gray.300", position: "absolute", content: `""`, bottom: "-17px", width: "100%", height: "1px", display: "block"})
+      setAfterStyle({ 
+        background: "gray.300", 
+        position: "absolute", 
+        content: `""`, 
+        bottom: "-17px", 
+        width: "100%", 
+        height: "1px", 
+        display: "block"
+      })
     }
   }, [isLargerThan768])
 

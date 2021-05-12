@@ -17,7 +17,7 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-const IndexPage = ({ data }: ProjectDataProps ) => {
+const IndexPage = ({ data }: ProjectDataProps) => {
   const { projectToFeature, showFeature } = useFeatureContext();
   const project: ProjectInterface = data[projectToFeature];
   

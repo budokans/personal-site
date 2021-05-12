@@ -1,8 +1,7 @@
 import { Badge, Box, Heading, Stack } from "@chakra-ui/layout"
-import { ProjectInterface } from "../interfaces"
 
 type FeatureTechProps = {
-  project: ProjectInterface
+  tech: string[]
 }
 
 const hideScrollbar = {
@@ -12,15 +11,24 @@ const hideScrollbar = {
   },
 }
 
-const FeatureTech = ({project}: FeatureTechProps) => {
+const FeatureTech = ({tech}: FeatureTechProps) => {
   return (
     <Box overflow="hidden" px={[4, 9]} >
 
-      <Heading as="h5" fontSize="clamp(11px, 10.4px + 0.13vw, 12px);" fontWeight="400" opacity="0.75" textTransform="uppercase" mb={3} >Tech</Heading>
+      <Heading 
+        as="h5" 
+        fontSize="clamp(11px, 10.4px + 0.13vw, 12px);" 
+        fontWeight="400" 
+        opacity="0.75" 
+        textTransform="uppercase" 
+        mb={3} 
+      >
+        Tech
+      </Heading>
 
       <Stack direction="row" overflowX="auto" whiteSpace="nowrap" sx={hideScrollbar}>
 
-        { project.tech.map((tech, idx) => {
+        { tech.map((tech, idx) => {
           return (
             <Box key={idx}>
               <Badge 

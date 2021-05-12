@@ -1,7 +1,7 @@
 import { Heading, Stack } from "@chakra-ui/layout";
 import Links from "./Links";
 
-export default function Header() {
+const Header: React.FC = (): React.ReactElement => {
   return (
     <Stack w={['full', '90%', '80%', '900px']} spacing={5}>
       
@@ -19,3 +19,4 @@ export default function Header() {
   )
 }
 
+export default Header;

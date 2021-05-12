@@ -1,15 +1,15 @@
 import { Box, Divider, Stack } from "@chakra-ui/layout";
-import { MotionBox } from "./MotionBox";
 import SimpleBar from 'simplebar-react';
 import { CloseButton } from "@chakra-ui/close-button";
-import { useFeatureContext } from "../lib/featureContext";
 import { AnimatePresence } from "framer-motion";
+import { useFeatureContext } from "../lib/featureContext";
 import { ProjectInterface } from "../interfaces";
+import { MotionBox } from "./MotionBox";
 import FeatureHeader from "./FeatureHeader";
 import FeatureTech from "./FeatureTech";
 import FeatureDescription from "./FeatureDescription";
 import FeatureVisit from "./FeatureVisit";
-import FeatureCarousel from "./FeatureCarousel";
+import FeatureCarouselContainer from "./FeatureCarouselContainer";
 
 type FeatureProps = {
   project: ProjectInterface
@@ -105,14 +105,15 @@ const Feature = ({project}: FeatureProps) => {
                       <Divider orientation="horizontal" />
                     </Box>
 
-                    <Stack spacing={6} mb={12}>
+                    <Stack spacing={6} mb={20}>
 
-                      <FeatureTech project={project} />
+                      <FeatureTech tech={project.tech} />
 
-                      <FeatureCarousel media={project.featureMedia} />
+                      <FeatureCarouselContainer media={project.featureMedia} />
 
-                      <FeatureDescription project={project} />
+                      <FeatureDescription description={project.description} />
                       
+                      {/* Don't display FeatureVisit for stevenwebster.co */}
                       {project.url && (
                         <FeatureVisit url={project.url} />
                       )}
@@ -125,7 +126,6 @@ const Feature = ({project}: FeatureProps) => {
           </>
         )}
       </AnimatePresence>
-
   )
 }
 
