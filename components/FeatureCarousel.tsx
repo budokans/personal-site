@@ -1,13 +1,10 @@
 import Image from 'next/image'
 import { Box, Stack } from "@chakra-ui/layout"
 import { useMediaQuery } from "@chakra-ui/media-query";
-import { motion } from "framer-motion";
 import { FeatureMediaInterfaces } from "../interfaces";
 import { MotionBox } from "./MotionBox";
-
-type FeatureCarouselProps = {
-  media: FeatureMediaInterfaces
-}
+import { CSSObject } from '@emotion/serialize';
+import FeatureCarousel930px from './FeatureCarousel930px';
 
 const hideScrollbar = {
   '&::-webkit-scrollbar': {
@@ -20,6 +17,22 @@ const disableUserSelect = {
   "WebkitUserSelect": "none",
 	"WebkitUserDrag": "none",
 	"WebkitAppRegion": "no-drag",
+}
+
+type FeatureContainerProps = {
+  media: FeatureMediaInterfaces
+}
+
+interface HideScrollBarInterface {
+  "WebkitUserSelect": string,
+	"WebkitUserDrag": string,
+	"WebkitAppRegion": string,
+}
+
+export type FeatureCarouselProps = {
+  media: FeatureMediaInterfaces,
+  hideScrollbar: CSSObject,
+  disableUserSelect: HideScrollBarInterface,
 }
 
 const containerVariants = {
@@ -35,55 +48,22 @@ const containerVariants = {
   }
 }
 
-const FeatureCarousel = ({media}: FeatureCarouselProps) => {
+const FeatureCarousel = ({media}: FeatureContainerProps) => {
   const [isLargerThan930] = useMediaQuery("(min-width: 930px)");
-  const MotionStack = motion(Stack)
+  
 
   return (
     <Box overflow="hidden" px={[4, 9]}>
       <MotionBox variants={containerVariants} initial="hidden" animate="visible" >
 
         { isLargerThan930 ? (
-  
-          <MotionStack
-            drag="x"
-            dragConstraints={{left: media.length === 5 ? -3020 : 0, right: 0}}
-            dragElastic={0.5}
-            direction="row"
-            alignItems="center"
-            spacing={4} 
-            height="490px"
-            whiteSpace="nowrap" 
-            sx={{ ...hideScrollbar, scrollSnapType: "x mandatory" }} 
-            cursor="grab"
-          >
-            { media.map((mediaItem, idx) => {
-              return (
-                <Box 
-                  key={idx} 
-                  border="1px solid black"
-                  bg={mediaItem.bg} 
-                  borderRadius="2xl"
-                  height="100%"
-                  minWidth="763px"
-                  sx={{ scrollSnapAlign: "start", scrollPadding: "1.75rem" }} 
-                  p="55px"
-                >
-
-                  <Box sx={disableUserSelect}>
-                    <Image 
-                      src={mediaItem.path}
-                      alt={mediaItem.alt}
-                      height={378} 
-                      width={651}
-                      className="no-drag"
-                    />
-                  </Box>
-
-                </Box>
-              )
-            })}
-          </MotionStack>
+        
+        <FeatureCarousel930px 
+          media={media} 
+          hideScrollbar={hideScrollbar} 
+          disableUserSelect={disableUserSelect}
+        />
+          
       
         ) : ( 
 
@@ -124,7 +104,7 @@ const FeatureCarousel = ({media}: FeatureCarouselProps) => {
               )
             })}
           </Stack>
-          
+
         )}
 
       </MotionBox>
