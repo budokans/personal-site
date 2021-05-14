@@ -31,6 +31,10 @@ interface DisableUserSelectInterface {
   "WebkitUserSelect": string,
 	"WebkitUserDrag": string,
 	"WebkitAppRegion": string,
+  "userSelect": string,
+  "MozUserSelect": string,
+	"KhtmlUserSelect": string,
+	"OUserSelect": string,
 }
 
 export type FeatureCarouselProps = {
@@ -47,7 +51,8 @@ const containerVariants = {
     x: 0,
     transition: {
       type: "spring",
-      damping: 20,
+      damping: 18,
+      mass: 1,
     }
   }
 }

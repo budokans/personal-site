@@ -61,7 +61,7 @@ const IndexPage = ({ data }: ProjectDataProps) => {
         marginY="0" 
         marginX="auto" 
         sx={showFeature ? 
-          { filter: "blur(5px)", transition: "filter 0.5s ease"} 
+          { filter: "blur(5px)", transition: "filter 0.5s ease 0.5s"} 
           : 
           { filter: "blur(0px)", transition: "filter 0.5s ease" } 
         }
