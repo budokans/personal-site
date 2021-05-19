@@ -41,7 +41,7 @@
       }
     ],
     "description": [
-      "The foundations of the project were laid while completing Wes Bos's huge Advanced React with GraphQL course, but the final result was buggy and impossible to deploy in its finished state.",
+      "The foundations of the project were laid while completing Wes Bos's huge <a href='https://advancedreact.com/' rel='noreferrer noopener' target='_blank' style='font-weight: 500'>Advanced React with GraphQL</a> course, but the final result was buggy and impossible to deploy in its finished state.",
       "To fix this, I added much more robust error-handling throughout the application, rebuilt the app with the latest version of Keystone JS, rebuilt the database in postgreSQL as Keystone had now dropped support for Mongoose and moved to Prisma, and successfully deployed to Heroku.",
       "I also fixed a litany of other bugs, created all mobile styles and made the frontend responsive, eliminated Cumulative Layout Shift and made the app much more intuitive to use."
     ],
@@ -121,8 +121,8 @@
       }
     ],
     "description": [
-      "Finding myself spending a lot of time on speed-typing apps like TypeRacer, I decided to craft one of my own for my first React project.",
-      "Rather than the usual open-ended stopwatch-timed game, I decided to go for a countdown clock to put more pressure on the player. This necessitated texts of roughly equal length - enter 50wordstories.com.",
+      "Finding myself spending a lot of time on speed-typing apps like <a href='https://play.typeracer.com' rel='noreferrer noopener' target='_blank' style='font-weight: 500'>TypeRacer</a>, I decided to craft one of my own for my first React project.",
+      "Rather than the usual open-ended stopwatch-timed game, I decided to go for a countdown clock to put more pressure on the player. This necessitated texts of roughly equal length - enter <a href='http://fiftywordstories.com' rel='noreferrer noopener' target='_blank' style='font-weight: 500'>fiftywordstories.com</a>.",
       "Unhappy with the overhead of manually inputting the stories and other meta information myself, I built an Express server and wrote a scraper with Cheerio JS that pushes all the scraped data to a mongoDB server.",
       "It was also a great Regex workout to get all the formatting done correctly as the stories are scraped!"
     ],

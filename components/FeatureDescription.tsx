@@ -1,4 +1,5 @@
 import { Box, Text } from "@chakra-ui/layout";
+import parse from 'html-react-parser';
 
 type FeatureDescriptionProps = {
   description: string[]
@@ -16,7 +17,7 @@ const FeatureDescription = ({description}: FeatureDescriptionProps) => {
           my={[3, 5]}
           lineHeight={1.7}
         >
-          {paragraph}
+          {parse(paragraph)}
         </Text>
         )
       })}
