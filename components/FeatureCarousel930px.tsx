@@ -45,6 +45,7 @@ const FeatureCarousel930px = (
                 height={378} 
                 width={651}
                 className="no-drag"
+                priority={idx < 2}
               />
             </Box>
 
