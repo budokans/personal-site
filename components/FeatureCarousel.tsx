@@ -41,6 +41,7 @@ const FeatureCarousel = (
               width={211}
               layout="responsive"
               className="no-drag"
+              priority={idx < 2}
             />
 
           </Box>
