@@ -4,7 +4,7 @@ import { CloseButton } from "@chakra-ui/close-button";
 import { AnimatePresence } from "framer-motion";
 import { useFeatureContext } from "../lib/featureContext";
 import { ProjectInterface } from "../interfaces";
-import { MotionBox } from "./MotionBox";
+import { MotionBox } from "./Motion";
 import FeatureHeader from "./FeatureHeader";
 import FeatureTech from "./FeatureTech";
 import FeatureDescription from "./FeatureDescription";
