@@ -1,27 +1,27 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { ContextType } from "../interfaces"
-import { createCtx } from './createCtx';
+import React, { useEffect, useRef, useState } from "react";
+import { ContextType } from "../interfaces";
+import { createCtx } from "./createCtx";
 
 const [useFeatureContext, CtxProvider] = createCtx<ContextType>();
 export { useFeatureContext };
 
-type Props = {
-  children: React.ReactNode;
-};
+// type Props = {
+//   children: React.ReactNode;
+// };
 
-export const FeatureContextProvider = ({children}: Props) => {
-  const [projectToFeature, setProjectToFeature] = useState<number>(0);
-  const [showFeature, setShowFeature] = useState<boolean>(false);
+export const FeatureContextProvider: React.FC = ({ children }) => {
+  const [projectToFeature, setProjectToFeature] = useState(0);
+  const [showFeature, setShowFeature] = useState(false);
   const node = useRef<HTMLDivElement>(null);
 
-  const openFeature = (id: number): void => {
+  const openFeature = (id: number) => {
     setProjectToFeature(id);
     setShowFeature(true);
-  }
+  };
 
-  const closeFeature = (): void => {
+  const closeFeature = () => {
     setShowFeature(false);
-  }
+  };
 
   const handleClickOutside = (e: MouseEvent) => {
     const target = e.target as HTMLElement;
@@ -35,24 +35,27 @@ export const FeatureContextProvider = ({children}: Props) => {
 
   useEffect(() => {
     if (showFeature) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     } else {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [showFeature]);
 
   useEffect(() => {
-    document.getElementsByTagName('body')[0].style.overflow = showFeature ? "hidden" : "visible";
-  }, [showFeature])
+    document.getElementsByTagName("body")[0].style.overflow = showFeature
+      ? "hidden"
+      : "visible";
+  }, [showFeature]);
 
   return (
-    <CtxProvider 
-      value={{projectToFeature, showFeature, openFeature, closeFeature, node }}>
-        {children}
+    <CtxProvider
+      value={{ projectToFeature, showFeature, openFeature, closeFeature, node }}
+    >
+      {children}
     </CtxProvider>
-  )
-}
+  );
+};
