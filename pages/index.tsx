@@ -9,7 +9,7 @@ import Portfolio from "../components/Portfolio";
 import Feature from "../components/Feature";
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = getData();
+  const [data] = getData();
   return {
     props: {
       data,
