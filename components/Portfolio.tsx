@@ -1,8 +1,12 @@
 import { SimpleGrid } from "@chakra-ui/layout";
-import { ProjectDataProps } from "../interfaces";
+import { ProjectInterface } from "../interfaces";
 import PortfolioItem from "./PortfolioItem";
 
-const Portfolio: React.FC<ProjectDataProps> = ({ data }) => {
+interface PortfolioPropsInterface {
+  data: ProjectInterface[];
+}
+
+const Portfolio: React.FC<PortfolioPropsInterface> = ({ data }) => {
   return (
     <SimpleGrid
       columns={[1, 1, 2]}
