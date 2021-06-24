@@ -9,18 +9,18 @@ import Portfolio from "../components/Portfolio";
 import Feature from "../components/Feature";
 
 export const getStaticProps: GetStaticProps = async () => {
-  const [metadata, data] = getData();
+  const [metadata, projects] = getData();
   return {
     props: {
       metadata,
-      data,
+      projects,
     },
   };
 };
 
-const IndexPage: React.FC<ApplicationProps> = ({ metadata, data }) => {
+const IndexPage: React.FC<ApplicationProps> = ({ metadata, projects }) => {
   const { projectToFeature, showFeature } = useFeatureContext();
-  const project = data[projectToFeature];
+  const project = projects[projectToFeature];
 
   return (
     <>
@@ -42,9 +42,9 @@ const IndexPage: React.FC<ApplicationProps> = ({ metadata, data }) => {
             : { filter: "blur(0px)", transition: "filter 0.5s ease" }
         }
       >
-        <Header />
+        <Header metadata={metadata} />
 
-        <Portfolio data={data} />
+        <Portfolio data={projects} />
       </Flex>
 
       <Feature project={project} />

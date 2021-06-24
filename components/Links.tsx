@@ -2,9 +2,14 @@ import { Button } from "@chakra-ui/button";
 import { Wrap, WrapItem } from "@chakra-ui/layout";
 import { Tooltip, useClipboard, useMediaQuery } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
+import { MetadataInterface } from "../interfaces";
 
-const Links = () => {
-  const { hasCopied, onCopy } = useClipboard("contact@stevenwebster.co");
+interface LinksProps {
+  metadata: MetadataInterface;
+}
+
+const Links: React.FC<LinksProps> = ({ metadata }) => {
+  const { hasCopied, onCopy } = useClipboard(metadata.email);
   const [isLargerThan930] = useMediaQuery("(min-width: 930px)");
   const [isLargeDevice, setIsLargeDevice] = useState(false);
 
@@ -36,7 +41,7 @@ const Links = () => {
           borderRadius="2xl"
           h="7"
           fontSize="sm"
-          href="mailto:contact@stevenwebster.co"
+          href={`mailto:${metadata.email}`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -50,7 +55,7 @@ const Links = () => {
           borderRadius="2xl"
           h="7"
           fontSize="sm"
-          href="https://github.com/budokans"
+          href={metadata.github}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -64,7 +69,7 @@ const Links = () => {
           borderRadius="2xl"
           h="7"
           fontSize="sm"
-          href="https://www.linkedin.com/in/steven-webster-developer/"
+          href={metadata.linkedIn}
           target="_blank"
           rel="noopener noreferrer"
         >

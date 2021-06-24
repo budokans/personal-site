@@ -23,7 +23,7 @@ export interface MetadataInterface {
 }
 
 export interface ApplicationProps {
-  data: ProjectInterface[];
+  projects: ProjectInterface[];
   metadata: MetadataInterface;
 }
 

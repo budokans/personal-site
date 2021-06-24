@@ -1,7 +1,12 @@
 import { Heading, Stack } from "@chakra-ui/layout";
+import { MetadataInterface } from "../interfaces";
 import Links from "./Links";
 
-const Header = () => {
+interface HeaderProps {
+  metadata: MetadataInterface;
+}
+
+const Header: React.FC<HeaderProps> = ({ metadata }) => {
   return (
     <Stack w={["full", "90%", "80%", "900px"]} spacing={5}>
       <Heading
@@ -9,12 +14,10 @@ const Header = () => {
         fontWeight="normal"
         lineHeight={1.3}
       >
-        Steven Webster is a full-stack developer who cares about elegant and
-        intuitive UIs, SEO and performance. Working remotely from Auckland, New
-        Zealand.
+        {metadata.description}
       </Heading>
 
-      <Links />
+      <Links metadata={metadata} />
     </Stack>
   );
 };
