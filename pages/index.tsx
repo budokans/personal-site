@@ -2,22 +2,23 @@ import { GetStaticProps } from "next";
 import Head from "next/head";
 import { Flex } from "@chakra-ui/layout";
 import { useFeatureContext } from "../lib/featureContext";
-import { ProjectDataProps } from "../interfaces";
+import { ApplicationProps } from "../interfaces";
 import { getData } from "../lib/getData";
 import Header from "../components/Header";
 import Portfolio from "../components/Portfolio";
 import Feature from "../components/Feature";
 
 export const getStaticProps: GetStaticProps = async () => {
-  const [data] = getData();
+  const [data, steven] = getData();
   return {
     props: {
       data,
+      steven,
     },
   };
 };
 
-const IndexPage: React.FC<ProjectDataProps> = ({ data }) => {
+const IndexPage: React.FC<ApplicationProps> = ({ data, steven }) => {
   const { projectToFeature, showFeature } = useFeatureContext();
   const project = data[projectToFeature];
 
@@ -27,7 +28,9 @@ const IndexPage: React.FC<ProjectDataProps> = ({ data }) => {
         <title>Steven Webster | Full-Stack Developer</title>
         <meta
           name="description"
-          content="Portfolio and contact details of full-stack developer, Steven Webster"
+          content={
+            "Portfolio and contact details of full-stack developer, Steven Webster"
+          }
         />
 
         <meta property="og:title" content="Steven Webster" />

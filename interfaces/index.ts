@@ -4,8 +4,6 @@ export interface FeatureMediaInterface {
   alt: string;
 }
 
-// export interface FeatureMediaInterfaces extends Array<FeatureMediaInterface>{}
-
 export interface ProjectInterface {
   title: string;
   shortBlurb: string;
@@ -16,14 +14,22 @@ export interface ProjectInterface {
   url?: string;
 }
 
-export type ProjectDataProps = {
-  data: ProjectInterface[];
-};
+export interface PersonalDataInterface {
+  description: string;
+  email: string;
+  github: string;
+  linkedIn: string;
+}
 
-export type ContextType = {
+export interface ApplicationProps {
+  data: ProjectInterface[];
+  steven: PersonalDataInterface;
+}
+
+export interface ContextType {
   projectToFeature: number;
   showFeature: boolean;
   openFeature(id: number): void;
   closeFeature(): void;
   node: React.RefObject<HTMLDivElement>;
-};
+}
