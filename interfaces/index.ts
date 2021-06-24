@@ -14,8 +14,9 @@ export interface ProjectInterface {
   url?: string;
 }
 
-export interface PersonalDataInterface {
+export interface MetadataInterface {
   description: string;
+  canonical: string;
   email: string;
   github: string;
   linkedIn: string;
@@ -23,7 +24,7 @@ export interface PersonalDataInterface {
 
 export interface ApplicationProps {
   data: ProjectInterface[];
-  steven: PersonalDataInterface;
+  metadata: MetadataInterface;
 }
 
 export interface ContextType {
