@@ -6,10 +6,10 @@ import { useMediaQuery } from "@chakra-ui/media-query";
 import { ProjectInterface } from "../interfaces";
 import { useFeatureContext } from "../lib/featureContext";
 
-type PortFolioItemProps = {
+interface PortFolioItemProps {
   project: ProjectInterface;
   idx: number;
-};
+}
 
 const PortfolioItem: React.FC<PortFolioItemProps> = ({ project, idx }) => {
   const [isLargerThan768] = useMediaQuery("(min-width: 768px)");

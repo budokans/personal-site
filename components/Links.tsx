@@ -3,7 +3,7 @@ import { Wrap, WrapItem } from "@chakra-ui/layout";
 import { Tooltip, useClipboard, useMediaQuery } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 
-const Links: React.FC = () => {
+const Links = () => {
   const { hasCopied, onCopy } = useClipboard("contact@stevenwebster.co");
   const [isLargerThan930] = useMediaQuery("(min-width: 930px)");
   const [isLargeDevice, setIsLargeDevice] = useState(false);
