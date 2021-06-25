@@ -8,8 +8,11 @@ interface LinksProps {
   metadata: MetadataInterface;
 }
 
+interface ButtonProps {
+  href: string;
+}
+
 const Links: React.FC<LinksProps> = ({ metadata }) => {
-  const { hasCopied, onCopy } = useClipboard(metadata.contact.email);
   const [isLargerThan930] = useMediaQuery("(min-width: 930px)");
   const [isLargeDevice, setIsLargeDevice] = useState(false);
 
@@ -19,64 +22,54 @@ const Links: React.FC<LinksProps> = ({ metadata }) => {
 
   return (
     <Wrap spacing="3">
-      {/* Large Screens Email Link */}
-      <WrapItem d={isLargeDevice ? "inline-flex" : "none"}>
-        <Tooltip
-          placement="bottom"
-          borderRadius="lg"
-          py="1.5"
-          closeDelay={1000}
-          label={hasCopied ? "Copied!" : "Click to Copy!"}
-        >
-          <Button borderRadius="2xl" h="7" fontSize="sm" onClick={onCopy}>
-            Email
-          </Button>
-        </Tooltip>
-      </WrapItem>
-
-      {/*  Small Screens Email Link */}
-      <WrapItem d={isLargeDevice ? "none" : "inline-flex"}>
-        <Button
-          as="a"
-          borderRadius="2xl"
-          h="7"
-          fontSize="sm"
-          href={`mailto:${metadata.contact.email}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+      {isLargeDevice ? (
+        <LinksTooltip href={metadata.contact.email}>Email</LinksTooltip>
+      ) : (
+        <LinksButton href={`mailto:${metadata.contact.email}`}>
           Email
-        </Button>
-      </WrapItem>
+        </LinksButton>
+      )}
 
-      <WrapItem>
-        <Button
-          as="a"
-          borderRadius="2xl"
-          h="7"
-          fontSize="sm"
-          href={metadata.contact.github}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub
-        </Button>
-      </WrapItem>
+      <LinksButton href={metadata.contact.github}>Github</LinksButton>
 
-      <WrapItem>
-        <Button
-          as="a"
-          borderRadius="2xl"
-          h="7"
-          fontSize="sm"
-          href={metadata.contact.linkedIn}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          LinkedIn
-        </Button>
-      </WrapItem>
+      <LinksButton href={metadata.contact.linkedIn}>LinkedIn</LinksButton>
     </Wrap>
+  );
+};
+
+const LinksButton: React.FC<ButtonProps> = ({ href, children }) => {
+  return (
+    <WrapItem>
+      <Button
+        as="a"
+        borderRadius="2xl"
+        h="7"
+        fontSize="sm"
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {children}
+      </Button>
+    </WrapItem>
+  );
+};
+
+const LinksTooltip: React.FC<ButtonProps> = ({ href, children }) => {
+  const { hasCopied, onCopy } = useClipboard(href);
+
+  return (
+    <Tooltip
+      placement="bottom"
+      borderRadius="lg"
+      py="1.5"
+      closeDelay={1000}
+      label={hasCopied ? "Copied!" : "Click to Copy!"}
+    >
+      <Button borderRadius="2xl" h="7" fontSize="sm" onClick={onCopy}>
+        {children}
+      </Button>
+    </Tooltip>
   );
 };
 
