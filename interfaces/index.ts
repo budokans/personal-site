@@ -17,9 +17,11 @@ export interface ProjectInterface {
 export interface MetadataInterface {
   description: string;
   canonical: string;
-  email: string;
-  github: string;
-  linkedIn: string;
+  contact: {
+    email: string;
+    github: string;
+    linkedIn: string;
+  };
 }
 
 export interface ApplicationProps {

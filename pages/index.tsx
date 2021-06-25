@@ -4,7 +4,7 @@ import { useFeatureContext } from "../lib/featureContext";
 import { ApplicationProps } from "../interfaces";
 import { getData } from "../lib/getData";
 import DocHead from "../components/DocHead";
-import Header from "../components/Header";
+import { Header, HeaderText } from "../components/Header";
 import Portfolio from "../components/Portfolio";
 import Feature from "../components/Feature";
 
@@ -42,7 +42,9 @@ const IndexPage: React.FC<ApplicationProps> = ({ metadata, projects }) => {
             : { filter: "blur(0px)", transition: "filter 0.5s ease" }
         }
       >
-        <Header metadata={metadata} />
+        <Header metadata={metadata}>
+          <HeaderText>{metadata.description}</HeaderText>
+        </Header>
 
         <Portfolio data={projects} />
       </Flex>

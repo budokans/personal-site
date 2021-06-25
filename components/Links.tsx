@@ -9,7 +9,7 @@ interface LinksProps {
 }
 
 const Links: React.FC<LinksProps> = ({ metadata }) => {
-  const { hasCopied, onCopy } = useClipboard(metadata.email);
+  const { hasCopied, onCopy } = useClipboard(metadata.contact.email);
   const [isLargerThan930] = useMediaQuery("(min-width: 930px)");
   const [isLargeDevice, setIsLargeDevice] = useState(false);
 
@@ -41,7 +41,7 @@ const Links: React.FC<LinksProps> = ({ metadata }) => {
           borderRadius="2xl"
           h="7"
           fontSize="sm"
-          href={`mailto:${metadata.email}`}
+          href={`mailto:${metadata.contact.email}`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -55,7 +55,7 @@ const Links: React.FC<LinksProps> = ({ metadata }) => {
           borderRadius="2xl"
           h="7"
           fontSize="sm"
-          href={metadata.github}
+          href={metadata.contact.github}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -69,7 +69,7 @@ const Links: React.FC<LinksProps> = ({ metadata }) => {
           borderRadius="2xl"
           h="7"
           fontSize="sm"
-          href={metadata.linkedIn}
+          href={metadata.contact.linkedIn}
           target="_blank"
           rel="noopener noreferrer"
         >
