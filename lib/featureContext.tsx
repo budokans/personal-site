@@ -5,10 +5,6 @@ import { createCtx } from "./createCtx";
 const [useFeatureContext, CtxProvider] = createCtx<ContextType>();
 export { useFeatureContext };
 
-// type Props = {
-//   children: React.ReactNode;
-// };
-
 export const FeatureContextProvider: React.FC = ({ children }) => {
   const [projectToFeature, setProjectToFeature] = useState(0);
   const [showFeature, setShowFeature] = useState(false);
