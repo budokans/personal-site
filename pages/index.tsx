@@ -13,7 +13,14 @@ import {
   HeaderLinksButton,
   HeaderLinksTooltip,
 } from "../components/Header";
-import Portfolio from "../components/Portfolio";
+import {
+  Portfolio,
+  PortfolioItem,
+  PortfolioItemImage,
+  PortfolioItemInner,
+  PortfolioItemTitle,
+  PortfolioItemText,
+} from "../components/Portfolio";
 import Feature from "../components/Feature";
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -80,7 +87,19 @@ const IndexPage: React.FC<ApplicationProps> = ({ metadata, projects }) => {
           </HeaderLinks>
         </Header>
 
-        <Portfolio data={projects} />
+        <Portfolio>
+          {projects.map((project, idx) => {
+            return (
+              <PortfolioItem idx={idx} key={idx}>
+                <PortfolioItemImage src={project.icon} alt={project.title} />
+                <PortfolioItemInner idx={idx}>
+                  <PortfolioItemTitle>{project.title}</PortfolioItemTitle>
+                  <PortfolioItemText>{project.shortBlurb}</PortfolioItemText>
+                </PortfolioItemInner>
+              </PortfolioItem>
+            );
+          })}
+        </Portfolio>
       </Flex>
 
       <Feature project={project} />
