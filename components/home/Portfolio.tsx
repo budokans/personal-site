@@ -4,11 +4,11 @@ import { Box, Flex, Heading, Text } from "@chakra-ui/layout";
 import { Img } from "@chakra-ui/image";
 import { Button } from "@chakra-ui/button";
 import { useEffect, useState } from "react";
-import { useFeatureContext } from "../../lib/featureContext";
 import { ImageProps } from "../../interfaces";
 
 interface PortFolioItemProps {
   idx: number;
+  onPortfolioClick: (id: number) => void;
 }
 
 const Portfolio: React.FC = ({ children }) => {
@@ -26,11 +26,13 @@ const Portfolio: React.FC = ({ children }) => {
   );
 };
 
-const PortfolioItem: React.FC<PortFolioItemProps> = ({ idx, children }) => {
-  const { openFeature } = useFeatureContext();
-
+const PortfolioItem: React.FC<PortFolioItemProps> = ({
+  onPortfolioClick,
+  idx,
+  children,
+}) => {
   const handleClick = () => {
-    openFeature(idx);
+    onPortfolioClick(idx);
   };
 
   return (
@@ -56,10 +58,7 @@ const PortfolioItemImage: React.FC<ImageProps> = ({ src, alt }) => {
   );
 };
 
-const PortfolioItemInner: React.FC<PortFolioItemProps> = ({
-  idx,
-  children,
-}) => {
+const PortfolioItemInner: React.FC<{ idx: number }> = ({ idx, children }) => {
   const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
   const [afterStyle, setAfterStyle] = useState({});
 

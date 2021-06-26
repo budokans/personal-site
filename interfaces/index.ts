@@ -27,14 +27,8 @@ export interface MetadataInterface {
 export interface ApplicationProps {
   projects: ProjectInterface[];
   metadata: MetadataInterface;
-}
-
-export interface ContextType {
-  projectToFeature: number;
+  onPortfolioClick: (id: number) => void;
   showFeature: boolean;
-  openFeature(id: number): void;
-  closeFeature(): void;
-  node: React.RefObject<HTMLDivElement>;
 }
 
 export interface ImageProps {

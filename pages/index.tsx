@@ -1,10 +1,11 @@
 import { GetStaticProps } from "next";
-import { useFeatureContext } from "../lib/featureContext";
 import { ApplicationProps } from "../interfaces";
 import { getData } from "../lib/getData";
 import DocHead from "../components/DocHead";
+import { AnimateContainer } from "../components/Motion";
 import { HomeContainer } from "../containers/home";
 import { FeatureContainer } from "../containers/feature";
+import { useState } from "react";
 
 export const getStaticProps: GetStaticProps = async () => {
   const [metadata, projects] = getData();
@@ -17,15 +18,34 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const IndexPage: React.FC<ApplicationProps> = ({ metadata, projects }) => {
-  const { projectToFeature } = useFeatureContext();
+  const [showFeature, setShowFeature] = useState(false);
+  const [featuredProjectId, setFeaturedProjectId] = useState(0);
+  const featuredProject = projects[featuredProjectId];
+
+  const openFeature = (id: number) => {
+    setFeaturedProjectId(id);
+    setShowFeature(true);
+  };
 
   return (
     <>
       <DocHead metadata={metadata} />
 
-      <HomeContainer metadata={metadata} projects={projects} />
+      <HomeContainer
+        metadata={metadata}
+        projects={projects}
+        onPortfolioClick={openFeature}
+        showFeature={showFeature}
+      />
 
-      <FeatureContainer project={projects[projectToFeature]} />
+      <AnimateContainer>
+        {showFeature && (
+          <FeatureContainer
+            project={featuredProject}
+            setShowFeature={setShowFeature}
+          />
+        )}
+      </AnimateContainer>
     </>
   );
 };

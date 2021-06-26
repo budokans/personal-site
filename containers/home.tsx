@@ -1,8 +1,7 @@
-import { Flex } from "@chakra-ui/layout";
 import { useMediaQuery } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { useFeatureContext } from "../lib/featureContext";
 import { ApplicationProps } from "../interfaces";
+import { Home } from "../components/home/Home";
 import {
   Header,
   HeaderText,
@@ -22,17 +21,18 @@ import {
 export const HomeContainer: React.FC<ApplicationProps> = ({
   projects,
   metadata,
+  onPortfolioClick,
+  showFeature,
 }) => {
   const [isLargerThan930] = useMediaQuery("(min-width: 930px)");
   const [isLargeDevice, setIsLargeDevice] = useState(false);
-  const { showFeature } = useFeatureContext();
 
   useEffect(() => {
     isLargerThan930 ? setIsLargeDevice(true) : setIsLargeDevice(false);
   }, [isLargerThan930]);
 
   return (
-    <Wrapper blur={showFeature}>
+    <Home blur={showFeature}>
       <Header>
         <HeaderText>{metadata.description}</HeaderText>
         <HeaderLinks>
@@ -59,7 +59,11 @@ export const HomeContainer: React.FC<ApplicationProps> = ({
       <Portfolio>
         {projects.map((project, idx) => {
           return (
-            <PortfolioItem idx={idx} key={idx}>
+            <PortfolioItem
+              onPortfolioClick={onPortfolioClick}
+              idx={idx}
+              key={idx}
+            >
               <PortfolioItemImage src={project.icon} alt={project.title} />
               <PortfolioItemInner idx={idx}>
                 <PortfolioItemTitle>{project.title}</PortfolioItemTitle>
@@ -69,32 +73,6 @@ export const HomeContainer: React.FC<ApplicationProps> = ({
           );
         })}
       </Portfolio>
-    </Wrapper>
-  );
-};
-
-const Wrapper: React.FC<{ blur: boolean }> = ({ blur, children }) => {
-  return (
-    <Flex
-      direction="column"
-      justifyContent={["space-between", "center"]}
-      alignItems="center"
-      minHeight="100vh"
-      py={8}
-      px={4}
-      maxW={["100%", "930px"]}
-      marginY="0"
-      marginX="auto"
-      sx={
-        blur
-          ? {
-              filter: "blur(5px)",
-              transition: "filter 0.5s ease-out 0.5s",
-            }
-          : { filter: "blur(0px)", transition: "filter" }
-      }
-    >
-      {children}
-    </Flex>
+    </Home>
   );
 };
