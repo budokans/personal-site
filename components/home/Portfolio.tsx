@@ -4,15 +4,11 @@ import { Box, Flex, Heading, Text } from "@chakra-ui/layout";
 import { Img } from "@chakra-ui/image";
 import { Button } from "@chakra-ui/button";
 import { useEffect, useState } from "react";
-import { useFeatureContext } from "../lib/featureContext";
+import { useFeatureContext } from "../../lib/featureContext";
+import { ImageProps } from "../../interfaces";
 
 interface PortFolioItemProps {
   idx: number;
-}
-
-interface PortfolioImageProps {
-  src: string;
-  alt: string;
 }
 
 const Portfolio: React.FC = ({ children }) => {
@@ -46,7 +42,7 @@ const PortfolioItem: React.FC<PortFolioItemProps> = ({ idx, children }) => {
   );
 };
 
-const PortfolioItemImage: React.FC<PortfolioImageProps> = ({ src, alt }) => {
+const PortfolioItemImage: React.FC<ImageProps> = ({ src, alt }) => {
   return (
     <Img
       src={src}

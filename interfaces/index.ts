@@ -36,3 +36,8 @@ export interface ContextType {
   closeFeature(): void;
   node: React.RefObject<HTMLDivElement>;
 }
+
+export interface ImageProps {
+  src: string;
+  alt: string;
+}

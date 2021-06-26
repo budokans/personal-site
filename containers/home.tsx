@@ -9,7 +9,7 @@ import {
   HeaderLinks,
   HeaderLinksButton,
   HeaderLinksTooltip,
-} from "../components/Header";
+} from "../components/home/Header";
 import {
   Portfolio,
   PortfolioItem,
@@ -17,7 +17,7 @@ import {
   PortfolioItemInner,
   PortfolioItemTitle,
   PortfolioItemText,
-} from "../components/Portfolio";
+} from "../components/home/Portfolio";
 
 export const HomeContainer: React.FC<ApplicationProps> = ({
   projects,

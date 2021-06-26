@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/layout";
-import { MotionStack } from "./Motion";
+import { MotionStack } from "../Motion";
 
 import Image from "next/image";
 import { FeatureCarouselProps } from "./FeatureCarouselContainer";

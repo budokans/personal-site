@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/layout";
 import { useMediaQuery } from "@chakra-ui/media-query";
-import { FeatureMediaInterface } from "../interfaces";
-import { MotionBox } from "./Motion";
+import { FeatureMediaInterface } from "../../interfaces";
+import { MotionBox } from "../Motion";
 import { CSSObject } from "@emotion/serialize";
 import FeatureCarousel930px from "./FeatureCarousel930px";
 import FeatureCarousel from "./FeatureCarousel";
