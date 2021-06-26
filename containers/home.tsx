@@ -87,8 +87,11 @@ const Wrapper: React.FC<{ blur: boolean }> = ({ blur, children }) => {
       marginX="auto"
       sx={
         blur
-          ? { filter: "blur(5px)", transition: "filter 0.5s ease 0.5s" }
-          : { filter: "blur(0px)", transition: "filter 0.5s ease" }
+          ? {
+              filter: "blur(5px)",
+              transition: "filter 0.5s ease-out 0.5s",
+            }
+          : { filter: "blur(0px)", transition: "filter" }
       }
     >
       {children}

@@ -31,7 +31,10 @@ const Overlay: React.FC = () => {
       right={0}
       bottom={0}
       left={0}
-      bg="blackAlpha.50"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 0.5 }}
+      exit={{ opacity: 0 }}
+      bg="blackAlpha.600"
     />
   );
 };
