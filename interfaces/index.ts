@@ -4,26 +4,33 @@ export interface FeatureMediaInterface {
   alt: string;
 }
 
-export interface FeatureMediaInterfaces extends Array<FeatureMediaInterface>{}
-
 export interface ProjectInterface {
   title: string;
   shortBlurb: string;
   icon: string;
   tech: string[];
-  featureMedia: FeatureMediaInterfaces;
+  featureMedia: FeatureMediaInterface[];
   description: string[];
   url?: string;
 }
 
-export type ProjectDataProps = {
-  data: ProjectInterface[]
+export interface MetadataInterface {
+  description: string;
+  canonical: string;
+  contact: {
+    email: string;
+    github: string;
+    linkedIn: string;
+  };
 }
 
-export type ContextType = {
-  projectToFeature: number,
-  showFeature: boolean,
-  openFeature(id: number): void,
-  closeFeature(): void,
-  node: React.RefObject<HTMLDivElement>
+export interface ApplicationProps {
+  projects: ProjectInterface[];
+  metadata: MetadataInterface;
+  onPortfolioClick: (id: number) => void;
+}
+
+export interface ImageProps {
+  src: string;
+  alt: string;
 }
