@@ -1,8 +1,8 @@
 import { GetStaticProps } from "next";
+import { AnimatePresence } from "framer-motion";
 import { ApplicationProps } from "../interfaces";
 import { getData } from "../lib/getData";
 import DocHead from "../components/DocHead";
-import { AnimateContainer } from "../components/Motion";
 import { HomeContainer } from "../containers/home";
 import { FeatureContainer } from "../containers/feature";
 import { useState } from "react";
@@ -38,14 +38,14 @@ const IndexPage: React.FC<ApplicationProps> = ({ metadata, projects }) => {
         showFeature={showFeature}
       />
 
-      <AnimateContainer>
+      <AnimatePresence>
         {showFeature && (
           <FeatureContainer
             project={featuredProject}
             setShowFeature={setShowFeature}
           />
         )}
-      </AnimateContainer>
+      </AnimatePresence>
     </>
   );
 };
