@@ -2,13 +2,7 @@ import { useMediaQuery } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { MetadataInterface, ProjectInterface } from "../interfaces";
 import { Home } from "../components/home/Home";
-import {
-  Header,
-  HeaderText,
-  HeaderLinks,
-  HeaderLinksButton,
-  HeaderLinksTooltip,
-} from "../components/home/Header";
+import { Header } from "../components/home/Header";
 import {
   Portfolio,
   PortfolioItem,
@@ -41,26 +35,20 @@ export const HomeContainer: React.FC<HomeContainerProps> = ({
   return (
     <Home blur={blur}>
       <Header>
-        <HeaderText>{metadata.description}</HeaderText>
-        <HeaderLinks>
+        <Header.Text>{metadata.description}</Header.Text>
+        <Header.Links>
           {isLargeDevice ? (
-            <HeaderLinksTooltip href={metadata.contact.email}>
-              Email
-            </HeaderLinksTooltip>
+            <Header.Tooltip href={metadata.contact.email}>Email</Header.Tooltip>
           ) : (
-            <HeaderLinksButton href={`mailto:${metadata.contact.email}`}>
+            <Header.Link href={`mailto:${metadata.contact.email}`}>
               Email
-            </HeaderLinksButton>
+            </Header.Link>
           )}
 
-          <HeaderLinksButton href={metadata.contact.github}>
-            Github
-          </HeaderLinksButton>
+          <Header.Link href={metadata.contact.github}>Github</Header.Link>
 
-          <HeaderLinksButton href={metadata.contact.linkedIn}>
-            LinkedIn
-          </HeaderLinksButton>
-        </HeaderLinks>
+          <Header.Link href={metadata.contact.linkedIn}>LinkedIn</Header.Link>
+        </Header.Links>
       </Header>
 
       <Portfolio>

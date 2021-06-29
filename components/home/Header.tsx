@@ -6,7 +6,16 @@ interface ButtonProps {
   href: string;
 }
 
-const Header: React.FC = ({ children }) => {
+interface Compound {
+  Text: React.FC;
+  Links: React.FC;
+  Link: React.FC<ButtonProps>;
+  Tooltip: React.FC<ButtonProps>;
+}
+
+type HeaderCC = React.FC & Compound;
+
+export const Header: HeaderCC = ({ children }) => {
   return (
     <Stack w={["full", "90%", "80%", "900px"]} spacing={5}>
       {children}
@@ -14,7 +23,7 @@ const Header: React.FC = ({ children }) => {
   );
 };
 
-const HeaderText: React.FC = ({ children }) => {
+Header.Text = ({ children }) => {
   return (
     <Heading
       fontSize="clamp(24px, calc(14.40px + 2.00vw), 40px)"
@@ -26,11 +35,11 @@ const HeaderText: React.FC = ({ children }) => {
   );
 };
 
-const HeaderLinks: React.FC = ({ children }) => {
+Header.Links = ({ children }) => {
   return <Wrap spacing="3">{children}</Wrap>;
 };
 
-const HeaderLinksButton: React.FC<ButtonProps> = ({ href, children }) => {
+Header.Link = ({ href, children }) => {
   return (
     <WrapItem>
       <Button
@@ -48,7 +57,7 @@ const HeaderLinksButton: React.FC<ButtonProps> = ({ href, children }) => {
   );
 };
 
-const HeaderLinksTooltip: React.FC<ButtonProps> = ({ href, children }) => {
+Header.Tooltip = ({ href, children }) => {
   const { hasCopied, onCopy } = useClipboard(href);
 
   return (
@@ -64,12 +73,4 @@ const HeaderLinksTooltip: React.FC<ButtonProps> = ({ href, children }) => {
       </Button>
     </Tooltip>
   );
-};
-
-export {
-  Header,
-  HeaderText,
-  HeaderLinks,
-  HeaderLinksButton,
-  HeaderLinksTooltip,
 };
