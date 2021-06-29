@@ -58,6 +58,10 @@ export const FeatureContainer: React.FC<FeatureProps> = ({
 
   useEffect(() => {
     document.getElementsByTagName("body")[0].style.overflow = "hidden";
+
+    return () => {
+      document.getElementsByTagName("body")[0].style.overflow = "visible";
+    };
   }, []);
 
   const containerVariants = {
