@@ -9,12 +9,20 @@ interface CloseButtonProps {
   onClick(): void;
 }
 
-interface FeatureContainerProps {
+interface ContainerProps {
   node: RefObject<HTMLDivElement>;
   variants: Variants;
 }
 
-const Feature: React.FC = ({ children }) => {
+interface Compound {
+  CloseButton: React.FC<CloseButtonProps>;
+  Container: React.FC<ContainerProps>;
+  Inner: React.FC;
+}
+
+type FeatureCC = React.FC & Compound;
+
+export const Feature: FeatureCC = ({ children }) => {
   return (
     <>
       <Overlay />
@@ -23,23 +31,7 @@ const Feature: React.FC = ({ children }) => {
   );
 };
 
-const Overlay: React.FC = () => {
-  return (
-    <MotionBox
-      position="absolute"
-      top={0}
-      right={0}
-      bottom={0}
-      left={0}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 0.5 }}
-      exit={{ opacity: 0 }}
-      bg="blackAlpha.600"
-    />
-  );
-};
-
-const FeatureCloseBtn: React.FC<CloseButtonProps> = ({ onClick }) => {
+Feature.CloseButton = ({ onClick }) => {
   return (
     <CloseButton
       w={["28px", "34px"]}
@@ -57,7 +49,7 @@ const FeatureCloseBtn: React.FC<CloseButtonProps> = ({ onClick }) => {
   );
 };
 
-const FeatureInner: React.FC = ({ children }) => {
+Feature.Inner = ({ children }) => {
   return (
     <Stack spacing={6} mb={20}>
       {children}
@@ -65,11 +57,7 @@ const FeatureInner: React.FC = ({ children }) => {
   );
 };
 
-const Container: React.FC<FeatureContainerProps> = ({
-  variants,
-  node,
-  children,
-}) => {
+Feature.Container = ({ variants, node, children }) => {
   return (
     <MotionBox
       position="fixed"
@@ -99,4 +87,18 @@ const Container: React.FC<FeatureContainerProps> = ({
   );
 };
 
-export { Feature, Container, FeatureCloseBtn, FeatureInner };
+const Overlay: React.FC = () => {
+  return (
+    <MotionBox
+      position="absolute"
+      top={0}
+      right={0}
+      bottom={0}
+      left={0}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 0.5 }}
+      exit={{ opacity: 0 }}
+      bg="blackAlpha.600"
+    />
+  );
+};

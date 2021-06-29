@@ -2,12 +2,7 @@ import { useEffect, useRef } from "react";
 import { Box, Divider } from "@chakra-ui/layout";
 import parse from "html-react-parser";
 import { ProjectInterface } from "../interfaces";
-import {
-  Feature,
-  Container,
-  FeatureCloseBtn,
-  FeatureInner,
-} from "../components/feature/Feature";
+import { Feature } from "../components/feature/Feature";
 import {
   FeatureHeader,
   HeaderImage,
@@ -88,8 +83,8 @@ export const FeatureContainer: React.FC<FeatureProps> = ({
 
   return (
     <Feature>
-      <Container variants={containerVariants} node={node}>
-        <FeatureCloseBtn onClick={onCloseClick} />
+      <Feature.Container variants={containerVariants} node={node}>
+        <Feature.CloseButton onClick={onCloseClick} />
 
         <FeatureHeader>
           <HeaderImage src={project.icon} alt={project.title} />
@@ -103,7 +98,7 @@ export const FeatureContainer: React.FC<FeatureProps> = ({
           <Divider orientation="horizontal" />
         </Box>
 
-        <FeatureInner>
+        <Feature.Inner>
           <FeatureTech>
             <TechHeader>Tech</TechHeader>
             <TechInner>
@@ -123,8 +118,8 @@ export const FeatureContainer: React.FC<FeatureProps> = ({
 
           {/* Don't display FeatureVisit for stevenwebster.co */}
           {project.url && <FeatureVisit url={project.url} />}
-        </FeatureInner>
-      </Container>
+        </Feature.Inner>
+      </Feature.Container>
     </Feature>
   );
 };
