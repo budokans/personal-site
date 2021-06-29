@@ -5,10 +5,7 @@ import { ProjectInterface } from "../interfaces";
 import { Feature } from "../components/feature/Feature";
 import { Header } from "../components/feature/Header";
 import { Tech } from "../components/feature/Tech";
-import {
-  Description,
-  Paragraph,
-} from "../components/feature/FeatureDescription";
+import { Description } from "../components/feature/Description";
 import { Link } from "../components/feature/Link";
 import FeatureCarouselContainer from "../components/feature/FeatureCarouselContainer";
 
@@ -101,7 +98,11 @@ export const FeatureContainer: React.FC<FeatureProps> = ({
 
           <Description>
             {project.description.map((paragraph, idx) => {
-              return <Paragraph key={idx}>{parse(paragraph)}</Paragraph>;
+              return (
+                <Description.Paragraph key={idx}>
+                  {parse(paragraph)}
+                </Description.Paragraph>
+              );
             })}
           </Description>
 

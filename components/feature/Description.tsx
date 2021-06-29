@@ -1,6 +1,12 @@
 import { Box, Text } from "@chakra-ui/layout";
 
-const Description: React.FC = ({ children }) => {
+interface Description {
+  Paragraph: React.FC;
+}
+
+type DescriptionCC = Description & React.FC;
+
+export const Description: DescriptionCC = ({ children }) => {
   return (
     <Box px={[4, 9]} maxW={["100%", "100%", "70%"]}>
       {children}
@@ -8,7 +14,7 @@ const Description: React.FC = ({ children }) => {
   );
 };
 
-const Paragraph: React.FC = ({ children }) => {
+Description.Paragraph = ({ children }) => {
   return (
     <Text
       fontSize="clamp(14px, 11.6px + 0.5vw, 18px)"
@@ -19,5 +25,3 @@ const Paragraph: React.FC = ({ children }) => {
     </Text>
   );
 };
-
-export { Description, Paragraph };
