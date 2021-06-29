@@ -9,7 +9,7 @@ import {
   Description,
   Paragraph,
 } from "../components/feature/FeatureDescription";
-import FeatureVisit from "../components/feature/FeatureVisit";
+import { Link } from "../components/feature/Link";
 import FeatureCarouselContainer from "../components/feature/FeatureCarouselContainer";
 
 interface FeatureProps {
@@ -105,8 +105,8 @@ export const FeatureContainer: React.FC<FeatureProps> = ({
             })}
           </Description>
 
-          {/* Don't display FeatureVisit for stevenwebster.co */}
-          {project.url && <FeatureVisit url={project.url} />}
+          {/* Don't display Visit link for stevenwebster.co */}
+          {project.url && <Link url={project.url}>Visit</Link>}
         </Feature.Inner>
       </Feature.Container>
     </Feature>

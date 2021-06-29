@@ -2,11 +2,11 @@ import { Button } from "@chakra-ui/button";
 import { Box } from "@chakra-ui/layout";
 import { useMediaQuery } from "@chakra-ui/media-query";
 
-interface FeatureVisitProps {
+interface LinkProps {
   url: string;
 }
 
-const FeatureVisit: React.FC<FeatureVisitProps> = ({ url }) => {
+export const Link: React.FC<LinkProps> = ({ url, children }) => {
   const [isGreaterThan930] = useMediaQuery("(min-width: 930px)");
 
   return (
@@ -28,10 +28,8 @@ const FeatureVisit: React.FC<FeatureVisitProps> = ({ url }) => {
         marginY="0"
         marginX="auto"
       >
-        Visit
+        {children}
       </Button>
     </Box>
   );
 };
-
-export default FeatureVisit;
