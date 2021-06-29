@@ -3,13 +3,7 @@ import { Box, Divider } from "@chakra-ui/layout";
 import parse from "html-react-parser";
 import { ProjectInterface } from "../interfaces";
 import { Feature } from "../components/feature/Feature";
-import {
-  FeatureHeader,
-  HeaderImage,
-  HeaderInner,
-  HeaderText,
-  HeaderSubtext,
-} from "../components/feature/FeatureHeader";
+import { Header } from "../components/feature/Header";
 import {
   FeatureTech,
   TechHeader,
@@ -86,13 +80,13 @@ export const FeatureContainer: React.FC<FeatureProps> = ({
       <Feature.Container variants={containerVariants} node={node}>
         <Feature.CloseButton onClick={onCloseClick} />
 
-        <FeatureHeader>
-          <HeaderImage src={project.icon} alt={project.title} />
-          <HeaderInner>
-            <HeaderText>{project.title}</HeaderText>
-            <HeaderSubtext>{project.shortBlurb}</HeaderSubtext>
-          </HeaderInner>
-        </FeatureHeader>
+        <Header>
+          <Header.Image src={project.icon} alt={project.title} />
+          <Header.Inner>
+            <Header.Text>{project.title}</Header.Text>
+            <Header.Subtext>{project.shortBlurb}</Header.Subtext>
+          </Header.Inner>
+        </Header>
 
         <Box py={4} px={[4, 9]}>
           <Divider orientation="horizontal" />
