@@ -3,14 +3,7 @@ import { useEffect, useState } from "react";
 import { MetadataInterface, ProjectInterface } from "../interfaces";
 import { Home } from "../components/home/Home";
 import { Header } from "../components/home/Header";
-import {
-  Portfolio,
-  PortfolioItem,
-  PortfolioItemImage,
-  PortfolioItemInner,
-  PortfolioItemTitle,
-  PortfolioItemText,
-} from "../components/home/Portfolio";
+import { Portfolio } from "../components/home/Portfolio";
 
 interface HomeContainerProps {
   projects: ProjectInterface[];
@@ -54,17 +47,16 @@ export const HomeContainer: React.FC<HomeContainerProps> = ({
       <Portfolio>
         {projects.map((project, idx) => {
           return (
-            <PortfolioItem
-              onPortfolioClick={onPortfolioClick}
-              idx={idx}
+            <Portfolio.Item
+              onPortfolioClick={() => onPortfolioClick(idx)}
               key={idx}
             >
-              <PortfolioItemImage src={project.icon} alt={project.title} />
-              <PortfolioItemInner idx={idx}>
-                <PortfolioItemTitle>{project.title}</PortfolioItemTitle>
-                <PortfolioItemText>{project.shortBlurb}</PortfolioItemText>
-              </PortfolioItemInner>
-            </PortfolioItem>
+              <Portfolio.Image src={project.icon} alt={project.title} />
+              <Portfolio.Inner idx={idx}>
+                <Portfolio.Title>{project.title}</Portfolio.Title>
+                <Portfolio.Text>{project.shortBlurb}</Portfolio.Text>
+              </Portfolio.Inner>
+            </Portfolio.Item>
           );
         })}
       </Portfolio>

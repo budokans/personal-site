@@ -7,11 +7,21 @@ import { useEffect, useState } from "react";
 import { ImageProps } from "../../interfaces";
 
 interface PortFolioItemProps {
-  idx: number;
-  onPortfolioClick: (id: number) => void;
+  onPortfolioClick: () => void;
 }
 
-const Portfolio: React.FC = ({ children }) => {
+interface Compound {
+  Item: React.FC<PortFolioItemProps>;
+  Image: React.FC<ImageProps>;
+  Inner: React.FC<{ idx: number }>;
+  Title: React.FC;
+  Text: React.FC;
+  Button: React.FC;
+}
+
+type PortfolioCC = Compound & React.FC;
+
+export const Portfolio: PortfolioCC = ({ children }) => {
   return (
     <SimpleGrid
       columns={[1, 1, 2]}
@@ -26,17 +36,9 @@ const Portfolio: React.FC = ({ children }) => {
   );
 };
 
-const PortfolioItem: React.FC<PortFolioItemProps> = ({
-  onPortfolioClick,
-  idx,
-  children,
-}) => {
-  const handleClick = () => {
-    onPortfolioClick(idx);
-  };
-
+Portfolio.Item = ({ onPortfolioClick, children }) => {
   return (
-    <Box role="button" position="relative" onClick={handleClick}>
+    <Box role="button" position="relative" onClick={onPortfolioClick}>
       <Flex role="group" direction="row">
         {children}
       </Flex>
@@ -44,7 +46,7 @@ const PortfolioItem: React.FC<PortFolioItemProps> = ({
   );
 };
 
-const PortfolioItemImage: React.FC<ImageProps> = ({ src, alt }) => {
+Portfolio.Image = ({ src, alt }) => {
   return (
     <Img
       src={src}
@@ -58,7 +60,7 @@ const PortfolioItemImage: React.FC<ImageProps> = ({ src, alt }) => {
   );
 };
 
-const PortfolioItemInner: React.FC<{ idx: number }> = ({ idx, children }) => {
+Portfolio.Inner = ({ idx, children }) => {
   const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
   const [afterStyle, setAfterStyle] = useState({});
 
@@ -83,12 +85,12 @@ const PortfolioItemInner: React.FC<{ idx: number }> = ({ idx, children }) => {
   return (
     <Flex position="relative" alignItems="center" _after={afterStyle}>
       <Box mr={4}>{children}</Box>
-      <PortfolioViewButton />
+      <Portfolio.Button />
     </Flex>
   );
 };
 
-const PortfolioItemTitle: React.FC = ({ children }) => {
+Portfolio.Title = ({ children }) => {
   return (
     <Heading as="h3" fontSize="md" fontWeight="normal" lineHeight="tall">
       {children}
@@ -96,7 +98,7 @@ const PortfolioItemTitle: React.FC = ({ children }) => {
   );
 };
 
-const PortfolioItemText: React.FC = ({ children }) => {
+Portfolio.Text = ({ children }) => {
   return (
     <Text
       fontSize="clamp(12px, 10.8px + 0.25vw, 14px)"
@@ -108,19 +110,10 @@ const PortfolioItemText: React.FC = ({ children }) => {
   );
 };
 
-const PortfolioViewButton: React.FC = () => {
+Portfolio.Button = () => {
   return (
     <Button rounded="xl" fontSize="sm" w={8} px={3} h={7} minW={16}>
       View
     </Button>
   );
-};
-
-export {
-  Portfolio,
-  PortfolioItem,
-  PortfolioItemImage,
-  PortfolioItemInner,
-  PortfolioItemTitle,
-  PortfolioItemText,
 };
