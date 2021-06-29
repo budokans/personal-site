@@ -27,6 +27,10 @@ const IndexPage: React.FC<ApplicationProps> = ({ metadata, projects }) => {
     setShowFeature(true);
   };
 
+  const closeFeature = () => {
+    setShowFeature(false);
+  };
+
   return (
     <>
       <DocHead metadata={metadata} />
@@ -42,7 +46,7 @@ const IndexPage: React.FC<ApplicationProps> = ({ metadata, projects }) => {
         {showFeature && (
           <FeatureContainer
             project={featuredProject}
-            setShowFeature={setShowFeature}
+            onCloseClick={closeFeature}
           />
         )}
       </AnimatePresence>

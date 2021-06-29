@@ -30,18 +30,14 @@ import FeatureCarouselContainer from "../components/feature/FeatureCarouselConta
 
 interface FeatureProps {
   project: ProjectInterface;
-  setShowFeature: (newState: boolean) => void;
+  onCloseClick: () => void;
 }
 
 export const FeatureContainer: React.FC<FeatureProps> = ({
   project,
-  setShowFeature,
+  onCloseClick,
 }) => {
   const node = useRef<HTMLDivElement>(null);
-
-  const closeFeature = () => {
-    setShowFeature(false);
-  };
 
   const handleClickOutside = (e: MouseEvent) => {
     const target = e.target as HTMLElement;
@@ -50,7 +46,7 @@ export const FeatureContainer: React.FC<FeatureProps> = ({
       return;
     }
     // outside click
-    setShowFeature(false);
+    onCloseClick();
   };
 
   useEffect(() => {
@@ -89,7 +85,7 @@ export const FeatureContainer: React.FC<FeatureProps> = ({
   return (
     <Feature>
       <Container variants={containerVariants} node={node}>
-        <FeatureCloseBtn onClick={closeFeature} />
+        <FeatureCloseBtn onClick={onCloseClick} />
 
         <FeatureHeader>
           <HeaderImage src={project.icon} alt={project.title} />
