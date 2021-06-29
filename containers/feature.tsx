@@ -4,12 +4,7 @@ import parse from "html-react-parser";
 import { ProjectInterface } from "../interfaces";
 import { Feature } from "../components/feature/Feature";
 import { Header } from "../components/feature/Header";
-import {
-  FeatureTech,
-  TechHeader,
-  TechInner,
-  TechBadge,
-} from "../components/feature/FeatureTech";
+import { Tech } from "../components/feature/Tech";
 import {
   Description,
   Paragraph,
@@ -93,14 +88,14 @@ export const FeatureContainer: React.FC<FeatureProps> = ({
         </Box>
 
         <Feature.Inner>
-          <FeatureTech>
-            <TechHeader>Tech</TechHeader>
-            <TechInner>
+          <Tech>
+            <Tech.Header>Tech</Tech.Header>
+            <Tech.Inner>
               {project.tech.map((tech, idx) => {
-                return <TechBadge key={idx}>{tech}</TechBadge>;
+                return <Tech.Badge key={idx}>{tech}</Tech.Badge>;
               })}
-            </TechInner>
-          </FeatureTech>
+            </Tech.Inner>
+          </Tech>
 
           <FeatureCarouselContainer media={project.featureMedia} />
 

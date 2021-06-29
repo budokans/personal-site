@@ -1,8 +1,12 @@
 import { Badge, Box, Heading, Stack } from "@chakra-ui/layout";
 
-const FeatureTech: React.FC = ({ children }) => {
-  return <Container>{children}</Container>;
-};
+interface Compound {
+  Header: React.FC;
+  Inner: React.FC;
+  Badge: React.FC;
+}
+
+type TechCC = Compound & React.FC;
 
 const Container: React.FC = ({ children }) => {
   return (
@@ -12,7 +16,11 @@ const Container: React.FC = ({ children }) => {
   );
 };
 
-const TechHeader: React.FC = ({ children }) => {
+export const Tech: TechCC = ({ children }) => {
+  return <Container>{children}</Container>;
+};
+
+Tech.Header = ({ children }) => {
   return (
     <Heading
       as="h5"
@@ -27,7 +35,7 @@ const TechHeader: React.FC = ({ children }) => {
   );
 };
 
-const TechInner: React.FC = ({ children }) => {
+Tech.Inner = ({ children }) => {
   const hideScrollbar = {
     "&::-webkit-scrollbar": {
       width: "0 !important",
@@ -47,7 +55,7 @@ const TechInner: React.FC = ({ children }) => {
   );
 };
 
-const TechBadge: React.FC = ({ children }) => {
+Tech.Badge = ({ children }) => {
   return (
     <Box>
       <Badge
@@ -69,5 +77,3 @@ const TechBadge: React.FC = ({ children }) => {
     </Box>
   );
 };
-
-export { FeatureTech, TechHeader, TechInner, TechBadge };
