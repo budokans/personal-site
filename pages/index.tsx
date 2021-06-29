@@ -39,7 +39,7 @@ const IndexPage: React.FC<ApplicationProps> = ({ metadata, projects }) => {
         metadata={metadata}
         projects={projects}
         onPortfolioClick={openFeature}
-        showFeature={showFeature}
+        blur={showFeature}
       />
 
       <AnimatePresence>

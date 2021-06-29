@@ -28,7 +28,6 @@ export interface ApplicationProps {
   projects: ProjectInterface[];
   metadata: MetadataInterface;
   onPortfolioClick: (id: number) => void;
-  showFeature: boolean;
 }
 
 export interface ImageProps {

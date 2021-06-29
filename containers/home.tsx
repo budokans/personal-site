@@ -1,6 +1,6 @@
 import { useMediaQuery } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { ApplicationProps } from "../interfaces";
+import { MetadataInterface, ProjectInterface } from "../interfaces";
 import { Home } from "../components/home/Home";
 import {
   Header,
@@ -18,11 +18,18 @@ import {
   PortfolioItemText,
 } from "../components/home/Portfolio";
 
-export const HomeContainer: React.FC<ApplicationProps> = ({
+interface HomeContainerProps {
+  projects: ProjectInterface[];
+  metadata: MetadataInterface;
+  onPortfolioClick: (id: number) => void;
+  blur: boolean;
+}
+
+export const HomeContainer: React.FC<HomeContainerProps> = ({
   projects,
   metadata,
   onPortfolioClick,
-  showFeature,
+  blur,
 }) => {
   const [isLargerThan930] = useMediaQuery("(min-width: 930px)");
   const [isLargeDevice, setIsLargeDevice] = useState(false);
@@ -32,7 +39,7 @@ export const HomeContainer: React.FC<ApplicationProps> = ({
   }, [isLargerThan930]);
 
   return (
-    <Home blur={showFeature}>
+    <Home blur={blur}>
       <Header>
         <HeaderText>{metadata.description}</HeaderText>
         <HeaderLinks>
