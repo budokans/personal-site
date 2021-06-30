@@ -1,12 +1,13 @@
 import { Box, Stack } from "@chakra-ui/layout";
 import Image from "next/image";
-import { FeatureCarouselProps } from "./FeatureCarouselContainer";
+import { hideScrollbar } from "../../styles/utilStyles";
+import { FeatureMediaInterface } from "../../interfaces";
 
-const FeatureCarousel: React.FC<FeatureCarouselProps> = ({
-  media,
-  hideScrollbar,
-  disableUserSelect,
-}) => {
+interface CarouselProps {
+  media: FeatureMediaInterface[];
+}
+
+export const CarouselMobile: React.FC<CarouselProps> = ({ media }) => {
   return (
     <Stack
       direction="row"
@@ -28,26 +29,25 @@ const FeatureCarousel: React.FC<FeatureCarouselProps> = ({
             height="100%"
             minWidth="calc(70vw + 35px)"
             sx={{
-              ...disableUserSelect,
               scrollSnapAlign: "start",
               scrollPadding: "1.75rem",
             }}
             p="7.5vw"
           >
-            <Image
-              src={mediaItem.path}
-              alt={mediaItem.alt}
-              height={131}
-              width={211}
-              layout="responsive"
-              className="no-drag"
-              priority={idx < 2}
-            />
+            <Box sx={{ pointerEvents: "none" }}>
+              <Image
+                src={mediaItem.path}
+                alt={mediaItem.alt}
+                height={135}
+                width={233}
+                objectFit="cover"
+                layout="responsive"
+                priority={idx < 2}
+              />
+            </Box>
           </Box>
         );
       })}
     </Stack>
   );
 };
-
-export default FeatureCarousel;

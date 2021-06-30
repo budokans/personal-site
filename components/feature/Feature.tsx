@@ -1,9 +1,9 @@
+import { RefObject } from "react";
 import { Box, Stack } from "@chakra-ui/layout";
-import SimpleBar from "simplebar-react";
 import { CloseButton } from "@chakra-ui/close-button";
 import { Variants } from "framer-motion";
+import SimpleBar from "simplebar-react";
 import { MotionBox } from "../Motion";
-import { RefObject } from "react";
 
 interface CloseButtonProps {
   onClick(): void;
@@ -75,10 +75,9 @@ Feature.Container = ({ variants, node, children }) => {
       <Box
         height="full"
         bg="white"
-        borderWidth="1px"
-        borderColor="gray.300"
-        borderStyle="solid"
-        borderRadius="xl"
+        borderX="1px solid gray.300"
+        borderTop="1px solid gray.300"
+        borderTopRadius="xl"
         ref={node}
       >
         <SimpleBar style={{ maxHeight: "100%" }}>{children}</SimpleBar>

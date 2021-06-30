@@ -14,14 +14,15 @@ export interface ProjectInterface {
   url?: string;
 }
 
+export interface ContactInterface {
+  type: string;
+  value: string;
+}
+
 export interface MetadataInterface {
   description: string;
   canonical: string;
-  contact: {
-    email: string;
-    github: string;
-    linkedIn: string;
-  };
+  contacts: ContactInterface[];
 }
 
 export interface ApplicationProps {

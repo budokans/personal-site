@@ -7,7 +7,7 @@ import { Header } from "../components/feature/Header";
 import { Tech } from "../components/feature/Tech";
 import { Description } from "../components/feature/Description";
 import { Link } from "../components/feature/Link";
-import FeatureCarouselContainer from "../components/feature/FeatureCarouselContainer";
+import { CarouselContainer } from "../containers/carousel";
 
 interface FeatureProps {
   project: ProjectInterface;
@@ -39,7 +39,6 @@ export const FeatureContainer: React.FC<FeatureProps> = ({
 
   useEffect(() => {
     document.getElementsByTagName("body")[0].style.overflow = "hidden";
-
     return () => {
       document.getElementsByTagName("body")[0].style.overflow = "visible";
     };
@@ -94,7 +93,7 @@ export const FeatureContainer: React.FC<FeatureProps> = ({
             </Tech.Inner>
           </Tech>
 
-          <FeatureCarouselContainer media={project.featureMedia} />
+          <CarouselContainer media={project.featureMedia} />
 
           <Description>
             {project.description.map((paragraph, idx) => {

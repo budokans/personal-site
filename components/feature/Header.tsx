@@ -11,6 +11,21 @@ interface Compound {
 
 type HeaderCC = React.FC & Compound;
 
+const Container: React.FC = ({ children }) => {
+  return (
+    <Stack
+      display="flex"
+      direction="row"
+      alignItems="center"
+      paddingTop={[4, 9]}
+      px={[4, 9]}
+      spacing={4}
+    >
+      {children}
+    </Stack>
+  );
+};
+
 export const Header: HeaderCC = ({ children }) => {
   return <Container>{children}</Container>;
 };
@@ -44,20 +59,5 @@ Header.Subtext = ({ children }) => {
     <Text color="gray.500" fontSize="clamp(12px, 10.8px + 0.25vw, 14px)">
       {children}
     </Text>
-  );
-};
-
-const Container: React.FC = ({ children }) => {
-  return (
-    <Stack
-      display="flex"
-      direction="row"
-      alignItems="center"
-      paddingTop={[4, 9]}
-      px={[4, 9]}
-      spacing={4}
-    >
-      {children}
-    </Stack>
   );
 };
