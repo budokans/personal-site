@@ -13,34 +13,13 @@ const hideScrollbar = {
   },
 };
 
-const disableUserSelect = {
-  WebkitUserSelect: "none",
-  WebkitUserDrag: "none",
-  WebkitAppRegion: "no-drag",
-  userSelect: "none",
-  MozUserSelect: "none",
-  KhtmlUserSelect: "none",
-  OUserSelect: "none",
-};
-
 type CarouselContainerProps = {
   media: FeatureMediaInterface[];
 };
 
-interface DisableUserSelectInterface {
-  WebkitUserSelect: string;
-  WebkitUserDrag: string;
-  WebkitAppRegion: string;
-  userSelect: string;
-  MozUserSelect: string;
-  KhtmlUserSelect: string;
-  OUserSelect: string;
-}
-
 export type FeatureCarouselProps = {
   media: FeatureMediaInterface[];
   hideScrollbar: CSSObject;
-  disableUserSelect: DisableUserSelectInterface;
 };
 
 const containerVariants = {
@@ -70,17 +49,9 @@ const FeatureCarouselContainer: React.FC<CarouselContainerProps> = ({
         animate="visible"
       >
         {isLargerThan930 ? (
-          <FeatureCarousel930px
-            media={media}
-            hideScrollbar={hideScrollbar}
-            disableUserSelect={disableUserSelect}
-          />
+          <FeatureCarousel930px media={media} hideScrollbar={hideScrollbar} />
         ) : (
-          <FeatureCarousel
-            media={media}
-            hideScrollbar={hideScrollbar}
-            disableUserSelect={disableUserSelect}
-          />
+          <FeatureCarousel media={media} hideScrollbar={hideScrollbar} />
         )}
       </MotionBox>
     </Box>

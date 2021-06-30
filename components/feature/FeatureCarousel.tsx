@@ -5,7 +5,6 @@ import { FeatureCarouselProps } from "./FeatureCarouselContainer";
 const FeatureCarousel: React.FC<FeatureCarouselProps> = ({
   media,
   hideScrollbar,
-  disableUserSelect,
 }) => {
   return (
     <Stack
@@ -28,21 +27,21 @@ const FeatureCarousel: React.FC<FeatureCarouselProps> = ({
             height="100%"
             minWidth="calc(70vw + 35px)"
             sx={{
-              ...disableUserSelect,
               scrollSnapAlign: "start",
               scrollPadding: "1.75rem",
             }}
             p="7.5vw"
           >
-            <Image
-              src={mediaItem.path}
-              alt={mediaItem.alt}
-              height={131}
-              width={211}
-              layout="responsive"
-              className="no-drag"
-              priority={idx < 2}
-            />
+            <Box sx={{ pointerEvents: "none" }}>
+              <Image
+                src={mediaItem.path}
+                alt={mediaItem.alt}
+                height={131}
+                width={211}
+                layout="responsive"
+                priority={idx < 2}
+              />
+            </Box>
           </Box>
         );
       })}

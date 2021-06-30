@@ -1,13 +1,11 @@
 import { Box } from "@chakra-ui/layout";
-import { MotionStack } from "../Motion";
-
 import Image from "next/image";
+import { MotionStack } from "../Motion";
 import { FeatureCarouselProps } from "./FeatureCarouselContainer";
 
 const FeatureCarousel930px: React.FC<FeatureCarouselProps> = ({
   media,
   hideScrollbar,
-  disableUserSelect,
 }) => {
   return (
     <MotionStack
@@ -31,16 +29,18 @@ const FeatureCarousel930px: React.FC<FeatureCarouselProps> = ({
             borderRadius="2xl"
             height="100%"
             minWidth="763px"
-            sx={{ scrollSnapAlign: "start", scrollPadding: "1.75rem" }}
+            sx={{
+              scrollSnapAlign: "start",
+              scrollPadding: "1.75rem",
+            }}
             p="55px"
           >
-            <Box sx={disableUserSelect}>
+            <Box sx={{ pointerEvents: "none" }}>
               <Image
                 src={mediaItem.path}
                 alt={mediaItem.alt}
                 height={378}
                 width={651}
-                className="no-drag"
                 priority={idx < 2}
               />
             </Box>
