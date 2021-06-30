@@ -1,19 +1,21 @@
-import { Box } from "@chakra-ui/layout";
+import { Box, Stack } from "@chakra-ui/layout";
 import Image from "next/image";
 import { hideScrollbar } from "../../styles/utilStyles";
-import { MotionStack } from "../Motion";
-import { FeatureCarouselProps } from "./FeatureCarouselContainer";
+import { FeatureMediaInterface } from "../../interfaces";
 
-const FeatureCarousel930px: React.FC<FeatureCarouselProps> = ({ media }) => {
+interface CarouselProps {
+  media: FeatureMediaInterface[];
+}
+
+export const CarouselMobile: React.FC<CarouselProps> = ({ media }) => {
   return (
-    <MotionStack
-      drag="x"
-      dragConstraints={{ left: media.length === 5 ? -3020 : 0, right: 0 }}
-      dragElastic={0.5}
+    <Stack
       direction="row"
       alignItems="center"
       spacing={4}
-      height="490px"
+      height="calc(45vw + 35px)"
+      maxH="490px"
+      overflowX="scroll"
       whiteSpace="nowrap"
       sx={{ ...hideScrollbar, scrollSnapType: "x mandatory" }}
       cursor="grab"
@@ -22,32 +24,30 @@ const FeatureCarousel930px: React.FC<FeatureCarouselProps> = ({ media }) => {
         return (
           <Box
             key={idx}
-            border="1px solid black"
             bg={mediaItem.bg}
-            borderRadius="2xl"
+            borderRadius="xl"
             height="100%"
-            minWidth="763px"
+            minWidth="calc(70vw + 35px)"
             sx={{
               scrollSnapAlign: "start",
               scrollPadding: "1.75rem",
             }}
-            p="55px"
+            p="7.5vw"
           >
             <Box sx={{ pointerEvents: "none" }}>
               <Image
                 src={mediaItem.path}
                 alt={mediaItem.alt}
-                height={378}
-                width={651}
-                priority={idx < 2}
+                height={135}
+                width={233}
                 objectFit="cover"
+                layout="responsive"
+                priority={idx < 2}
               />
             </Box>
           </Box>
         );
       })}
-    </MotionStack>
+    </Stack>
   );
 };
-
-export default FeatureCarousel930px;

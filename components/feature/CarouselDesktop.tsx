@@ -1,17 +1,23 @@
-import { Box, Stack } from "@chakra-ui/layout";
+import { Box } from "@chakra-ui/layout";
 import Image from "next/image";
 import { hideScrollbar } from "../../styles/utilStyles";
-import { FeatureCarouselProps } from "./FeatureCarouselContainer";
+import { MotionStack } from "../Motion";
+import { FeatureMediaInterface } from "../../interfaces";
 
-const FeatureCarousel: React.FC<FeatureCarouselProps> = ({ media }) => {
+interface CarouselProps {
+  media: FeatureMediaInterface[];
+}
+
+export const CarouselDesktop: React.FC<CarouselProps> = ({ media }) => {
   return (
-    <Stack
+    <MotionStack
+      drag="x"
+      dragConstraints={{ left: media.length === 5 ? -3020 : 0, right: 0 }}
+      dragElastic={0.5}
       direction="row"
       alignItems="center"
       spacing={4}
-      height="calc(45vw + 35px)"
-      maxH="490px"
-      overflowX="scroll"
+      height="490px"
       whiteSpace="nowrap"
       sx={{ ...hideScrollbar, scrollSnapType: "x mandatory" }}
       cursor="grab"
@@ -20,32 +26,30 @@ const FeatureCarousel: React.FC<FeatureCarouselProps> = ({ media }) => {
         return (
           <Box
             key={idx}
+            border="1px solid black"
             bg={mediaItem.bg}
-            borderRadius="xl"
+            borderRadius="2xl"
             height="100%"
-            minWidth="calc(70vw + 35px)"
+            minWidth="763px"
             sx={{
               scrollSnapAlign: "start",
               scrollPadding: "1.75rem",
             }}
-            p="7.5vw"
+            p="55px"
           >
             <Box sx={{ pointerEvents: "none" }}>
               <Image
                 src={mediaItem.path}
                 alt={mediaItem.alt}
-                height={135}
-                width={233}
-                objectFit="cover"
-                layout="responsive"
+                height={378}
+                width={651}
                 priority={idx < 2}
+                objectFit="cover"
               />
             </Box>
           </Box>
         );
       })}
-    </Stack>
+    </MotionStack>
   );
 };
-
-export default FeatureCarousel;
