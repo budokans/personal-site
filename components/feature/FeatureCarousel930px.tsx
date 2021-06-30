@@ -1,12 +1,10 @@
 import { Box } from "@chakra-ui/layout";
 import Image from "next/image";
+import { hideScrollbar } from "../../styles/utilStyles";
 import { MotionStack } from "../Motion";
 import { FeatureCarouselProps } from "./FeatureCarouselContainer";
 
-const FeatureCarousel930px: React.FC<FeatureCarouselProps> = ({
-  media,
-  hideScrollbar,
-}) => {
+const FeatureCarousel930px: React.FC<FeatureCarouselProps> = ({ media }) => {
   return (
     <MotionStack
       drag="x"

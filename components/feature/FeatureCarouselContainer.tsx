@@ -2,16 +2,8 @@ import { Box } from "@chakra-ui/layout";
 import { useMediaQuery } from "@chakra-ui/media-query";
 import { FeatureMediaInterface } from "../../interfaces";
 import { MotionBox } from "../Motion";
-import { CSSObject } from "@emotion/serialize";
 import FeatureCarousel930px from "./FeatureCarousel930px";
 import FeatureCarousel from "./FeatureCarousel";
-
-const hideScrollbar = {
-  "&::-webkit-scrollbar": {
-    width: "0 !important",
-    display: "none",
-  },
-};
 
 type CarouselContainerProps = {
   media: FeatureMediaInterface[];
@@ -19,7 +11,6 @@ type CarouselContainerProps = {
 
 export type FeatureCarouselProps = {
   media: FeatureMediaInterface[];
-  hideScrollbar: CSSObject;
 };
 
 const containerVariants = {
@@ -49,9 +40,9 @@ const FeatureCarouselContainer: React.FC<CarouselContainerProps> = ({
         animate="visible"
       >
         {isLargerThan930 ? (
-          <FeatureCarousel930px media={media} hideScrollbar={hideScrollbar} />
+          <FeatureCarousel930px media={media} />
         ) : (
-          <FeatureCarousel media={media} hideScrollbar={hideScrollbar} />
+          <FeatureCarousel media={media} />
         )}
       </MotionBox>
     </Box>

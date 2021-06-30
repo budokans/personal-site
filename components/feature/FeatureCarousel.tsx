@@ -1,11 +1,9 @@
 import { Box, Stack } from "@chakra-ui/layout";
 import Image from "next/image";
+import { hideScrollbar } from "../../styles/utilStyles";
 import { FeatureCarouselProps } from "./FeatureCarouselContainer";
 
-const FeatureCarousel: React.FC<FeatureCarouselProps> = ({
-  media,
-  hideScrollbar,
-}) => {
+const FeatureCarousel: React.FC<FeatureCarouselProps> = ({ media }) => {
   return (
     <Stack
       direction="row"

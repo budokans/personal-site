@@ -1,4 +1,5 @@
 import { Badge, Box, Heading, Stack } from "@chakra-ui/layout";
+import { hideScrollbar } from "../../styles/utilStyles";
 
 interface Compound {
   Header: React.FC;
@@ -36,19 +37,13 @@ Tech.Header = ({ children }) => {
 };
 
 Tech.Inner = ({ children }) => {
-  const hideScrollbar = {
-    "&::-webkit-scrollbar": {
-      width: "0 !important",
-      display: "none",
-    },
-  };
-
   return (
     <Stack
       direction="row"
       overflowX="auto"
       whiteSpace="nowrap"
       sx={hideScrollbar}
+      cursor="grab"
     >
       {children}
     </Stack>
