@@ -1,16 +1,20 @@
 import { Heading, Stack, Wrap, WrapItem } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/button";
-import { Tooltip, useClipboard } from "@chakra-ui/react";
+import { Tooltip, useClipboard, useMediaQuery } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import { ContactInterface } from "../../interfaces";
 
 interface ButtonProps {
   href: string;
 }
 
+interface LinksProps {
+  contacts: ContactInterface[];
+}
+
 interface Compound {
   Text: React.FC;
-  Links: React.FC;
-  Link: React.FC<ButtonProps>;
-  Tooltip: React.FC<ButtonProps>;
+  Links: React.FC<LinksProps>;
 }
 
 type HeaderCC = React.FC & Compound;
@@ -35,11 +39,36 @@ Header.Text = ({ children }) => {
   );
 };
 
-Header.Links = ({ children }) => {
-  return <Wrap spacing="3">{children}</Wrap>;
+Header.Links = ({ contacts }) => {
+  const [isLargerThan930] = useMediaQuery("(min-width: 930px)");
+  const [isLargeViewport, setIsLargeViewport] = useState(false);
+
+  useEffect(() => {
+    isLargerThan930 ? setIsLargeViewport(true) : setIsLargeViewport(false);
+  }, [isLargerThan930]);
+
+  return (
+    <Wrap spacing="3">
+      {contacts.map((contact, idx) => {
+        if (isLargeViewport && contact.type === "Email") {
+          return (
+            <TooltipBtn href={contact.value} key={-1}>
+              {contact.type}
+            </TooltipBtn>
+          );
+        } else {
+          return (
+            <Link href={contact.value} key={idx}>
+              {contact.type}
+            </Link>
+          );
+        }
+      })}
+    </Wrap>
+  );
 };
 
-Header.Link = ({ href, children }) => {
+const Link: React.FC<ButtonProps> = ({ href, children }) => {
   return (
     <WrapItem>
       <Button
@@ -57,7 +86,7 @@ Header.Link = ({ href, children }) => {
   );
 };
 
-Header.Tooltip = ({ href, children }) => {
+const TooltipBtn: React.FC<ButtonProps> = ({ href, children }) => {
   const { hasCopied, onCopy } = useClipboard(href);
 
   return (

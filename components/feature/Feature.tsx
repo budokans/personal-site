@@ -1,9 +1,9 @@
+import { RefObject } from "react";
 import { Box, Stack } from "@chakra-ui/layout";
-import SimpleBar from "simplebar-react";
 import { CloseButton } from "@chakra-ui/close-button";
 import { Variants } from "framer-motion";
+import SimpleBar from "simplebar-react";
 import { MotionBox } from "../Motion";
-import { RefObject } from "react";
 
 interface CloseButtonProps {
   onClick(): void;

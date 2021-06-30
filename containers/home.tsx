@@ -1,5 +1,5 @@
-import { useMediaQuery } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+// import { useMediaQuery } from "@chakra-ui/react";
+// import { useEffect, useState } from "react";
 import { MetadataInterface, ProjectInterface } from "../interfaces";
 import { Home } from "../components/home/Home";
 import { Header } from "../components/home/Header";
@@ -18,30 +18,11 @@ export const HomeContainer: React.FC<HomeContainerProps> = ({
   onPortfolioClick,
   blur,
 }) => {
-  const [isLargerThan930] = useMediaQuery("(min-width: 930px)");
-  const [isLargeDevice, setIsLargeDevice] = useState(false);
-
-  useEffect(() => {
-    isLargerThan930 ? setIsLargeDevice(true) : setIsLargeDevice(false);
-  }, [isLargerThan930]);
-
   return (
     <Home blur={blur}>
       <Header>
         <Header.Text>{metadata.description}</Header.Text>
-        <Header.Links>
-          {isLargeDevice ? (
-            <Header.Tooltip href={metadata.contact.email}>Email</Header.Tooltip>
-          ) : (
-            <Header.Link href={`mailto:${metadata.contact.email}`}>
-              Email
-            </Header.Link>
-          )}
-
-          <Header.Link href={metadata.contact.github}>Github</Header.Link>
-
-          <Header.Link href={metadata.contact.linkedIn}>LinkedIn</Header.Link>
-        </Header.Links>
+        <Header.Links contacts={metadata.contacts} />
       </Header>
 
       <Portfolio>
