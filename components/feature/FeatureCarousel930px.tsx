@@ -40,6 +40,7 @@ const FeatureCarousel930px: React.FC<FeatureCarouselProps> = ({ media }) => {
                 height={378}
                 width={651}
                 priority={idx < 2}
+                objectFit="cover"
               />
             </Box>
           </Box>

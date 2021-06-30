@@ -34,8 +34,9 @@ const FeatureCarousel: React.FC<FeatureCarouselProps> = ({ media }) => {
               <Image
                 src={mediaItem.path}
                 alt={mediaItem.alt}
-                height={131}
-                width={211}
+                height={135}
+                width={233}
+                objectFit="cover"
                 layout="responsive"
                 priority={idx < 2}
               />
