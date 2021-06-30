@@ -75,10 +75,9 @@ Feature.Container = ({ variants, node, children }) => {
       <Box
         height="full"
         bg="white"
-        borderWidth="1px"
-        borderColor="gray.300"
-        borderStyle="solid"
-        borderRadius="xl"
+        borderX="1px solid gray.300"
+        borderTop="1px solid gray.300"
+        borderTopRadius="xl"
         ref={node}
       >
         <SimpleBar style={{ maxHeight: "100%" }}>{children}</SimpleBar>
