@@ -34,11 +34,7 @@ const FeatureCarouselContainer: React.FC<CarouselContainerProps> = ({
 
   return (
     <Box overflow="hidden" px={[4, 9]}>
-      <MotionBox
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
+      <MotionBox variants={containerVariants}>
         {isLargerThan930 ? (
           <FeatureCarousel930px media={media} />
         ) : (

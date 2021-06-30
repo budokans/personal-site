@@ -43,7 +43,6 @@ Tech.Inner = ({ children }) => {
       overflowX="auto"
       whiteSpace="nowrap"
       sx={hideScrollbar}
-      cursor="grab"
     >
       {children}
     </Stack>
