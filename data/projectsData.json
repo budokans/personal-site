@@ -45,7 +45,10 @@
       "To fix this, I added much more robust error-handling throughout the application, rebuilt the app with the latest version of Keystone JS, rebuilt the database in postgreSQL as Keystone had now dropped support for Mongoose and moved to Prisma, and successfully deployed to Heroku.",
       "I also fixed a litany of other bugs, created all mobile styles and made the frontend responsive, eliminated Cumulative Layout Shift and made the app much more intuitive to use."
     ],
-    "url": "https://gretsch.stevenwebster.co"
+    "links": [
+      { "type": "Visit", "url": "https://gretsch.stevenwebster.co" },
+      { "type": "GitHub", "url": "https://github.com/budokans/gretsch-geeks" }
+    ]
   },
   {
     "title": "Netflix Clone",
@@ -85,7 +88,10 @@
       "While compound components were certainly flexible, it's an awful lot of prop-spreading and it becomes problematic if you want robust prop type-checking.. But it was good to get a feel for the pattern none-the-less.",
       "Firebase made it super quick to get set up with user auth, and Fuse.js provided a simple and effective search solution that was easy to get working with quickly."
     ],
-    "url": "http://netflix.stevenwebster.co"
+    "links": [
+      { "type": "Visit", "url": "http://netflix.stevenwebster.co" },
+      { "type": "GitHub", "url": "https://github.com/budokans/netflix-clone" }
+    ]
   },
   {
     "title": "Story Typer",
@@ -126,7 +132,10 @@
       "Unhappy with the overhead of manually inputting the stories and other meta information myself, I built an Express server and wrote a scraper with Cheerio JS that pushes all the scraped data to a mongoDB server.",
       "It was also a great Regex workout to get all the formatting done correctly as the stories are scraped!"
     ],
-    "url": "https://storytyper.stevenwebster.co"
+    "links": [
+      { "type": "Visit", "url": "https://storytyper.stevenwebster.co" },
+      { "type": "GitHub", "url": "https://github.com/budokans/storytyper" }
+    ]
   },
   {
     "title": "stevenwebster.co",
@@ -145,6 +154,9 @@
       "I chose new-kid-on-the-block Chakra UI over more established alternatives like Material UI, and Chakra integrates easily with Framer Motion to make draggable components and animations a breeze.",
       "Completely statically generated with Next.js so it's blazing fast, with images stored locally and optimized on-the-fly with Next's Image component.",
       "Deployed on Vercel, and crafted using the Develop, Preview, Ship workflow."
+    ],
+    "links": [
+      { "type": "GitHub", "url": "https://github.com/budokans/personal-site" }
     ]
   }
 ]

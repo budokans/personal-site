@@ -6,7 +6,7 @@ import { Feature } from "../components/feature/Feature";
 import { Header } from "../components/feature/Header";
 import { Tech } from "../components/feature/Tech";
 import { Description } from "../components/feature/Description";
-import { Link } from "../components/feature/Link";
+import { Links } from "../components/feature/Link";
 import { CarouselContainer } from "../containers/carousel";
 
 interface FeatureProps {
@@ -105,8 +105,15 @@ export const FeatureContainer: React.FC<FeatureProps> = ({
             })}
           </Description>
 
-          {/* Don't display Visit link for stevenwebster.co */}
-          {project.url && <Link url={project.url}>Visit</Link>}
+          <Links>
+            {project.links.map((link) => {
+              return (
+                <Links.Link url={link.url} key={link.type}>
+                  {link.type}
+                </Links.Link>
+              );
+            })}
+          </Links>
         </Feature.Inner>
       </Feature.Container>
     </Feature>
