@@ -5,7 +5,7 @@ interface DocHeadProps {
   metadata: MetadataInterface;
 }
 
-const DocHead: React.FC<DocHeadProps> = ({ metadata }) => {
+export const DocHead: React.FC<DocHeadProps> = ({ metadata }) => {
   return (
     <Head>
       <title>Steven Webster | Full-Stack Developer</title>
@@ -47,5 +47,3 @@ const DocHead: React.FC<DocHeadProps> = ({ metadata }) => {
     </Head>
   );
 };
-
-export default DocHead;

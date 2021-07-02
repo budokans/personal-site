@@ -1,9 +1,8 @@
-import { SimpleGrid } from "@chakra-ui/layout";
+import { useEffect, useState } from "react";
 import { useMediaQuery } from "@chakra-ui/react";
-import { Box, Flex, Heading, Text } from "@chakra-ui/layout";
+import { SimpleGrid, Box, Flex, Heading, Text } from "@chakra-ui/layout";
 import { Img } from "@chakra-ui/image";
 import { Button } from "@chakra-ui/button";
-import { useEffect, useState } from "react";
 import { ImageProps } from "../../interfaces";
 
 interface PortFolioItemProps {

@@ -1,5 +1,3 @@
-// import { useMediaQuery } from "@chakra-ui/react";
-// import { useEffect, useState } from "react";
 import { MetadataInterface, ProjectInterface } from "../interfaces";
 import { Home } from "../components/home/Home";
 import { Header } from "../components/home/Header";
