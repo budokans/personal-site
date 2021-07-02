@@ -22,6 +22,22 @@ interface Compound {
 
 type FeatureCC = React.FC & Compound;
 
+const Overlay: React.FC = () => {
+  return (
+    <MotionBox
+      position="absolute"
+      top={0}
+      right={0}
+      bottom={0}
+      left={0}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 0.5 }}
+      exit={{ opacity: 0 }}
+      bg="blackAlpha.600"
+    />
+  );
+};
+
 export const Feature: FeatureCC = ({ children }) => {
   return (
     <>
@@ -83,21 +99,5 @@ Feature.Container = ({ variants, node, children }) => {
         <SimpleBar style={{ maxHeight: "100%" }}>{children}</SimpleBar>
       </Box>
     </MotionBox>
-  );
-};
-
-const Overlay: React.FC = () => {
-  return (
-    <MotionBox
-      position="absolute"
-      top={0}
-      right={0}
-      bottom={0}
-      left={0}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 0.5 }}
-      exit={{ opacity: 0 }}
-      bg="blackAlpha.600"
-    />
   );
 };

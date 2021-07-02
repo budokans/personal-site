@@ -4,6 +4,11 @@ export interface FeatureMediaInterface {
   alt: string;
 }
 
+export interface LinkInterface {
+  type: "Visit" | "GitHub";
+  url: string;
+}
+
 export interface ProjectInterface {
   title: string;
   shortBlurb: string;
@@ -11,7 +16,7 @@ export interface ProjectInterface {
   tech: string[];
   featureMedia: FeatureMediaInterface[];
   description: string[];
-  url?: string;
+  links: LinkInterface[];
 }
 
 export interface ContactInterface {

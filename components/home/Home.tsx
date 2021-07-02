@@ -1,6 +1,6 @@
 import { Flex } from "@chakra-ui/layout";
 
-const Home: React.FC<{ blur: boolean }> = ({ blur, children }) => {
+export const Home: React.FC<{ blur: boolean }> = ({ blur, children }) => {
   return (
     <Flex
       direction="column"
@@ -25,5 +25,3 @@ const Home: React.FC<{ blur: boolean }> = ({ blur, children }) => {
     </Flex>
   );
 };
-
-export { Home };

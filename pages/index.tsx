@@ -1,11 +1,11 @@
+import { useState } from "react";
 import { GetStaticProps } from "next";
 import { AnimatePresence } from "framer-motion";
 import { ApplicationProps } from "../interfaces";
 import { getData } from "../lib/getData";
-import DocHead from "../components/DocHead";
+import { DocHead } from "../components/DocHead";
 import { HomeContainer } from "../containers/home";
 import { FeatureContainer } from "../containers/feature";
-import { useState } from "react";
 
 export const getStaticProps: GetStaticProps = async () => {
   const [metadata, projects] = getData();
