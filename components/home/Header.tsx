@@ -90,16 +90,18 @@ const TooltipBtn: React.FC<ButtonProps> = ({ href, children }) => {
   const { hasCopied, onCopy } = useClipboard(href);
 
   return (
-    <Tooltip
-      placement="bottom"
-      borderRadius="lg"
-      py="1.5"
-      closeDelay={1000}
-      label={hasCopied ? "Copied!" : "Click to Copy!"}
-    >
-      <Button borderRadius="2xl" h="7" fontSize="sm" onClick={onCopy}>
-        {children}
-      </Button>
-    </Tooltip>
+    <WrapItem>
+      <Tooltip
+        placement="bottom"
+        borderRadius="lg"
+        py="1.5"
+        closeDelay={1000}
+        label={hasCopied ? "Copied!" : "Click to Copy!"}
+      >
+        <Button borderRadius="2xl" h="7" fontSize="sm" onClick={onCopy}>
+          {children}
+        </Button>
+      </Tooltip>
+    </WrapItem>
   );
 };
