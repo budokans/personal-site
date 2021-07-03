@@ -33,6 +33,7 @@ export interface MetadataInterface {
 export interface ApplicationProps {
   projects: ProjectInterface[];
   metadata: MetadataInterface;
+  onPortfolioClick: (id: number) => void;
 }
 
 export interface ImageProps {
