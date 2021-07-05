@@ -1,10 +1,8 @@
 module.exports = {
   collectCoverageFrom: [
-    "**/*.{ts,tsx}",
-    "!<rootDir>/interfaces/**",
-    "!<rootDir>/styles/**",
-    "!<rootDir>/node_modules/**",
-    "!<rootDir>/.next/**",
+    "<rootDir>/components/feature/**",
+    "<rootDir>/components/home/**",
+    "<rootDir>/containers/**",
   ],
   coverageThreshold: {
     global: {

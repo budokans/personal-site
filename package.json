@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
-    "test": "jest --coverage"
+    "test": "jest --watch --coverage"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.0",
