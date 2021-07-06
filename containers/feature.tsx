@@ -72,7 +72,14 @@ export const FeatureContainer: React.FC<FeatureProps> = ({
             <Tech.Header>Tech</Tech.Header>
             <Tech.Inner>
               {project.tech.map((tech, idx) => {
-                return <Tech.Badge key={idx}>{tech}</Tech.Badge>;
+                return (
+                  <Tech.Badge
+                    key={idx}
+                    last={!!(idx === project.tech.length - 1)}
+                  >
+                    {tech}
+                  </Tech.Badge>
+                );
               })}
             </Tech.Inner>
           </Tech>

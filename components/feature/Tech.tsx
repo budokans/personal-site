@@ -4,14 +4,14 @@ import { hideScrollbar } from "../../styles/utilStyles";
 interface Compound {
   Header: React.FC;
   Inner: React.FC;
-  Badge: React.FC;
+  Badge: React.FC<{ last: boolean }>;
 }
 
 type TechCC = Compound & React.FC;
 
 const Container: React.FC = ({ children }) => {
   return (
-    <Box overflow="hidden" px={[4, 9]}>
+    <Box overflow="hidden" paddingLeft={[4, 9]}>
       {children}
     </Box>
   );
@@ -49,7 +49,7 @@ Tech.Inner = ({ children }) => {
   );
 };
 
-Tech.Badge = ({ children }) => {
+Tech.Badge = ({ last, children }) => {
   return (
     <Box>
       <Badge
@@ -65,6 +65,7 @@ Tech.Badge = ({ children }) => {
         color="gray.800"
         fontSize="sm"
         fontWeight="normal"
+        marginRight={last ? "1rem !important" : "0"}
       >
         {children}
       </Badge>
