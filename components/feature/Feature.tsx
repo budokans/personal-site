@@ -61,6 +61,7 @@ Feature.CloseButton = ({ onClick }) => {
       top={["10px", "30px"]}
       right={["10px", "30px"]}
       onClick={onClick}
+      data-testid="close-feature"
     />
   );
 };

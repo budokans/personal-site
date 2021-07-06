@@ -111,7 +111,15 @@ Portfolio.Text = ({ children }) => {
 
 Portfolio.Button = () => {
   return (
-    <Button rounded="xl" fontSize="sm" w={8} px={3} h={7} minW={16}>
+    <Button
+      rounded="xl"
+      fontSize="sm"
+      w={8}
+      px={3}
+      h={7}
+      minW={16}
+      data-testid="open-feature"
+    >
       View
     </Button>
   );
