@@ -29,7 +29,7 @@ export const CarouselContainer: React.FC<CarouselContainerProps> = ({
   const [isLargerThan930] = useMediaQuery("(min-width: 930px)");
 
   return (
-    <Box paddingLeft={[4, 9]}>
+    <Box paddingLeft={[4, 9]} overflow="hidden">
       <MotionBox variants={containerVariants}>
         {isLargerThan930 ? (
           <CarouselDesktop media={media} />
