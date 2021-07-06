@@ -19,9 +19,9 @@ export const FeatureContainer: React.FC<FeatureProps> = ({
   onCloseClick,
 }) => {
   useEffect(() => {
-    document.getElementsByTagName("body")[0].style.overflow = "hidden";
+    document.querySelector("body")!.style.overflow = "hidden";
     return () => {
-      document.getElementsByTagName("body")[0].style.overflow = "visible";
+      document.querySelector("body")!.style.overflow = "visible";
     };
   }, []);
 
