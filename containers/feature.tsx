@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { Box, Divider } from "@chakra-ui/layout";
 import parse from "html-react-parser";
 import { ProjectInterface } from "../interfaces";
@@ -18,29 +18,10 @@ export const FeatureContainer: React.FC<FeatureProps> = ({
   project,
   onCloseClick,
 }) => {
-  const node = useRef<HTMLDivElement>(null);
-
-  const handleClickOutside = (e: MouseEvent) => {
-    const target = e.target as HTMLElement;
-    if (node && node.current && node.current.contains(target)) {
-      // inside click
-      return;
-    }
-    // outside click
-    onCloseClick();
-  };
-
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+    document.querySelector("body")!.style.overflow = "hidden";
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
-  useEffect(() => {
-    document.getElementsByTagName("body")[0].style.overflow = "hidden";
-    return () => {
-      document.getElementsByTagName("body")[0].style.overflow = "visible";
+      document.querySelector("body")!.style.overflow = "visible";
     };
   }, []);
 
@@ -68,8 +49,11 @@ export const FeatureContainer: React.FC<FeatureProps> = ({
 
   return (
     <Feature>
-      <Feature.Container variants={containerVariants} node={node}>
-        <Feature.CloseButton onClick={onCloseClick} />
+      <Feature.Container
+        variants={containerVariants}
+        onCloseClick={onCloseClick}
+      >
+        <Feature.CloseButton onCloseClick={onCloseClick} />
 
         <Header>
           <Header.Image src={project.icon} alt={project.title} />
@@ -88,7 +72,14 @@ export const FeatureContainer: React.FC<FeatureProps> = ({
             <Tech.Header>Tech</Tech.Header>
             <Tech.Inner>
               {project.tech.map((tech, idx) => {
-                return <Tech.Badge key={idx}>{tech}</Tech.Badge>;
+                return (
+                  <Tech.Badge
+                    key={idx}
+                    last={!!(idx === project.tech.length - 1)}
+                  >
+                    {tech}
+                  </Tech.Badge>
+                );
               })}
             </Tech.Inner>
           </Tech>

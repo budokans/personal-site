@@ -13,7 +13,6 @@ export const CarouselMobile: React.FC<CarouselProps> = ({ media }) => {
       direction="row"
       alignItems="center"
       spacing={4}
-      height="calc(45vw + 35px)"
       maxH="490px"
       overflowX="scroll"
       whiteSpace="nowrap"
@@ -27,12 +26,13 @@ export const CarouselMobile: React.FC<CarouselProps> = ({ media }) => {
             bg={mediaItem.bg}
             borderRadius="xl"
             height="100%"
-            minWidth="calc(70vw + 35px)"
+            minWidth="calc(80vw + 24px)"
             sx={{
               scrollSnapAlign: "start",
               scrollPadding: "1.75rem",
             }}
             p="7.5vw"
+            marginRight={idx === media.length - 1 ? "1rem !important" : "0"}
           >
             <Box sx={{ pointerEvents: "none" }}>
               <Image

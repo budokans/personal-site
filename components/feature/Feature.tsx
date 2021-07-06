@@ -1,17 +1,18 @@
-import { RefObject } from "react";
+import { useRef } from "react";
 import { Box, Stack } from "@chakra-ui/layout";
 import { CloseButton } from "@chakra-ui/close-button";
 import { Variants } from "framer-motion";
 import SimpleBar from "simplebar-react";
 import { MotionBox } from "../Motion";
+import { useOnClickOutside } from "hooks/useOnClickOutside";
 
 interface CloseButtonProps {
-  onClick(): void;
+  onCloseClick(): void;
 }
 
 interface ContainerProps {
-  node: RefObject<HTMLDivElement>;
   variants: Variants;
+  onCloseClick: () => void;
 }
 
 interface Compound {
@@ -47,34 +48,10 @@ export const Feature: FeatureCC = ({ children }) => {
   );
 };
 
-Feature.CloseButton = ({ onClick }) => {
-  return (
-    <CloseButton
-      w={["28px", "34px"]}
-      h={["28px", "34px"]}
-      fontSize="14px"
-      borderRadius="full"
-      color="gray.900"
-      bg="gray.100"
-      p={0}
-      position="absolute"
-      top={["10px", "30px"]}
-      right={["10px", "30px"]}
-      onClick={onClick}
-      data-testid="close-feature"
-    />
-  );
-};
+Feature.Container = ({ variants, onCloseClick, children }) => {
+  const node = useRef<HTMLDivElement>(null);
+  useOnClickOutside(node, onCloseClick);
 
-Feature.Inner = ({ children }) => {
-  return (
-    <Stack spacing={6} mb={20}>
-      {children}
-    </Stack>
-  );
-};
-
-Feature.Container = ({ variants, node, children }) => {
   return (
     <MotionBox
       position="fixed"
@@ -100,5 +77,32 @@ Feature.Container = ({ variants, node, children }) => {
         <SimpleBar style={{ maxHeight: "100%" }}>{children}</SimpleBar>
       </Box>
     </MotionBox>
+  );
+};
+
+Feature.CloseButton = ({ onCloseClick }) => {
+  return (
+    <CloseButton
+      w={["28px", "34px"]}
+      h={["28px", "34px"]}
+      fontSize="14px"
+      borderRadius="full"
+      color="gray.900"
+      bg="gray.100"
+      p={0}
+      position="absolute"
+      top={["10px", "30px"]}
+      right={["10px", "30px"]}
+      onClick={onCloseClick}
+      data-testid="close-feature"
+    />
+  );
+};
+
+Feature.Inner = ({ children }) => {
+  return (
+    <Stack spacing={6} mb={20}>
+      {children}
+    </Stack>
   );
 };
