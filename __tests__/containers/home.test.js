@@ -1,4 +1,4 @@
-import { render, fireEvent } from "test-utils";
+import { render } from "test-utils";
 import { HomeContainer } from "../../containers/home";
 
 const metadata = {
@@ -51,22 +51,5 @@ describe("<HomeContainer />", () => {
     expect(getByText(/Netflix Clone/i)).toBeInTheDocument();
     expect(getByText(/A clone of the late-2020/i)).toBeInTheDocument();
     expect(getByAltText(/Netflix Clone/i)).toBeInTheDocument();
-  });
-
-  test("Renders with populated data", () => {
-    const openFeature = jest.fn();
-
-    const { queryAllByTestId } = render(
-      <HomeContainer
-        metadata={metadata}
-        projects={projects}
-        onPortfolioClick={openFeature}
-        blur="false"
-      />
-    );
-
-    const clickablePortfolioElements = queryAllByTestId("open-feature");
-    fireEvent.click(clickablePortfolioElements[0]);
-    expect(openFeature).toHaveBeenCalled();
   });
 });
