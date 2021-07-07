@@ -3,6 +3,7 @@ module.exports = {
     "<rootDir>/components/feature/**",
     "<rootDir>/components/home/**",
     "<rootDir>/containers/**",
+    "<rootDir>/hooks/**",
   ],
   coverageThreshold: {
     global: {

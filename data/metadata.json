@@ -2,7 +2,7 @@
   "description": "Steven Webster is a full-stack developer who cares about scalability, performance and elegant, intuitive UIs. Working remotely from Auckland, NZ.",
   "canonical": "https://stevenwebster.co",
   "contacts": [
-    { "type": "Email", "value": "mailto:contact@stevenwebster.co" },
+    { "type": "Email", "value": "contact@stevenwebster.co" },
     { "type": "Github", "value": "https://github.com/budokans" },
     {
       "type": "LinkedIn",

@@ -58,7 +58,14 @@ Header.Links = ({ contacts }) => {
           );
         } else {
           return (
-            <Link href={contact.value} key={idx}>
+            <Link
+              href={
+                contact.type === "Email"
+                  ? `mailto:${contact.value}`
+                  : contact.value
+              }
+              key={idx}
+            >
               {contact.type}
             </Link>
           );
@@ -68,7 +75,7 @@ Header.Links = ({ contacts }) => {
   );
 };
 
-const Link: React.FC<ButtonProps> = ({ href, children }) => {
+export const Link: React.FC<ButtonProps> = ({ href, children }) => {
   return (
     <WrapItem>
       <Button
@@ -79,6 +86,7 @@ const Link: React.FC<ButtonProps> = ({ href, children }) => {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
+        data-testid={href}
       >
         {children}
       </Button>
@@ -86,7 +94,7 @@ const Link: React.FC<ButtonProps> = ({ href, children }) => {
   );
 };
 
-const TooltipBtn: React.FC<ButtonProps> = ({ href, children }) => {
+export const TooltipBtn: React.FC<ButtonProps> = ({ href, children }) => {
   const { hasCopied, onCopy } = useClipboard(href);
 
   return (
@@ -97,8 +105,15 @@ const TooltipBtn: React.FC<ButtonProps> = ({ href, children }) => {
         py="1.5"
         closeDelay={1000}
         label={hasCopied ? "Copied!" : "Click to Copy!"}
+        aria-label="Copy email"
       >
-        <Button borderRadius="2xl" h="7" fontSize="sm" onClick={onCopy}>
+        <Button
+          borderRadius="2xl"
+          h="7"
+          fontSize="sm"
+          onClick={onCopy}
+          data-testid="Tooltip"
+        >
           {children}
         </Button>
       </Tooltip>
