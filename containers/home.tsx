@@ -31,7 +31,7 @@ export const HomeContainer: React.FC<HomeContainerProps> = ({
               key={idx}
             >
               <Portfolio.Image src={project.icon} alt={project.title} />
-              <Portfolio.Inner idx={idx}>
+              <Portfolio.Inner idx={idx} projectsCount={projects.length}>
                 <Portfolio.Title>{project.title}</Portfolio.Title>
                 <Portfolio.Text>{project.shortBlurb}</Portfolio.Text>
               </Portfolio.Inner>

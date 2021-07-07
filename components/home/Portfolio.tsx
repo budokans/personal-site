@@ -12,7 +12,7 @@ interface PortFolioItemProps {
 interface Compound {
   Item: React.FC<PortFolioItemProps>;
   Image: React.FC<ImageProps>;
-  Inner: React.FC<{ idx: number }>;
+  Inner: React.FC<{ idx: number; projectsCount: number }>;
   Title: React.FC;
   Text: React.FC;
   Button: React.FC;
@@ -59,14 +59,23 @@ Portfolio.Image = ({ src, alt }) => {
   );
 };
 
-Portfolio.Inner = ({ idx, children }) => {
+Portfolio.Inner = ({ idx, projectsCount, children }) => {
   const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
   const [afterStyle, setAfterStyle] = useState({});
+  const projectNumber = idx + 1;
+  const isPenultimateProject = !!(projectsCount - projectNumber === 1);
+  const isLastProject = !!(projectsCount - projectNumber === 0);
 
   useEffect(() => {
-    if (isLargerThan768 && idx > 1) {
+    // On large viewports, render a bottom border if the portfolio item is on the bottom row, except in the case where there are 2 or fewer projects; in that case, render the bottom border for those 1-2 projects.
+    if (
+      isLargerThan768 &&
+      isPenultimateProject &&
+      projectsCount % 2 === 0 &&
+      projectsCount > 2
+    ) {
       setAfterStyle({});
-    } else if (idx > 2) {
+    } else if (isLastProject && projectsCount > 2) {
       setAfterStyle({});
     } else {
       setAfterStyle({
