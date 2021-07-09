@@ -4,7 +4,7 @@ import { CloseButton } from "@chakra-ui/close-button";
 import { Variants } from "framer-motion";
 import SimpleBar from "simplebar-react";
 import { MotionBox } from "../Motion";
-import { useOnClickOutside } from "hooks/useOnClickOutside";
+import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 
 interface CloseButtonProps {
   onCloseClick(): void;
@@ -73,6 +73,7 @@ Feature.Container = ({ variants, onCloseClick, children }) => {
         borderTop="1px solid gray.300"
         borderTopRadius="xl"
         ref={node}
+        data-testid="inside-click"
       >
         <SimpleBar style={{ maxHeight: "100%" }}>{children}</SimpleBar>
       </Box>

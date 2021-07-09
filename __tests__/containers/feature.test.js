@@ -1,5 +1,6 @@
-import { render, fireEvent } from "test-utils";
+import { render } from "test-utils";
 import { FeatureContainer } from "../../containers/feature";
+import userEvent from "@testing-library/user-event";
 
 const project = {
   title: "Gretsch Geeks",
@@ -29,10 +30,9 @@ const project = {
   ],
 };
 
-const closeFeature = jest.fn();
-
 describe("<FeatureContainer", () => {
   test("renders with populated data", () => {
+    const closeFeature = jest.fn();
     const { getByText, getByAltText } = render(
       <FeatureContainer project={project} onCloseClick={closeFeature} />
     );
@@ -55,32 +55,33 @@ describe("<FeatureContainer", () => {
     expect(getByText(/GitHub/i)).toBeInTheDocument();
   });
 
-  test("closeFeature is called when Close button is clicked", () => {
+  test("closeFeature is not called when clicking inside of the FeatureContainer", () => {
+    const closeFeature = jest.fn();
     const { getByTestId } = render(
       <FeatureContainer project={project} onCloseClick={closeFeature} />
     );
 
-    fireEvent.click(getByTestId("close-feature"));
-    expect(closeFeature).toHaveBeenCalledTimes(1);
+    userEvent.click(getByTestId("inside-click"));
+    expect(closeFeature).not.toHaveBeenCalled();
   });
 
-  test("closeFeature is called when clicking outside of the FeatureContainer", () => {
-    const container = document.createElement("div");
-    render(
-      <FeatureContainer project={project} onCloseClick={closeFeature} />,
-      container
+  test("closeFeature is called when Close button is clicked", () => {
+    const closeFeature = jest.fn();
+    const { getByTestId } = render(
+      <FeatureContainer project={project} onCloseClick={closeFeature} />
     );
 
-    fireEvent.click(container);
+    userEvent.click(getByTestId("close-feature"));
     expect(closeFeature).toHaveBeenCalledTimes(1);
   });
 
-  // test("closeFeature is not called when clicking inside of the FeatureContainer", () => {
-  //   const { getByTestId } = render(
-  //     <FeatureContainer project={project} onCloseClick={closeFeature} />
-  //   );
+  test("closeFeature is called when clicking the outside of the <Feature.Container />", () => {
+    const closeFeature = jest.fn();
+    const { container } = render(
+      <FeatureContainer project={project} onCloseClick={closeFeature} />
+    );
 
-  //   fireEvent.click(getByTestId("container"));
-  //   expect(closeFeature).not.toHaveBeenCalled();
-  // });
+    userEvent.click(container.firstChild);
+    expect(closeFeature).toHaveBeenCalledTimes(1);
+  });
 });
