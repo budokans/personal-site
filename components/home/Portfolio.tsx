@@ -24,11 +24,10 @@ export const Portfolio: PortfolioCC = ({ children }) => {
   return (
     <SimpleGrid
       columns={[1, 1, 2]}
-      spacing={3}
       w={["full", "90%", "80%", "900px"]}
       mt={20}
       columnGap={10}
-      rowGap={8}
+      rowGap={4}
     >
       {children}
     </SimpleGrid>
@@ -61,37 +60,43 @@ Portfolio.Image = ({ src, alt }) => {
 
 Portfolio.Inner = ({ idx, projectsCount, children }) => {
   const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
-  const [afterStyle, setAfterStyle] = useState({});
+  const [columnsCount, setColumnCount] = useState(1);
+  const [renderBottomBorder, setRenderBottomBorder] = useState(true);
   const projectNumber = idx + 1;
-  const isPenultimateProject = !!(projectsCount - projectNumber === 1);
-  const isLastProject = !!(projectsCount - projectNumber === 0);
+  const borderStyle = "1px solid lightgrey";
 
   useEffect(() => {
-    // On large viewports, render a bottom border if the portfolio item is on the bottom row, except in the case where there are 2 or fewer projects; in that case, render the bottom border for those 1-2 projects.
-    if (
-      isLargerThan768 &&
-      isPenultimateProject &&
-      projectsCount % 2 === 0 &&
-      projectsCount > 2
-    ) {
-      setAfterStyle({});
-    } else if (isLastProject && projectsCount > 2) {
-      setAfterStyle({});
+    if (isLargerThan768) {
+      setColumnCount(2);
     } else {
-      setAfterStyle({
-        background: "gray.300",
-        position: "absolute",
-        content: `""`,
-        bottom: "-17px",
-        width: "100%",
-        height: "1px",
-        display: "block",
-      });
+      setColumnCount(1);
     }
   }, [isLargerThan768]);
 
+  const getBottomRowCount = (itemsCount: number, numColumns: number) => {
+    const remainders = itemsCount % numColumns;
+    return remainders ? remainders : numColumns;
+  };
+
+  const bottomRowCount = getBottomRowCount(projectsCount, columnsCount);
+
+  useEffect(() => {
+    if (projectNumber <= columnsCount) {
+      setRenderBottomBorder(true);
+    } else if (projectNumber > projectsCount - bottomRowCount) {
+      setRenderBottomBorder(false);
+    } else {
+      setRenderBottomBorder(true);
+    }
+  }, [columnsCount]);
+
   return (
-    <Flex position="relative" alignItems="center" _after={afterStyle}>
+    <Flex
+      position="relative"
+      alignItems="center"
+      borderBottom={renderBottomBorder ? borderStyle : ""}
+      paddingBottom={4}
+    >
       <Box mr={4}>{children}</Box>
       <Portfolio.Button />
     </Flex>
