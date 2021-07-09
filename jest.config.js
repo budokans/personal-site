@@ -4,6 +4,7 @@ module.exports = {
     "<rootDir>/components/home/**",
     "<rootDir>/containers/**",
     "<rootDir>/hooks/**",
+    "<rootDir>/lib/getBottomRowCount",
   ],
   coverageThreshold: {
     global: {

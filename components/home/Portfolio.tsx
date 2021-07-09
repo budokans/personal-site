@@ -4,6 +4,7 @@ import { SimpleGrid, Box, Flex, Heading, Text } from "@chakra-ui/layout";
 import { Img } from "@chakra-ui/image";
 import { Button } from "@chakra-ui/button";
 import { ImageProps } from "../../interfaces";
+import { getBottomRowCount } from "../../lib/getBottomRowCount";
 
 interface PortFolioItemProps {
   onPortfolioClick: () => void;
@@ -72,11 +73,6 @@ Portfolio.Inner = ({ idx, projectsCount, children }) => {
       setColumnCount(1);
     }
   }, [isLargerThan768]);
-
-  const getBottomRowCount = (itemsCount: number, numColumns: number) => {
-    const remainders = itemsCount % numColumns;
-    return remainders ? remainders : numColumns;
-  };
 
   const bottomRowCount = getBottomRowCount(projectsCount, columnsCount);
 
