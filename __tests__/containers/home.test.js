@@ -44,7 +44,6 @@ describe("<HomeContainer />", () => {
     expect(
       getByText(/Steven Webster is a full-stack developer/i)
     ).toBeInTheDocument();
-
     expect(getByText(/Gretsch Geeks/i)).toBeInTheDocument();
     expect(getByText(/An example E-commerce buy-sell/i)).toBeInTheDocument();
     expect(getByAltText(/Gretsch Geeks/i)).toBeInTheDocument();

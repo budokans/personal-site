@@ -37,7 +37,12 @@ export const Portfolio: PortfolioCC = ({ children }) => {
 
 Portfolio.Item = ({ onPortfolioClick, children }) => {
   return (
-    <Box role="button" position="relative" onClick={onPortfolioClick}>
+    <Box
+      role="button"
+      position="relative"
+      onClick={onPortfolioClick}
+      data-testid="portfolio-item"
+    >
       <Flex role="group" direction="row">
         {children}
       </Flex>
