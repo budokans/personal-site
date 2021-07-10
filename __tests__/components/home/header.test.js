@@ -1,4 +1,4 @@
-import { render, within } from "test-utils";
+import { render, within, screen } from "test-utils";
 import matchMediaPolyfill from "mq-polyfill";
 import { Header } from "../../../components/home/Header";
 
@@ -17,23 +17,25 @@ const metadata = {
 
 describe("<Header />", () => {
   test("renders <Header.Text /> with data from props", () => {
-    const { getByText, container } = render(
+    const { container } = render(
       <Header>
         <Header.Text>{metadata.description}</Header.Text>
       </Header>
     );
-    expect(getByText(/Steven Webster is a full-stack/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Steven Webster is a full-stack/i)
+    ).toBeInTheDocument();
     expect(container.firstChild).toMatchSnapshot();
   });
 
   test("renders <Header.Links /> with data from props", () => {
-    const { getAllByRole, container } = render(
+    const { container } = render(
       <Header>
         <Header.Links contacts={metadata.contacts} />
       </Header>
     );
 
-    const listItems = getAllByRole("listitem");
+    const listItems = screen.getAllByRole(/listitem/i);
     expect(listItems).toHaveLength(3);
 
     listItems.forEach((item, idx) => {
@@ -56,12 +58,10 @@ describe("<Header />", () => {
     };
     global.resizeTo(930, 1000);
 
-    const { getByTestId, queryByTestId, container } = render(
-      <Header.Links contacts={metadata.contacts} />
-    );
+    const { container } = render(<Header.Links contacts={metadata.contacts} />);
 
-    expect(getByTestId(/Tooltip/i)).toBeInTheDocument();
-    expect(queryByTestId(/mailto/i)).not.toBeInTheDocument();
+    expect(screen.getByTestId(/Tooltip/i)).toBeInTheDocument();
+    expect(screen.queryByTestId(/mailto/i)).not.toBeInTheDocument();
     expect(container.firstChild).toMatchSnapshot();
   });
 
@@ -77,12 +77,10 @@ describe("<Header />", () => {
     };
     global.resizeTo(929, 1000);
 
-    const { getByTestId, queryByTestId, container } = render(
-      <Header.Links contacts={metadata.contacts} />
-    );
+    const { container } = render(<Header.Links contacts={metadata.contacts} />);
 
-    expect(queryByTestId(/Tooltip/i)).not.toBeInTheDocument();
-    expect(getByTestId(/mailto/i)).toBeInTheDocument();
+    expect(screen.queryByTestId(/Tooltip/i)).not.toBeInTheDocument();
+    expect(screen.getByTestId(/mailto/i)).toBeInTheDocument();
     expect(container.firstChild).toMatchSnapshot();
   });
 });

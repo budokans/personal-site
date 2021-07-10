@@ -1,4 +1,4 @@
-import { render } from "test-utils";
+import { render, screen } from "test-utils";
 import { FeatureContainer } from "../../containers/feature";
 import userEvent from "@testing-library/user-event";
 
@@ -33,45 +33,39 @@ const project = {
 describe("<FeatureContainer", () => {
   test("renders with populated data", () => {
     const closeFeature = jest.fn();
-    const { getByText, getByAltText } = render(
-      <FeatureContainer project={project} onCloseClick={closeFeature} />
-    );
+    render(<FeatureContainer project={project} onCloseClick={closeFeature} />);
 
-    expect(getByText(/Gretsch Geeks/i)).toBeInTheDocument();
-    expect(getByText(/An example E-commerce/i)).toBeInTheDocument();
+    expect(screen.getByText(/Gretsch Geeks/i)).toBeInTheDocument();
+    expect(screen.getByText(/An example E-commerce/i)).toBeInTheDocument();
 
-    expect(getByAltText(/Icon/i)).toBeInTheDocument();
+    expect(screen.getByAltText(/Icon/i)).toBeInTheDocument();
 
-    expect(getByAltText(/Store/i)).toBeInTheDocument();
-    expect(getByAltText(/Cart Open/i)).toBeInTheDocument();
+    expect(screen.getByAltText(/Store/i)).toBeInTheDocument();
+    expect(screen.getByAltText(/Cart Open/i)).toBeInTheDocument();
 
-    expect(getByText(/Next.js/i)).toBeInTheDocument();
-    expect(getByText(/styled-components/i)).toBeInTheDocument();
+    expect(screen.getByText(/Next.js/i)).toBeInTheDocument();
+    expect(screen.getByText(/styled-components/i)).toBeInTheDocument();
 
-    expect(getByText(/The foundations of the/i)).toBeInTheDocument();
-    expect(getByText(/To fix this, I added/i)).toBeInTheDocument();
+    expect(screen.getByText(/The foundations of the/i)).toBeInTheDocument();
+    expect(screen.getByText(/To fix this, I added/i)).toBeInTheDocument();
 
-    expect(getByText(/Visit/i)).toBeInTheDocument();
-    expect(getByText(/GitHub/i)).toBeInTheDocument();
+    expect(screen.getByText(/Visit/i)).toBeInTheDocument();
+    expect(screen.getByText(/GitHub/i)).toBeInTheDocument();
   });
 
   test("closeFeature is not called when clicking inside of the FeatureContainer", () => {
     const closeFeature = jest.fn();
-    const { getByTestId } = render(
-      <FeatureContainer project={project} onCloseClick={closeFeature} />
-    );
+    render(<FeatureContainer project={project} onCloseClick={closeFeature} />);
 
-    userEvent.click(getByTestId("inside-click"));
+    userEvent.click(screen.getByTestId("inside-click"));
     expect(closeFeature).not.toHaveBeenCalled();
   });
 
   test("closeFeature is called when Close button is clicked", () => {
     const closeFeature = jest.fn();
-    const { getByTestId } = render(
-      <FeatureContainer project={project} onCloseClick={closeFeature} />
-    );
+    render(<FeatureContainer project={project} onCloseClick={closeFeature} />);
 
-    userEvent.click(getByTestId("close-feature"));
+    userEvent.click(screen.getByTestId("close-feature"));
     expect(closeFeature).toHaveBeenCalledTimes(1);
   });
 
