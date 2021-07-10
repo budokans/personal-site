@@ -1,4 +1,4 @@
-import { Box, Heading, Stack, Text, Image } from "@chakra-ui/react";
+import { Box, Heading, Stack, Text, Img } from "@chakra-ui/react";
 import { ImageProps } from "../../interfaces";
 
 interface Compound {
@@ -31,12 +31,11 @@ export const Header: HeaderCC = ({ children }) => {
 
 Header.Image = ({ src, alt }) => {
   return (
-    <Image
+    <Img
       src={src}
       alt={`${alt} Icon`}
       borderRadius="xl"
-      width={["65px", "90px"]}
-      height={["65px", "90px"]}
+      boxSize={["65px", "90px"]}
     />
   );
 };

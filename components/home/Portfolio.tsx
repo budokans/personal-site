@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import {
-  Image,
+  Img,
   SimpleGrid,
   Box,
   Flex,
@@ -58,11 +58,10 @@ Portfolio.Item = ({ onPortfolioClick, children }) => {
 
 Portfolio.Image = ({ src, alt }) => {
   return (
-    <Image
+    <Img
       src={src}
       alt={`${alt} icon`}
-      w="64px"
-      h="64px"
+      boxSize="64px"
       objectFit="cover"
       rounded="xl"
       mr={[3, 4]}
