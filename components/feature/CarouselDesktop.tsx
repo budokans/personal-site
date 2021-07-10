@@ -1,5 +1,4 @@
-import { Box } from "@chakra-ui/layout";
-import Image from "next/image";
+import { Box, Img } from "@chakra-ui/react";
 import { hideScrollbar } from "../../styles/utilStyles";
 import { MotionStack } from "../Motion";
 import { FeatureMediaInterface } from "../../interfaces";
@@ -38,12 +37,11 @@ export const CarouselDesktop: React.FC<CarouselProps> = ({ media }) => {
             p="55px"
           >
             <Box sx={{ pointerEvents: "none" }}>
-              <Image
+              <Img
                 src={mediaItem.path}
                 alt={mediaItem.alt}
                 height={378}
                 width={651}
-                priority={idx < 2}
                 objectFit="cover"
               />
             </Box>

@@ -1,5 +1,4 @@
-import { Img } from "@chakra-ui/image";
-import { Box, Heading, Stack, Text } from "@chakra-ui/layout";
+import { Box, Heading, Stack, Text, Img } from "@chakra-ui/react";
 import { ImageProps } from "../../interfaces";
 
 interface Compound {

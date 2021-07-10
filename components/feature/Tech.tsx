@@ -1,4 +1,4 @@
-import { Badge, Box, Heading, Stack } from "@chakra-ui/layout";
+import { Badge, Box, Heading, Stack } from "@chakra-ui/react";
 import { hideScrollbar } from "../../styles/utilStyles";
 
 interface Compound {

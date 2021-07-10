@@ -1,5 +1,4 @@
-import { Box } from "@chakra-ui/layout";
-import { useMediaQuery } from "@chakra-ui/media-query";
+import { Box, useMediaQuery } from "@chakra-ui/react";
 import { FeatureMediaInterface } from "../interfaces";
 import { MotionBox } from "../components/Motion";
 import { CarouselDesktop } from "../components/feature/CarouselDesktop";

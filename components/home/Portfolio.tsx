@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
-import { useMediaQuery } from "@chakra-ui/react";
-import { SimpleGrid, Box, Flex, Heading, Text } from "@chakra-ui/layout";
-import { Img } from "@chakra-ui/image";
-import { Button } from "@chakra-ui/button";
+import {
+  Img,
+  SimpleGrid,
+  Box,
+  Flex,
+  Heading,
+  Text,
+  Button,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import { ImageProps } from "../../interfaces";
 import { getBottomRowCount } from "../../lib/getBottomRowCount";
 

@@ -1,7 +1,14 @@
 import { useEffect, useState } from "react";
-import { Heading, Stack, Wrap, WrapItem } from "@chakra-ui/layout";
-import { Button } from "@chakra-ui/button";
-import { Tooltip, useClipboard, useMediaQuery } from "@chakra-ui/react";
+import {
+  Heading,
+  Stack,
+  Wrap,
+  WrapItem,
+  Button,
+  Tooltip,
+  useClipboard,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import { ContactInterface } from "../../interfaces";
 
 interface ButtonProps {

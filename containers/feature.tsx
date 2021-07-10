@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Box, Divider } from "@chakra-ui/layout";
+import { Box, Divider } from "@chakra-ui/react";
 import parse from "html-react-parser";
 import { ProjectInterface } from "../interfaces";
 import { Feature } from "../components/feature/Feature";

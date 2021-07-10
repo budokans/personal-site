@@ -1,6 +1,4 @@
-import { Button } from "@chakra-ui/button";
-import { Stack } from "@chakra-ui/layout";
-import { useMediaQuery } from "@chakra-ui/media-query";
+import { Button, Stack, useMediaQuery } from "@chakra-ui/react";
 
 interface LinkProps {
   url: string;

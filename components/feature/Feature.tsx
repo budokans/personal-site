@@ -1,6 +1,5 @@
 import { useRef } from "react";
-import { Box, Stack } from "@chakra-ui/layout";
-import { CloseButton } from "@chakra-ui/close-button";
+import { Box, Stack, CloseButton } from "@chakra-ui/react";
 import { Variants } from "framer-motion";
 import SimpleBar from "simplebar-react";
 import { MotionBox } from "../Motion";
