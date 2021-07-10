@@ -53,7 +53,7 @@
   {
     "title": "Netflix Clone",
     "shortBlurb": "A clone of the late-2020 Netflix front-end experience, with Firebase for authorization and server.",
-    "icon": "/images/netflix-logo.jfif",
+    "icon": "/images/netflix-logo.jpg",
     "tech": ["React", "styled-components", "Firebase"],
     "featureMedia": [
       {

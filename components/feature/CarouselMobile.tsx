@@ -1,4 +1,5 @@
-import { Box, Stack, Img } from "@chakra-ui/react";
+import { Box, Stack } from "@chakra-ui/react";
+import Image from "next/image";
 import { hideScrollbar } from "../../styles/utilStyles";
 import { FeatureMediaInterface } from "../../interfaces";
 
@@ -24,6 +25,7 @@ export const CarouselMobile: React.FC<CarouselProps> = ({ media }) => {
             key={idx}
             bg={mediaItem.bg}
             borderRadius="xl"
+            height="100%"
             minWidth="calc(80vw + 10px)"
             sx={{
               scrollSnapAlign: "start",
@@ -33,12 +35,14 @@ export const CarouselMobile: React.FC<CarouselProps> = ({ media }) => {
             marginRight={idx === media.length - 1 ? "1rem !important" : "0"}
           >
             <Box sx={{ pointerEvents: "none" }}>
-              <Img
+              <Image
                 src={mediaItem.path}
                 alt={mediaItem.alt}
-                w="100%"
-                h="100%"
+                height={135}
+                width={233}
                 objectFit="cover"
+                layout="responsive"
+                priority={idx < 2}
               />
             </Box>
           </Box>
