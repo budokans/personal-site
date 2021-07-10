@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/layout";
+import { Box } from "@chakra-ui/react";
 import Image from "next/image";
 import { hideScrollbar } from "../../styles/utilStyles";
 import { MotionStack } from "../Motion";

@@ -53,7 +53,7 @@
   {
     "title": "Netflix Clone",
     "shortBlurb": "A clone of the late-2020 Netflix front-end experience, with Firebase for authorization and server.",
-    "icon": "/images/netflix-logo.jfif",
+    "icon": "/images/netflix-logo.jpg",
     "tech": ["React", "styled-components", "Firebase"],
     "featureMedia": [
       {
@@ -97,7 +97,6 @@
     "title": "Story Typer",
     "shortBlurb": "A race-the-clock, retro-themed speed-typing game for desktop browsers with context scraped daily from fiftywordstories.com",
     "icon": "/images/story-typer-logo.jpg",
-    "iconFallback": "",
     "tech": ["React", "Next.js", "BEM", "Node.js", "Express", "Cheerio JS"],
     "featureMedia": [
       {

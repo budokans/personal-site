@@ -3,7 +3,7 @@ import { Description } from "../../../components/feature/Description";
 
 describe("<Description />", () => {
   test("renders a <Description.Paragraph> with populated data", () => {
-    render(
+    const { container } = render(
       <Description>
         <Description.Paragraph>
           The foundations of the project were laid while completing Wes Bos's
@@ -13,5 +13,6 @@ describe("<Description />", () => {
       </Description>
     );
     expect(screen.getByText(/The foundations/)).toBeInTheDocument();
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

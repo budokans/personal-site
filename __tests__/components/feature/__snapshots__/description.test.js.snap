@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Description /> renders a <Description.Paragraph> with populated data 1`] = `
+<div
+  class="css-1xnkfpe"
+>
+  <p
+    class="chakra-text css-1lkxxjr"
+  >
+    The foundations of the project were laid while completing Wes Bos's huge Advanced React with GraphQL course, but the final result was buggy and impossible to deploy in its finished state.
+  </p>
+</div>
+`;

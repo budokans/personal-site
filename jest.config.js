@@ -3,6 +3,8 @@ module.exports = {
     "<rootDir>/components/feature/**",
     "<rootDir>/components/home/**",
     "<rootDir>/containers/**",
+    "<rootDir>/hooks/**",
+    "<rootDir>/lib/getBottomRowCount.ts",
   ],
   coverageThreshold: {
     global: {

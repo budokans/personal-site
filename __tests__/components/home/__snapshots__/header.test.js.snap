@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> renders <Header.Link /> instead of <Header.TooltipBtn /> for the email link if viewport width < 930px 1`] = `
+<div
+  class="chakra-wrap css-0"
+>
+  <ul
+    class="chakra-wrap__list css-2mzr01"
+  >
+    <li
+      class="chakra-wrap__listitem css-1yp4ln"
+    >
+      <a
+        class="chakra-button css-1infzl"
+        data-testid="mailto:contact@stevenwebster.co"
+        href="mailto:contact@stevenwebster.co"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Email
+      </a>
+    </li>
+    <li
+      class="chakra-wrap__listitem css-1yp4ln"
+    >
+      <a
+        class="chakra-button css-1infzl"
+        data-testid="https://github.com/budokans"
+        href="https://github.com/budokans"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Github
+      </a>
+    </li>
+    <li
+      class="chakra-wrap__listitem css-1yp4ln"
+    >
+      <a
+        class="chakra-button css-1infzl"
+        data-testid="https://www.linkedin.com/in/steven-webster-developer/"
+        href="https://www.linkedin.com/in/steven-webster-developer/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        LinkedIn
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`<Header /> renders <Header.Links /> with data from props 1`] = `
+<div
+  class="chakra-stack css-1p888d0"
+>
+  <div
+    class="chakra-wrap css-0"
+  >
+    <ul
+      class="chakra-wrap__list css-2mzr01"
+    >
+      <li
+        class="chakra-wrap__listitem css-1yp4ln"
+      >
+        <a
+          class="chakra-button css-1infzl"
+          data-testid="mailto:contact@stevenwebster.co"
+          href="mailto:contact@stevenwebster.co"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Email
+        </a>
+      </li>
+      <li
+        class="chakra-wrap__listitem css-1yp4ln"
+      >
+        <a
+          class="chakra-button css-1infzl"
+          data-testid="https://github.com/budokans"
+          href="https://github.com/budokans"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Github
+        </a>
+      </li>
+      <li
+        class="chakra-wrap__listitem css-1yp4ln"
+      >
+        <a
+          class="chakra-button css-1infzl"
+          data-testid="https://www.linkedin.com/in/steven-webster-developer/"
+          href="https://www.linkedin.com/in/steven-webster-developer/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          LinkedIn
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`<Header /> renders <Header.Text /> with data from props 1`] = `
+<div
+  class="chakra-stack css-1p888d0"
+>
+  <h2
+    class="chakra-heading css-vsh8ld"
+  >
+    Steven Webster is a full-stack developer who cares about scalability, performance and elegant, intuitive UIs. Working remotely from Auckland, NZ.
+  </h2>
+</div>
+`;
+
+exports[`<Header /> renders <Header.TooltipBtn /> if viewport width >= 930px 1`] = `
+<div
+  class="chakra-wrap css-0"
+>
+  <ul
+    class="chakra-wrap__list css-2mzr01"
+  >
+    <li
+      class="chakra-wrap__listitem css-1yp4ln"
+    >
+      <button
+        class="chakra-button css-1infzl"
+        data-testid="Tooltip"
+        type="button"
+      >
+        Email
+      </button>
+    </li>
+    <li
+      class="chakra-wrap__listitem css-1yp4ln"
+    >
+      <a
+        class="chakra-button css-1infzl"
+        data-testid="https://github.com/budokans"
+        href="https://github.com/budokans"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Github
+      </a>
+    </li>
+    <li
+      class="chakra-wrap__listitem css-1yp4ln"
+    >
+      <a
+        class="chakra-button css-1infzl"
+        data-testid="https://www.linkedin.com/in/steven-webster-developer/"
+        href="https://www.linkedin.com/in/steven-webster-developer/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        LinkedIn
+      </a>
+    </li>
+  </ul>
+</div>
+`;

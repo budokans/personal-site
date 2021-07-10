@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/layout";
+import { Flex } from "@chakra-ui/react";
 
 export const Home: React.FC<{ blur: boolean }> = ({ blur, children }) => {
   return (
