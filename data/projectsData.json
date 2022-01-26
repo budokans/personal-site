@@ -142,7 +142,7 @@
       "Firebase made it super quick to get set up with user auth, and Fuse.js provided a simple and effective search solution that was easy to get working with quickly."
     ],
     "links": [
-      { "type": "Visit", "url": "http://netflix.stevenwebster.co" },
+      { "type": "Visit", "url": "https://notreallynetflix.herokuapp.com/" },
       { "type": "GitHub", "url": "https://github.com/budokans/netflix-clone" }
     ]
   },
