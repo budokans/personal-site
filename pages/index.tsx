@@ -1,7 +1,6 @@
-import { useState } from "react";
-import { GetStaticProps } from "next";
+import { ReactElement, useState } from "react";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { AnimatePresence } from "framer-motion";
-import { ApplicationProps } from "../interfaces";
 import { getProjectData, getSiteMetadata } from "../lib/getData";
 import { DocHead } from "../components/DocHead";
 import { HomeContainer } from "../containers/home";
@@ -11,30 +10,33 @@ import { function as F, either as E } from "fp-ts";
 export const getStaticProps: GetStaticProps = () =>
   F.pipe(
     E.Do,
-    E.bind("projectsData", getProjectData),
+    E.bind("projects", getProjectData),
     E.bind("metadata", getSiteMetadata),
     E.matchW(
       () => ({ notFound: true }),
-      ({ projectsData, metadata }) => ({
+      ({ projects, metadata }) => ({
         props: {
-          projectsData,
+          projects,
           metadata,
         },
       })
     )
   );
 
-const IndexPage: React.FC<ApplicationProps> = ({ metadata, projects }) => {
+const IndexPage = ({
+  metadata,
+  projects,
+}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const [showFeature, setShowFeature] = useState(false);
   const [featuredProjectId, setFeaturedProjectId] = useState(0);
   const featuredProject = projects[featuredProjectId];
 
-  const openFeature = (id: number) => {
+  const openFeature = (id: number): void => {
     setFeaturedProjectId(id);
     setShowFeature(true);
   };
 
-  const closeFeature = () => {
+  const closeFeature = (): void => {
     setShowFeature(false);
   };
 

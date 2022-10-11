@@ -1,13 +1,13 @@
-import { MetadataInterface, ProjectInterface } from "../interfaces";
+import { SiteMetadata, Project } from "../interfaces";
 import { Home } from "../components/home/Home";
 import { Header } from "../components/home/Header";
 import { Portfolio } from "../components/home/Portfolio";
 
 interface HomeContainerProps {
-  projects: ProjectInterface[];
-  metadata: MetadataInterface;
-  onPortfolioClick: (id: number) => void;
-  blur: boolean;
+  readonly projects: readonly Project[];
+  readonly metadata: SiteMetadata;
+  readonly onPortfolioClick: (id: number) => void;
+  readonly blur: boolean;
 }
 
 export const HomeContainer: React.FC<HomeContainerProps> = ({

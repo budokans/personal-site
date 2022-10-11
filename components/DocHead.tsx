@@ -1,8 +1,8 @@
 import Head from "next/head";
-import { MetadataInterface } from "../interfaces";
+import { SiteMetadata } from "../interfaces";
 
 interface DocHeadProps {
-  metadata: MetadataInterface;
+  metadata: SiteMetadata;
 }
 
 export const DocHead: React.FC<DocHeadProps> = ({ metadata }) => {

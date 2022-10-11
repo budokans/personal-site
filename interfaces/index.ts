@@ -40,12 +40,6 @@ export const SiteMetadata = IoTs.type({
 });
 export type SiteMetadata = IoTs.TypeOf<typeof SiteMetadata>;
 
-export interface ApplicationProps {
-  readonly projects: Project[];
-  readonly metadata: SiteMetadata;
-  readonly onPortfolioClick: (id: number) => void;
-}
-
 export interface ImageProps {
   readonly src: string;
   readonly alt: string;

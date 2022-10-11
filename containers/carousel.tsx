@@ -1,11 +1,11 @@
 import { Box, useMediaQuery } from "@chakra-ui/react";
-import { FeatureMediaInterface } from "../interfaces";
+import { FeatureMedia } from "../interfaces";
 import { MotionBox } from "../components/Motion";
 import { CarouselDesktop } from "../components/feature/CarouselDesktop";
 import { CarouselMobile } from "../components/feature/CarouselMobile";
 
 type CarouselContainerProps = {
-  media: FeatureMediaInterface[];
+  readonly media: readonly FeatureMedia[];
 };
 
 const containerVariants = {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import {
   Heading,
   Stack,
@@ -9,14 +9,15 @@ import {
   useClipboard,
   useMediaQuery,
 } from "@chakra-ui/react";
-import { ContactInterface } from "../../interfaces";
+import { Contact } from "../../interfaces";
 
 interface ButtonProps {
-  href: string;
+  readonly href: string;
+  readonly children: ReactNode;
 }
 
 interface LinksProps {
-  contacts: ContactInterface[];
+  readonly contacts: readonly Contact[];
 }
 
 interface Compound {

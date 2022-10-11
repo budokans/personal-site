@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Box, Divider } from "@chakra-ui/react";
 import parse from "html-react-parser";
-import { ProjectInterface } from "../interfaces";
+import { Project } from "../interfaces";
 import { Feature } from "../components/feature/Feature";
 import { Header } from "../components/feature/Header";
 import { Tech } from "../components/feature/Tech";
@@ -10,8 +10,8 @@ import { Links } from "../components/feature/Link";
 import { CarouselContainer } from "../containers/carousel";
 
 interface FeatureProps {
-  project: ProjectInterface;
-  onCloseClick: () => void;
+  readonly project: Project;
+  readonly onCloseClick: () => void;
 }
 
 export const FeatureContainer: React.FC<FeatureProps> = ({
