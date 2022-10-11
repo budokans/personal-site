@@ -2,20 +2,27 @@ import { useState } from "react";
 import { GetStaticProps } from "next";
 import { AnimatePresence } from "framer-motion";
 import { ApplicationProps } from "../interfaces";
-import { getData } from "../lib/getData";
+import { getProjectData, getSiteMetadata } from "../lib/getData";
 import { DocHead } from "../components/DocHead";
 import { HomeContainer } from "../containers/home";
 import { FeatureContainer } from "../containers/feature";
+import { function as F, either as E } from "fp-ts";
 
-export const getStaticProps: GetStaticProps = async () => {
-  const [metadata, projects] = getData();
-  return {
-    props: {
-      metadata,
-      projects,
-    },
-  };
-};
+export const getStaticProps: GetStaticProps = () =>
+  F.pipe(
+    E.Do,
+    E.bind("projectsData", getProjectData),
+    E.bind("metadata", getSiteMetadata),
+    E.matchW(
+      () => ({ notFound: true }),
+      ({ projectsData, metadata }) => ({
+        props: {
+          projectsData,
+          metadata,
+        },
+      })
+    )
+  );
 
 const IndexPage: React.FC<ApplicationProps> = ({ metadata, projects }) => {
   const [showFeature, setShowFeature] = useState(false);
