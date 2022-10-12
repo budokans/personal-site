@@ -13,7 +13,7 @@ import { ImageProps } from "../../interfaces";
 import { getBottomRowCount } from "../../lib/getBottomRowCount";
 
 interface PortFolioItemProps {
-  onPortfolioClick: () => void;
+  readonly onPortfolioClick: () => void;
 }
 
 interface Compound {

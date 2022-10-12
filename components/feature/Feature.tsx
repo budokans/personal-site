@@ -6,12 +6,12 @@ import { MotionBox } from "../Motion";
 import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 
 interface CloseButtonProps {
-  onCloseClick(): void;
+  readonly onCloseClick: () => void;
 }
 
 interface ContainerProps {
-  variants: Variants;
-  onCloseClick: () => void;
+  readonly variants: Variants;
+  readonly onCloseClick: () => void;
 }
 
 interface Compound {

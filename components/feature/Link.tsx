@@ -1,7 +1,7 @@
 import { Button, Stack, useMediaQuery } from "@chakra-ui/react";
 
 interface LinkProps {
-  url: string;
+  readonly url: string;
 }
 
 interface Compound {

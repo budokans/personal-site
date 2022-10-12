@@ -2,7 +2,7 @@ import Head from "next/head";
 import { SiteMetadata } from "../interfaces";
 
 interface DocHeadProps {
-  metadata: SiteMetadata;
+  readonly metadata: SiteMetadata;
 }
 
 export const DocHead: React.FC<DocHeadProps> = ({ metadata }) => {
