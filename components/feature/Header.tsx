@@ -1,16 +1,8 @@
 import { Box, Heading, Stack, Text, Img } from "@chakra-ui/react";
-import { ImageProps } from "../../interfaces";
+import { ReactElement } from "react";
+import { ChildrenProps, ImageProps } from "../../interfaces";
 
-interface Compound {
-  Image: React.FC<ImageProps>;
-  Inner: React.FC;
-  Text: React.FC;
-  Subtext: React.FC;
-}
-
-type HeaderCC = React.FC & Compound;
-
-const Container: React.FC = ({ children }) => {
+const Container = ({ children }: ChildrenProps): ReactElement => {
   return (
     <Stack
       display="flex"
@@ -25,11 +17,11 @@ const Container: React.FC = ({ children }) => {
   );
 };
 
-export const Header: HeaderCC = ({ children }) => {
+export const Header = ({ children }: ChildrenProps): ReactElement => {
   return <Container>{children}</Container>;
 };
 
-Header.Image = ({ src, alt }) => {
+export const HeaderImage = ({ src, alt }: ImageProps): ReactElement => {
   return (
     <Img
       src={src}
@@ -40,11 +32,11 @@ Header.Image = ({ src, alt }) => {
   );
 };
 
-Header.Inner = ({ children }) => {
+export const HeaderInner = ({ children }: ChildrenProps): ReactElement => {
   return <Box maxW="350px">{children}</Box>;
 };
 
-Header.Text = ({ children }) => {
+export const HeaderText = ({ children }: ChildrenProps): ReactElement => {
   return (
     <Heading as="h2" fontSize="2xl" fontWeight={600} mb={[0, 0, 1]}>
       {children}
@@ -52,7 +44,7 @@ Header.Text = ({ children }) => {
   );
 };
 
-Header.Subtext = ({ children }) => {
+export const HeaderSubtext = ({ children }: ChildrenProps): ReactElement => {
   return (
     <Text color="gray.500" fontSize="clamp(12px, 10.8px + 0.25vw, 14px)">
       {children}

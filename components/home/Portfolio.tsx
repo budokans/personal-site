@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import {
   Img,
   SimpleGrid,
@@ -9,25 +9,19 @@ import {
   Button,
   useMediaQuery,
 } from "@chakra-ui/react";
-import { ImageProps } from "../../interfaces";
+import { ChildrenProps, ImageProps } from "../../interfaces";
 import { getBottomRowCount } from "../../lib/getBottomRowCount";
 
-interface PortFolioItemProps {
+interface PortfolioItemProps {
   readonly onPortfolioClick: () => void;
 }
 
-interface Compound {
-  Item: React.FC<PortFolioItemProps>;
-  Image: React.FC<ImageProps>;
-  Inner: React.FC<{ idx: number; projectsCount: number }>;
-  Title: React.FC;
-  Text: React.FC;
-  Button: React.FC;
+interface PortfolioInnerProps {
+  readonly idx: number;
+  readonly projectsCount: number;
 }
 
-type PortfolioCC = Compound & React.FC;
-
-export const Portfolio: PortfolioCC = ({ children }) => {
+export const Portfolio = ({ children }: ChildrenProps): ReactElement => {
   return (
     <SimpleGrid
       columns={[1, 1, 2]}
@@ -41,7 +35,10 @@ export const Portfolio: PortfolioCC = ({ children }) => {
   );
 };
 
-Portfolio.Item = ({ onPortfolioClick, children }) => {
+export const PortfolioItem = ({
+  onPortfolioClick,
+  children,
+}: PortfolioItemProps & ChildrenProps): ReactElement => {
   return (
     <Box
       role="button"
@@ -56,7 +53,7 @@ Portfolio.Item = ({ onPortfolioClick, children }) => {
   );
 };
 
-Portfolio.Image = ({ src, alt }) => {
+export const PortfolioImage = ({ src, alt }: ImageProps): ReactElement => {
   return (
     <Img
       src={src}
@@ -69,7 +66,11 @@ Portfolio.Image = ({ src, alt }) => {
   );
 };
 
-Portfolio.Inner = ({ idx, projectsCount, children }) => {
+export const PortfolioInner = ({
+  idx,
+  projectsCount,
+  children,
+}: PortfolioInnerProps & ChildrenProps): ReactElement => {
   const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
   const [columnsCount, setColumnCount] = useState(1);
   const [renderBottomBorder, setRenderBottomBorder] = useState(true);
@@ -94,7 +95,7 @@ Portfolio.Inner = ({ idx, projectsCount, children }) => {
     } else {
       setRenderBottomBorder(true);
     }
-  }, [columnsCount]);
+  }, [columnsCount, bottomRowCount, projectNumber, projectsCount]);
 
   return (
     <Flex
@@ -104,12 +105,12 @@ Portfolio.Inner = ({ idx, projectsCount, children }) => {
       paddingBottom={4}
     >
       <Box mr={4}>{children}</Box>
-      <Portfolio.Button />
+      <PortfolioButton />
     </Flex>
   );
 };
 
-Portfolio.Title = ({ children }) => {
+export const PortfolioTitle = ({ children }: ChildrenProps): ReactElement => {
   return (
     <Heading as="h3" fontSize="md" fontWeight="normal" lineHeight="tall">
       {children}
@@ -117,7 +118,7 @@ Portfolio.Title = ({ children }) => {
   );
 };
 
-Portfolio.Text = ({ children }) => {
+export const PortfolioText = ({ children }: ChildrenProps): ReactElement => {
   return (
     <Text
       fontSize="clamp(12px, 10.8px + 0.25vw, 14px)"
@@ -129,7 +130,7 @@ Portfolio.Text = ({ children }) => {
   );
 };
 
-Portfolio.Button = () => {
+export const PortfolioButton = (): ReactElement => {
   return (
     <Button rounded="xl" fontSize="sm" w={8} px={3} h={7} minW={16}>
       View

@@ -1,16 +1,12 @@
 import { Button, Stack, useMediaQuery } from "@chakra-ui/react";
+import { ChildrenProps } from "interfaces";
+import { ReactElement } from "react";
 
 interface LinkProps {
   readonly url: string;
 }
 
-interface Compound {
-  Link: React.FC<LinkProps>;
-}
-
-type LinksCC = React.FC & Compound;
-
-const Container: React.FC = ({ children }) => {
+const Container = ({ children }: ChildrenProps): ReactElement => {
   const [isGreaterThan768] = useMediaQuery("(min-width: 768px)");
   return (
     <Stack
@@ -25,11 +21,14 @@ const Container: React.FC = ({ children }) => {
   );
 };
 
-export const Links: LinksCC = ({ children }) => {
+export const Links = ({ children }: ChildrenProps): ReactElement => {
   return <Container>{children}</Container>;
 };
 
-Links.Link = ({ url, children }) => {
+export const Link = ({
+  url,
+  children,
+}: LinkProps & ChildrenProps): ReactElement => {
   return (
     <Button
       as="a"

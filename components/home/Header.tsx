@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import {
   Heading,
   Stack,
@@ -9,25 +9,17 @@ import {
   useClipboard,
   useMediaQuery,
 } from "@chakra-ui/react";
-import { Contact } from "../../interfaces";
+import { ChildrenProps, Contact } from "../../interfaces";
 
-interface ButtonProps {
-  readonly href: string;
-  readonly children: ReactNode;
-}
-
-interface LinksProps {
+interface HeaderLinksProps {
   readonly contacts: readonly Contact[];
 }
 
-interface Compound {
-  Text: React.FC;
-  Links: React.FC<LinksProps>;
+interface HeaderLinkProps {
+  readonly href: string;
 }
 
-type HeaderCC = React.FC & Compound;
-
-export const Header: HeaderCC = ({ children }) => {
+export const Header = ({ children }: ChildrenProps): ReactElement => {
   return (
     <Stack w={["full", "90%", "80%", "900px"]} spacing={5}>
       {children}
@@ -35,7 +27,7 @@ export const Header: HeaderCC = ({ children }) => {
   );
 };
 
-Header.Text = ({ children }) => {
+export const HeaderText = ({ children }: ChildrenProps): ReactElement => {
   return (
     <Heading
       fontSize="clamp(24px, calc(14.40px + 2.00vw), 40px)"
@@ -47,7 +39,7 @@ Header.Text = ({ children }) => {
   );
 };
 
-Header.Links = ({ contacts }) => {
+export const HeaderLinks = ({ contacts }: HeaderLinksProps): ReactElement => {
   const [isLargerThan930] = useMediaQuery("(min-width: 930px)");
   const [isLargeViewport, setIsLargeViewport] = useState(false);
 
@@ -83,7 +75,10 @@ Header.Links = ({ contacts }) => {
   );
 };
 
-export const Link: React.FC<ButtonProps> = ({ href, children }) => {
+export const Link = ({
+  href,
+  children,
+}: HeaderLinkProps & ChildrenProps): ReactElement => {
   return (
     <WrapItem>
       <Button
@@ -102,7 +97,10 @@ export const Link: React.FC<ButtonProps> = ({ href, children }) => {
   );
 };
 
-export const TooltipBtn: React.FC<ButtonProps> = ({ href, children }) => {
+export const TooltipBtn = ({
+  href,
+  children,
+}: HeaderLinkProps & ChildrenProps): ReactElement => {
   const { hasCopied, onCopy } = useClipboard(href);
 
   return (

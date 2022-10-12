@@ -3,10 +3,11 @@ import { FeatureMedia } from "../interfaces";
 import { MotionBox } from "../components/Motion";
 import { CarouselDesktop } from "../components/feature/CarouselDesktop";
 import { CarouselMobile } from "../components/feature/CarouselMobile";
+import { ReactElement } from "react";
 
-type CarouselContainerProps = {
+interface CarouselContainerProps {
   readonly media: readonly FeatureMedia[];
-};
+}
 
 const containerVariants = {
   hidden: {
@@ -22,9 +23,9 @@ const containerVariants = {
   },
 };
 
-export const CarouselContainer: React.FC<CarouselContainerProps> = ({
+export const CarouselContainer = ({
   media,
-}) => {
+}: CarouselContainerProps): ReactElement => {
   const [isLargerThan930] = useMediaQuery("(min-width: 930px)");
 
   return (

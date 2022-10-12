@@ -1,11 +1,12 @@
 import Head from "next/head";
+import { ReactElement } from "react";
 import { SiteMetadata } from "../interfaces";
 
 interface DocHeadProps {
   readonly metadata: SiteMetadata;
 }
 
-export const DocHead: React.FC<DocHeadProps> = ({ metadata }) => {
+export const DocHead = ({ metadata }: DocHeadProps): ReactElement => {
   return (
     <Head>
       <title>Steven Webster | Full-Stack Developer</title>

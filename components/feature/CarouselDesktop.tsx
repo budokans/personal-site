@@ -3,12 +3,13 @@ import Image from "next/image";
 import { hideScrollbar } from "../../styles/utilStyles";
 import { MotionStack } from "../Motion";
 import { FeatureMedia } from "../../interfaces";
+import { ReactElement } from "react";
 
 interface CarouselProps {
   readonly media: readonly FeatureMedia[];
 }
 
-export const CarouselDesktop: React.FC<CarouselProps> = ({ media }) => {
+export const CarouselDesktop = ({ media }: CarouselProps): ReactElement => {
   return (
     <MotionStack
       drag="x"

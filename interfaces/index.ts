@@ -1,4 +1,5 @@
 import * as IoTs from "io-ts";
+import { ReactNode } from "react";
 
 export const FeatureMedia = IoTs.type({
   path: IoTs.string,
@@ -40,7 +41,12 @@ export const SiteMetadata = IoTs.type({
 });
 export type SiteMetadata = IoTs.TypeOf<typeof SiteMetadata>;
 
+// UI
 export interface ImageProps {
   readonly src: string;
   readonly alt: string;
 }
+
+export type ChildrenProps = {
+  readonly children?: ReactNode;
+};
