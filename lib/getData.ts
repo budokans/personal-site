@@ -1,5 +1,5 @@
 import fs from "fs";
-import { SiteMetadata, Projects } from "interfaces";
+import { SiteMetadata, Projects } from "../interfaces";
 import path from "path";
 import { either as E, function as F } from "fp-ts";
 import { formatValidationErrors } from "io-ts-reporters";

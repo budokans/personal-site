@@ -1,7 +1,7 @@
 import { render, screen, waitFor } from "test-utils";
 import userEvent from "@testing-library/user-event";
 import matchMediaPolyfill from "mq-polyfill";
-import IndexPage from "../../pages/index";
+import IndexPage from "../../pages";
 
 const projects = [
   {

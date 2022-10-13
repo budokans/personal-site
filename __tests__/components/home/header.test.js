@@ -1,6 +1,6 @@
 import { render, within, screen } from "test-utils";
 import matchMediaPolyfill from "mq-polyfill";
-import { Header } from "../../../components/home/Header";
+import { Header } from "../../../components/home";
 
 const metadata = {
   description:

@@ -1,5 +1,5 @@
 import { render, screen } from "test-utils";
-import { HomeContainer } from "../../containers/home";
+import { HomeContainer } from "../../containers";
 
 const metadata = {
   description:

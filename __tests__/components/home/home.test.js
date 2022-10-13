@@ -1,5 +1,5 @@
 import { render } from "test-utils";
-import { Home } from "../../../components/home/Home";
+import { Home } from "../../../components/home";
 
 describe("<Home />", () => {
   test("<Home /> blurs on blur prop evaluating to true", () => {

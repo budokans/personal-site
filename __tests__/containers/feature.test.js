@@ -1,5 +1,5 @@
 import { render, screen } from "test-utils";
-import { FeatureContainer } from "../../containers/feature";
+import { FeatureContainer } from "../../containers";
 import userEvent from "@testing-library/user-event";
 
 const project = {

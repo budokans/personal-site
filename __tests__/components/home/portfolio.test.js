@@ -1,7 +1,7 @@
 import { render, screen } from "test-utils";
 import userEvent from "@testing-library/user-event";
 import matchMediaPolyfill from "mq-polyfill";
-import { Portfolio } from "../../../components/home/Portfolio";
+import { Portfolio } from "../../../components/home";
 
 describe("<Portfolio />", () => {
   test("<Portfolio.Item /> renders a button and calls openFeature() on click", () => {
