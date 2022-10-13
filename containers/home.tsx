@@ -1,7 +1,5 @@
 import { SiteMetadata, Project } from "../interfaces";
-import { Home } from "../components/home/Home";
-import * as Header from "../components/home/Header";
-import * as Portfolio from "../components/home/Portfolio";
+import { Header, Home, Portfolio } from "../components/home";
 import { ReactElement } from "react";
 
 interface HomeContainerProps {
@@ -18,7 +16,7 @@ export const HomeContainer = ({
   blur,
 }: HomeContainerProps): ReactElement => {
   return (
-    <Home blur={blur}>
+    <Home.Home blur={blur}>
       <Header.Header>
         <Header.HeaderText>{metadata.description}</Header.HeaderText>
         <Header.HeaderLinks contacts={metadata.contacts} />
@@ -50,6 +48,6 @@ export const HomeContainer = ({
           );
         })}
       </Portfolio.Portfolio>
-    </Home>
+    </Home.Home>
   );
 };

@@ -2,12 +2,8 @@ import { Box } from "@chakra-ui/react";
 import Image from "next/image";
 import { hideScrollbar } from "../../styles/utilStyles";
 import { MotionStack } from "../Motion";
-import { FeatureMedia } from "../../interfaces";
 import { ReactElement } from "react";
-
-interface CarouselProps {
-  readonly media: readonly FeatureMedia[];
-}
+import { CarouselProps } from "interfaces";
 
 export const CarouselDesktop = ({ media }: CarouselProps): ReactElement => {
   return (

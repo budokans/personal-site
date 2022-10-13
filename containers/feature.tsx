@@ -2,11 +2,13 @@ import { ReactElement, useEffect } from "react";
 import { Box, Divider } from "@chakra-ui/react";
 import parse from "html-react-parser";
 import { Project } from "../interfaces";
-import * as Feature from "../components/feature/Feature";
-import * as Header from "../components/feature/Header";
-import * as Tech from "../components/feature/Tech";
-import * as Description from "../components/feature/Description";
-import * as Links from "../components/feature/Link";
+import {
+  Feature,
+  Header,
+  Tech,
+  Description,
+  Links,
+} from "../components/feature";
 import { CarouselContainer } from "../containers/carousel";
 
 interface FeatureProps {
