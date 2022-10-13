@@ -10,7 +10,6 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import { ChildrenProps, ImageProps } from "../../interfaces";
-import { getBottomRowCount } from "../../lib/getBottomRowCount";
 
 interface PortfolioItemProps {
   readonly onPortfolioClick: () => void;
@@ -66,6 +65,11 @@ export const PortfolioImage = ({ src, alt }: ImageProps): ReactElement => {
   );
 };
 
+export const bottomRowItemsCount = (
+  itemsCount: number,
+  columnsCount: number
+): number => itemsCount % columnsCount || columnsCount;
+
 export const PortfolioInner = ({
   idx,
   projectsCount,
@@ -85,17 +89,19 @@ export const PortfolioInner = ({
     }
   }, [isLargerThan768]);
 
-  const bottomRowCount = getBottomRowCount(projectsCount, columnsCount);
+  const bottomRowProjectsCount = bottomRowItemsCount(
+    projectsCount,
+    columnsCount
+  );
 
   useEffect(() => {
-    if (projectNumber <= columnsCount) {
-      setRenderBottomBorder(true);
-    } else if (projectNumber > projectsCount - bottomRowCount) {
+    // If the project is on the bottom row, don't render a bottom border
+    if (projectNumber > projectsCount - bottomRowProjectsCount) {
       setRenderBottomBorder(false);
     } else {
       setRenderBottomBorder(true);
     }
-  }, [columnsCount, bottomRowCount, projectNumber, projectsCount]);
+  }, [columnsCount, bottomRowProjectsCount, projectNumber, projectsCount]);
 
   return (
     <Flex

@@ -18,7 +18,8 @@
   "plugins": ["@typescript-eslint", "react", "react-hooks"],
   "env": {
     "jest": true,
-    "browser": true
+    "browser": true,
+    "node": true
   },
   "rules": {
     "@typescript-eslint/explicit-module-boundary-types": "error",
