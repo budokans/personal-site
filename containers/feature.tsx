@@ -9,7 +9,7 @@ import {
   Description,
   Links,
 } from "../components/feature";
-import { CarouselContainer } from "../containers/carousel";
+import { CarouselContainer } from "../containers";
 
 interface FeatureProps {
   readonly project: Project;

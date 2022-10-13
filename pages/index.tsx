@@ -3,8 +3,7 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { AnimatePresence } from "framer-motion";
 import { getProjectData, getSiteMetadata } from "../lib/getData";
 import { DocHead } from "../components/DocHead";
-import { HomeContainer } from "../containers/home";
-import { FeatureContainer } from "../containers/feature";
+import { HomeContainer, FeatureContainer } from "../containers";
 import { function as F, either as E } from "fp-ts";
 
 export const getStaticProps: GetStaticProps = () =>
