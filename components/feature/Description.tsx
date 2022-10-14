@@ -1,5 +1,5 @@
 import { Box, Text } from "@chakra-ui/react";
-import { ChildrenProps } from "interfaces";
+import { ChildrenProps } from "types";
 import { ReactElement } from "react";
 
 export const Description = ({ children }: ChildrenProps): ReactElement => {

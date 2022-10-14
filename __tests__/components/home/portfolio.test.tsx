@@ -7,7 +7,9 @@ describe("<Portfolio />", () => {
   test("<Portfolio.Item /> renders a button and calls openFeature() on click", () => {
     const openFeature = jest.fn();
     const { container } = render(
-      <Portfolio.Item onPortfolioClick={openFeature}>Children</Portfolio.Item>
+      <Portfolio.PortfolioItem onPortfolioClick={openFeature}>
+        Children
+      </Portfolio.PortfolioItem>
     );
 
     expect(screen.getByRole("button")).toBeInTheDocument();
@@ -23,13 +25,13 @@ describe("<Portfolio />", () => {
     };
 
     const { container } = render(
-      <Portfolio.Image src={project.icon} alt={project.title} />
+      <Portfolio.PortfolioImage src={project.icon} alt={project.title} />
     );
 
     expect(screen.getByAltText(/Gretsch Geeks icon/i)).toBeInTheDocument();
-    expect(container.querySelector("img").getAttribute("src")).toBe(
-      "/images/gretsch-logo.jpg"
-    );
+    expect(
+      (container.querySelector("img") as HTMLElement).getAttribute("src")
+    ).toBe("/images/gretsch-logo.jpg");
     expect(container.firstChild).toMatchSnapshot();
   });
 
@@ -39,7 +41,7 @@ describe("<Portfolio />", () => {
     };
 
     const { container } = render(
-      <Portfolio.Title>{project.title}</Portfolio.Title>
+      <Portfolio.PortfolioTitle>{project.title}</Portfolio.PortfolioTitle>
     );
 
     expect(screen.getByText(/Gretsch Geeks/i)).toBeInTheDocument();
@@ -53,7 +55,7 @@ describe("<Portfolio />", () => {
     };
 
     const { container } = render(
-      <Portfolio.Text>{project.shortBlurb}</Portfolio.Text>
+      <Portfolio.PortfolioText>{project.shortBlurb}</Portfolio.PortfolioText>
     );
 
     expect(screen.getByText(/Apollo 3/i)).toBeInTheDocument();
@@ -61,7 +63,7 @@ describe("<Portfolio />", () => {
   });
 
   test("<Portfolio.Button /> renders a button with text", () => {
-    const { container } = render(<Portfolio.Button />);
+    const { container } = render(<Portfolio.PortfolioButton />);
 
     expect(screen.getByRole(/button/i)).toBeInTheDocument();
     expect(screen.getByText(/View/i)).toBeInTheDocument();
@@ -86,10 +88,10 @@ describe("<Portfolio.Inner />", () => {
     const indexInArray = 0;
 
     const { container } = render(
-      <Portfolio.Inner
+      <Portfolio.PortfolioInner
         idx={indexInArray}
         projectsCount={numberOfProjects}
-      ></Portfolio.Inner>
+      ></Portfolio.PortfolioInner>
     );
 
     expect(container.firstChild).toHaveStyle(
@@ -114,10 +116,10 @@ describe("<Portfolio.Inner />", () => {
     const indexInArray = 1;
 
     const { container } = render(
-      <Portfolio.Inner
+      <Portfolio.PortfolioInner
         idx={indexInArray}
         projectsCount={numberOfProjects}
-      ></Portfolio.Inner>
+      ></Portfolio.PortfolioInner>
     );
 
     expect(container.firstChild).not.toHaveStyle(
@@ -142,10 +144,10 @@ describe("<Portfolio.Inner />", () => {
     const indexInArray = 0;
 
     const { container } = render(
-      <Portfolio.Inner
+      <Portfolio.PortfolioInner
         idx={indexInArray}
         projectsCount={numberOfProjects}
-      ></Portfolio.Inner>
+      ></Portfolio.PortfolioInner>
     );
 
     expect(container.firstChild).toHaveStyle(
@@ -170,10 +172,10 @@ describe("<Portfolio.Inner />", () => {
     const indexInArray = 0;
 
     const { container } = render(
-      <Portfolio.Inner
+      <Portfolio.PortfolioInner
         idx={indexInArray}
         projectsCount={numberOfProjects}
-      ></Portfolio.Inner>
+      ></Portfolio.PortfolioInner>
     );
 
     expect(container.firstChild).toHaveStyle(
@@ -198,10 +200,10 @@ describe("<Portfolio.Inner />", () => {
     const indexInArray = 2;
 
     const { container } = render(
-      <Portfolio.Inner
+      <Portfolio.PortfolioInner
         idx={indexInArray}
         projectsCount={numberOfProjects}
-      ></Portfolio.Inner>
+      ></Portfolio.PortfolioInner>
     );
 
     expect(container.firstChild).not.toHaveStyle(
@@ -226,10 +228,10 @@ describe("<Portfolio.Inner />", () => {
     const indexInArray = 3;
 
     const { container } = render(
-      <Portfolio.Inner
+      <Portfolio.PortfolioInner
         idx={indexInArray}
         projectsCount={numberOfProjects}
-      ></Portfolio.Inner>
+      ></Portfolio.PortfolioInner>
     );
 
     expect(container.firstChild).toHaveStyle(

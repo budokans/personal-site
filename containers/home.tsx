@@ -1,4 +1,4 @@
-import { SiteMetadata, Project } from "../interfaces";
+import { SiteMetadata, Project } from "../types";
 import { Header, Home, Portfolio } from "../components/home";
 import { ReactElement } from "react";
 

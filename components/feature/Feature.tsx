@@ -4,7 +4,7 @@ import { Variants } from "framer-motion";
 import SimpleBar from "simplebar-react";
 import { MotionBox } from "../Motion";
 import { useOnClickOutside } from "../../hooks/useOnClickOutside";
-import { ChildrenProps } from "interfaces";
+import { ChildrenProps } from "types";
 
 interface CloseButtonProps {
   readonly onCloseClick: () => void;

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { ReactElement } from "react";
-import { SiteMetadata } from "../interfaces";
+import { SiteMetadata } from "../types";
 
 interface DocHeadProps {
   readonly metadata: SiteMetadata;

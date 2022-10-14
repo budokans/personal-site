@@ -1,6 +1,6 @@
 import { render, RenderOptions, RenderResult } from "@testing-library/react";
 import { ChakraProvider } from "@chakra-ui/react";
-import { ChildrenProps } from "interfaces";
+import { ChildrenProps } from "types";
 import { ReactElement } from "react";
 
 const withProviders = ({ children }: ChildrenProps): ReactElement => {

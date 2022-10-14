@@ -9,7 +9,7 @@ import {
   useClipboard,
   useMediaQuery,
 } from "@chakra-ui/react";
-import { ChildrenProps, Contact } from "../../interfaces";
+import { ChildrenProps, Contact } from "../../types";
 
 interface HeaderLinksProps {
   readonly contacts: readonly Contact[];

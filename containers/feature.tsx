@@ -1,7 +1,7 @@
 import { ReactElement, useEffect } from "react";
 import { Box, Divider } from "@chakra-ui/react";
 import parse from "html-react-parser";
-import { Project } from "../interfaces";
+import { Project } from "../types";
 import {
   Feature,
   Header,
@@ -10,6 +10,7 @@ import {
   Links,
 } from "../components/feature";
 import { CarouselContainer } from "../containers";
+import { Variants } from "framer-motion";
 
 interface FeatureProps {
   readonly project: Project;
@@ -27,7 +28,7 @@ export const FeatureContainer = ({
     };
   }, []);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: {
       height: "0%",
     },

@@ -1,5 +1,5 @@
 import { Badge, Box, Heading, Stack } from "@chakra-ui/react";
-import { ChildrenProps } from "interfaces";
+import { ChildrenProps } from "types";
 import { ReactElement } from "react";
 import { hideScrollbar } from "../../styles/utilStyles";
 

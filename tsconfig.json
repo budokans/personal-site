@@ -4,7 +4,7 @@
     "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
-      "test-utils": ["/utils/test-utils"]
+      "test-utils": ["utils/test-utils"]
     },
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

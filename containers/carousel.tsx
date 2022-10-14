@@ -1,11 +1,12 @@
 import { Box, useMediaQuery } from "@chakra-ui/react";
-import { CarouselProps } from "../interfaces";
+import { CarouselProps } from "../types";
 import { MotionBox } from "../components/Motion";
 import { CarouselDesktop } from "../components/feature";
 import { CarouselMobile } from "../components/feature";
 import { ReactElement } from "react";
+import { Variants } from "framer-motion";
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {
     x: "100vw",
   },

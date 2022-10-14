@@ -3,7 +3,7 @@ import Image from "next/image";
 import { hideScrollbar } from "../../styles/utilStyles";
 import { MotionStack } from "../Motion";
 import { ReactElement } from "react";
-import { CarouselProps } from "interfaces";
+import { CarouselProps } from "types";
 
 export const CarouselDesktop = ({ media }: CarouselProps): ReactElement => {
   return (

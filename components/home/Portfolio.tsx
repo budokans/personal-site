@@ -9,7 +9,7 @@ import {
   Button,
   useMediaQuery,
 } from "@chakra-ui/react";
-import { ChildrenProps, ImageProps } from "../../interfaces";
+import { ChildrenProps, ImageProps } from "../../types";
 
 interface PortfolioItemProps {
   readonly onPortfolioClick: () => void;
@@ -95,8 +95,13 @@ export const PortfolioInner = ({
   );
 
   useEffect(() => {
-    // If the project is on the bottom row, don't render a bottom border
-    if (projectNumber > projectsCount - bottomRowProjectsCount) {
+    // If there is only a single row, render a bottom border
+    if (projectNumber <= columnsCount) {
+      setRenderBottomBorder(true);
+    }
+    // If there are multiple rows, don't render a border if the project
+    // is on the bottom row
+    else if (projectNumber > projectsCount - bottomRowProjectsCount) {
       setRenderBottomBorder(false);
     } else {
       setRenderBottomBorder(true);

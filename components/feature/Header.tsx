@@ -1,6 +1,6 @@
 import { Box, Heading, Stack, Text, Img } from "@chakra-ui/react";
 import { ReactElement } from "react";
-import { ChildrenProps, ImageProps } from "../../interfaces";
+import { ChildrenProps, ImageProps } from "../../types";
 
 const Container = ({ children }: ChildrenProps): ReactElement => {
   return (

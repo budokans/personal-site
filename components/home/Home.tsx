@@ -1,5 +1,5 @@
 import { Flex } from "@chakra-ui/react";
-import { ChildrenProps } from "interfaces";
+import { ChildrenProps } from "types";
 import { ReactElement } from "react";
 
 interface HomeProps {
