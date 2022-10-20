@@ -1,8 +1,9 @@
 import { render, screen } from "test-utils";
-import { FeatureContainer } from "../../containers/feature";
+import { FeatureContainer } from "../../containers";
 import userEvent from "@testing-library/user-event";
+import { Project } from "types";
 
-const project = {
+const project: Project = {
   title: "Gretsch Geeks",
   shortBlurb:
     "An example E-commerce buy-sell platform built with modern React, Apollo 3 and Keystone.js as a headless CMS.",
@@ -75,7 +76,7 @@ describe("<FeatureContainer", () => {
       <FeatureContainer project={project} onCloseClick={closeFeature} />
     );
 
-    userEvent.click(container.firstChild);
+    userEvent.click(container.firstChild as HTMLElement);
     expect(closeFeature).toHaveBeenCalledTimes(1);
   });
 });

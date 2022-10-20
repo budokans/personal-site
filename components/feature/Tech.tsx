@@ -1,15 +1,13 @@
 import { Badge, Box, Heading, Stack } from "@chakra-ui/react";
+import { ChildrenProps } from "types";
+import { ReactElement } from "react";
 import { hideScrollbar } from "../../styles/utilStyles";
 
-interface Compound {
-  Header: React.FC;
-  Inner: React.FC;
-  Badge: React.FC<{ last: boolean }>;
+interface TechBadgeProps {
+  readonly isLast: boolean;
 }
 
-type TechCC = Compound & React.FC;
-
-const Container: React.FC = ({ children }) => {
+const Container = ({ children }: ChildrenProps): ReactElement => {
   return (
     <Box overflow="hidden" paddingLeft={[4, 9]}>
       {children}
@@ -17,11 +15,11 @@ const Container: React.FC = ({ children }) => {
   );
 };
 
-export const Tech: TechCC = ({ children }) => {
+export const Tech = ({ children }: ChildrenProps): ReactElement => {
   return <Container>{children}</Container>;
 };
 
-Tech.Header = ({ children }) => {
+export const TechHeader = ({ children }: ChildrenProps): ReactElement => {
   return (
     <Heading
       as="h5"
@@ -36,7 +34,7 @@ Tech.Header = ({ children }) => {
   );
 };
 
-Tech.Inner = ({ children }) => {
+export const TechInner = ({ children }: ChildrenProps): ReactElement => {
   return (
     <Stack
       direction="row"
@@ -49,7 +47,10 @@ Tech.Inner = ({ children }) => {
   );
 };
 
-Tech.Badge = ({ last, children }) => {
+export const TechBadge = ({
+  isLast,
+  children,
+}: TechBadgeProps & ChildrenProps): ReactElement => {
   return (
     <Box>
       <Badge
@@ -65,7 +66,7 @@ Tech.Badge = ({ last, children }) => {
         color="gray.800"
         fontSize="sm"
         fontWeight="normal"
-        marginRight={last ? "1rem !important" : "0"}
+        marginRight={isLast ? "1rem !important" : "0"}
       >
         {children}
       </Badge>

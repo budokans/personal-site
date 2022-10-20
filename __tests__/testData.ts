@@ -1,15 +1,11 @@
-import { render, screen, waitFor } from "test-utils";
-import userEvent from "@testing-library/user-event";
-import matchMediaPolyfill from "mq-polyfill";
-import IndexPage from "../../pages/index";
+import { Projects, SiteMetadata } from "types";
 
-const projects = [
+export const testProjects: Projects = [
   {
     title: "Story Typer",
     shortBlurb:
       "A race-the-clock, retro-themed speed-typing game for desktop browsers with context scraped daily from fiftywordstories.com",
     icon: "/images/story-typer-logo.jpg",
-    iconFallback: "",
     tech: ["React", "Next.js", "BEM", "Node.js", "Express", "Cheerio JS"],
     featureMedia: [
       {
@@ -74,7 +70,7 @@ const projects = [
   },
 ];
 
-const metadata = {
+export const testSiteMetadata: SiteMetadata = {
   description:
     "Steven Webster is a full-stack developer who cares about scalability, performance and elegant, intuitive UIs. Working remotely from Auckland, NZ.",
   canonical: "https://stevenwebster.co",
@@ -87,57 +83,3 @@ const metadata = {
     },
   ],
 };
-
-describe("./index", () => {
-  test("renders the <HomeContainer />", () => {
-    render(<IndexPage metadata={metadata} projects={projects} />);
-
-    expect(
-      screen.getByText(/Steven Webster is a full-stack/i)
-    ).toBeInTheDocument();
-  });
-
-  test("clicking a <Portfolio.Item /> renders the relevant <FeatureContainer />", async () => {
-    render(<IndexPage metadata={metadata} projects={projects} />);
-
-    userEvent.click(screen.getByText(/Story Typer/i));
-    expect(screen.getByText(projects[0].description[3])).toBeInTheDocument();
-    userEvent.click(screen.getByTestId("close-feature"));
-    await waitFor(() =>
-      expect(
-        screen.queryByText(projects[0].description[3])
-      ).not.toBeInTheDocument()
-    );
-
-    userEvent.click(screen.getByText(/stevenwebster.co/i));
-    expect(screen.getByText(projects[1].description[3])).toBeInTheDocument();
-    userEvent.click(screen.getByTestId("close-feature"));
-    await waitFor(() =>
-      expect(
-        screen.queryByText(projects[1].description[3])
-      ).not.toBeInTheDocument()
-    );
-  });
-
-  test("<Portfolio.TooltipBtn /> renders the correct text", async () => {
-    matchMediaPolyfill(global);
-
-    global.resizeTo = function resizeTo(width, height) {
-      Object.assign(this, {
-        innerWidth: width,
-        innerHeight: height,
-        outerWidth: width,
-        outerHeight: height,
-      }).dispatchEvent(new this.Event("resize"));
-    };
-    global.resizeTo(930, 1000);
-
-    render(<IndexPage metadata={metadata} projects={projects} />);
-
-    expect(screen.queryByText(/Click to Copy!/i)).not.toBeInTheDocument();
-    userEvent.hover(screen.getByTestId(/Tooltip/i));
-    await waitFor(() =>
-      expect(screen.getByText(/Click to Copy!/i)).toBeInTheDocument()
-    );
-  });
-});

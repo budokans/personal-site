@@ -1,6 +1,15 @@
 import { Flex } from "@chakra-ui/react";
+import { ChildrenProps } from "types";
+import { ReactElement } from "react";
 
-export const Home: React.FC<{ blur: boolean }> = ({ blur, children }) => {
+interface HomeProps {
+  readonly blur: boolean;
+}
+
+export const Home = ({
+  blur,
+  children,
+}: HomeProps & ChildrenProps): ReactElement => {
   return (
     <Flex
       direction="column"

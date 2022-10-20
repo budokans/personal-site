@@ -1,28 +1,21 @@
-import { useRef } from "react";
+import { ReactElement, useRef } from "react";
 import { Box, Stack, CloseButton } from "@chakra-ui/react";
 import { Variants } from "framer-motion";
 import SimpleBar from "simplebar-react";
 import { MotionBox } from "../Motion";
 import { useOnClickOutside } from "../../hooks/useOnClickOutside";
+import { ChildrenProps } from "types";
 
 interface CloseButtonProps {
-  onCloseClick(): void;
+  readonly onCloseClick: () => void;
 }
 
-interface ContainerProps {
-  variants: Variants;
-  onCloseClick: () => void;
+interface FeatureContainerProps {
+  readonly variants: Variants;
+  readonly onCloseClick: () => void;
 }
 
-interface Compound {
-  CloseButton: React.FC<CloseButtonProps>;
-  Container: React.FC<ContainerProps>;
-  Inner: React.FC;
-}
-
-type FeatureCC = React.FC & Compound;
-
-const Overlay: React.FC = () => {
+const Overlay = (): ReactElement => {
   return (
     <MotionBox
       position="absolute"
@@ -38,7 +31,7 @@ const Overlay: React.FC = () => {
   );
 };
 
-export const Feature: FeatureCC = ({ children }) => {
+export const Feature = ({ children }: ChildrenProps): ReactElement => {
   return (
     <>
       <Overlay />
@@ -47,7 +40,11 @@ export const Feature: FeatureCC = ({ children }) => {
   );
 };
 
-Feature.Container = ({ variants, onCloseClick, children }) => {
+export const FeatureContainer = ({
+  variants,
+  onCloseClick,
+  children,
+}: FeatureContainerProps & ChildrenProps): ReactElement => {
   const node = useRef<HTMLDivElement>(null);
   useOnClickOutside(node, onCloseClick);
 
@@ -80,7 +77,9 @@ Feature.Container = ({ variants, onCloseClick, children }) => {
   );
 };
 
-Feature.CloseButton = ({ onCloseClick }) => {
+export const FeatureCloseButton = ({
+  onCloseClick,
+}: CloseButtonProps): ReactElement => {
   return (
     <CloseButton
       w={["28px", "34px"]}
@@ -99,7 +98,7 @@ Feature.CloseButton = ({ onCloseClick }) => {
   );
 };
 
-Feature.Inner = ({ children }) => {
+export const FeatureInner = ({ children }: ChildrenProps): ReactElement => {
   return (
     <Stack spacing={6} mb={20}>
       {children}

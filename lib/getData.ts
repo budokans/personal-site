@@ -1,16 +1,23 @@
 import fs from "fs";
+import { SiteMetadata, Projects } from "../types";
 import path from "path";
+import { either as E, function as F } from "fp-ts";
+import { formatValidationErrors } from "io-ts-reporters";
 
-export const getData = () => {
-  const dataDirectory = path.join(process.cwd(), "data");
-  const filenames = fs.readdirSync(dataDirectory);
+const dataDirectory = path.join(process.cwd(), "data");
 
-  const data = filenames.map((filename) => {
-    const filePath = path.join(dataDirectory, filename);
-    const fileContents = fs.readFileSync(filePath, "utf8");
+export const getProjectData = (): E.Either<string[], Projects> =>
+  F.pipe(
+    fs.readFileSync(`${dataDirectory}/projectsData.json`, "utf8"),
+    JSON.parse,
+    Projects.decode,
+    E.mapLeft(formatValidationErrors)
+  );
 
-    return JSON.parse(fileContents);
-  });
-
-  return data;
-};
+export const getSiteMetadata = (): E.Either<string[], SiteMetadata> =>
+  F.pipe(
+    fs.readFileSync(`${dataDirectory}/metadata.json`, "utf8"),
+    JSON.parse,
+    SiteMetadata.decode,
+    E.mapLeft(formatValidationErrors)
+  );

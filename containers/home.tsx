@@ -1,44 +1,53 @@
-import { MetadataInterface, ProjectInterface } from "../interfaces";
-import { Home } from "../components/home/Home";
-import { Header } from "../components/home/Header";
-import { Portfolio } from "../components/home/Portfolio";
+import { SiteMetadata, Project } from "../types";
+import { Header, Home, Portfolio } from "../components/home";
+import { ReactElement } from "react";
 
 interface HomeContainerProps {
-  projects: ProjectInterface[];
-  metadata: MetadataInterface;
-  onPortfolioClick: (id: number) => void;
-  blur: boolean;
+  readonly projects: readonly Project[];
+  readonly metadata: SiteMetadata;
+  readonly onPortfolioClick: (id: number) => void;
+  readonly blur: boolean;
 }
 
-export const HomeContainer: React.FC<HomeContainerProps> = ({
+export const HomeContainer = ({
   projects,
   metadata,
   onPortfolioClick,
   blur,
-}) => {
+}: HomeContainerProps): ReactElement => {
   return (
-    <Home blur={blur}>
-      <Header>
-        <Header.Text>{metadata.description}</Header.Text>
-        <Header.Links contacts={metadata.contacts} />
-      </Header>
+    <Home.Home blur={blur}>
+      <Header.Header>
+        <Header.HeaderText>{metadata.description}</Header.HeaderText>
+        <Header.HeaderLinks contacts={metadata.contacts} />
+      </Header.Header>
 
-      <Portfolio>
+      <Portfolio.Portfolio>
         {projects.map((project, idx) => {
           return (
-            <Portfolio.Item
+            <Portfolio.PortfolioItem
               onPortfolioClick={() => onPortfolioClick(idx)}
               key={idx}
             >
-              <Portfolio.Image src={project.icon} alt={project.title} />
-              <Portfolio.Inner idx={idx} projectsCount={projects.length}>
-                <Portfolio.Title>{project.title}</Portfolio.Title>
-                <Portfolio.Text>{project.shortBlurb}</Portfolio.Text>
-              </Portfolio.Inner>
-            </Portfolio.Item>
+              <Portfolio.PortfolioImage
+                src={project.icon}
+                alt={project.title}
+              />
+              <Portfolio.PortfolioInner
+                idx={idx}
+                projectsCount={projects.length}
+              >
+                <Portfolio.PortfolioTitle>
+                  {project.title}
+                </Portfolio.PortfolioTitle>
+                <Portfolio.PortfolioText>
+                  {project.shortBlurb}
+                </Portfolio.PortfolioText>
+              </Portfolio.PortfolioInner>
+            </Portfolio.PortfolioItem>
           );
         })}
-      </Portfolio>
-    </Home>
+      </Portfolio.Portfolio>
+    </Home.Home>
   );
 };

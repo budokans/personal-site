@@ -1,6 +1,6 @@
 import { render, within, screen } from "test-utils";
 import matchMediaPolyfill from "mq-polyfill";
-import { Header } from "../../../components/home/Header";
+import { Header } from "../../../components/home";
 
 const metadata = {
   description:
@@ -18,9 +18,9 @@ const metadata = {
 describe("<Header />", () => {
   test("renders <Header.Text /> with data from props", () => {
     const { container } = render(
-      <Header>
-        <Header.Text>{metadata.description}</Header.Text>
-      </Header>
+      <Header.Header>
+        <Header.HeaderText>{metadata.description}</Header.HeaderText>
+      </Header.Header>
     );
     expect(
       screen.getByText(/Steven Webster is a full-stack/i)
@@ -30,9 +30,9 @@ describe("<Header />", () => {
 
   test("renders <Header.Links /> with data from props", () => {
     const { container } = render(
-      <Header>
-        <Header.Links contacts={metadata.contacts} />
-      </Header>
+      <Header.Header>
+        <Header.HeaderLinks contacts={metadata.contacts} />
+      </Header.Header>
     );
 
     const listItems = screen.getAllByRole(/listitem/i);
@@ -58,7 +58,9 @@ describe("<Header />", () => {
     };
     global.resizeTo(930, 1000);
 
-    const { container } = render(<Header.Links contacts={metadata.contacts} />);
+    const { container } = render(
+      <Header.HeaderLinks contacts={metadata.contacts} />
+    );
 
     expect(screen.getByTestId(/Tooltip/i)).toBeInTheDocument();
     expect(screen.queryByTestId(/mailto/i)).not.toBeInTheDocument();
@@ -77,7 +79,9 @@ describe("<Header />", () => {
     };
     global.resizeTo(929, 1000);
 
-    const { container } = render(<Header.Links contacts={metadata.contacts} />);
+    const { container } = render(
+      <Header.HeaderLinks contacts={metadata.contacts} />
+    );
 
     expect(screen.queryByTestId(/Tooltip/i)).not.toBeInTheDocument();
     expect(screen.getByTestId(/mailto/i)).toBeInTheDocument();

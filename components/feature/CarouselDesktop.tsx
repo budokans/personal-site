@@ -2,13 +2,10 @@ import { Box } from "@chakra-ui/react";
 import Image from "next/image";
 import { hideScrollbar } from "../../styles/utilStyles";
 import { MotionStack } from "../Motion";
-import { FeatureMediaInterface } from "../../interfaces";
+import { ReactElement } from "react";
+import { CarouselProps } from "types";
 
-interface CarouselProps {
-  media: FeatureMediaInterface[];
-}
-
-export const CarouselDesktop: React.FC<CarouselProps> = ({ media }) => {
+export const CarouselDesktop = ({ media }: CarouselProps): ReactElement => {
   return (
     <MotionStack
       drag="x"

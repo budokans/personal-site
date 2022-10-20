@@ -4,12 +4,12 @@
     "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
-      "test-utils": ["/utils/test-utils"]
+      "test-utils": ["utils/test-utils"]
     },
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "lib": ["dom", "es2020"],
     "module": "esnext",
     "moduleResolution": "node",
@@ -25,7 +25,8 @@
     "incremental": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "exactOptionalPropertyTypes": true
+    "exactOptionalPropertyTypes": true,
+    "allowJs": true
   },
   "exclude": ["node_modules"],
   "include": ["**/*.ts", "**/*.tsx", "**/*.json"]

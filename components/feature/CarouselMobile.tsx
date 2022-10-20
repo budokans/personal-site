@@ -1,13 +1,10 @@
 import { Box, Stack } from "@chakra-ui/react";
 import Image from "next/image";
 import { hideScrollbar } from "../../styles/utilStyles";
-import { FeatureMediaInterface } from "../../interfaces";
+import { CarouselProps } from "../../types";
+import { ReactElement } from "react";
 
-interface CarouselProps {
-  media: FeatureMediaInterface[];
-}
-
-export const CarouselMobile: React.FC<CarouselProps> = ({ media }) => {
+export const CarouselMobile = ({ media }: CarouselProps): ReactElement => {
   return (
     <Stack
       direction="row"
