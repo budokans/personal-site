@@ -19,6 +19,7 @@ export const HomeContainer = ({
     <Home.Home blur={blur}>
       <Header.Header>
         <Header.HeaderText>{metadata.description}</Header.HeaderText>
+        <Header.HeaderLocation>{metadata.location}</Header.HeaderLocation>
         <Header.HeaderLinks contacts={metadata.contacts} />
       </Header.Header>
 

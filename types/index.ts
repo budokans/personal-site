@@ -36,6 +36,7 @@ export type Contact = IoTs.TypeOf<typeof Contact>;
 
 export const SiteMetadata = IoTs.type({
   description: IoTs.string,
+  location: IoTs.string,
   canonical: IoTs.string,
   contacts: IoTs.readonlyArray(Contact),
 });

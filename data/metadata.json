@@ -1,5 +1,6 @@
 {
-  "description": "Steven Webster is a full-stack developer who cares about scalability, performance and elegant, intuitive UIs. Based in Auckland, NZ.",
+  "description": "Steven Webster is a full-stack developer who cares about scalability, performance and intuitive UIs.",
+  "location": "📍 Auckland | Kuala Lumpur",
   "canonical": "https://stevenwebster.co",
   "contacts": [
     { "type": "Email", "value": "contact@stevenwebster.co" },
