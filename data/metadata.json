@@ -3,11 +3,20 @@
   "location": "📍 Auckland | Kuala Lumpur",
   "canonical": "https://stevenwebster.co",
   "contacts": [
-    { "type": "Email", "value": "contact@stevenwebster.co" },
-    { "type": "Github", "value": "https://github.com/budokans" },
     {
-      "type": "LinkedIn",
-      "value": "https://www.linkedin.com/in/steven-webster-developer/"
+      "type": "email",
+      "address": "contact@stevenwebster.co",
+      "url": "mailto:contact@stevenwebster.co"
+    },
+    {
+      "type": "website",
+      "name": "GitHub",
+      "url": "https://github.com/budokans"
+    },
+    {
+      "type": "website",
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/in/steven-webster-developer/"
     }
   ]
 }

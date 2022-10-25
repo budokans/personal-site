@@ -19,6 +19,10 @@ interface HeaderLinkProps {
   readonly href: string;
 }
 
+interface TooltipBtnProps {
+  readonly text?: string;
+}
+
 export const Header = ({ children }: ChildrenProps): ReactElement => {
   return (
     <Stack w={["full", "90%", "80%", "900px"]} spacing={5}>
@@ -64,25 +68,23 @@ export const HeaderLinks = ({ contacts }: HeaderLinksProps): ReactElement => {
   return (
     <Wrap spacing="3">
       {contacts.map((contact, idx) => {
-        if (isLargeViewport && contact.type === "Email") {
-          return (
-            <TooltipBtn href={contact.value} key={-1}>
-              {contact.type}
-            </TooltipBtn>
-          );
-        } else {
-          return (
-            <Link
-              href={
-                contact.type === "Email"
-                  ? `mailto:${contact.value}`
-                  : contact.value
-              }
-              key={idx}
-            >
-              {contact.type}
-            </Link>
-          );
+        switch (contact.type) {
+          case "email":
+            return isLargeViewport ? (
+              <TooltipBtn text={contact.address} key={-1}>
+                Email
+              </TooltipBtn>
+            ) : (
+              <Link href={contact.url} key={idx}>
+                Email
+              </Link>
+            );
+          case "website":
+            return (
+              <Link href={contact.url} key={idx}>
+                {contact.name}
+              </Link>
+            );
         }
       })}
     </Wrap>
@@ -112,10 +114,10 @@ export const Link = ({
 };
 
 export const TooltipBtn = ({
-  href,
+  text,
   children,
-}: HeaderLinkProps & ChildrenProps): ReactElement => {
-  const { hasCopied, onCopy } = useClipboard(href);
+}: TooltipBtnProps & ChildrenProps): ReactElement => {
+  const { hasCopied, onCopy } = useClipboard(text ?? "");
 
   return (
     <WrapItem>
