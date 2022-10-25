@@ -33,6 +33,20 @@ export const HeaderText = ({ children }: ChildrenProps): ReactElement => {
       fontSize="clamp(24px, calc(14.40px + 2.00vw), 40px)"
       fontWeight="normal"
       lineHeight={1.3}
+      as="h1"
+    >
+      {children}
+    </Heading>
+  );
+};
+
+export const HeaderLocation = ({ children }: ChildrenProps): ReactElement => {
+  return (
+    <Heading
+      fontSize="clamp(15px, 10px + 1vw, 20px)"
+      fontWeight="normal"
+      lineHeight={1.3}
+      as="h2"
     >
       {children}
     </Heading>

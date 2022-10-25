@@ -73,6 +73,7 @@ export const testProjects: Projects = [
 export const testSiteMetadata: SiteMetadata = {
   description:
     "Steven Webster is a full-stack developer who cares about scalability, performance and elegant, intuitive UIs. Working remotely from Auckland, NZ.",
+  location: "📍 Auckland | Kuala Lumpur",
   canonical: "https://stevenwebster.co",
   contacts: [
     { type: "Email", value: "contact@stevenwebster.co" },
