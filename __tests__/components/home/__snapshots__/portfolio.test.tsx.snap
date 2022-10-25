@@ -10,7 +10,7 @@ exports[`<Portfolio /> <Porfolio.Image /> renders an image with populated data f
 
 exports[`<Portfolio /> <Portfolio.Button /> renders a button with text 1`] = `
 <button
-  class="chakra-button css-1a5ti90"
+  class="chakra-button css-t13w4k"
   type="button"
 >
   View
@@ -50,13 +50,13 @@ exports[`<Portfolio /> <Portfolio.Title /> renders with populated data from prop
 
 exports[`<Portfolio.Inner /> <Portfolio.Inner /> renders with a border-bottom if viewport width < 768px and projectsCount is 1 1`] = `
 <div
-  class="css-1d2i4bt"
+  class="css-1yecze6"
 >
   <div
     class="css-2lzsxm"
   />
   <button
-    class="chakra-button css-1a5ti90"
+    class="chakra-button css-t13w4k"
     type="button"
   >
     View
@@ -66,13 +66,13 @@ exports[`<Portfolio.Inner /> <Portfolio.Inner /> renders with a border-bottom if
 
 exports[`<Portfolio.Inner /> <Portfolio.Inner /> renders with a border-bottom if viewport width < 768px, projectsCount is 2 and it is not the last project 1`] = `
 <div
-  class="css-1d2i4bt"
+  class="css-1yecze6"
 >
   <div
     class="css-2lzsxm"
   />
   <button
-    class="chakra-button css-1a5ti90"
+    class="chakra-button css-t13w4k"
     type="button"
   >
     View
@@ -82,13 +82,13 @@ exports[`<Portfolio.Inner /> <Portfolio.Inner /> renders with a border-bottom if
 
 exports[`<Portfolio.Inner /> <Portfolio.Inner /> renders with a border-bottom if viewport width > 768px and projectsCount is < 3 1`] = `
 <div
-  class="css-1d2i4bt"
+  class="css-1yecze6"
 >
   <div
     class="css-2lzsxm"
   />
   <button
-    class="chakra-button css-1a5ti90"
+    class="chakra-button css-t13w4k"
     type="button"
   >
     View
@@ -98,13 +98,13 @@ exports[`<Portfolio.Inner /> <Portfolio.Inner /> renders with a border-bottom if
 
 exports[`<Portfolio.Inner /> <Portfolio.Inner /> renders with a border-bottom if viewport width > 768px, it is not in the first row, and it is the last one to be rendered before wrapping to a new row 1`] = `
 <div
-  class="css-1d2i4bt"
+  class="css-1yecze6"
 >
   <div
     class="css-2lzsxm"
   />
   <button
-    class="chakra-button css-1a5ti90"
+    class="chakra-button css-t13w4k"
     type="button"
   >
     View
@@ -114,13 +114,13 @@ exports[`<Portfolio.Inner /> <Portfolio.Inner /> renders with a border-bottom if
 
 exports[`<Portfolio.Inner /> <Portfolio.Inner /> renders without a border-bottom if viewport width < 768px, projectsCount is 2 and it is the last project 1`] = `
 <div
-  class="css-6de58t"
+  class="css-txocgk"
 >
   <div
     class="css-2lzsxm"
   />
   <button
-    class="chakra-button css-1a5ti90"
+    class="chakra-button css-t13w4k"
     type="button"
   >
     View
@@ -130,13 +130,13 @@ exports[`<Portfolio.Inner /> <Portfolio.Inner /> renders without a border-bottom
 
 exports[`<Portfolio.Inner /> <Portfolio.Inner /> renders without a border-bottom if viewport width > 768px, projectsCount is 3 and it is on the bottom row 1`] = `
 <div
-  class="css-6de58t"
+  class="css-txocgk"
 >
   <div
     class="css-2lzsxm"
   />
   <button
-    class="chakra-button css-1a5ti90"
+    class="chakra-button css-t13w4k"
     type="button"
   >
     View
