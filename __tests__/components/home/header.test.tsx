@@ -1,25 +1,13 @@
 import { render, within, screen } from "test-utils";
 import matchMediaPolyfill from "mq-polyfill";
 import { Header } from "../../../components/home";
-
-const metadata = {
-  description:
-    "Steven Webster is a full-stack developer who cares about scalability, performance and elegant, intuitive UIs. Working remotely from Auckland, NZ.",
-  contacts: [
-    { type: "Email", value: "contact@stevenwebster.co" },
-    { type: "Github", value: "https://github.com/budokans" },
-    {
-      type: "LinkedIn",
-      value: "https://www.linkedin.com/in/steven-webster-developer/",
-    },
-  ],
-};
+import { testSiteMetadata } from "../../testData";
 
 describe("<Header />", () => {
   test("renders <Header.Text /> with data from props", () => {
     const { container } = render(
       <Header.Header>
-        <Header.HeaderText>{metadata.description}</Header.HeaderText>
+        <Header.HeaderText>{testSiteMetadata.description}</Header.HeaderText>
       </Header.Header>
     );
     expect(
@@ -31,7 +19,7 @@ describe("<Header />", () => {
   test("renders <Header.Links /> with data from props", () => {
     const { container } = render(
       <Header.Header>
-        <Header.HeaderLinks contacts={metadata.contacts} />
+        <Header.HeaderLinks contacts={testSiteMetadata.contacts} />
       </Header.Header>
     );
 
@@ -40,7 +28,14 @@ describe("<Header />", () => {
 
     listItems.forEach((item, idx) => {
       const { getByText } = within(item);
-      expect(getByText(metadata.contacts[idx].type)).toBeInTheDocument();
+      const contact = testSiteMetadata.contacts[idx];
+
+      switch (contact.type) {
+        case "email":
+          return expect(getByText("Email")).toBeInTheDocument();
+        case "website":
+          return expect(getByText(contact.name)).toBeInTheDocument();
+      }
     });
 
     expect(container.firstChild).toMatchSnapshot();
@@ -59,7 +54,7 @@ describe("<Header />", () => {
     global.resizeTo(930, 1000);
 
     const { container } = render(
-      <Header.HeaderLinks contacts={metadata.contacts} />
+      <Header.HeaderLinks contacts={testSiteMetadata.contacts} />
     );
 
     expect(screen.getByTestId(/Tooltip/i)).toBeInTheDocument();
@@ -80,7 +75,7 @@ describe("<Header />", () => {
     global.resizeTo(929, 1000);
 
     const { container } = render(
-      <Header.HeaderLinks contacts={metadata.contacts} />
+      <Header.HeaderLinks contacts={testSiteMetadata.contacts} />
     );
 
     expect(screen.queryByTestId(/Tooltip/i)).not.toBeInTheDocument();

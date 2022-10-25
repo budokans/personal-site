@@ -28,10 +28,27 @@ export type Project = IoTs.TypeOf<typeof Project>;
 export const Projects = IoTs.readonlyArray(Project);
 export type Projects = IoTs.TypeOf<typeof Projects>;
 
-export const Contact = IoTs.type({
-  type: IoTs.string,
-  value: IoTs.string,
+export const ContactWebsite = IoTs.union([
+  IoTs.literal("GitHub"),
+  IoTs.literal("LinkedIn"),
+]);
+export type ContactWebsite = IoTs.TypeOf<typeof ContactWebsite>;
+
+export const EmailContact = IoTs.type({
+  type: IoTs.literal("email"),
+  address: IoTs.string,
+  url: IoTs.string,
 });
+export type EmailContact = IoTs.TypeOf<typeof EmailContact>;
+
+export const WebContact = IoTs.type({
+  type: IoTs.literal("website"),
+  name: ContactWebsite,
+  url: IoTs.string,
+});
+export type WebContact = IoTs.TypeOf<typeof WebContact>;
+
+export const Contact = IoTs.union([EmailContact, WebContact]);
 export type Contact = IoTs.TypeOf<typeof Contact>;
 
 export const SiteMetadata = IoTs.type({

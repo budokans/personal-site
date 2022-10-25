@@ -30,7 +30,7 @@ exports[`<Header /> renders <Header.Link /> instead of <Header.TooltipBtn /> for
         rel="noopener noreferrer"
         target="_blank"
       >
-        Github
+        GitHub
       </a>
     </li>
     <li
@@ -83,7 +83,7 @@ exports[`<Header /> renders <Header.Links /> with data from props 1`] = `
           rel="noopener noreferrer"
           target="_blank"
         >
-          Github
+          GitHub
         </a>
       </li>
       <li
@@ -144,7 +144,7 @@ exports[`<Header /> renders <Header.TooltipBtn /> if viewport width >= 930px 1`]
         rel="noopener noreferrer"
         target="_blank"
       >
-        Github
+        GitHub
       </a>
     </li>
     <li
