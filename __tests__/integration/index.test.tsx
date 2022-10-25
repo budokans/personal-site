@@ -56,10 +56,10 @@ describe("./index", () => {
 
     render(<IndexPage metadata={testSiteMetadata} projects={testProjects} />);
 
-    expect(screen.queryByText(/Click to Copy!/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Click to copy!/i)).not.toBeInTheDocument();
     userEvent.hover(screen.getByTestId(/Tooltip/i));
     await waitFor(() =>
-      expect(screen.getByText(/Click to Copy!/i)).toBeInTheDocument()
+      expect(screen.getByText(/Click to copy!/i)).toBeInTheDocument()
     );
   });
 });
