@@ -114,6 +114,7 @@ export const PortfolioInner = ({
       alignItems="center"
       borderBottom={renderBottomBorder ? borderStyle : ""}
       paddingBottom={4}
+      w="100%"
     >
       <Box mr={4}>{children}</Box>
       <PortfolioButton />
@@ -143,7 +144,7 @@ export const PortfolioText = ({ children }: ChildrenProps): ReactElement => {
 
 export const PortfolioButton = (): ReactElement => {
   return (
-    <Button rounded="xl" fontSize="sm" w={8} px={3} h={7} minW={16}>
+    <Button rounded="xl" fontSize="sm" w={8} px={3} h={7} minW={16} ml="auto">
       View
     </Button>
   );
