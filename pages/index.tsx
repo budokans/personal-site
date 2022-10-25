@@ -11,8 +11,13 @@ export const getStaticProps: GetStaticProps = () =>
     E.Do,
     E.bind("projects", getProjectData),
     E.bind("metadata", getSiteMetadata),
-    E.matchW(
-      () => ({ notFound: true }),
+    E.match(
+      (errors) => {
+        console.log(errors);
+        return {
+          props: {},
+        };
+      },
       ({ projects, metadata }) => ({
         props: {
           projects,
