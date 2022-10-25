@@ -110,7 +110,7 @@ export const TooltipBtn = ({
         borderRadius="lg"
         py="1.5"
         closeDelay={1000}
-        label={hasCopied ? "Copied!" : "Click to Copy!"}
+        label={hasCopied ? "Copied!" : "Click to copy!"}
         aria-label="Copy email"
       >
         <Button
