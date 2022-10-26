@@ -32,6 +32,7 @@ describe("./index", () => {
     expect(
       screen.getByText(testProjects[0].description[3])
     ).toBeInTheDocument();
+
     userEvent.click(screen.getByTestId("close-feature"));
     await waitFor(() =>
       expect(
@@ -43,6 +44,7 @@ describe("./index", () => {
     expect(
       screen.getByText(testProjects[1].description[3])
     ).toBeInTheDocument();
+
     userEvent.click(screen.getByTestId("close-feature"));
     await waitFor(() =>
       expect(
@@ -55,8 +57,8 @@ describe("./index", () => {
     window.resizeTo(930, 1000);
 
     render(<IndexPage metadata={testSiteMetadata} projects={testProjects} />);
-
     expect(screen.queryByText(/Click to copy!/i)).not.toBeInTheDocument();
+
     userEvent.hover(screen.getByTestId(/Tooltip/i));
     await waitFor(() =>
       expect(screen.getByText(/Click to copy!/i)).toBeInTheDocument()

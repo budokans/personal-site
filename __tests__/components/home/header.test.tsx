@@ -4,6 +4,18 @@ import { Header } from "../../../components/home";
 import { testSiteMetadata } from "../../testData";
 
 describe("<Header />", () => {
+  beforeAll(() => {
+    matchMediaPolyfill(window);
+    window.resizeTo = function resizeTo(width, height) {
+      Object.assign(this, {
+        innerWidth: width,
+        innerHeight: height,
+        outerWidth: width,
+        outerHeight: height,
+      }).dispatchEvent(new this.Event("resize"));
+    };
+  });
+
   test("renders <Header.Text /> with data from props", () => {
     const { container } = render(
       <Header.Header>
@@ -42,16 +54,7 @@ describe("<Header />", () => {
   });
 
   test("renders <Header.TooltipBtn /> if viewport width >= 930px", () => {
-    matchMediaPolyfill(global);
-    global.resizeTo = function resizeTo(width, height) {
-      Object.assign(this, {
-        innerWidth: width,
-        innerHeight: height,
-        outerWidth: width,
-        outerHeight: height,
-      }).dispatchEvent(new this.Event("resize"));
-    };
-    global.resizeTo(930, 1000);
+    window.resizeTo(930, 1000);
 
     const { container } = render(
       <Header.HeaderLinks contacts={testSiteMetadata.contacts} />
@@ -63,16 +66,7 @@ describe("<Header />", () => {
   });
 
   test("renders <Header.Link /> instead of <Header.TooltipBtn /> for the email link if viewport width < 930px", () => {
-    matchMediaPolyfill(global);
-    global.resizeTo = function resizeTo(width, height) {
-      Object.assign(this, {
-        innerWidth: width,
-        innerHeight: height,
-        outerWidth: width,
-        outerHeight: height,
-      }).dispatchEvent(new this.Event("resize"));
-    };
-    global.resizeTo(929, 1000);
+    window.resizeTo(929, 1000);
 
     const { container } = render(
       <Header.HeaderLinks contacts={testSiteMetadata.contacts} />
