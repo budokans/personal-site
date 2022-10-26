@@ -4,6 +4,18 @@ import matchMediaPolyfill from "mq-polyfill";
 import { Portfolio } from "../../../components/home";
 
 describe("<Portfolio />", () => {
+  beforeAll(() => {
+    matchMediaPolyfill(window);
+    window.resizeTo = function resizeTo(width, height) {
+      Object.assign(this, {
+        innerWidth: width,
+        innerHeight: height,
+        outerWidth: width,
+        outerHeight: height,
+      }).dispatchEvent(new this.Event("resize"));
+    };
+  });
+
   test("<Portfolio.Item /> renders a button and calls openFeature() on click", () => {
     const openFeature = jest.fn();
     const { container } = render(
@@ -73,16 +85,7 @@ describe("<Portfolio />", () => {
 
 describe("<Portfolio.Inner />", () => {
   test("<Portfolio.Inner /> renders with a border-bottom if viewport width < 768px and projectsCount is 1", () => {
-    matchMediaPolyfill(global);
-    global.resizeTo = function resizeTo(width, height) {
-      Object.assign(this, {
-        innerWidth: width,
-        innerHeight: height,
-        outerWidth: width,
-        outerHeight: height,
-      }).dispatchEvent(new this.Event("resize"));
-    };
-    global.resizeTo(767, 1000);
+    window.resizeTo(767, 1000);
 
     const numberOfProjects = 1;
     const indexInArray = 0;
@@ -101,16 +104,7 @@ describe("<Portfolio.Inner />", () => {
   });
 
   test("<Portfolio.Inner /> renders without a border-bottom if viewport width < 768px, projectsCount is 2 and it is the last project", () => {
-    matchMediaPolyfill(global);
-    global.resizeTo = function resizeTo(width, height) {
-      Object.assign(this, {
-        innerWidth: width,
-        innerHeight: height,
-        outerWidth: width,
-        outerHeight: height,
-      }).dispatchEvent(new this.Event("resize"));
-    };
-    global.resizeTo(767, 1000);
+    window.resizeTo(767, 1000);
 
     const numberOfProjects = 2;
     const indexInArray = 1;
@@ -129,16 +123,7 @@ describe("<Portfolio.Inner />", () => {
   });
 
   test("<Portfolio.Inner /> renders with a border-bottom if viewport width < 768px, projectsCount is 2 and it is not the last project", () => {
-    matchMediaPolyfill(global);
-    global.resizeTo = function resizeTo(width, height) {
-      Object.assign(this, {
-        innerWidth: width,
-        innerHeight: height,
-        outerWidth: width,
-        outerHeight: height,
-      }).dispatchEvent(new this.Event("resize"));
-    };
-    global.resizeTo(767, 1000);
+    window.resizeTo(767, 1000);
 
     const numberOfProjects = 2;
     const indexInArray = 0;
@@ -157,16 +142,7 @@ describe("<Portfolio.Inner />", () => {
   });
 
   test("<Portfolio.Inner /> renders with a border-bottom if viewport width > 768px and projectsCount is < 3", () => {
-    matchMediaPolyfill(global);
-    global.resizeTo = function resizeTo(width, height) {
-      Object.assign(this, {
-        innerWidth: width,
-        innerHeight: height,
-        outerWidth: width,
-        outerHeight: height,
-      }).dispatchEvent(new this.Event("resize"));
-    };
-    global.resizeTo(768, 1000);
+    window.resizeTo(768, 1000);
 
     const numberOfProjects = 2;
     const indexInArray = 0;
@@ -185,16 +161,7 @@ describe("<Portfolio.Inner />", () => {
   });
 
   test("<Portfolio.Inner /> renders without a border-bottom if viewport width > 768px, projectsCount is 3 and it is on the bottom row", () => {
-    matchMediaPolyfill(global);
-    global.resizeTo = function resizeTo(width, height) {
-      Object.assign(this, {
-        innerWidth: width,
-        innerHeight: height,
-        outerWidth: width,
-        outerHeight: height,
-      }).dispatchEvent(new this.Event("resize"));
-    };
-    global.resizeTo(768, 1000);
+    window.resizeTo(768, 1000);
 
     const numberOfProjects = 3;
     const indexInArray = 2;
@@ -213,16 +180,7 @@ describe("<Portfolio.Inner />", () => {
   });
 
   test("<Portfolio.Inner /> renders with a border-bottom if viewport width > 768px, it is not in the first row, and it is the last one to be rendered before wrapping to a new row", () => {
-    matchMediaPolyfill(global);
-    global.resizeTo = function resizeTo(width, height) {
-      Object.assign(this, {
-        innerWidth: width,
-        innerHeight: height,
-        outerWidth: width,
-        outerHeight: height,
-      }).dispatchEvent(new this.Event("resize"));
-    };
-    global.resizeTo(768, 1000);
+    window.resizeTo(768, 1000);
 
     const numberOfProjects = 5;
     const indexInArray = 3;

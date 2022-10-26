@@ -63,15 +63,13 @@ exports[`<Header /> renders <Header.Links /> with data from props 1`] = `
       <li
         class="chakra-wrap__listitem css-1yp4ln"
       >
-        <a
+        <button
           class="chakra-button css-1infzl"
-          data-testid="mailto:contact@stevenwebster.co"
-          href="mailto:contact@stevenwebster.co"
-          rel="noopener noreferrer"
-          target="_blank"
+          data-testid="Tooltip"
+          type="button"
         >
           Email
-        </a>
+        </button>
       </li>
       <li
         class="chakra-wrap__listitem css-1yp4ln"
