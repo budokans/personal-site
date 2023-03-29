@@ -41,6 +41,7 @@ export const TechInner = ({ children }: ChildrenProps): ReactElement => {
       overflowX="auto"
       whiteSpace="nowrap"
       sx={hideScrollbar}
+      pt={1}
     >
       {children}
     </Stack>
