@@ -10,7 +10,9 @@
       "Functional Programming",
       "Firebase",
       "react-query",
-      "Chakra UI"
+      "Chakra UI",
+      "Jest",
+      "Vercel"
     ],
     "featureMedia": [
       {
@@ -59,7 +61,13 @@
     "title": "Netflix Clone",
     "shortBlurb": "A clone of the late-2020 Netflix front-end experience, utilizing Firebase for auth and data storage.",
     "icon": "/images/netflix-logo.jpg",
-    "tech": ["React", "styled-components", "Firebase"],
+    "tech": [
+      "React",
+      "styled-components",
+      "Firebase",
+      "React Testing Library",
+      "Vercel"
+    ],
     "featureMedia": [
       {
         "path": "/images/netflix-jumbotron-screenshot.png",
@@ -100,7 +108,15 @@
     "title": "stevenwebster.co",
     "shortBlurb": "You're here right now! My personal site with a perfect Google Lighthouse score!",
     "icon": "/images/stevenwebster.co-logo.png",
-    "tech": ["React", "Next.js", "TypeScript", "Chakra UI", "Framer Motion"],
+    "tech": [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Chakra UI",
+      "Framer Motion",
+      "React Testing Library",
+      "Vercel"
+    ],
     "featureMedia": [
       {
         "path": "/images/stevenwebster.co-performance.png",
