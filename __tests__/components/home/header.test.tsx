@@ -19,11 +19,19 @@ describe("<Header />", () => {
   test("renders <Header.Text /> with data from props", () => {
     const { container } = render(
       <Header.Header>
-        <Header.HeaderText>{testSiteMetadata.description}</Header.HeaderText>
+        <Header.HeaderText>{testSiteMetadata.headline}</Header.HeaderText>
+        <Header.HeaderSubtext>{testSiteMetadata.cta}</Header.HeaderSubtext>
       </Header.Header>
     );
     expect(
-      screen.getByText(/Steven Webster is a full-stack/i)
+      screen.getByText(
+        /Hi, I'm Steve and I'm a full-stack developer who cares about scalability, performance, and intuitive UIs./i
+      )
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        /Please use the links below to chat with me about how I can help build your project./i
+      )
     ).toBeInTheDocument();
     expect(container.firstChild).toMatchSnapshot();
   });

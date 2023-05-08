@@ -21,7 +21,9 @@ describe("./index", () => {
     render(<IndexPage metadata={testSiteMetadata} projects={testProjects} />);
 
     expect(
-      screen.getByText(/Steven Webster is a full-stack/i)
+      screen.getByText(
+        /Hi, I'm Steve and I'm a full-stack developer who cares about scalability, performance, and intuitive UIs./i
+      )
     ).toBeInTheDocument();
   });
 

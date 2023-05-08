@@ -14,7 +14,14 @@ describe("<HomeContainer />", () => {
     );
 
     expect(
-      screen.getByText(/Steven Webster is a full-stack developer/)
+      screen.getByText(
+        /Hi, I'm Steve and I'm a full-stack developer who cares about scalability, performance, and intuitive UIs./
+      )
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        /Please use the links below to chat with me about how I can help build your project./
+      )
     ).toBeInTheDocument();
     expect(screen.getByText(/Story Typer/)).toBeInTheDocument();
     expect(
