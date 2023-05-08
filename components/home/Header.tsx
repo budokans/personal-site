@@ -8,6 +8,7 @@ import {
   Tooltip,
   useClipboard,
   useMediaQuery,
+  Text,
 } from "@chakra-ui/react";
 import { ChildrenProps, Contact } from "../../types";
 
@@ -43,6 +44,10 @@ export const HeaderText = ({ children }: ChildrenProps): ReactElement => {
     </Heading>
   );
 };
+
+export const HeaderSubtext = ({ children }: ChildrenProps): ReactElement => (
+  <Text fontSize="clamp(16px, calc(9.40px + 2.00vw), 20px)">{children}</Text>
+);
 
 export const HeaderLocation = ({ children }: ChildrenProps): ReactElement => {
   return (

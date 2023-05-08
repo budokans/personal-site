@@ -109,8 +109,13 @@ exports[`<Header /> renders <Header.Text /> with data from props 1`] = `
   <h1
     class="chakra-heading css-vsh8ld"
   >
-    Steven Webster is a full-stack developer who cares about scalability, performance and elegant, intuitive UIs. Working remotely from Auckland, NZ.
+    Hi, I'm Steve and I'm a full-stack developer who cares about scalability, performance, and intuitive UIs.
   </h1>
+  <p
+    class="chakra-text css-1x3yzs8"
+  >
+    Please use the links below to chat with me about how I can help build your project.
+  </p>
 </div>
 `;
 

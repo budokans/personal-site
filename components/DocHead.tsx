@@ -10,10 +10,10 @@ export const DocHead = ({ metadata }: DocHeadProps): ReactElement => {
   return (
     <Head>
       <title>Steven Webster | Full-Stack Developer</title>
-      <meta name="description" content={metadata.description} />
+      <meta name="description" content={metadata.headline} />
 
       <meta property="og:title" content="Steven Webster" />
-      <meta property="og:description" content={metadata.description} />
+      <meta property="og:description" content={metadata.headline} />
       <meta property="og:image" content={`${metadata.canonical}/og.png`} />
       <meta property="og:locale" content="en_US" />
       <meta property="og:type" content="website" />
@@ -22,7 +22,7 @@ export const DocHead = ({ metadata }: DocHeadProps): ReactElement => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Steven Webster" />
       <meta name="twitter:image:src" content={`${metadata.canonical}/og.png`} />
-      <meta name="twitter:description" content={metadata.description} />
+      <meta name="twitter:description" content={metadata.headline} />
       <meta name="twitter:url" content={metadata.canonical} />
 
       <link
