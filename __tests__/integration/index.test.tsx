@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "test-utils";
+import { render, screen, waitForElementToBeRemoved } from "test-utils";
 import userEvent from "@testing-library/user-event";
 import matchMediaPolyfill from "mq-polyfill";
 import IndexPage from "../../pages";
@@ -31,28 +31,24 @@ describe("./index", () => {
     render(<IndexPage metadata={testSiteMetadata} projects={testProjects} />);
 
     userEvent.click(screen.getByText(/Story Typer/i));
-    expect(
-      screen.getByText(testProjects[0].description[3])
-    ).toBeInTheDocument();
+    const testElement1 = await screen.findByText(
+      testProjects[0].description[3]
+    );
+    expect(testElement1).toBeInTheDocument();
 
     userEvent.click(screen.getByTestId("close-feature"));
-    await waitFor(() =>
-      expect(
-        screen.queryByText(testProjects[0].description[3])
-      ).not.toBeInTheDocument()
-    );
+    await waitForElementToBeRemoved(testElement1);
+    expect(testElement1).not.toBeInTheDocument();
 
     userEvent.click(screen.getByText(/stevenwebster.co/i));
-    expect(
-      screen.getByText(testProjects[1].description[3])
-    ).toBeInTheDocument();
+    const testElement2 = await screen.findByText(
+      testProjects[1].description[3]
+    );
+    expect(testElement2).toBeInTheDocument();
 
     userEvent.click(screen.getByTestId("close-feature"));
-    await waitFor(() =>
-      expect(
-        screen.queryByText(testProjects[1].description[3])
-      ).not.toBeInTheDocument()
-    );
+    await waitForElementToBeRemoved(testElement2);
+    expect(testElement2).not.toBeInTheDocument();
   });
 
   test("<Portfolio.TooltipBtn /> renders the correct text", async () => {
@@ -62,8 +58,6 @@ describe("./index", () => {
     expect(screen.queryByText(/Click to copy!/i)).not.toBeInTheDocument();
 
     userEvent.hover(screen.getByTestId(/Tooltip/i));
-    await waitFor(() =>
-      expect(screen.getByText(/Click to copy!/i)).toBeInTheDocument()
-    );
+    expect(await screen.findByText(/Click to copy!/i)).toBeInTheDocument();
   });
 });
