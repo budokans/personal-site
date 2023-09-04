@@ -1,0 +1,32 @@
+name: "Test & Deploy"
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js version ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Dependencies
+        run: npm install
+      - name: Test
+        run: npm test
+      - name: Deploy
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN}}
+          vercel-args: "--prod"
+          vercel-org-id: ${{ secrets.ORG_ID }}
+          vercel-project-id: ${{ secrets.PROJECT_ID}}
+          vercel-version: 32.1.0
