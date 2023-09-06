@@ -15,32 +15,21 @@ interface FeatureContainerProps {
   readonly onCloseClick: () => void;
 }
 
-const Overlay = (): ReactElement => {
+export const Overlay = (): ReactElement => {
   return (
-    <MotionBox
+    <Box
       position="absolute"
       top={0}
       right={0}
       bottom={0}
       left={0}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 0.5 }}
-      exit={{ opacity: 0 }}
-      bg="blackAlpha.600"
+      bg="blackAlpha.200"
+      zIndex={-1}
     />
   );
 };
 
-export const Feature = ({ children }: ChildrenProps): ReactElement => {
-  return (
-    <>
-      <Overlay />
-      {children}
-    </>
-  );
-};
-
-export const FeatureContainer = ({
+export const Feature = ({
   variants,
   onCloseClick,
   children,
