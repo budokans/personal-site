@@ -14,7 +14,6 @@ export const CarouselMobile = ({ media }: CarouselProps): ReactElement => {
       overflowX="scroll"
       whiteSpace="nowrap"
       sx={{ ...hideScrollbar, scrollSnapType: "x mandatory" }}
-      cursor="grab"
     >
       {media.map((mediaItem, idx) => {
         return (
