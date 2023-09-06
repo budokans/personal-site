@@ -35,6 +35,7 @@ export const Feature = ({
   children,
 }: FeatureContainerProps & ChildrenProps): ReactElement => {
   const node = useRef<HTMLDivElement>(null);
+  const borderStyle = "1px solid";
   useOnClickOutside(node, onCloseClick);
 
   return (
@@ -50,18 +51,15 @@ export const Feature = ({
       initial="hidden"
       animate="visible"
       exit="exit"
+      bg="white"
+      borderX={borderStyle}
+      borderTop={borderStyle}
+      borderTopRadius="xl"
+      borderColor="gray.300"
+      ref={node}
+      data-testid="inside-click"
     >
-      <Box
-        height="full"
-        bg="white"
-        borderX="1px solid gray.300"
-        borderTop="1px solid gray.300"
-        borderTopRadius="xl"
-        ref={node}
-        data-testid="inside-click"
-      >
-        <SimpleBar style={{ maxHeight: "100%" }}>{children}</SimpleBar>
-      </Box>
+      <SimpleBar style={{ maxHeight: "100%" }}>{children}</SimpleBar>
     </MotionBox>
   );
 };
