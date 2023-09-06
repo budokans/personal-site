@@ -10,7 +10,6 @@ export const CarouselDesktop = ({ media }: CarouselProps): ReactElement => {
     <MotionStack
       drag="x"
       dragConstraints={{ left: media.length === 5 ? -3020 : 0, right: 0 }}
-      dragElastic={0.5}
       direction="row"
       alignItems="center"
       spacing={4}

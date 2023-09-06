@@ -9,7 +9,6 @@ describe("<HomeContainer />", () => {
         metadata={testSiteMetadata}
         projects={testProjects}
         onPortfolioClick={jest.fn()}
-        blur={false}
       />
     );
 

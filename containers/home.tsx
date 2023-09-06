@@ -6,17 +6,15 @@ interface HomeContainerProps {
   readonly projects: readonly Project[];
   readonly metadata: SiteMetadata;
   readonly onPortfolioClick: (id: number) => void;
-  readonly blur: boolean;
 }
 
 export const HomeContainer = ({
   projects,
   metadata,
   onPortfolioClick,
-  blur,
 }: HomeContainerProps): ReactElement => {
   return (
-    <Home.Home blur={blur}>
+    <Home.Home>
       <Header.Header>
         <Header.HeaderText>{metadata.headline}</Header.HeaderText>
         <Header.HeaderSubtext>{metadata.cta}</Header.HeaderSubtext>

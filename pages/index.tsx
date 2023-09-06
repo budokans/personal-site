@@ -1,10 +1,11 @@
 import { ReactElement, useState } from "react";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { AnimatePresence } from "framer-motion";
+import { function as F, either as E } from "fp-ts";
 import { getProjectData, getSiteMetadata } from "../lib/getData";
 import { DocHead } from "../components/DocHead";
 import { HomeContainer, FeatureContainer } from "../containers";
-import { function as F, either as E } from "fp-ts";
+import { Feature } from "../components/feature";
 
 export const getStaticProps: GetStaticProps = () =>
   F.pipe(
@@ -52,7 +53,6 @@ const IndexPage = ({
         metadata={metadata}
         projects={projects}
         onPortfolioClick={openFeature}
-        blur={showFeature}
       />
 
       <AnimatePresence>
@@ -63,6 +63,8 @@ const IndexPage = ({
           />
         )}
       </AnimatePresence>
+
+      {showFeature && <Feature.Overlay />}
     </>
   );
 };
