@@ -1,6 +1,5 @@
 import { Box } from "@chakra-ui/react";
 import Image from "next/image";
-import { hideScrollbar } from "../../styles/utilStyles";
 import { MotionStack } from "../Motion";
 import { ReactElement } from "react";
 import { CarouselProps } from "types";
@@ -15,8 +14,8 @@ export const CarouselDesktop = ({ media }: CarouselProps): ReactElement => {
       spacing={4}
       height="490px"
       whiteSpace="nowrap"
-      sx={{ ...hideScrollbar, scrollSnapType: "x mandatory" }}
       cursor="grab"
+      whileTap={{ cursor: "grabbing" }}
     >
       {media.map((mediaItem, idx) => {
         return (
@@ -28,10 +27,6 @@ export const CarouselDesktop = ({ media }: CarouselProps): ReactElement => {
             borderRadius="2xl"
             height="100%"
             minWidth="763px"
-            sx={{
-              scrollSnapAlign: "start",
-              scrollPadding: "1.75rem",
-            }}
             p="55px"
           >
             <Box sx={{ pointerEvents: "none" }}>
