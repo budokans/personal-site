@@ -22,7 +22,8 @@ export const CarouselDesktop = ({ media }: CarouselProps): ReactElement => {
         return (
           <Box
             key={idx}
-            border="1px solid black"
+            border="1px solid"
+            borderColor="gray.200"
             bg={mediaItem.bg}
             borderRadius="2xl"
             height="100%"

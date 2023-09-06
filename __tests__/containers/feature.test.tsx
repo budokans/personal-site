@@ -76,7 +76,7 @@ describe("<FeatureContainer", () => {
       <FeatureContainer project={project} onCloseClick={closeFeature} />
     );
 
-    userEvent.click(container.firstChild as HTMLElement);
+    userEvent.click(container);
     expect(closeFeature).toHaveBeenCalledTimes(1);
   });
 });
