@@ -69,14 +69,7 @@ export const FeatureContainer = ({
           <Tech.TechHeader>Tech</Tech.TechHeader>
           <Tech.TechInner>
             {project.tech.map((tech, idx) => {
-              return (
-                <Tech.TechBadge
-                  key={idx}
-                  isLast={!!(idx === project.tech.length - 1)}
-                >
-                  {tech}
-                </Tech.TechBadge>
-              );
+              return <Tech.TechBadge key={idx}>{tech}</Tech.TechBadge>;
             })}
           </Tech.TechInner>
         </Tech.Tech>
