@@ -1,6 +1,6 @@
-import { Projects, SiteMetadata } from "types";
+import { Project, SiteMetadata } from "types";
 
-export const testProjects: Projects = [
+export const testProjects: readonly Project[] = [
   {
     title: "Story Typer",
     shortBlurb:
