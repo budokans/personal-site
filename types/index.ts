@@ -1,64 +1,43 @@
-import * as IoTs from "io-ts";
 import { ReactNode } from "react";
 
-export const FeatureMedia = IoTs.type({
-  path: IoTs.string,
-  bg: IoTs.string,
-  alt: IoTs.string,
-});
-export type FeatureMedia = IoTs.TypeOf<typeof FeatureMedia>;
+export interface FeatureMedia {
+  readonly path: string;
+  readonly bg: string;
+  readonly alt: string;
+}
 
-export const ProjectLink = IoTs.type({
-  type: IoTs.union([IoTs.literal("Visit"), IoTs.literal("GitHub")]),
-  url: IoTs.string,
-});
-export type ProjectLink = IoTs.TypeOf<typeof ProjectLink>;
+export interface Project {
+  readonly title: string;
+  readonly shortBlurb: string;
+  readonly icon: string;
+  readonly tech: readonly string[];
+  readonly featureMedia: readonly FeatureMedia[];
+  readonly description: readonly string[];
+  readonly links: readonly {
+    readonly type: "Visit" | "GitHub";
+    readonly url: string;
+  }[];
+}
 
-export const Project = IoTs.type({
-  title: IoTs.string,
-  shortBlurb: IoTs.string,
-  icon: IoTs.string,
-  tech: IoTs.readonlyArray(IoTs.string),
-  featureMedia: IoTs.readonlyArray(FeatureMedia),
-  description: IoTs.readonlyArray(IoTs.string),
-  links: IoTs.readonlyArray(ProjectLink),
-});
-export type Project = IoTs.TypeOf<typeof Project>;
+export type Contact =
+  | {
+      readonly type: "email";
+      readonly address: string;
+      readonly url: string;
+    }
+  | {
+      readonly type: "website";
+      readonly name: "GitHub" | "LinkedIn";
+      readonly url: string;
+    };
 
-export const Projects = IoTs.readonlyArray(Project);
-export type Projects = IoTs.TypeOf<typeof Projects>;
-
-export const ContactWebsite = IoTs.union([
-  IoTs.literal("GitHub"),
-  IoTs.literal("LinkedIn"),
-]);
-export type ContactWebsite = IoTs.TypeOf<typeof ContactWebsite>;
-
-export const EmailContact = IoTs.type({
-  type: IoTs.literal("email"),
-  address: IoTs.string,
-  url: IoTs.string,
-});
-export type EmailContact = IoTs.TypeOf<typeof EmailContact>;
-
-export const WebContact = IoTs.type({
-  type: IoTs.literal("website"),
-  name: ContactWebsite,
-  url: IoTs.string,
-});
-export type WebContact = IoTs.TypeOf<typeof WebContact>;
-
-export const Contact = IoTs.union([EmailContact, WebContact]);
-export type Contact = IoTs.TypeOf<typeof Contact>;
-
-export const SiteMetadata = IoTs.type({
-  headline: IoTs.string,
-  cta: IoTs.string,
-  location: IoTs.string,
-  canonical: IoTs.string,
-  contacts: IoTs.readonlyArray(Contact),
-});
-export type SiteMetadata = IoTs.TypeOf<typeof SiteMetadata>;
+export interface SiteMetadata {
+  readonly headline: string;
+  readonly cta: string;
+  readonly location: string;
+  readonly canonical: string;
+  readonly contacts: readonly Contact[];
+}
 
 // UI
 export interface ImageProps {

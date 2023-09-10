@@ -2,7 +2,8 @@ import { render, screen, waitForElementToBeRemoved } from "test-utils";
 import userEvent from "@testing-library/user-event";
 import matchMediaPolyfill from "mq-polyfill";
 import IndexPage from "../../pages";
-import { testProjects, testSiteMetadata } from "../testData";
+import { testSiteMetadata } from "../testData";
+import { projects } from "../../data/projectsData";
 
 describe("./index", () => {
   beforeAll(() => {
@@ -18,7 +19,7 @@ describe("./index", () => {
   });
 
   test("renders the <HomeContainer />", () => {
-    render(<IndexPage metadata={testSiteMetadata} projects={testProjects} />);
+    render(<IndexPage metadata={testSiteMetadata} />);
 
     expect(
       screen.getByText(
@@ -28,12 +29,10 @@ describe("./index", () => {
   });
 
   test("clicking a <Portfolio.Item /> renders the relevant <FeatureContainer />", async () => {
-    render(<IndexPage metadata={testSiteMetadata} projects={testProjects} />);
+    render(<IndexPage metadata={testSiteMetadata} />);
 
     userEvent.click(screen.getByText(/Story Typer/i));
-    const testElement1 = await screen.findByText(
-      testProjects[0].description[3]
-    );
+    const testElement1 = await screen.findByText(projects[0].description[3]);
     expect(testElement1).toBeInTheDocument();
 
     userEvent.click(screen.getByTestId("close-feature"));
@@ -41,9 +40,7 @@ describe("./index", () => {
     expect(testElement1).not.toBeInTheDocument();
 
     userEvent.click(screen.getByText(/stevenwebster.co/i));
-    const testElement2 = await screen.findByText(
-      testProjects[1].description[3]
-    );
+    const testElement2 = await screen.findByText(projects[2].description[3]);
     expect(testElement2).toBeInTheDocument();
 
     userEvent.click(screen.getByTestId("close-feature"));
@@ -54,7 +51,7 @@ describe("./index", () => {
   test("<Portfolio.TooltipBtn /> renders the correct text", async () => {
     window.resizeTo(930, 1000);
 
-    render(<IndexPage metadata={testSiteMetadata} projects={testProjects} />);
+    render(<IndexPage metadata={testSiteMetadata} />);
     expect(screen.queryByText(/Click to copy!/i)).not.toBeInTheDocument();
 
     userEvent.hover(screen.getByTestId(/Tooltip/i));
