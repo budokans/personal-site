@@ -7,15 +7,17 @@ export const projects: readonly Project[] = [
       "A JamStack speed-typing game for lovers of short - very short - stories.",
     icon: "/images/story-typer-logo.png",
     tech: [
+      "fp-ts",
       "React",
       "Next.js",
       "TypeScript",
       "Functional Programming",
       "Firebase",
-      "react-query",
+      "TanStack Query",
       "Chakra UI",
       "Jest",
       "Vercel",
+      "Test-Driven Development",
     ],
     featureMedia: [
       {
