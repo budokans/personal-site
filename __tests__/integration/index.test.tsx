@@ -30,10 +30,11 @@ describe("./index", () => {
 
   test("clicking a <Portfolio.Item /> renders the relevant <FeatureContainer />", async () => {
     render(<IndexPage metadata={testSiteMetadata} />);
+    const project1 = projects[0];
 
-    userEvent.click(screen.getByText(/Story Typer/i));
+    userEvent.click(screen.getByText(project1.title));
     const testElement1 = await screen.findByAltText(
-      projects[0].featureMedia[0].alt
+      project1.featureMedia[0].alt
     );
     expect(testElement1).toBeInTheDocument();
 
@@ -41,9 +42,11 @@ describe("./index", () => {
     await waitForElementToBeRemoved(testElement1);
     expect(testElement1).not.toBeInTheDocument();
 
-    userEvent.click(screen.getByText(/stevenwebster.co/i));
+    const project2 = projects[2];
+
+    userEvent.click(screen.getByText(project2.title));
     const testElement2 = await screen.findByAltText(
-      projects[2].featureMedia[0].alt
+      project2.featureMedia[0].alt
     );
     expect(testElement2).toBeInTheDocument();
 
