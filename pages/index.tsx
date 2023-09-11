@@ -1,5 +1,7 @@
 import { ReactElement, useState } from "react";
+import { readonlyArray as A, function as F, option as O } from "fp-ts";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { useToast } from "@chakra-ui/react";
 import { AnimatePresence } from "framer-motion";
 import { DocHead } from "../components/DocHead";
 import { HomeContainer, FeatureContainer } from "../containers";
@@ -21,18 +23,10 @@ export const getStaticProps: GetStaticProps<Props> = (): {
 const IndexPage = ({
   metadata,
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
-  const [showFeature, setShowFeature] = useState(false);
-  const [featuredProjectId, setFeaturedProjectId] = useState(0);
-  const featuredProject = projects[featuredProjectId];
-
-  const openFeature = (id: number): void => {
-    setFeaturedProjectId(id);
-    setShowFeature(true);
-  };
-
-  const closeFeature = (): void => {
-    setShowFeature(false);
-  };
+  const [featuredProjectId, setFeaturedProjectId] = useState<O.Option<string>>(
+    O.none
+  );
+  const toast = useToast();
 
   return (
     <>
@@ -41,19 +35,45 @@ const IndexPage = ({
       <HomeContainer
         metadata={metadata}
         projects={projects}
-        onPortfolioClick={openFeature}
+        onPortfolioClick={(id: string): void =>
+          setFeaturedProjectId(O.some(id))
+        }
       />
 
       <AnimatePresence>
-        {showFeature && (
-          <FeatureContainer
-            project={featuredProject}
-            onCloseClick={closeFeature}
-          />
+        {F.pipe(
+          featuredProjectId,
+          O.match(F.constNull, (featureId) =>
+            F.pipe(
+              projects,
+              A.findFirst((project) => project.id === featureId),
+              O.matchW(
+                () =>
+                  toast({
+                    title: "Sorry!",
+                    description: "This project was not able to be displayed.",
+                    status: "error",
+                  }),
+                (project) => (
+                  <FeatureContainer
+                    project={project}
+                    onCloseClick={(): void => setFeaturedProjectId(O.none)}
+                  />
+                )
+              )
+            )
+          )
         )}
       </AnimatePresence>
 
-      {showFeature && <Feature.Overlay />}
+      {F.pipe(
+        featuredProjectId,
+        O.match(
+          // Force new line
+          F.constNull,
+          () => <Feature.Overlay />
+        )
+      )}
     </>
   );
 };

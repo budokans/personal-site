@@ -7,6 +7,7 @@ export interface FeatureMedia {
 }
 
 export interface Project {
+  readonly id: string;
   readonly title: string;
   readonly shortBlurb: string;
   readonly icon: string;
