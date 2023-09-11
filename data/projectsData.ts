@@ -3,6 +3,51 @@ import { Project } from "types";
 
 export const projects: readonly Project[] = [
   {
+    id: "pivot-pointe",
+    title: "Pivot Pointe",
+    shortBlurb:
+      "Migrated and rebuilt a website and built a bug-free web app for a client in 3 weeks.",
+    icon: "/images/pivot-pointe-logo.png",
+    tech: [
+      "TypeScript",
+      "JQuery",
+      "Firebase Firestore",
+      "ESBuild",
+      "Webflow",
+      "Memberstack",
+      "MarkUp.io",
+    ],
+    featureMedia: [
+      {
+        path: "/images/pivot-pointe-home.png",
+        bg: "#03333A",
+        alt: "pivot-pointe.com homepage screenshot",
+      },
+      {
+        path: "/images/pivot-pointe-insights.jpg",
+        bg: "#CBDFD7",
+        alt: "pivot-pointe.com blog screenshot",
+      },
+      {
+        path: "/images/pivot-pointe-purchase.png",
+        bg: "#00928F",
+        alt: "pivot-pointe.com purchase page screenshot",
+      },
+      {
+        path: "/images/pivot-pointe-app-desktop.jpg",
+        bg: "#F2F0F0",
+        alt: "pivot-pointe.com app desktop layout screenshot",
+      },
+      {
+        path: "/images/pivot-pointe-app-mobile.jpg",
+        bg: "#A89061",
+        alt: "pivot-pointe.com app mobile layout screenshot",
+      },
+    ],
+    description: Description.PivotPointe,
+    links: [{ type: "Visit", url: "https://www.pivot-pointe.com" }],
+  },
+  {
     id: "story-typer",
     title: "Story Typer",
     shortBlurb:
