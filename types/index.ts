@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactElement, ReactNode } from "react";
 
 export interface FeatureMedia {
   readonly path: string;
@@ -12,7 +12,7 @@ export interface Project {
   readonly icon: string;
   readonly tech: readonly string[];
   readonly featureMedia: readonly FeatureMedia[];
-  readonly description: readonly string[];
+  readonly description: () => ReactElement;
   readonly links: readonly {
     readonly type: "Visit" | "GitHub";
     readonly url: string;

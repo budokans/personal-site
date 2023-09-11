@@ -1,6 +1,7 @@
 {
   "collectCoverageFrom": [
     "<rootDir>/components/feature/**/*.tsx",
+    "!<rootDir>/components/feature/descriptions/*.tsx",
     "<rootDir>/components/home/**/*.tsx",
     "<rootDir>/containers/**/*.tsx",
     "<rootDir>/hooks/**/*.tsx"

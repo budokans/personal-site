@@ -1,6 +1,7 @@
+import { ReactElement } from "react";
+import userEvent from "@testing-library/user-event";
 import { render, screen } from "test-utils";
 import { FeatureContainer } from "../../containers";
-import userEvent from "@testing-library/user-event";
 import { Project } from "types";
 
 const project: Project = {
@@ -21,10 +22,9 @@ const project: Project = {
       alt: "Gretsch Geeks with Cart Open Screenshot",
     },
   ],
-  description: [
-    "The foundations of the project were laid while completing Wes Bos's huge <a href='https://advancedreact.com/' rel='noreferrer noopener' target='_blank' style='font-weight: 500'>Advanced React with GraphQL</a> course, but the final result was buggy and impossible to deploy in its finished state.",
-    "To fix this, I added much more robust error-handling throughout the application, rebuilt the app with the latest version of Keystone JS, rebuilt the database in postgreSQL as Keystone had now dropped support for Mongoose and moved to Prisma, and successfully deployed to Heroku.",
-  ],
+  description: function testDescription(): ReactElement {
+    return <>Test description</>;
+  },
   links: [
     { type: "Visit", url: "https://gretsch.stevenwebster.co" },
     { type: "GitHub", url: "https://github.com/budokans/gretsch-geeks" },
@@ -47,8 +47,7 @@ describe("<FeatureContainer", () => {
     expect(screen.getByText(/Next.js/i)).toBeInTheDocument();
     expect(screen.getByText(/styled-components/i)).toBeInTheDocument();
 
-    expect(screen.getByText(/The foundations of the/i)).toBeInTheDocument();
-    expect(screen.getByText(/To fix this, I added/i)).toBeInTheDocument();
+    expect(screen.getByText(/Test description/i)).toBeInTheDocument();
 
     expect(screen.getByText(/Visit/i)).toBeInTheDocument();
     expect(screen.getByText(/GitHub/i)).toBeInTheDocument();

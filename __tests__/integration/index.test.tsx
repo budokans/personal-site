@@ -32,7 +32,9 @@ describe("./index", () => {
     render(<IndexPage metadata={testSiteMetadata} />);
 
     userEvent.click(screen.getByText(/Story Typer/i));
-    const testElement1 = await screen.findByText(projects[0].description[3]);
+    const testElement1 = await screen.findByAltText(
+      projects[0].featureMedia[0].alt
+    );
     expect(testElement1).toBeInTheDocument();
 
     userEvent.click(screen.getByTestId("close-feature"));
@@ -40,7 +42,9 @@ describe("./index", () => {
     expect(testElement1).not.toBeInTheDocument();
 
     userEvent.click(screen.getByText(/stevenwebster.co/i));
-    const testElement2 = await screen.findByText(projects[2].description[3]);
+    const testElement2 = await screen.findByAltText(
+      projects[2].featureMedia[0].alt
+    );
     expect(testElement2).toBeInTheDocument();
 
     userEvent.click(screen.getByTestId("close-feature"));
