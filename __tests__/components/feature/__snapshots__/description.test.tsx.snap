@@ -5,7 +5,7 @@ exports[`<Description /> renders a <Description.Paragraph> with populated data 1
   class="css-1xnkfpe"
 >
   <p
-    class="chakra-text css-1lkxxjr"
+    class="chakra-text css-2256fn"
   >
     The foundations of the project were laid while completing Wes Bos's huge Advanced React with GraphQL course, but the final result was buggy and impossible to deploy in its finished state.
   </p>

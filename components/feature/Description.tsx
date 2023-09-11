@@ -13,13 +13,5 @@ export const Description = ({ children }: ChildrenProps): ReactElement => {
 export const DescriptionParagraph = ({
   children,
 }: ChildrenProps): ReactElement => {
-  return (
-    <Text
-      fontSize="clamp(14px, 11.6px + 0.5vw, 18px)"
-      my={[3, 5]}
-      lineHeight={1.7}
-    >
-      {children}
-    </Text>
-  );
+  return <Text my={[3, 5]}>{children}</Text>;
 };
