@@ -113,7 +113,7 @@ export const projects: readonly Project[] = [
   {
     title: "stevenwebster.co",
     shortBlurb:
-      "You're here right now! My personal site with a perfect Google Lighthouse score!",
+      "You're here right now! My personal site with a perfect Google Lighthouse score.",
     icon: "/images/stevenwebster.co-logo.png",
     tech: [
       "React",
@@ -122,6 +122,7 @@ export const projects: readonly Project[] = [
       "Chakra UI",
       "Framer Motion",
       "React Testing Library",
+      "GitHub Actions",
       "Vercel",
     ],
     featureMedia: [
