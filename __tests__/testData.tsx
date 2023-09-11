@@ -36,7 +36,7 @@ export const testProjects: readonly Project[] = [
       },
     ],
     description: function testDescription(): ReactElement {
-      return <>Test StoryTyper description</>;
+      return <>Test description</>;
     },
     links: [
       { type: "Visit", url: "https://storytyper.stevenwebster.co" },
@@ -57,7 +57,7 @@ export const testProjects: readonly Project[] = [
       },
     ],
     description: function testDescription(): ReactElement {
-      return <>Test Personal Site description</>;
+      return <>Test description</>;
     },
     links: [
       { type: "GitHub", url: "https://github.com/budokans/personal-site" },
