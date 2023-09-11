@@ -1,4 +1,10 @@
-import { Box, Heading, Stack, Text, Img } from "@chakra-ui/react";
+import {
+  Box,
+  Heading as ChakraHeading,
+  Stack,
+  Text,
+  Img,
+} from "@chakra-ui/react";
 import { ReactElement } from "react";
 import { ChildrenProps, ImageProps } from "../../types";
 
@@ -36,15 +42,15 @@ export const HeaderInner = ({ children }: ChildrenProps): ReactElement => {
   return <Box maxW="350px">{children}</Box>;
 };
 
-export const HeaderText = ({ children }: ChildrenProps): ReactElement => {
+export const Heading = ({ children }: ChildrenProps): ReactElement => {
   return (
-    <Heading as="h2" fontSize="2xl" fontWeight={600} mb={[0, 0, 1]}>
+    <ChakraHeading as="h2" fontSize="2xl" fontWeight={600} mb={[0, 0, 1]}>
       {children}
-    </Heading>
+    </ChakraHeading>
   );
 };
 
-export const HeaderSubtext = ({ children }: ChildrenProps): ReactElement => {
+export const Subheading = ({ children }: ChildrenProps): ReactElement => {
   return (
     <Text color="gray.500" fontSize="clamp(12px, 10.8px + 0.25vw, 14px)">
       {children}

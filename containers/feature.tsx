@@ -1,6 +1,5 @@
 import { ReactElement, useEffect } from "react";
 import { Box, Divider } from "@chakra-ui/react";
-import parse from "html-react-parser";
 import { Project } from "../types";
 import {
   Feature,
@@ -55,8 +54,8 @@ export const FeatureContainer = ({
       <Header.Header>
         <Header.HeaderImage src={project.icon} alt={project.title} />
         <Header.HeaderInner>
-          <Header.HeaderText>{project.title}</Header.HeaderText>
-          <Header.HeaderSubtext>{project.shortBlurb}</Header.HeaderSubtext>
+          <Header.Heading>{project.title}</Header.Heading>
+          <Header.Subheading>{project.shortBlurb}</Header.Subheading>
         </Header.HeaderInner>
       </Header.Header>
 
@@ -77,13 +76,7 @@ export const FeatureContainer = ({
         <CarouselContainer media={project.featureMedia} />
 
         <Description.Description>
-          {project.description.map((paragraph, idx) => {
-            return (
-              <Description.DescriptionParagraph key={idx}>
-                {parse(paragraph)}
-              </Description.DescriptionParagraph>
-            );
-          })}
+          {project.description()}
         </Description.Description>
 
         <Links.Links>

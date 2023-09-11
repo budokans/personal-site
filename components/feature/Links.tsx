@@ -45,3 +45,17 @@ export const Link = ({
     </Button>
   );
 };
+
+export const TextLink = ({
+  url,
+  children,
+}: LinkProps & ChildrenProps): ReactElement => (
+  <a
+    href={url}
+    rel="noreferrer noopener"
+    target="_blank"
+    style={{ fontWeight: 500 }}
+  >
+    {children}
+  </a>
+);
