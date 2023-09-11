@@ -3,6 +3,7 @@ import { Project, SiteMetadata } from "types";
 
 export const testProjects: readonly Project[] = [
   {
+    id: "story-typer",
     title: "Story Typer",
     shortBlurb:
       "A race-the-clock, retro-themed speed-typing game for desktop browsers with context scraped daily from fiftywordstories.com",
@@ -44,6 +45,7 @@ export const testProjects: readonly Project[] = [
     ],
   },
   {
+    id: "personal-site",
     title: "stevenwebster.co",
     shortBlurb:
       "You're here right now! My personal site with a perfect Google Lighthouse score!",

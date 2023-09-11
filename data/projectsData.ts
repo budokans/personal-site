@@ -3,6 +3,7 @@ import { Project } from "types";
 
 export const projects: readonly Project[] = [
   {
+    id: "story-typer",
     title: "Story Typer",
     shortBlurb:
       "A JamStack speed-typing game for lovers of short - very short - stories.",
@@ -54,6 +55,7 @@ export const projects: readonly Project[] = [
     ],
   },
   {
+    id: "netflix-clone",
     title: "Netflix Clone",
     shortBlurb:
       "A clone of the late-2020 Netflix front-end experience, utilizing Firebase for auth and data storage.",
@@ -99,6 +101,7 @@ export const projects: readonly Project[] = [
     ],
   },
   {
+    id: "personal-site",
     title: "stevenwebster.co",
     shortBlurb:
       "You're here right now! My personal site with a perfect Google Lighthouse score.",

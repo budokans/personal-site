@@ -5,7 +5,7 @@ import { ReactElement } from "react";
 interface HomeContainerProps {
   readonly projects: readonly Project[];
   readonly metadata: SiteMetadata;
-  readonly onPortfolioClick: (id: number) => void;
+  readonly onPortfolioClick: (id: string) => void;
 }
 
 export const HomeContainer = ({
@@ -26,7 +26,7 @@ export const HomeContainer = ({
         {projects.map((project, idx) => {
           return (
             <Portfolio.PortfolioItem
-              onPortfolioClick={() => onPortfolioClick(idx)}
+              onPortfolioClick={() => onPortfolioClick(project.id)}
               key={idx}
             >
               <Portfolio.PortfolioImage
