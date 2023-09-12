@@ -1,11 +1,11 @@
-name: "Test & Deploy"
+name: "Test"
 
 on:
   pull_request:
     branches: [main]
 
 jobs:
-  test-deploy:
+  test:
     runs-on: ubuntu-latest
 
     strategy:
@@ -22,11 +22,3 @@ jobs:
         run: npm install
       - name: Test
         run: npm test
-      - name: Deploy
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN}}
-          vercel-args: "--prod"
-          vercel-org-id: ${{ secrets.ORG_ID }}
-          vercel-project-id: ${{ secrets.PROJECT_ID}}
-          vercel-version: 32.1.0
