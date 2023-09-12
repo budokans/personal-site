@@ -1,4 +1,4 @@
-import { Button, Stack, useMediaQuery } from "@chakra-ui/react";
+import { Button, Stack } from "@chakra-ui/react";
 import { ChildrenProps } from "types";
 import { ReactElement } from "react";
 
@@ -7,13 +7,12 @@ interface LinkProps {
 }
 
 const Container = ({ children }: ChildrenProps): ReactElement => {
-  const [isGreaterThan768] = useMediaQuery("(min-width: 768px)");
   return (
     <Stack
       px={[4, 9]}
       marginBottom={100}
-      direction={isGreaterThan768 ? "row" : "column"}
-      alignItems={isGreaterThan768 ? "flex-start" : "center"}
+      direction={["column", "row"]}
+      alignItems={["center", "flex-start"]}
       spacing={4}
     >
       {children}
