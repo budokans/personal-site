@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "ci:test": "jest --ci"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.0",
