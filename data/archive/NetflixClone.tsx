@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { Description, Links } from "../../../components/feature";
+import { Description, Links } from "../../components/feature";
 
 export const NetflixCloneDescription = (): ReactElement => (
   <>
