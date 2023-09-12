@@ -1,4 +1,4 @@
-import { Badge, Box, Heading, Flex, useMediaQuery } from "@chakra-ui/react";
+import { Badge, Box, Heading, Flex } from "@chakra-ui/react";
 import { ChildrenProps } from "types";
 import { ReactElement } from "react";
 import { hideScrollbar } from "../../styles/utilStyles";
@@ -34,22 +34,18 @@ export const TechHeader = ({ children }: ChildrenProps): ReactElement => {
 // will let the tech badges overflow because they can be scrolled
 // by dragging. On larger devices with more screen real estate,
 // we'll just display them.
-export const TechInner = ({ children }: ChildrenProps): ReactElement => {
-  const [is480OrSmaller] = useMediaQuery("(max-width: 480px)");
-
-  return (
-    <Flex
-      direction="row"
-      whiteSpace="nowrap"
-      sx={{ ...hideScrollbar, gap: ".5rem" }}
-      {...(is480OrSmaller ? { overflowX: "auto" } : { flexWrap: "wrap" })}
-      py={1}
-    >
-      {children}
-    </Flex>
-  );
-};
-
+export const TechInner = ({ children }: ChildrenProps): ReactElement => (
+  <Flex
+    direction="row"
+    whiteSpace="nowrap"
+    sx={{ ...hideScrollbar, gap: ".5rem" }}
+    overFlowX={["auto", "visible"]}
+    flexWrap={["nowrap", "wrap"]}
+    py={1}
+  >
+    {children}
+  </Flex>
+);
 export const TechBadge = ({ children }: ChildrenProps): ReactElement => {
   return (
     <Box>
