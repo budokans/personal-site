@@ -25,7 +25,7 @@ export const Portfolio = ({ children }: ChildrenProps): ReactElement => {
     <SimpleGrid
       columns={[1, 1, 2]}
       w={["full", "90%", "80%", "900px"]}
-      mt={20}
+      mt={[4, 0]}
       columnGap={10}
       rowGap={4}
     >
@@ -79,7 +79,6 @@ export const PortfolioInner = ({
   const [columnsCount, setColumnCount] = useState(1);
   const [renderBottomBorder, setRenderBottomBorder] = useState(true);
   const projectNumber = idx + 1;
-  const borderStyle = "1px solid lightgrey";
 
   useEffect(() => {
     if (isLargerThan768) {
@@ -112,7 +111,7 @@ export const PortfolioInner = ({
     <Flex
       position="relative"
       alignItems="center"
-      borderBottom={renderBottomBorder ? borderStyle : ""}
+      borderBottom={renderBottomBorder ? "1px solid lightgrey" : ""}
       paddingBottom={4}
       w="100%"
     >

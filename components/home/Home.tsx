@@ -7,7 +7,7 @@ export const Home = ({ children }: ChildrenProps): ReactElement => (
     direction="column"
     justifyContent={["space-between", "center"]}
     alignItems="center"
-    minHeight="100vh"
+    height="100%"
     py={8}
     px={4}
     maxW={["100%", "930px"]}

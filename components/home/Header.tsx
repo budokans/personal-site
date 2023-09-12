@@ -26,7 +26,7 @@ interface TooltipBtnProps {
 
 export const Header = ({ children }: ChildrenProps): ReactElement => {
   return (
-    <Stack w={["full", "90%", "80%", "900px"]} spacing={5}>
+    <Stack w={["full", "90%", "80%", "900px"]} spacing={5} mb={["auto", 20]}>
       {children}
     </Stack>
   );

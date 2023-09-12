@@ -52,7 +52,7 @@ exports[`<Header /> renders <Header.Link /> instead of <Header.TooltipBtn /> for
 
 exports[`<Header /> renders <Header.Links /> with data from props 1`] = `
 <div
-  class="chakra-stack css-1p888d0"
+  class="chakra-stack css-j99o02"
 >
   <div
     class="chakra-wrap css-0"
@@ -104,7 +104,7 @@ exports[`<Header /> renders <Header.Links /> with data from props 1`] = `
 
 exports[`<Header /> renders <Header.Text /> with data from props 1`] = `
 <div
-  class="chakra-stack css-1p888d0"
+  class="chakra-stack css-j99o02"
 >
   <h1
     class="chakra-heading css-vsh8ld"
