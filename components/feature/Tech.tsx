@@ -39,7 +39,7 @@ export const TechInner = ({ children }: ChildrenProps): ReactElement => (
     direction="row"
     whiteSpace="nowrap"
     sx={{ ...hideScrollbar, gap: ".5rem" }}
-    overFlowX={["auto", "visible"]}
+    overflowX={["auto", "visible"]}
     flexWrap={["nowrap", "wrap"]}
     py={1}
   >
