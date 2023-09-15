@@ -11,7 +11,7 @@ exports[`<Header /> renders <Header.Link /> instead of <Header.TooltipBtn /> for
       class="chakra-wrap__listitem css-1yp4ln"
     >
       <a
-        class="chakra-button css-1infzl"
+        class="chakra-button css-acyrai"
         data-testid="mailto:contact@stevenwebster.co"
         href="mailto:contact@stevenwebster.co"
         rel="noopener noreferrer"
@@ -24,7 +24,7 @@ exports[`<Header /> renders <Header.Link /> instead of <Header.TooltipBtn /> for
       class="chakra-wrap__listitem css-1yp4ln"
     >
       <a
-        class="chakra-button css-1infzl"
+        class="chakra-button css-acyrai"
         data-testid="https://github.com/budokans"
         href="https://github.com/budokans"
         rel="noopener noreferrer"
@@ -37,7 +37,7 @@ exports[`<Header /> renders <Header.Link /> instead of <Header.TooltipBtn /> for
       class="chakra-wrap__listitem css-1yp4ln"
     >
       <a
-        class="chakra-button css-1infzl"
+        class="chakra-button css-acyrai"
         data-testid="https://www.linkedin.com/in/steven-webster-developer/"
         href="https://www.linkedin.com/in/steven-webster-developer/"
         rel="noopener noreferrer"
@@ -64,7 +64,7 @@ exports[`<Header /> renders <Header.Links /> with data from props 1`] = `
         class="chakra-wrap__listitem css-1yp4ln"
       >
         <button
-          class="chakra-button css-1infzl"
+          class="chakra-button css-acyrai"
           data-testid="Tooltip"
           type="button"
         >
@@ -75,7 +75,7 @@ exports[`<Header /> renders <Header.Links /> with data from props 1`] = `
         class="chakra-wrap__listitem css-1yp4ln"
       >
         <a
-          class="chakra-button css-1infzl"
+          class="chakra-button css-acyrai"
           data-testid="https://github.com/budokans"
           href="https://github.com/budokans"
           rel="noopener noreferrer"
@@ -88,7 +88,7 @@ exports[`<Header /> renders <Header.Links /> with data from props 1`] = `
         class="chakra-wrap__listitem css-1yp4ln"
       >
         <a
-          class="chakra-button css-1infzl"
+          class="chakra-button css-acyrai"
           data-testid="https://www.linkedin.com/in/steven-webster-developer/"
           href="https://www.linkedin.com/in/steven-webster-developer/"
           rel="noopener noreferrer"
@@ -130,7 +130,7 @@ exports[`<Header /> renders <Header.TooltipBtn /> if viewport width >= 930px 1`]
       class="chakra-wrap__listitem css-1yp4ln"
     >
       <button
-        class="chakra-button css-1infzl"
+        class="chakra-button css-acyrai"
         data-testid="Tooltip"
         type="button"
       >
@@ -141,7 +141,7 @@ exports[`<Header /> renders <Header.TooltipBtn /> if viewport width >= 930px 1`]
       class="chakra-wrap__listitem css-1yp4ln"
     >
       <a
-        class="chakra-button css-1infzl"
+        class="chakra-button css-acyrai"
         data-testid="https://github.com/budokans"
         href="https://github.com/budokans"
         rel="noopener noreferrer"
@@ -154,7 +154,7 @@ exports[`<Header /> renders <Header.TooltipBtn /> if viewport width >= 930px 1`]
       class="chakra-wrap__listitem css-1yp4ln"
     >
       <a
-        class="chakra-button css-1infzl"
+        class="chakra-button css-acyrai"
         data-testid="https://www.linkedin.com/in/steven-webster-developer/"
         href="https://www.linkedin.com/in/steven-webster-developer/"
         rel="noopener noreferrer"

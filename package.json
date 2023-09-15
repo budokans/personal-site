@@ -11,7 +11,7 @@
     "ci:test": "jest --ci"
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.6.0",
+    "@chakra-ui/react": "^1.8.5",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.3.0",
     "@vercel/analytics": "^1.0.2",

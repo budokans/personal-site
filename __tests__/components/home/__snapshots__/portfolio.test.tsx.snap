@@ -10,7 +10,7 @@ exports[`<Portfolio /> <Porfolio.Image /> renders an image with populated data f
 
 exports[`<Portfolio /> <Portfolio.Button /> renders a button with text 1`] = `
 <button
-  class="chakra-button css-t13w4k"
+  class="chakra-button css-1efne3i"
   type="button"
 >
   View
@@ -56,7 +56,7 @@ exports[`<Portfolio.Inner /> <Portfolio.Inner /> renders with a border-bottom if
     class="css-2lzsxm"
   />
   <button
-    class="chakra-button css-t13w4k"
+    class="chakra-button css-1efne3i"
     type="button"
   >
     View
@@ -72,7 +72,7 @@ exports[`<Portfolio.Inner /> <Portfolio.Inner /> renders with a border-bottom if
     class="css-2lzsxm"
   />
   <button
-    class="chakra-button css-t13w4k"
+    class="chakra-button css-1efne3i"
     type="button"
   >
     View
@@ -88,7 +88,7 @@ exports[`<Portfolio.Inner /> <Portfolio.Inner /> renders with a border-bottom if
     class="css-2lzsxm"
   />
   <button
-    class="chakra-button css-t13w4k"
+    class="chakra-button css-1efne3i"
     type="button"
   >
     View
@@ -104,7 +104,7 @@ exports[`<Portfolio.Inner /> <Portfolio.Inner /> renders with a border-bottom if
     class="css-2lzsxm"
   />
   <button
-    class="chakra-button css-t13w4k"
+    class="chakra-button css-1efne3i"
     type="button"
   >
     View
@@ -120,7 +120,7 @@ exports[`<Portfolio.Inner /> <Portfolio.Inner /> renders without a border-bottom
     class="css-2lzsxm"
   />
   <button
-    class="chakra-button css-t13w4k"
+    class="chakra-button css-1efne3i"
     type="button"
   >
     View
@@ -136,7 +136,7 @@ exports[`<Portfolio.Inner /> <Portfolio.Inner /> renders without a border-bottom
     class="css-2lzsxm"
   />
   <button
-    class="chakra-button css-t13w4k"
+    class="chakra-button css-1efne3i"
     type="button"
   >
     View
