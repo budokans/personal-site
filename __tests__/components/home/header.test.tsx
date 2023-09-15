@@ -16,35 +16,21 @@ describe("<Header />", () => {
     };
   });
 
-  test("renders <Header.Text /> with data from props", () => {
+  test("renders <Header.Contact /> with data from props", () => {
     const { container } = render(
       <Header.Header>
-        <Header.HeaderText>{testSiteMetadata.headline}</Header.HeaderText>
-        <Header.HeaderSubtext>{testSiteMetadata.cta}</Header.HeaderSubtext>
-      </Header.Header>
-    );
-    expect(
-      screen.getByText(
-        /Hi, I'm Steve and I'm a full-stack developer who cares about scalability, performance, and intuitive UIs./i
-      )
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText(
-        /Please use the links below to chat with me about how I can help build your project./i
-      )
-    ).toBeInTheDocument();
-    expect(container.firstChild).toMatchSnapshot();
-  });
-
-  test("renders <Header.Links /> with data from props", () => {
-    const { container } = render(
-      <Header.Header>
+        <Header.HeaderLocation>
+          {testSiteMetadata.location}
+        </Header.HeaderLocation>
         <Header.HeaderLinks contacts={testSiteMetadata.contacts} />
       </Header.Header>
     );
 
+    const location = screen.getByText(testSiteMetadata.location);
+    expect(location).toBeInTheDocument();
+
     const listItems = screen.getAllByRole(/listitem/i);
-    expect(listItems).toHaveLength(3);
+    expect(listItems).toHaveLength(testSiteMetadata.contacts.length);
 
     listItems.forEach((item, idx) => {
       const { getByText } = within(item);

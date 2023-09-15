@@ -1,6 +1,6 @@
 import { ReactElement, useEffect, useState } from "react";
 import {
-  Heading,
+  Heading as ChakraHeading,
   Stack,
   Wrap,
   WrapItem,
@@ -8,7 +8,7 @@ import {
   Tooltip,
   useClipboard,
   useMediaQuery,
-  Text,
+  Flex,
 } from "@chakra-ui/react";
 import { ChildrenProps, Contact } from "../../types";
 
@@ -26,39 +26,46 @@ interface TooltipBtnProps {
 
 export const Header = ({ children }: ChildrenProps): ReactElement => {
   return (
-    <Stack w={["full", "90%", "80%", "900px"]} spacing={5} mb={["auto", 20]}>
+    <Stack
+      w={["full", "90%", "80%", "900px"]}
+      spacing={[8, 10]}
+      mb={["auto", 20]}
+    >
       {children}
     </Stack>
   );
 };
 
-export const HeaderText = ({ children }: ChildrenProps): ReactElement => {
+export const Heading = ({ children }: ChildrenProps): ReactElement => {
   return (
-    <Heading
+    <ChakraHeading
       fontSize="clamp(24px, calc(14.40px + 2.00vw), 40px)"
       fontWeight="normal"
       lineHeight={1.3}
       as="h1"
     >
       {children}
-    </Heading>
+    </ChakraHeading>
   );
 };
 
-export const HeaderSubtext = ({ children }: ChildrenProps): ReactElement => (
-  <Text fontSize="clamp(16px, calc(9.40px + 2.00vw), 20px)">{children}</Text>
+export const HeaderContact = ({ children }: ChildrenProps): ReactElement => (
+  <Flex direction={["column", "row-reverse"]} gap={["1rem"]}>
+    {children}
+  </Flex>
 );
 
 export const HeaderLocation = ({ children }: ChildrenProps): ReactElement => {
   return (
-    <Heading
-      fontSize="clamp(15px, 10px + 1vw, 20px)"
+    <ChakraHeading
+      fontSize="17px"
       fontWeight="normal"
       lineHeight={1.3}
       as="h2"
+      ml={[null, "auto"]}
     >
       {children}
-    </Heading>
+    </ChakraHeading>
   );
 };
 

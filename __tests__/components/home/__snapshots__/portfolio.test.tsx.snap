@@ -20,7 +20,7 @@ exports[`<Portfolio /> <Portfolio.Button /> renders a button with text 1`] = `
 exports[`<Portfolio /> <Portfolio.Item /> renders a button and calls openFeature() on click 1`] = `
 <div
   class="css-79elbk"
-  data-testid="portfolio-item"
+  data-testid="test"
   role="button"
 >
   <div

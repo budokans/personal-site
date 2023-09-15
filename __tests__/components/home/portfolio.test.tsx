@@ -19,7 +19,7 @@ describe("<Portfolio />", () => {
   test("<Portfolio.Item /> renders a button and calls openFeature() on click", () => {
     const openFeature = jest.fn();
     const { container } = render(
-      <Portfolio.PortfolioItem onPortfolioClick={openFeature}>
+      <Portfolio.PortfolioItem onPortfolioClick={openFeature} id="test">
         Children
       </Portfolio.PortfolioItem>
     );

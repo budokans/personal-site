@@ -33,8 +33,8 @@ export type Contact =
     };
 
 export interface SiteMetadata {
-  readonly headline: string;
-  readonly cta: string;
+  readonly title: string;
+  readonly description: string;
   readonly location: string;
   readonly canonical: string;
   readonly contacts: readonly Contact[];

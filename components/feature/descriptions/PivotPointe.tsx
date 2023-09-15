@@ -8,8 +8,8 @@ export const PivotPointeDescription = (): ReactElement => (
     <Description.DescriptionParagraph>
       Building{" "}
       <TextLink url="https://www.pivot-pointe.com/">pivot-pointe.com</TextLink>{" "}
-      was a super fun project. I loved working with a start-up founder to design
-      and build something that met their business needs and made them and their
+      was a super fun project. I loved working with the founder to design and
+      build something that met their business needs and made them and their
       customers happy.
     </Description.DescriptionParagraph>
 

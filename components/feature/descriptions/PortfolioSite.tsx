@@ -17,9 +17,9 @@ export const PortfolioSiteDescription = (): ReactElement => (
     </Description.DescriptionParagraph>
 
     <Description.DescriptionParagraph>
-      This reverse-engineering approach acquainted me with the{" "}
-      <TextLink url="https://chakra-ui.com/">Chakra UI</TextLink> React
-      component library, and{" "}
+      Using this reverse-engineering approach meant I got my hands dirty with
+      the <TextLink url="https://chakra-ui.com/">Chakra UI</TextLink> React
+      component library and{" "}
       <TextLink url="https://www.framer.com/motion/">Framer Motion</TextLink>, a
       React animation library.
     </Description.DescriptionParagraph>
