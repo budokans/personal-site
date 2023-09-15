@@ -1,5 +1,6 @@
 import { ReactElement, useEffect } from "react";
 import { Box, Divider } from "@chakra-ui/react";
+import { Variants } from "framer-motion";
 import { Project } from "../types";
 import {
   Feature,
@@ -8,8 +9,8 @@ import {
   Description,
   Links,
 } from "../components/feature";
+import { ButtonLink } from "../components/Link";
 import { CarouselContainer } from "../containers";
-import { Variants } from "framer-motion";
 
 interface FeatureProps {
   readonly project: Project;
@@ -82,9 +83,9 @@ export const FeatureContainer = ({
         <Links.Links>
           {project.links.map((link) => {
             return (
-              <Links.Link url={link.url} key={link.type}>
+              <ButtonLink url={link.url} key={link.type}>
                 {link.type}
-              </Links.Link>
+              </ButtonLink>
             );
           })}
         </Links.Links>

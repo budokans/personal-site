@@ -1,14 +1,13 @@
 import { ListItem, UnorderedList } from "@chakra-ui/react";
 import { ReactElement } from "react";
-import { Description, Links } from "..";
+import { Description } from "..";
+import { TextLink } from "../../Link";
 
 export const PivotPointeDescription = (): ReactElement => (
   <>
     <Description.DescriptionParagraph>
       Building{" "}
-      <Links.TextLink url="https://www.pivot-pointe.com/">
-        pivot-pointe.com
-      </Links.TextLink>{" "}
+      <TextLink url="https://www.pivot-pointe.com/">pivot-pointe.com</TextLink>{" "}
       was a super fun project. I loved working with a start-up founder to design
       and build something that met their business needs and made them and their
       customers happy.
@@ -31,15 +30,13 @@ export const PivotPointeDescription = (): ReactElement => (
       </ListItem>
       <ListItem>
         Migrated their marketing and blog site from Wix to{" "}
-        <Links.TextLink url="https://webflow.com/">Webflow</Links.TextLink> and
-        created a new CMS template for e-commerce products
+        <TextLink url="https://webflow.com/">Webflow</TextLink> and created a
+        new CMS template for e-commerce products
       </ListItem>
       <ListItem>
         Integrated the Webflow site with{" "}
-        <Links.TextLink url="https://www.memberstack.com/">
-          Memberstack
-        </Links.TextLink>{" "}
-        and designed, tested, and built the purchase, log-in/sign-up flow
+        <TextLink url="https://www.memberstack.com/">Memberstack</TextLink> and
+        designed, tested, and built the purchase, log-in/sign-up flow
       </ListItem>
     </UnorderedList>
 
@@ -62,10 +59,8 @@ export const PivotPointeDescription = (): ReactElement => (
       <ListItem>
         Incrementally refactored to get page bundles within the 10k character
         limit that Webflow enforces. This refactoring involved rewriting{" "}
-        <Links.TextLink url="http://vanilla-js.com/">
-          vanilla JavaScript
-        </Links.TextLink>{" "}
-        DOM manipulation code with JQuery
+        <TextLink url="http://vanilla-js.com/">vanilla JavaScript</TextLink> DOM
+        manipulation code with JQuery
       </ListItem>
       <ListItem>Wrote a thorough user manual for the client</ListItem>
     </UnorderedList>

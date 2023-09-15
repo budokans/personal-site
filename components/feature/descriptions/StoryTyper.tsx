@@ -1,22 +1,21 @@
 import { Code } from "@chakra-ui/react";
 import { ReactElement } from "react";
-import { Description, Links } from "../../../components/feature";
+import { Description } from "..";
+import { TextLink } from "../../Link";
 
 export const StoryTyperDescription = (): ReactElement => (
   <>
     <Description.DescriptionParagraph>
       Finding myself enjoying speed-typing games like{" "}
-      <Links.TextLink url="https://play.typeracer.com">
-        TypeRacer
-      </Links.TextLink>
-      , I decided to craft one of my own.
+      <TextLink url="https://play.typeracer.com">TypeRacer</TextLink>, I decided
+      to craft one of my own.
     </Description.DescriptionParagraph>
 
     <Description.DescriptionParagraph>
       Fifty-word stories are fetched from{" "}
-      <Links.TextLink url="https://fiftywordstories.com/">
+      <TextLink url="https://fiftywordstories.com/">
         fiftywordstories.com
-      </Links.TextLink>{" "}
+      </TextLink>{" "}
       via the WordPress API, and this operation is triggered daily by a Vercel
       CRON job that hits a serverless function at a Next.js API endpoint.
     </Description.DescriptionParagraph>
@@ -30,9 +29,9 @@ export const StoryTyperDescription = (): ReactElement => (
 
     <Description.DescriptionParagraph>
       I used{" "}
-      <Links.TextLink url="https://tanstack.com/query/latest">
+      <TextLink url="https://tanstack.com/query/latest">
         TanStack Query
-      </Links.TextLink>{" "}
+      </TextLink>{" "}
       to manage asynchronous state. It supplies a<Code>useInfiniteQuery</Code>{" "}
       hook, which I combined with the Intersection Observer API to implement
       infinite scrolling on the Archive and Favorites pages.
@@ -57,10 +56,8 @@ export const StoryTyperDescription = (): ReactElement => (
 
     <Description.DescriptionParagraph>
       I recently refactored this project using the{" "}
-      <Links.TextLink url="https://github.com/gcanti/fp-ts">
-        fp-ts library
-      </Links.TextLink>
-      , which I like because it forces me to follow good practices like keeping
+      <TextLink url="https://github.com/gcanti/fp-ts">fp-ts library</TextLink>,
+      which I like because it forces me to follow good practices like keeping
       functions pure, acknowledging and handling all error cases, and making
       impossible states unrepresentable. Because some of the APIs used for
       convenience (TanStack Query, for example) aren&apos;t geared toward
