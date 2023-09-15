@@ -68,11 +68,9 @@ export const testProjects: readonly Project[] = [
 ];
 
 export const testSiteMetadata: SiteMetadata = {
-  headline:
-    "Hi, I'm Steve and I'm a full-stack developer who cares about scalability, performance, and intuitive UIs.",
-  cta:
-    "Please use the links below to chat with me about how I can help build your project.",
-  location: "📍 Auckland | Kuala Lumpur",
+  title: "Test title",
+  description: "Test description",
+  location: "Test location",
   canonical: "https://stevenwebster.co",
   contacts: [
     {

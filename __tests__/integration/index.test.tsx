@@ -22,9 +22,7 @@ describe("./index", () => {
     render(<IndexPage metadata={testSiteMetadata} />);
 
     expect(
-      screen.getByText(
-        /Hi, I'm Steve and I'm a full-stack developer who cares about scalability, performance, and intuitive UIs./i
-      )
+      screen.getByText(testSiteMetadata.location, { exact: false })
     ).toBeInTheDocument();
   });
 
@@ -32,7 +30,7 @@ describe("./index", () => {
     render(<IndexPage metadata={testSiteMetadata} />);
     const project1 = projects[0];
 
-    userEvent.click(screen.getByText(project1.title));
+    userEvent.click(screen.getByTestId(project1.id));
     const testElement1 = await screen.findByAltText(
       project1.featureMedia[0].alt
     );
@@ -44,7 +42,7 @@ describe("./index", () => {
 
     const project2 = projects[2];
 
-    userEvent.click(screen.getByText(project2.title));
+    userEvent.click(screen.getByTestId(project2.id));
     const testElement2 = await screen.findByAltText(
       project2.featureMedia[0].alt
     );

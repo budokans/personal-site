@@ -1,59 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Header /> renders <Header.Link /> instead of <Header.TooltipBtn /> for the email link if viewport width < 930px 1`] = `
+exports[`<Header /> renders <Header.Contact /> with data from props 1`] = `
 <div
-  class="chakra-wrap css-0"
+  class="chakra-stack css-c5feg2"
 >
-  <ul
-    class="chakra-wrap__list css-2mzr01"
+  <h2
+    class="chakra-heading css-1ofd21f"
   >
-    <li
-      class="chakra-wrap__listitem css-1yp4ln"
-    >
-      <a
-        class="chakra-button css-acyrai"
-        data-testid="mailto:contact@stevenwebster.co"
-        href="mailto:contact@stevenwebster.co"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Email
-      </a>
-    </li>
-    <li
-      class="chakra-wrap__listitem css-1yp4ln"
-    >
-      <a
-        class="chakra-button css-acyrai"
-        data-testid="https://github.com/budokans"
-        href="https://github.com/budokans"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        GitHub
-      </a>
-    </li>
-    <li
-      class="chakra-wrap__listitem css-1yp4ln"
-    >
-      <a
-        class="chakra-button css-acyrai"
-        data-testid="https://www.linkedin.com/in/steven-webster-developer/"
-        href="https://www.linkedin.com/in/steven-webster-developer/"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        LinkedIn
-      </a>
-    </li>
-  </ul>
-</div>
-`;
-
-exports[`<Header /> renders <Header.Links /> with data from props 1`] = `
-<div
-  class="chakra-stack css-j99o02"
->
+    Test location
+  </h2>
   <div
     class="chakra-wrap css-0"
   >
@@ -102,20 +57,53 @@ exports[`<Header /> renders <Header.Links /> with data from props 1`] = `
 </div>
 `;
 
-exports[`<Header /> renders <Header.Text /> with data from props 1`] = `
+exports[`<Header /> renders <Header.Link /> instead of <Header.TooltipBtn /> for the email link if viewport width < 930px 1`] = `
 <div
-  class="chakra-stack css-j99o02"
+  class="chakra-wrap css-0"
 >
-  <h1
-    class="chakra-heading css-vsh8ld"
+  <ul
+    class="chakra-wrap__list css-2mzr01"
   >
-    Hi, I'm Steve and I'm a full-stack developer who cares about scalability, performance, and intuitive UIs.
-  </h1>
-  <p
-    class="chakra-text css-1x3yzs8"
-  >
-    Please use the links below to chat with me about how I can help build your project.
-  </p>
+    <li
+      class="chakra-wrap__listitem css-1yp4ln"
+    >
+      <a
+        class="chakra-button css-acyrai"
+        data-testid="mailto:contact@stevenwebster.co"
+        href="mailto:contact@stevenwebster.co"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Email
+      </a>
+    </li>
+    <li
+      class="chakra-wrap__listitem css-1yp4ln"
+    >
+      <a
+        class="chakra-button css-acyrai"
+        data-testid="https://github.com/budokans"
+        href="https://github.com/budokans"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        GitHub
+      </a>
+    </li>
+    <li
+      class="chakra-wrap__listitem css-1yp4ln"
+    >
+      <a
+        class="chakra-button css-acyrai"
+        data-testid="https://www.linkedin.com/in/steven-webster-developer/"
+        href="https://www.linkedin.com/in/steven-webster-developer/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        LinkedIn
+      </a>
+    </li>
+  </ul>
 </div>
 `;
 

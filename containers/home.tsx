@@ -1,6 +1,7 @@
+import { ReactElement } from "react";
 import { SiteMetadata, Project } from "../types";
 import { Header, Home, Portfolio } from "../components/home";
-import { ReactElement } from "react";
+import { TextLink } from "../components/Link";
 
 interface HomeContainerProps {
   readonly projects: readonly Project[];
@@ -16,17 +17,25 @@ export const HomeContainer = ({
   return (
     <Home.Home>
       <Header.Header>
-        <Header.HeaderText>{metadata.headline}</Header.HeaderText>
-        <Header.HeaderSubtext>{metadata.cta}</Header.HeaderSubtext>
-        <Header.HeaderLocation>{metadata.location}</Header.HeaderLocation>
-        <Header.HeaderLinks contacts={metadata.contacts} />
+        <Header.Heading>
+          Hi, I&apos;m Steven. I&apos;m a full-stack developer who&apos;s helped
+          build <TextLink url="https://rico.nz">Rico</TextLink> and{" "}
+          <TextLink url="https://www.pivot-pointe.com">Pivot Pointe</TextLink>.
+          I&apos;d love to help you with your software goals. Get in touch!
+        </Header.Heading>
+
+        <Header.HeaderContact>
+          <Header.HeaderLocation>📍 {metadata.location}</Header.HeaderLocation>
+          <Header.HeaderLinks contacts={metadata.contacts} />
+        </Header.HeaderContact>
       </Header.Header>
 
       <Portfolio.Portfolio>
         {projects.map((project, idx) => {
           return (
             <Portfolio.PortfolioItem
-              onPortfolioClick={() => onPortfolioClick(project.id)}
+              onPortfolioClick={onPortfolioClick}
+              id={project.id}
               key={idx}
             >
               <Portfolio.PortfolioImage

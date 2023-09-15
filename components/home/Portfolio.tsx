@@ -12,7 +12,8 @@ import {
 import { ChildrenProps, ImageProps } from "../../types";
 
 interface PortfolioItemProps {
-  readonly onPortfolioClick: () => void;
+  readonly id: string;
+  readonly onPortfolioClick: (id: string) => void;
 }
 
 interface PortfolioInnerProps {
@@ -35,6 +36,7 @@ export const Portfolio = ({ children }: ChildrenProps): ReactElement => {
 };
 
 export const PortfolioItem = ({
+  id,
   onPortfolioClick,
   children,
 }: PortfolioItemProps & ChildrenProps): ReactElement => {
@@ -42,8 +44,8 @@ export const PortfolioItem = ({
     <Box
       role="button"
       position="relative"
-      onClick={onPortfolioClick}
-      data-testid="portfolio-item"
+      onClick={() => onPortfolioClick(id)}
+      data-testid={id}
     >
       <Flex role="group" direction="row">
         {children}
