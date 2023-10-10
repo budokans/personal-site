@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement } from "react";
 import {
   Img,
   SimpleGrid,
@@ -62,53 +62,34 @@ export const Image = ({ src, alt }: ImageProps): ReactElement => (
   />
 );
 
-export const bottomRowItemsCount = (
-  itemsCount: number,
+export const renderItemBorder = (
+  itemNumber: number,
+  totalItemsCount: number,
   columnsCount: number
-): number => itemsCount % columnsCount || columnsCount;
+): boolean =>
+  // Render border if
+  // 1. There is only one row
+  totalItemsCount <= columnsCount ||
+  // 2. There are multiple rows and the item is not in the last
+  itemNumber <=
+    totalItemsCount + (totalItemsCount % columnsCount) - columnsCount;
 
 export const Inner = ({
   idx,
   projectsCount,
   children,
 }: PortfolioInnerProps & ChildrenProps): ReactElement => {
-  const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
-  const [columnsCount, setColumnCount] = useState(1);
-  const [renderBottomBorder, setRenderBottomBorder] = useState(true);
-  const projectNumber = idx + 1;
-
-  useEffect(() => {
-    if (isLargerThan768) {
-      setColumnCount(2);
-    } else {
-      setColumnCount(1);
-    }
-  }, [isLargerThan768]);
-
-  const bottomRowProjectsCount = bottomRowItemsCount(
-    projectsCount,
-    columnsCount
-  );
-
-  useEffect(() => {
-    // If there is only a single row, render a bottom border
-    if (projectNumber <= columnsCount) {
-      setRenderBottomBorder(true);
-    }
-    // If there are multiple rows, don't render a border if the project
-    // is on the bottom row
-    else if (projectNumber > projectsCount - bottomRowProjectsCount) {
-      setRenderBottomBorder(false);
-    } else {
-      setRenderBottomBorder(true);
-    }
-  }, [columnsCount, bottomRowProjectsCount, projectNumber, projectsCount]);
+  const [is768OrLarger] = useMediaQuery("(min-width: 768px)");
 
   return (
     <Flex
       position="relative"
       alignItems="center"
-      borderBottom={renderBottomBorder ? "1px solid lightgrey" : ""}
+      borderBottom={
+        renderItemBorder(idx + 1, projectsCount, is768OrLarger ? 2 : 1)
+          ? "1px solid lightgrey"
+          : ""
+      }
       paddingBottom={4}
       w="100%"
     >
