@@ -22,10 +22,16 @@ export const FeatureContainer = ({
   onCloseClick,
 }: FeatureProps): ReactElement => {
   useEffect(() => {
-    document.querySelector("body")!.style.overflow = "hidden";
+    const body = document.querySelector("body");
+
+    if (body) {
+      body.style.overflow = "hidden";
     return () => {
-      document.querySelector("body")!.style.overflow = "visible";
+        body.style.overflow = "visible";
     };
+    }
+
+    return;
   }, []);
 
   const containerVariants: Variants = {
