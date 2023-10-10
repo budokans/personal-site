@@ -1,7 +1,7 @@
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "test-utils";
 import { testProjects } from "../testData";
-import { FeatureContainer } from "../../containers";
+import { FeatureContainer } from "containers";
 
 describe("<FeatureContainer", () => {
   test("renders with populated data", () => {

@@ -1,8 +1,8 @@
+import { ReactElement } from "react";
 import { Flex } from "@chakra-ui/react";
 import { ChildrenProps } from "types";
-import { ReactElement } from "react";
 
-export const Home = ({ children }: ChildrenProps): ReactElement => (
+export const Container = ({ children }: ChildrenProps): ReactElement => (
   <Flex
     direction="column"
     justifyContent={["space-between", "center"]}

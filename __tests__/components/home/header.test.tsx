@@ -1,6 +1,6 @@
 import { render, within, screen } from "test-utils";
 import matchMediaPolyfill from "mq-polyfill";
-import { Header } from "../../../components/home";
+import { Header } from "components/home";
 import { testSiteMetadata } from "../../testData";
 
 describe("<Header />", () => {
@@ -19,10 +19,8 @@ describe("<Header />", () => {
   test("renders <Header.Contact /> with data from props", () => {
     const { container } = render(
       <Header.Header>
-        <Header.HeaderLocation>
-          {testSiteMetadata.location}
-        </Header.HeaderLocation>
-        <Header.HeaderLinks contacts={testSiteMetadata.contacts} />
+        <Header.Location>{testSiteMetadata.location}</Header.Location>
+        <Header.Links contacts={testSiteMetadata.contacts} />
       </Header.Header>
     );
 
@@ -51,7 +49,7 @@ describe("<Header />", () => {
     window.resizeTo(930, 1000);
 
     const { container } = render(
-      <Header.HeaderLinks contacts={testSiteMetadata.contacts} />
+      <Header.Links contacts={testSiteMetadata.contacts} />
     );
 
     expect(screen.getByTestId(/Tooltip/i)).toBeInTheDocument();
@@ -63,7 +61,7 @@ describe("<Header />", () => {
     window.resizeTo(929, 1000);
 
     const { container } = render(
-      <Header.HeaderLinks contacts={testSiteMetadata.contacts} />
+      <Header.Links contacts={testSiteMetadata.contacts} />
     );
 
     expect(screen.queryByTestId(/Tooltip/i)).not.toBeInTheDocument();

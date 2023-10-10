@@ -20,24 +20,24 @@ export interface Project {
   }[];
 }
 
-export type Contact =
+export type ContactMethod =
   | {
-      readonly type: "email";
-      readonly address: string;
-      readonly url: string;
-    }
+    readonly type: "email";
+    readonly address: string;
+    readonly url: string;
+  }
   | {
-      readonly type: "website";
-      readonly name: "GitHub" | "LinkedIn";
-      readonly url: string;
-    };
+    readonly type: "website";
+    readonly name: "GitHub" | "LinkedIn";
+    readonly url: string;
+  };
 
 export interface SiteMetadata {
   readonly title: string;
   readonly description: string;
   readonly location: string;
   readonly canonical: string;
-  readonly contacts: readonly Contact[];
+  readonly contacts: readonly ContactMethod[];
 }
 
 // UI

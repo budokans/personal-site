@@ -1,9 +1,9 @@
 import { ReactElement, useRef } from "react";
-import { Box, Stack, CloseButton } from "@chakra-ui/react";
+import { Box, Stack, CloseButton as ChakraCloseButton } from "@chakra-ui/react";
 import { Variants } from "framer-motion";
 import SimpleBar from "simplebar-react";
-import { MotionBox } from "../Motion";
-import { useOnClickOutside } from "../../hooks/useOnClickOutside";
+import { Motion } from "components";
+import { useOnClickOutside } from "hooks/useOnClickOutside";
 import { ChildrenProps } from "types";
 
 interface CloseButtonProps {
@@ -15,21 +15,19 @@ interface FeatureContainerProps {
   readonly onCloseClick: () => void;
 }
 
-export const Overlay = (): ReactElement => {
-  return (
-    <Box
-      position="absolute"
-      top={0}
-      right={0}
-      bottom={0}
-      left={0}
-      bg="blackAlpha.200"
-      zIndex={-1}
-    />
-  );
-};
+export const Overlay = (): ReactElement => (
+  <Box
+    position="absolute"
+    top={0}
+    right={0}
+    bottom={0}
+    left={0}
+    bg="blackAlpha.200"
+    zIndex={-1}
+  />
+);
 
-export const Feature = ({
+export const Container = ({
   variants,
   onCloseClick,
   children,
@@ -39,7 +37,7 @@ export const Feature = ({
   useOnClickOutside(node, onCloseClick);
 
   return (
-    <MotionBox
+    <Motion.MotionBox
       position="fixed"
       left={0}
       right={0}
@@ -56,39 +54,36 @@ export const Feature = ({
       borderTop={borderStyle}
       borderTopRadius="xl"
       borderColor="gray.300"
+      overflow="hidden"
       ref={node}
       data-testid="inside-click"
     >
       <SimpleBar style={{ maxHeight: "100%" }}>{children}</SimpleBar>
-    </MotionBox>
+    </Motion.MotionBox>
   );
 };
 
-export const FeatureCloseButton = ({
+export const CloseButton = ({
   onCloseClick,
-}: CloseButtonProps): ReactElement => {
-  return (
-    <CloseButton
-      w={["28px", "34px"]}
-      h={["28px", "34px"]}
-      fontSize="14px"
-      borderRadius="full"
-      color="gray.900"
-      bg="gray.100"
-      p={0}
-      position="absolute"
-      top={["10px", "30px"]}
-      right={["10px", "30px"]}
-      onClick={onCloseClick}
-      data-testid="close-feature"
-    />
-  );
-};
+}: CloseButtonProps): ReactElement => (
+  <ChakraCloseButton
+    w={["28px", "34px"]}
+    h={["28px", "34px"]}
+    fontSize="14px"
+    borderRadius="full"
+    color="gray.900"
+    bg="gray.100"
+    p={0}
+    position="absolute"
+    top={["10px", "30px"]}
+    right={["10px", "30px"]}
+    onClick={onCloseClick}
+    data-testid="close-feature"
+  />
+);
 
-export const FeatureInner = ({ children }: ChildrenProps): ReactElement => {
-  return (
-    <Stack spacing={6} mb={20}>
-      {children}
-    </Stack>
-  );
-};
+export const Inner = ({ children }: ChildrenProps): ReactElement => (
+  <Stack spacing={6} mb={20}>
+    {children}
+  </Stack>
+);

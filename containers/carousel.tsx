@@ -1,37 +1,35 @@
-import { Box, useMediaQuery } from "@chakra-ui/react";
-import { CarouselProps } from "../types";
-import { MotionBox } from "../components/Motion";
-import { CarouselDesktop } from "../components/feature";
-import { CarouselMobile } from "../components/feature";
 import { ReactElement } from "react";
 import { Variants } from "framer-motion";
-
-const containerVariants: Variants = {
-  hidden: {
-    x: "100vw",
-  },
-  visible: {
-    x: 0,
-    transition: {
-      type: "spring",
-      damping: 18,
-      mass: 1,
-    },
-  },
-};
+import { Box, useMediaQuery } from "@chakra-ui/react";
+import { CarouselProps } from "types";
+import { Feature, Motion } from "components";
 
 export const CarouselContainer = ({ media }: CarouselProps): ReactElement => {
   const [isLargerThan930] = useMediaQuery("(min-width: 930px)");
 
+  const containerVariants: Variants = {
+    hidden: {
+      x: "100vw",
+    },
+    visible: {
+      x: 0,
+      transition: {
+        type: "spring",
+        damping: 18,
+        mass: 1,
+      },
+    },
+  };
+
   return (
     <Box paddingLeft={[4, 9]} overflow="hidden">
-      <MotionBox variants={containerVariants}>
+      <Motion.MotionBox variants={containerVariants}>
         {isLargerThan930 ? (
-          <CarouselDesktop media={media} />
+          <Feature.CarouselDesktop media={media} />
         ) : (
-          <CarouselMobile media={media} />
+          <Feature.CarouselMobile media={media} />
         )}
-      </MotionBox>
+      </Motion.MotionBox>
     </Box>
   );
 };

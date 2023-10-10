@@ -1,9 +1,9 @@
-import { render, screen, waitForElementToBeRemoved } from "test-utils";
 import userEvent from "@testing-library/user-event";
 import matchMediaPolyfill from "mq-polyfill";
-import IndexPage from "../../pages";
+import { render, screen, waitForElementToBeRemoved } from "test-utils";
+import IndexPage from "pages";
 import { testSiteMetadata } from "../testData";
-import { projects } from "../../data/projectsData";
+import { projectsData } from "data";
 
 describe("./index", () => {
   beforeAll(() => {
@@ -28,7 +28,7 @@ describe("./index", () => {
 
   test("clicking a <Portfolio.Item /> renders the relevant <FeatureContainer />", async () => {
     render(<IndexPage metadata={testSiteMetadata} />);
-    const project1 = projects[0];
+    const project1 = projectsData[0];
 
     userEvent.click(screen.getByTestId(project1.id));
     const testElement1 = await screen.findByAltText(
@@ -40,7 +40,7 @@ describe("./index", () => {
     await waitForElementToBeRemoved(testElement1);
     expect(testElement1).not.toBeInTheDocument();
 
-    const project2 = projects[2];
+    const project2 = projectsData[2];
 
     userEvent.click(screen.getByTestId(project2.id));
     const testElement2 = await screen.findByAltText(

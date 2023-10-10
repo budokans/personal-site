@@ -15,6 +15,8 @@
     }
   },
   "coverageReporters": ["html", "text"],
+  "roots": ["<rootDir>"],
+  "modulePaths": ["<rootDir>"],
   "moduleDirectories": ["node_modules", "utils"],
   "setupFilesAfterEnv": ["./jest.setup.ts"],
   "testEnvironment": "jsdom",
