@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Header /> renders <Header.Contact /> with data from props 1`] = `
-<div
+<header
   class="chakra-stack css-c5feg2"
 >
   <h2
@@ -54,7 +54,7 @@ exports[`<Header /> renders <Header.Contact /> with data from props 1`] = `
       </li>
     </ul>
   </div>
-</div>
+</header>
 `;
 
 exports[`<Header /> renders <Header.Link /> instead of <Header.TooltipBtn /> for the email link if viewport width < 930px 1`] = `

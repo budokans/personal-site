@@ -1,6 +1,6 @@
+import { ReactElement } from "react";
 import { Stack } from "@chakra-ui/react";
 import { ChildrenProps } from "types";
-import { ReactElement } from "react";
 
 export const Links = ({ children }: ChildrenProps): ReactElement => (
   <Stack

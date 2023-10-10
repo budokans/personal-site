@@ -1,7 +1,7 @@
-import * as Description from "../components/feature/descriptions";
+import { Feature } from "components";
 import { Project } from "types";
 
-export const projects: readonly Project[] = [
+export const projectsData: readonly Project[] = [
   {
     id: "pivot-pointe",
     title: "Pivot Pointe",
@@ -44,7 +44,7 @@ export const projects: readonly Project[] = [
         alt: "pivot-pointe.com app mobile layout screenshot",
       },
     ],
-    description: Description.PivotPointe,
+    description: Feature.Descriptions.PivotPointe,
     links: [{ type: "Visit", url: "https://www.pivot-pointe.com" }],
   },
   {
@@ -93,7 +93,7 @@ export const projects: readonly Project[] = [
         alt: "Story Typer Lighthouse Scores Screenshot",
       },
     ],
-    description: Description.StoryTyper,
+    description: Feature.Descriptions.StoryTyper,
     links: [
       { type: "Visit", url: "https://storytyper.stevenwebster.co" },
       { type: "GitHub", url: "https://github.com/budokans/story-typer" },
@@ -122,7 +122,7 @@ export const projects: readonly Project[] = [
         alt: "Stevenwebster.co Lighthouse Performance Screenshot",
       },
     ],
-    description: Description.PortfolioSite,
+    description: Feature.Descriptions.PortfolioSite,
     links: [
       { type: "GitHub", url: "https://github.com/budokans/personal-site" },
     ],

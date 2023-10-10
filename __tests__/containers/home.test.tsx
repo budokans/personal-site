@@ -1,6 +1,6 @@
 import { render, screen } from "test-utils";
 import { testProjects, testSiteMetadata } from "../testData";
-import { HomeContainer } from "../../containers";
+import { HomeContainer } from "containers";
 
 describe("<HomeContainer />", () => {
   test("Renders with populated data", () => {

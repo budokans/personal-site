@@ -3,11 +3,9 @@ import { readonlyArray as A, function as F, option as O } from "fp-ts";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { useToast } from "@chakra-ui/react";
 import { AnimatePresence } from "framer-motion";
-import { DocHead } from "../components/DocHead";
-import { HomeContainer, FeatureContainer } from "../containers";
-import { Feature } from "../components/feature";
-import { siteMetadata } from "../data/metadata";
-import { projects } from "../data/projectsData";
+import { HomeContainer, FeatureContainer } from "containers";
+import { DocHead, Feature } from "components";
+import { projectsData, siteMetadata } from "data";
 import { SiteMetadata } from "types";
 
 interface Props {
@@ -34,7 +32,7 @@ const IndexPage = ({
 
       <HomeContainer
         metadata={metadata}
-        projects={projects}
+        projects={projectsData}
         onPortfolioClick={(id: string): void =>
           setFeaturedProjectId(O.some(id))
         }
@@ -43,37 +41,33 @@ const IndexPage = ({
       <AnimatePresence>
         {F.pipe(
           featuredProjectId,
-          O.match(F.constNull, (featureId) =>
-            F.pipe(
-              projects,
-              A.findFirst((project) => project.id === featureId),
-              O.matchW(
-                () =>
-                  toast({
-                    title: "Sorry!",
-                    description: "This project was not able to be displayed.",
-                    status: "error",
-                  }),
-                (project) => (
-                  <FeatureContainer
-                    project={project}
-                    onCloseClick={(): void => setFeaturedProjectId(O.none)}
-                  />
+          O.match(
+            // Force new line
+            F.constNull,
+            (featureId) =>
+              F.pipe(
+                projectsData,
+                A.findFirst((project) => project.id === featureId),
+                O.matchW(
+                  () =>
+                    toast({
+                      title: "Sorry!",
+                      description: "This project was not able to be displayed.",
+                      status: "error",
+                    }),
+                  (project) => (
+                    <FeatureContainer
+                      project={project}
+                      onCloseClick={(): void => setFeaturedProjectId(O.none)}
+                    />
+                  )
                 )
               )
-            )
           )
         )}
       </AnimatePresence>
 
-      {F.pipe(
-        featuredProjectId,
-        O.match(
-          // Force new line
-          F.constNull,
-          () => <Feature.Overlay />
-        )
-      )}
+      {O.isSome(featuredProjectId) && <Feature.Overlay />}
     </>
   );
 };

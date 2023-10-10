@@ -1,16 +1,9 @@
 import { ReactElement, useEffect } from "react";
 import { Box, Divider } from "@chakra-ui/react";
 import { Variants } from "framer-motion";
-import { Project } from "../types";
-import {
-  Feature,
-  Header,
-  Tech,
-  Description,
-  Links,
-} from "../components/feature";
-import { ButtonLink } from "../components/Link";
-import { CarouselContainer } from "../containers";
+import { Project } from "types";
+import { Feature, Link } from "components";
+import { CarouselContainer } from "containers";
 
 interface FeatureProps {
   readonly project: Project;
@@ -21,11 +14,18 @@ export const FeatureContainer = ({
   project,
   onCloseClick,
 }: FeatureProps): ReactElement => {
+  // Prevent scroll of body element when Feature is rendered.
   useEffect(() => {
-    document.querySelector("body")!.style.overflow = "hidden";
-    return () => {
-      document.querySelector("body")!.style.overflow = "visible";
-    };
+    const body = document.querySelector("body");
+
+    if (body) {
+      body.style.overflow = "hidden";
+      return () => {
+        body.style.overflow = "visible";
+      };
+    }
+
+    return;
   }, []);
 
   const containerVariants: Variants = {
@@ -49,47 +49,47 @@ export const FeatureContainer = ({
   };
 
   return (
-    <Feature.Feature variants={containerVariants} onCloseClick={onCloseClick}>
-      <Feature.FeatureCloseButton onCloseClick={onCloseClick} />
+    <Feature.Container variants={containerVariants} onCloseClick={onCloseClick}>
+      <Feature.CloseButton onCloseClick={onCloseClick} />
 
-      <Header.Header>
-        <Header.HeaderImage src={project.icon} alt={project.title} />
-        <Header.HeaderInner>
-          <Header.Heading>{project.title}</Header.Heading>
-          <Header.Subheading>{project.shortBlurb}</Header.Subheading>
-        </Header.HeaderInner>
-      </Header.Header>
+      <Feature.Header.Header>
+        <Feature.Header.Image src={project.icon} alt={project.title} />
+        <Feature.Header.Inner>
+          <Feature.Header.Heading>{project.title}</Feature.Header.Heading>
+          <Feature.Header.Subheading>
+            {project.shortBlurb}
+          </Feature.Header.Subheading>
+        </Feature.Header.Inner>
+      </Feature.Header.Header>
 
       <Box py={4} px={[4, 9]}>
         <Divider orientation="horizontal" />
       </Box>
 
-      <Feature.FeatureInner>
-        <Tech.Tech>
-          <Tech.TechHeader>Tech</Tech.TechHeader>
-          <Tech.TechInner>
-            {project.tech.map((tech, idx) => {
-              return <Tech.TechBadge key={idx}>{tech}</Tech.TechBadge>;
-            })}
-          </Tech.TechInner>
-        </Tech.Tech>
+      <Feature.Inner>
+        <Feature.Tech.Tech>
+          <Feature.Tech.Header>Tech</Feature.Tech.Header>
+          <Feature.Tech.Inner>
+            {project.tech.map((tech, idx) => (
+              <Feature.Tech.Badge key={idx}>{tech}</Feature.Tech.Badge>
+            ))}
+          </Feature.Tech.Inner>
+        </Feature.Tech.Tech>
 
         <CarouselContainer media={project.featureMedia} />
 
-        <Description.Description>
+        <Feature.Description.Description>
           {project.description()}
-        </Description.Description>
+        </Feature.Description.Description>
 
-        <Links.Links>
-          {project.links.map((link) => {
-            return (
-              <ButtonLink url={link.url} key={link.type}>
-                {link.type}
-              </ButtonLink>
-            );
-          })}
-        </Links.Links>
-      </Feature.FeatureInner>
-    </Feature.Feature>
+        <Feature.Links.Links>
+          {project.links.map((link) => (
+            <Link.ButtonLink url={link.url} key={link.type}>
+              {link.type}
+            </Link.ButtonLink>
+          ))}
+        </Feature.Links.Links>
+      </Feature.Inner>
+    </Feature.Container>
   );
 };

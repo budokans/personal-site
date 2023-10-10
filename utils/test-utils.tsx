@@ -1,11 +1,11 @@
 import { render, RenderOptions, RenderResult } from "@testing-library/react";
 import { ChakraProvider } from "@chakra-ui/react";
-import { ChildrenProps } from "types";
 import { ReactElement } from "react";
+import { ChildrenProps } from "types";
 
-const withProviders = ({ children }: ChildrenProps): ReactElement => {
-  return <ChakraProvider>{children}</ChakraProvider>;
-};
+const withProviders = ({ children }: ChildrenProps): ReactElement => (
+  <ChakraProvider>{children}</ChakraProvider>
+);
 
 const customRender = (
   ui: ReactElement,

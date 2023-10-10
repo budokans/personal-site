@@ -1,27 +1,28 @@
 import { ListItem, UnorderedList } from "@chakra-ui/react";
 import { ReactElement } from "react";
-import { Description } from "..";
-import { TextLink } from "../../Link";
+import { Feature, Link } from "components";
 
 export const PivotPointeDescription = (): ReactElement => (
   <>
-    <Description.DescriptionParagraph>
+    <Feature.Description.Paragraph>
       Building{" "}
-      <TextLink url="https://www.pivot-pointe.com/">pivot-pointe.com</TextLink>{" "}
+      <Link.TextLink url="https://www.pivot-pointe.com/">
+        pivot-pointe.com
+      </Link.TextLink>{" "}
       was a super fun project. I loved working with the founder to design and
       build something that met their business needs and made them and their
       customers happy.
-    </Description.DescriptionParagraph>
+    </Feature.Description.Paragraph>
 
-    <Description.DescriptionParagraph>
+    <Feature.Description.Paragraph>
       Pivot Pointe Limited is a company that offers career transition programs,
       marketing consulting, and a blog focusing on career transition for ballet
       dancers.
-    </Description.DescriptionParagraph>
+    </Feature.Description.Paragraph>
 
-    <Description.DescriptionParagraph>
+    <Feature.Description.Paragraph>
       Within three weeks of first contact with the client, I had:
-    </Description.DescriptionParagraph>
+    </Feature.Description.Paragraph>
 
     <UnorderedList>
       <ListItem>
@@ -30,19 +31,21 @@ export const PivotPointeDescription = (): ReactElement => (
       </ListItem>
       <ListItem>
         Migrated their marketing and blog site from Wix to{" "}
-        <TextLink url="https://webflow.com/">Webflow</TextLink> and created a
-        new CMS template for e-commerce products
+        <Link.TextLink url="https://webflow.com/">Webflow</Link.TextLink> and
+        created a new CMS template for e-commerce products
       </ListItem>
       <ListItem>
         Integrated the Webflow site with{" "}
-        <TextLink url="https://www.memberstack.com/">Memberstack</TextLink> and
-        designed, tested, and built the purchase, log-in/sign-up flow
+        <Link.TextLink url="https://www.memberstack.com/">
+          Memberstack
+        </Link.TextLink>{" "}
+        and designed, tested, and built the purchase, log-in/sign-up flow
       </ListItem>
     </UnorderedList>
 
-    <Description.DescriptionParagraph>
+    <Feature.Description.Paragraph>
       Over the next month or so, I:
-    </Description.DescriptionParagraph>
+    </Feature.Description.Paragraph>
 
     <UnorderedList>
       <ListItem>
@@ -59,8 +62,10 @@ export const PivotPointeDescription = (): ReactElement => (
       <ListItem>
         Incrementally refactored to get page bundles within the 10k character
         limit that Webflow enforces. This refactoring involved rewriting{" "}
-        <TextLink url="http://vanilla-js.com/">vanilla JavaScript</TextLink> DOM
-        manipulation code with JQuery
+        <Link.TextLink url="http://vanilla-js.com/">
+          vanilla JavaScript
+        </Link.TextLink>{" "}
+        DOM manipulation code with JQuery
       </ListItem>
       <ListItem>Wrote a thorough user manual for the client</ListItem>
     </UnorderedList>
