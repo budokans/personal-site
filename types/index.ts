@@ -46,10 +46,6 @@ export interface ImageProps {
   readonly alt: string;
 }
 
-export interface CarouselProps {
-  readonly media: readonly FeatureMedia[];
-}
-
 export type ChildrenProps = {
   readonly children?: ReactNode;
 };

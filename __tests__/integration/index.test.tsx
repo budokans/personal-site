@@ -1,22 +1,16 @@
 import userEvent from "@testing-library/user-event";
-import matchMediaPolyfill from "mq-polyfill";
-import { render, screen, waitForElementToBeRemoved } from "test-utils";
+import {
+  render,
+  screen,
+  setDeviceWidth,
+  waitForElementToBeRemoved,
+} from "test-utils";
 import IndexPage from "pages";
 import { testSiteMetadata } from "../testData";
 import { projectsData } from "data";
 
 describe("./index", () => {
-  beforeAll(() => {
-    matchMediaPolyfill(window);
-    window.resizeTo = function resizeTo(width, height) {
-      Object.assign(this, {
-        innerWidth: width,
-        innerHeight: height,
-        outerWidth: width,
-        outerHeight: height,
-      }).dispatchEvent(new this.Event("resize"));
-    };
-  });
+  setDeviceWidth(930);
 
   test("renders the <HomeContainer />", () => {
     render(<IndexPage metadata={testSiteMetadata} />);
@@ -54,8 +48,6 @@ describe("./index", () => {
   });
 
   test("<Portfolio.TooltipBtn /> renders the correct text", async () => {
-    window.resizeTo(930, 1000);
-
     render(<IndexPage metadata={testSiteMetadata} />);
     expect(screen.queryByText(/Click to copy!/i)).not.toBeInTheDocument();
 
