@@ -1,21 +1,8 @@
-import { render, within, screen } from "test-utils";
-import matchMediaPolyfill from "mq-polyfill";
+import { render, within, screen, setDeviceWidth } from "test-utils";
 import { Header } from "components/home";
 import { testSiteMetadata } from "../../testData";
 
 describe("<Header />", () => {
-  beforeAll(() => {
-    matchMediaPolyfill(window);
-    window.resizeTo = function resizeTo(width, height) {
-      Object.assign(this, {
-        innerWidth: width,
-        innerHeight: height,
-        outerWidth: width,
-        outerHeight: height,
-      }).dispatchEvent(new this.Event("resize"));
-    };
-  });
-
   test("renders <Header.Contact /> with data from props", () => {
     const { container } = render(
       <Header.Header>
@@ -27,7 +14,7 @@ describe("<Header />", () => {
     const location = screen.getByText(testSiteMetadata.location);
     expect(location).toBeInTheDocument();
 
-    const listItems = screen.getAllByRole(/listitem/i);
+    const listItems = screen.getAllByRole("listitem");
     expect(listItems).toHaveLength(testSiteMetadata.contacts.length);
 
     listItems.forEach((item, idx) => {
@@ -46,7 +33,7 @@ describe("<Header />", () => {
   });
 
   test("renders <Header.TooltipBtn /> if viewport width >= 930px", () => {
-    window.resizeTo(930, 1000);
+    setDeviceWidth(930);
 
     const { container } = render(
       <Header.Links contacts={testSiteMetadata.contacts} />
@@ -58,7 +45,7 @@ describe("<Header />", () => {
   });
 
   test("renders <Header.Link /> instead of <Header.TooltipBtn /> for the email link if viewport width < 930px", () => {
-    window.resizeTo(929, 1000);
+    setDeviceWidth(929);
 
     const { container } = render(
       <Header.Links contacts={testSiteMetadata.contacts} />
