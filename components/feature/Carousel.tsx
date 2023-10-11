@@ -85,8 +85,6 @@ const CarouselImage = ({
     priority={idx < 2}
     style={{
       objectFit: "cover",
-      width: "100%",
-      height: "auto",
       pointerEvents: "none",
     }}
   />
