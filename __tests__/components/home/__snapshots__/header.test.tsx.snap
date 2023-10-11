@@ -23,7 +23,6 @@ exports[`<Header /> renders <Header.Contact /> with data from props 1`] = `
           data-testid="mailto:contact@stevenwebster.co"
           href="mailto:contact@stevenwebster.co"
           rel="noopener noreferrer"
-          target="_blank"
         >
           Email
         </a>
@@ -74,7 +73,6 @@ exports[`<Header /> renders <Header.Link /> instead of <Header.TooltipBtn /> for
         data-testid="mailto:contact@stevenwebster.co"
         href="mailto:contact@stevenwebster.co"
         rel="noopener noreferrer"
-        target="_blank"
       >
         Email
       </a>

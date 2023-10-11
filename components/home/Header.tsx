@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useState } from "react";
+import { HTMLAttributeAnchorTarget, ReactElement } from "react";
 import {
   Heading as ChakraHeading,
   Stack,
@@ -57,19 +57,14 @@ interface LinksProps {
 }
 
 export const Links = ({ contacts }: LinksProps): ReactElement => {
-  const [isLargerThan930] = useMediaQuery("(min-width: 930px)");
-  const [isLargeViewport, setIsLargeViewport] = useState(false);
-
-  useEffect(() => {
-    isLargerThan930 ? setIsLargeViewport(true) : setIsLargeViewport(false);
-  }, [isLargerThan930]);
+  const [is930OrWider] = useMediaQuery("(min-width: 930px)");
 
   return (
     <Wrap spacing="3">
       {contacts.map((contact, idx) => {
         switch (contact.type) {
           case "email":
-            return isLargeViewport ? (
+            return is930OrWider ? (
               <TooltipBtn text={contact.address} key={-1}>
                 Email
               </TooltipBtn>
@@ -80,7 +75,7 @@ export const Links = ({ contacts }: LinksProps): ReactElement => {
             );
           case "website":
             return (
-              <Link href={contact.url} key={idx}>
+              <Link href={contact.url} key={idx} target="_blank">
                 {contact.name}
               </Link>
             );
@@ -92,10 +87,12 @@ export const Links = ({ contacts }: LinksProps): ReactElement => {
 
 interface LinkProps {
   readonly href: string;
+  readonly target?: HTMLAttributeAnchorTarget;
 }
 
 export const Link = ({
   href,
+  target,
   children,
 }: LinkProps & ChildrenProps): ReactElement => (
   <WrapItem>
@@ -105,7 +102,7 @@ export const Link = ({
       h="7"
       fontSize="sm"
       href={href}
-      target="_blank"
+      target={target}
       rel="noopener noreferrer"
       data-testid={href}
     >
