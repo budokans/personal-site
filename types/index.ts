@@ -46,6 +46,6 @@ export interface ImageProps {
   readonly alt: string;
 }
 
-export type ChildrenProps = {
+export interface ChildrenProps {
   readonly children?: ReactNode;
 };

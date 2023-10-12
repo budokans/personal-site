@@ -28,6 +28,6 @@
     "exactOptionalPropertyTypes": true,
     "allowJs": true
   },
-  "exclude": ["node_modules", "data/archive/*"],
+  "exclude": ["node_modules", "data/archive/**/*.ts", "data/archive/**/*.tsx"],
   "include": ["**/*.ts", "**/*.tsx", "**/*.json"]
 }

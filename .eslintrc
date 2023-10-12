@@ -1,31 +1,26 @@
 {
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
   "extends": [
     "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
     "prettier",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
     "plugin:@next/next/recommended"
   ],
-  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
+    "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
     }
   },
-  "plugins": ["@typescript-eslint", "react", "react-hooks"],
-  "env": {
-    "jest": true,
-    "browser": true,
-    "node": true
-  },
+  "plugins": ["react", "react-hooks"],
   "rules": {
-    "@typescript-eslint/explicit-module-boundary-types": "error",
-    "@typescript-eslint/no-explicit-any": "error",
-    "@typescript-eslint/no-non-null-assertion": "error",
-    "@typescript-eslint/no-unused-vars": "error",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error"
   },
@@ -35,10 +30,48 @@
     }
   },
   "overrides": [
+    // TypeScript React
     {
-      "files": ["**/*.tsx"],
+      "files": ["**/*.ts", "**/*.tsx"],
+      "excludedFiles": ["data/archive/**/*.ts", "data/archive/**/*.tsx"],
+      "extends": [
+        "eslint:recommended",
+        "prettier",
+        "plugin:@typescript-eslint/strict-type-checked",
+        "plugin:@typescript-eslint/stylistic-type-checked",
+        "plugin:react/recommended",
+        "plugin:react/jsx-runtime",
+        "plugin:@next/next/recommended"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "ecmaFeatures": {
+          "jsx": true
+        },
+        "project": true
+      },
+      "plugins": ["@typescript-eslint", "react", "react-hooks"],
       "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": "error",
+        "@typescript-eslint/no-explicit-any": "error",
+        "@typescript-eslint/no-non-null-assertion": "error",
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/no-confusing-void-expression": [
+          "error",
+          { "ignoreArrowShorthand": true }
+        ],
         "react/prop-types": 0
+      }
+    },
+    // Jest Tests
+    {
+      "files": ["__tests__/**"],
+      "plugins": ["jest"],
+      "rules": {
+        "@typescript-eslint/unbound-method": "off",
+        "jest/unbound-method": "error"
       }
     }
   ]
