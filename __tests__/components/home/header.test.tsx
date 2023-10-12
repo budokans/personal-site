@@ -18,14 +18,16 @@ describe("<Header />", () => {
     expect(listItems).toHaveLength(testSiteMetadata.contacts.length);
 
     listItems.forEach((item, idx) => {
-      const { getByText } = within(item);
+      const queries = within(item);
       const contact = testSiteMetadata.contacts[idx];
 
       switch (contact.type) {
         case "email":
-          return expect(getByText("Email")).toBeInTheDocument();
+          expect(queries.getByText("Email")).toBeInTheDocument();
+          return;
         case "website":
-          return expect(getByText(contact.name)).toBeInTheDocument();
+          expect(queries.getByText(contact.name)).toBeInTheDocument();
+          return;
       }
     });
 
