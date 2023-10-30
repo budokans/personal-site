@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { ReactElement, useState, useCallback } from "react";
 import { Box, Stack } from "@chakra-ui/react";
 import Image from "next/image";
 import { Motion } from "components";
@@ -9,44 +9,56 @@ export interface CarouselProps {
   readonly media: readonly FeatureMedia[];
 }
 
-export const Desktop = ({ media }: CarouselProps): ReactElement => (
-  <Motion.MotionStack
-    drag="x"
-    dragConstraints={{ left: media.length === 5 ? -3020 : 0, right: 0 }}
-    direction="row"
-    alignItems="center"
-    spacing={4}
-    height="490px"
-    whiteSpace="nowrap"
-    cursor="grab"
-    whileTap={{ cursor: "grabbing" }}
-  >
-    {media.map((mediaItem, idx) => (
-      <Box
-        key={idx}
-        border="1px solid"
-        borderColor="gray.200"
-        bg={mediaItem.bg}
-        borderRadius="2xl"
-        height="100%"
-        minWidth="763px"
-        p="55px"
-      >
-        <CarouselImage mediaItem={mediaItem} idx={idx} />
-      </Box>
-    ))}
-  </Motion.MotionStack>
-);
+export const Desktop = ({ media }: CarouselProps): ReactElement => {
+  const [offset, setOffset] = useState(0);
+
+  const contentRef = useCallback((node: HTMLElement | null) => {
+    node && setOffset(node.scrollWidth - node.clientWidth);
+  }, []);
+
+  return (
+    <Motion.MotionStack
+      drag="x"
+      dragConstraints={{
+        left: -offset,
+        right: 0,
+      }}
+      direction="row"
+      spacing={4}
+      whiteSpace="nowrap"
+      cursor="grab"
+      whileTap={{ cursor: "grabbing" }}
+      ref={contentRef}
+    >
+      {media.map((mediaItem, idx) => (
+        <Box
+          key={idx}
+          border="1px solid"
+          borderColor="gray.200"
+          bg={mediaItem.bg}
+          borderRadius="2xl"
+          height="100%"
+          width="85%"
+          flexShrink={0}
+          p="55px"
+        >
+          <CarouselImage mediaItem={mediaItem} idx={idx} />
+        </Box>
+      ))}
+    </Motion.MotionStack>
+  );
+};
 
 export const Mobile = ({ media }: CarouselProps): ReactElement => (
   <Stack
     direction="row"
-    alignItems="center"
     spacing={4}
-    maxH="490px"
     overflowX="scroll"
-    whiteSpace="nowrap"
-    sx={{ ...hideScrollbar, scrollSnapType: "x mandatory" }}
+    sx={hideScrollbar}
+    scrollSnapType="x mandatory"
+    scrollPadding={4}
+    pl={4}
+    mx={-4}
   >
     {media.map((mediaItem, idx) => (
       <Box
@@ -54,15 +66,13 @@ export const Mobile = ({ media }: CarouselProps): ReactElement => (
         bg={mediaItem.bg}
         borderRadius="xl"
         height="100%"
-        minWidth="calc(80vw + 10px)"
-        sx={{
-          scrollSnapAlign: "start",
-          scrollPadding: "1.75rem",
-        }}
+        width="85%"
+        flexShrink={0}
+        scrollSnapAlign="start"
         p="6vw"
         marginRight={idx === media.length - 1 ? "1rem !important" : "0"}
       >
-        <CarouselImage mediaItem={mediaItem} idx={idx} />
+        <CarouselImage mediaItem={mediaItem} />
       </Box>
     ))}
   </Stack>
@@ -70,19 +80,16 @@ export const Mobile = ({ media }: CarouselProps): ReactElement => (
 
 interface CarouselImageProps {
   readonly mediaItem: FeatureMedia;
-  readonly idx: number;
+  readonly idx?: number;
 }
 
-const CarouselImage = ({
-  mediaItem,
-  idx,
-}: CarouselImageProps): ReactElement => (
+const CarouselImage = ({ mediaItem }: CarouselImageProps): ReactElement => (
   <Image
     src={mediaItem.path}
     alt={mediaItem.alt}
     height={378}
     width={651}
-    priority={idx < 2}
+    priority
     style={{
       objectFit: "cover",
       pointerEvents: "none",

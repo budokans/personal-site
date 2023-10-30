@@ -23,7 +23,7 @@ export const CarouselContainer = ({
   };
 
   return (
-    <Box paddingLeft={[4, 9]} overflow="hidden">
+    <Box paddingX={[4, 9]} overflow="hidden">
       <Motion.MotionBox variants={containerVariants}>
         {isLargerThan930 ? (
           <Feature.Carousel.Desktop media={media} />
