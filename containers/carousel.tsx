@@ -1,13 +1,13 @@
 import { ReactElement } from "react";
 import { Variants } from "framer-motion";
-import { Box, useMediaQuery } from "@chakra-ui/react";
 import { Feature, Motion } from "components";
+import { FeatureMedia } from "types";
 
-export const CarouselContainer = ({
-  media,
-}: Feature.Carousel.CarouselProps): ReactElement => {
-  const [isLargerThan930] = useMediaQuery("(min-width: 930px)");
+export interface CarouselProps {
+  readonly media: readonly FeatureMedia[];
+}
 
+export const CarouselContainer = ({ media }: CarouselProps): ReactElement => {
   const containerVariants: Variants = {
     hidden: {
       x: "100vw",
@@ -23,14 +23,14 @@ export const CarouselContainer = ({
   };
 
   return (
-    <Box paddingX={[4, 9]} overflow="hidden">
+    <Feature.Carousel.Container>
       <Motion.MotionBox variants={containerVariants}>
-        {isLargerThan930 ? (
-          <Feature.Carousel.Desktop media={media} />
-        ) : (
-          <Feature.Carousel.Mobile media={media} />
-        )}
+        <Feature.Carousel.Carousel>
+          {media.map((mediaItem, idx) => (
+            <Feature.Carousel.Image mediaItem={mediaItem} idx={idx} key={idx} />
+          ))}
+        </Feature.Carousel.Carousel>
       </Motion.MotionBox>
-    </Box>
+    </Feature.Carousel.Container>
   );
 };
