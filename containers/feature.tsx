@@ -69,11 +69,11 @@ export const FeatureContainer = ({
       <Feature.Inner>
         <Feature.Tech.Tech>
           <Feature.Tech.Header>Tech</Feature.Tech.Header>
-          <Feature.Tech.Inner>
+          <Feature.Carousel.Carousel>
             {project.tech.map((tech, idx) => (
               <Feature.Tech.Badge key={idx}>{tech}</Feature.Tech.Badge>
             ))}
-          </Feature.Tech.Inner>
+          </Feature.Carousel.Carousel>
         </Feature.Tech.Tech>
 
         <CarouselContainer media={project.featureMedia} />
