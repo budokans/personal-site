@@ -6,22 +6,21 @@ import {
   waitForElementToBeRemoved,
 } from "test-utils";
 import IndexPage from "pages";
-import { testSiteMetadata } from "../testData";
-import { projectsData } from "data";
+import { projectsData, siteMetadata } from "data";
 
 describe("./index", () => {
   setDeviceWidth(930);
 
   test("renders the <HomeContainer />", () => {
-    render(<IndexPage metadata={testSiteMetadata} />);
+    render(<IndexPage />);
 
     expect(
-      screen.getByText(testSiteMetadata.location, { exact: false })
+      screen.getByText(siteMetadata.location, { exact: false })
     ).toBeInTheDocument();
   });
 
   test("clicking a <Portfolio.Item /> renders the relevant <FeatureContainer />", async () => {
-    render(<IndexPage metadata={testSiteMetadata} />);
+    render(<IndexPage />);
     const project1 = projectsData[0];
 
     userEvent.click(screen.getByTestId(project1.id));
@@ -34,7 +33,7 @@ describe("./index", () => {
     await waitForElementToBeRemoved(testElement1);
     expect(testElement1).not.toBeInTheDocument();
 
-    const project2 = projectsData[2];
+    const project2 = projectsData[1];
 
     userEvent.click(screen.getByTestId(project2.id));
     const testElement2 = await screen.findByAltText(
@@ -48,7 +47,7 @@ describe("./index", () => {
   });
 
   test("<Portfolio.TooltipBtn /> renders the correct text", async () => {
-    render(<IndexPage metadata={testSiteMetadata} />);
+    render(<IndexPage />);
     expect(screen.queryByText(/Click to copy!/i)).not.toBeInTheDocument();
 
     userEvent.hover(screen.getByTestId(/Tooltip/i));

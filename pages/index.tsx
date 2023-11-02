@@ -1,26 +1,12 @@
 import { ReactElement, useState } from "react";
 import { readonlyArray as A, function as F, option as O } from "fp-ts";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { useToast } from "@chakra-ui/react";
 import { AnimatePresence } from "framer-motion";
 import { HomeContainer, FeatureContainer } from "containers";
 import { DocHead, Feature } from "components";
 import { projectsData, siteMetadata } from "data";
-import { SiteMetadata } from "types";
 
-interface Props {
-  readonly metadata: SiteMetadata;
-}
-
-export const getStaticProps: GetStaticProps<Props> = (): {
-  readonly props: Props;
-} => ({
-  props: { metadata: siteMetadata },
-});
-
-const IndexPage = ({
-  metadata,
-}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
+const IndexPage = (): ReactElement => {
   const [featuredProjectId, setFeaturedProjectId] = useState<O.Option<string>>(
     O.none
   );
@@ -28,10 +14,10 @@ const IndexPage = ({
 
   return (
     <>
-      <DocHead metadata={metadata} />
+      <DocHead metadata={siteMetadata} />
 
       <HomeContainer
-        metadata={metadata}
+        metadata={siteMetadata}
         projects={projectsData}
         onPortfolioClick={(id: string): void =>
           setFeaturedProjectId(O.some(id))
