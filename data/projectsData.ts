@@ -3,6 +3,38 @@ import { Project } from "types";
 
 export const projectsData: readonly Project[] = [
   {
+    id: "imaginetees",
+    title: "imaginetees.ai",
+    shortBlurb:
+      "Architected and implemented all frontend features for a generative AI-driven e-commerce apparel store.",
+    icon: "/images/imaginetees-logo.webp",
+    tech: [
+      "TypeScript",
+      "Next.js (App Router)",
+      "React",
+      "TanStack Query",
+      "Material UI",
+      "Zod",
+      "Supabase",
+      "Vercel",
+      "GitHub"
+    ],
+    featureMedia: [
+      {
+        path: "/images/imaginetees-home-page.webp",
+        bg: "#EE5207",
+        alt: "pivot-pointe.com homepage screenshot",
+      },
+      {
+        path: "/images/imaginetees-customize-page.webp",
+        bg: "#000000",
+        alt: "pivot-pointe.com blog screenshot",
+      },
+    ],
+    description: Feature.Descriptions.ImagineTees,
+    links: [{ type: "Visit", url: "https://imaginetees.ai" }],
+  },
+  {
     id: "pivot-pointe",
     title: "Pivot Pointe",
     shortBlurb:
