@@ -16,12 +16,17 @@ export const HomeContainer = ({
   <Home.Container>
     <Home.Header.Header>
       <Home.Header.Heading>
-        Hi, I&apos;m Steven. I&apos;m a full-stack developer who&apos;s helped
-        build <Link.TextLink url="https://rico.nz">Rico</Link.TextLink> and{" "}
+        Hi, I&apos;m Steven, a full-stack developer who&apos;s helped build{" "}
+        <Link.TextLink url="https://rico.nz">Rico</Link.TextLink>,{" "}
+        <Link.TextLink url="https://imaginetees.ai">
+          imaginetees.ai
+        </Link.TextLink>
+        , and{" "}
         <Link.TextLink url="https://www.pivot-pointe.com">
           Pivot Pointe
         </Link.TextLink>
-        . I&apos;d love to help you with your software goals. Get in touch!
+        . I&apos;d love to help you with your web project, so get in touch for a
+        free consultation.
       </Home.Header.Heading>
 
       <Home.Header.Contact>
