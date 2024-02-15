@@ -1,9 +1,9 @@
 import { SiteMetadata } from "types";
 
 export const siteMetadata: SiteMetadata = {
-  title: "Steven Webster: Full-Stack Developer | JavaScript | React",
+  title: "Steven Webster: Full-Stack Developer | TypeScript | React | Next.js",
   description:
-    "Transforming your ideas into reality. Get in touch for custom web application development with rapid turnaround.",
+    "Hi, I'm Steven, a full-stack developer who's helped build Rico, imaginetees.ai, and Pivot Pointe. Feel free to check out my portfolio or get in touch for a free consultation.",
   location: "Auckland, New Zealand",
   canonical: "https://stevenwebster.co",
   contacts: [
