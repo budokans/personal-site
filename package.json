@@ -4,6 +4,7 @@
   "author": "Steven Webster",
   "scripts": {
     "dev": "next",
+    "devt": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
