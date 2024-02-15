@@ -33,7 +33,7 @@ export const TextLink = ({
     href={url}
     rel="noreferrer noopener"
     target="_blank"
-    style={{ fontWeight: 500 }}
+    style={{ fontWeight: 600 }}
   >
     {children}
   </a>
