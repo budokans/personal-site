@@ -17,10 +17,5 @@ export const siteMetadata: SiteMetadata = {
       name: "GitHub",
       url: "https://github.com/budokans",
     },
-    {
-      type: "website",
-      name: "LinkedIn",
-      url: "https://www.linkedin.com/in/steven-webster-developer/",
-    },
   ],
 };
