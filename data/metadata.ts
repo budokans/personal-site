@@ -4,7 +4,7 @@ export const siteMetadata: SiteMetadata = {
   title: "Steven Webster: Full-Stack Developer | TypeScript | React | Next.js",
   description:
     "Hi, I'm Steven, a full-stack developer who's helped build Rico, imaginetees.ai, and Pivot Pointe. Feel free to check out my portfolio or get in touch for a free consultation.",
-  location: "Auckland, New Zealand",
+  location: "Kuala Lumpur, Malaysia",
   canonical: "https://stevenwebster.co",
   contacts: [
     {
